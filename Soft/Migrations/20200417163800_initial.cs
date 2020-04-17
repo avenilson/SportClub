@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Soft.Data.Migrations
+namespace SportClub.Soft.Migrations
 {
     public partial class initial : Migration
     {
