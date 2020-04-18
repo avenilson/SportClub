@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using SportClub.Data.Quantity;
 using SportClub.Domain.Quantity;
 
 namespace SportClub.Infra.Quantity
@@ -8,6 +10,7 @@ namespace SportClub.Infra.Quantity
     public class TrainingsRepository: ITrainingsRepository
     {
         private readonly QuantityDbContext db;
+        public string SortOrder { get; set; }
 
         public TrainingsRepository(QuantityDbContext c)
         {
@@ -16,10 +19,31 @@ namespace SportClub.Infra.Quantity
 
         public async Task<List<Training>> Get()
         {
-            var l = await db.Trainings.ToListAsync();
-            var list = new List<Training>();
-            foreach (var e in l) list.Add(new Training(e));
-            return list;
+            var list = await CreateSorted().ToListAsync();
+           
+            return list.Select(e => new Training(e)).ToList();
+        }
+
+        private IQueryable<TrainingData> CreateSorted()
+        {
+            IQueryable<TrainingData> trainings = from s in db.Trainings select s;
+
+            switch (SortOrder)
+            {
+                case "name_desc":
+                    trainings = trainings.OrderByDescending(s => s.Name);
+                    break;
+                case "Date":
+                    trainings = trainings.OrderBy(s => s.StartTime);
+                    break;
+                case "date_desc":
+                    trainings = trainings.OrderByDescending(s => s.EndTime);
+                    break;
+                default:
+                    trainings = trainings.OrderBy(s => s.Name);
+                    break;
+            }
+            return trainings.AsNoTracking();
         }
 
         public async Task<Training> Get(string id)
@@ -30,11 +54,12 @@ namespace SportClub.Infra.Quantity
 
         public async Task Delete(string id)
         {
-            var d = await db.Trainings.FindAsync(id);
+            if (id is null) return;
 
-            if (d is null) return;
+            var v = await db.Trainings.FindAsync(id);
 
-            db.Trainings.Remove(d);
+            if (v is null) return;
+            db.Trainings.Remove(v);
             await db.SaveChangesAsync();
         }
 

@@ -16,7 +16,7 @@ namespace SportClub.Soft.Areas.Quantity.Pages.Trainings
         {
             if (id == null) return NotFound();
 
-            Item = TrainingViewFactory.Create(await data.Get(id));
+            Item = TrainingViewFactory.Create(await db.Get(id));
 
             if (Item == null)
             {
@@ -29,7 +29,7 @@ namespace SportClub.Soft.Areas.Quantity.Pages.Trainings
         {
             if (id == null) return NotFound();
 
-            await data.Delete(id);
+            await db.Delete(id);
 
             return RedirectToPage("./Index");
         }

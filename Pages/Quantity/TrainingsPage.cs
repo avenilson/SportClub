@@ -9,9 +9,9 @@ namespace SportClub.Pages.Quantity
 {
     public abstract class TrainingsPage: PageModel
     {
-        protected internal readonly ITrainingsRepository data;
+        protected internal readonly ITrainingsRepository db;
 
-        protected internal TrainingsPage(ITrainingsRepository r) => data = r;
+        protected internal TrainingsPage(ITrainingsRepository r) => db = r;
 
        
         [BindProperty]

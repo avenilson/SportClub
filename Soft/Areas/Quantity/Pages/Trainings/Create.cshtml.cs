@@ -18,7 +18,7 @@ namespace SportClub.Soft.Areas.Quantity.Pages.Trainings
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid) return Page();
-            await data.Add(TrainingViewFactory.Create(Item));
+            await db.Add(TrainingViewFactory.Create(Item));
 
             return RedirectToPage("./Index");
         }
