@@ -11,6 +11,7 @@ namespace SportClub.Infra.Quantity
     {
         private readonly QuantityDbContext db;
         public string SortOrder { get; set; }
+        public string SearchString { get; set; }
 
         public TrainingsRepository(QuantityDbContext c)
         {
@@ -19,9 +20,20 @@ namespace SportClub.Infra.Quantity
 
         public async Task<List<Training>> Get()
         {
-            var list = await CreateSorted().ToListAsync();
-           
+            var list = await CreateFiltered(CreateSorted()).ToListAsync();
             return list.Select(e => new Training(e)).ToList();
+        }
+
+        private IQueryable<TrainingData> CreateFiltered(IQueryable<TrainingData> set)
+        {
+            if (!string.IsNullOrEmpty(SearchString)) return set;
+            return set.Where(s => s.Name.Contains(SearchString)
+                                    || s.Id.Contains(SearchString)
+                                    || s.Definition.Contains(SearchString)
+                                    || s.CoachName.Contains(SearchString)
+                                    || s.StartTime.ToString().Contains(SearchString)
+                                    || s.EndTime.ToString().Contains(SearchString));
+            
         }
 
         private IQueryable<TrainingData> CreateSorted()

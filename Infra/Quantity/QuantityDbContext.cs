@@ -5,12 +5,12 @@ namespace SportClub.Infra.Quantity
 {
     public class QuantityDbContext: DbContext
     {
+        public DbSet<TrainingData> Trainings { get; set; }
         public QuantityDbContext(DbContextOptions<QuantityDbContext> options)
             : base(options)
         {
         }
-        public DbSet<TrainingData> Trainings { get; set; }
-
+        
         protected override void OnModelCreating(ModelBuilder builder) //loob tabelid
         {
             base.OnModelCreating(builder);
