@@ -1,41 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
+using SportClub.Domain.Quantity;
 using SportClub.Facade.Quantity;
-using SportClub.Soft.Data;
+using SportClub.Pages.Quantity;
 
-namespace SportClub.Soft
+namespace SportClub.Soft.Areas.Quantity.Pages.Trainings
 {
-    public class EditModel : PageModel
+    public class EditModel : TrainingsPage
     {
-        private readonly SportClub.Soft.Data.ApplicationDbContext _context;
-
-        public EditModel(SportClub.Soft.Data.ApplicationDbContext context)
+        public EditModel(ITrainingsRepository r) : base(r)
         {
-            _context = context;
         }
-
-        [BindProperty]
-        public TrainingView TrainingView { get; set; }
-
+        
         public async Task<IActionResult> OnGetAsync(string id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
-            TrainingView = await _context.Trainings.FirstOrDefaultAsync(m => m.Id == id);
+            Item = TrainingViewFactory.Create(await data.Get(id));
 
-            if (TrainingView == null)
-            {
-                return NotFound();
-            }
+            if (Item == null) return NotFound();
             return Page();
         }
 
@@ -43,35 +26,11 @@ namespace SportClub.Soft
         // more details see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+            if (!ModelState.IsValid) return Page();
 
-            _context.Attach(TrainingView).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!TrainingViewExists(TrainingView.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await data.Update(TrainingViewFactory.Create(Item));
 
             return RedirectToPage("./Index");
-        }
-
-        private bool TrainingViewExists(string id)
-        {
-            return _context.Trainings.Any(e => e.Id == id);
         }
     }
 }

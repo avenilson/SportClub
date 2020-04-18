@@ -1,37 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
+using SportClub.Domain.Quantity;
 using SportClub.Facade.Quantity;
-using SportClub.Soft.Data;
+using SportClub.Pages.Quantity;
 
-namespace SportClub.Soft
+namespace SportClub.Soft.Areas.Quantity.Pages.Trainings
 {
-    public class DeleteModel : PageModel
+    public class DeleteModel : TrainingsPage
     {
-        private readonly SportClub.Soft.Data.ApplicationDbContext _context;
-
-        public DeleteModel(SportClub.Soft.Data.ApplicationDbContext context)
+        public DeleteModel(ITrainingsRepository r) : base(r)
         {
-            _context = context;
         }
-
-        [BindProperty]
-        public TrainingView TrainingView { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
-            TrainingView = await _context.Trainings.FirstOrDefaultAsync(m => m.Id == id);
+            Item = TrainingViewFactory.Create(await data.Get(id));
 
-            if (TrainingView == null)
+            if (Item == null)
             {
                 return NotFound();
             }
@@ -40,18 +27,9 @@ namespace SportClub.Soft
 
         public async Task<IActionResult> OnPostAsync(string id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
-            TrainingView = await _context.Trainings.FindAsync(id);
-
-            if (TrainingView != null)
-            {
-                _context.Trainings.Remove(TrainingView);
-                await _context.SaveChangesAsync();
-            }
+            await data.Delete(id);
 
             return RedirectToPage("./Index");
         }

@@ -1,5 +1,5 @@
 ﻿@page
-@model SportClub.Soft.EditModel
+@model SportClub.Soft.Areas.Quantity.Pages.Trainings.EditModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -7,37 +7,37 @@
 
 <h1>Edit</h1>
 
-<h4>TrainingView</h4>
+<h4>Item</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="TrainingView.Id" />
+            <input type="hidden" asp-for="Item.Id" />
             <div class="form-group">
-                <label asp-for="TrainingView.Name" class="control-label"></label>
-                <input asp-for="TrainingView.Name" class="form-control" />
-                <span asp-validation-for="TrainingView.Name" class="text-danger"></span>
+                <label asp-for="Item.Name" class="control-label"></label>
+                <input asp-for="Item.Name" class="form-control" />
+                <span asp-validation-for="Item.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TrainingView.Definition" class="control-label"></label>
-                <input asp-for="TrainingView.Definition" class="form-control" />
-                <span asp-validation-for="TrainingView.Definition" class="text-danger"></span>
+                <label asp-for="Item.Definition" class="control-label"></label>
+                <input asp-for="Item.Definition" class="form-control" />
+                <span asp-validation-for="Item.Definition" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TrainingView.CoachName" class="control-label"></label>
-                <input asp-for="TrainingView.CoachName" class="form-control" />
-                <span asp-validation-for="TrainingView.CoachName" class="text-danger"></span>
+                <label asp-for="Item.CoachName" class="control-label"></label>
+                <input asp-for="Item.CoachName" class="form-control" />
+                <span asp-validation-for="Item.CoachName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TrainingView.StartTime" class="control-label"></label>
-                <input asp-for="TrainingView.StartTime" class="form-control" />
-                <span asp-validation-for="TrainingView.StartTime" class="text-danger"></span>
+                <label asp-for="Item.StartTime" class="control-label"></label>
+                <input asp-for="Item.StartTime" class="form-control" />
+                <span asp-validation-for="Item.StartTime" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TrainingView.EndTime" class="control-label"></label>
-                <input asp-for="TrainingView.EndTime" class="form-control" />
-                <span asp-validation-for="TrainingView.EndTime" class="text-danger"></span>
+                <label asp-for="Item.EndTime" class="control-label"></label>
+                <input asp-for="Item.EndTime" class="form-control" />
+                <span asp-validation-for="Item.EndTime" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

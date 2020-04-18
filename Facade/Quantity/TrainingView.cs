@@ -6,7 +6,9 @@ namespace SportClub.Facade.Quantity
 {
     public class TrainingView
     {
+        [Required]
         public string Id { get; set; }
+        [Required]
         public string Name { get; set; }
         public string Definition { get; set; }
         public string CoachName { get; set; } 

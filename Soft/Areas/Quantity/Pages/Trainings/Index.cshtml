@@ -1,5 +1,5 @@
 ﻿@page
-@model SportClub.Soft.IndexModel
+@model SportClub.Soft.Areas.Quantity.Pages.Trainings.IndexModel
 
 @{
     ViewData["Title"] = "Index";
@@ -14,25 +14,25 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.TrainingView[0].Name)
+                @Html.DisplayNameFor(model => model.Items[0].Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TrainingView[0].Definition)
+                @Html.DisplayNameFor(model => model.Items[0].Definition)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TrainingView[0].CoachName)
+                @Html.DisplayNameFor(model => model.Items[0].CoachName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TrainingView[0].StartTime)
+                @Html.DisplayNameFor(model => model.Items[0].StartTime)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TrainingView[0].EndTime)
+                @Html.DisplayNameFor(model => model.Items[0].EndTime)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.TrainingView) {
+@foreach (var item in Model.Items) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)

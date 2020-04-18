@@ -1,5 +1,5 @@
 ﻿@page
-@model SportClub.Soft.DetailsModel
+@model SportClub.Soft.Areas.Quantity.Pages.Trainings.DetailsModel
 
 @{
     ViewData["Title"] = "Details";
@@ -12,38 +12,38 @@
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TrainingView.Name)
+            @Html.DisplayNameFor(model => model.Item.Name)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TrainingView.Name)
+            @Html.DisplayFor(model => model.Item.Name)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TrainingView.Definition)
+            @Html.DisplayNameFor(model => model.Item.Definition)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TrainingView.Definition)
+            @Html.DisplayFor(model => model.Item.Definition)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TrainingView.CoachName)
+            @Html.DisplayNameFor(model => model.Item.CoachName)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TrainingView.CoachName)
+            @Html.DisplayFor(model => model.Item.CoachName)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TrainingView.StartTime)
+            @Html.DisplayNameFor(model => model.Item.StartTime)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TrainingView.StartTime)
+            @Html.DisplayFor(model => model.Item.StartTime)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TrainingView.EndTime)
+            @Html.DisplayNameFor(model => model.Item.EndTime)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TrainingView.EndTime)
+            @Html.DisplayFor(model => model.Item.EndTime)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.TrainingView.Id">Edit</a> |
+    <a asp-page="./Edit" asp-route-id="@Model.Item.Id">Edit</a> |
     <a asp-page="./Index">Back to List</a>
 </div>

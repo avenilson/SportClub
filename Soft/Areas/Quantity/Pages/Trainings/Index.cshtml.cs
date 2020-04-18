@@ -1,29 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
+using SportClub.Domain.Quantity;
 using SportClub.Facade.Quantity;
-using SportClub.Soft.Data;
+using SportClub.Pages.Quantity;
 
-namespace SportClub.Soft
+namespace SportClub.Soft.Areas.Quantity.Pages.Trainings
 {
-    public class IndexModel : PageModel
+    public class IndexModel : TrainingsPage
     {
-        private readonly SportClub.Soft.Data.ApplicationDbContext _context;
-
-        public IndexModel(SportClub.Soft.Data.ApplicationDbContext context)
+        public IndexModel(ITrainingsRepository r) : base(r)
         {
-            _context = context;
         }
-
-        public IList<TrainingView> TrainingView { get;set; }
 
         public async Task OnGetAsync()
         {
-            TrainingView = await _context.Trainings.ToListAsync();
+            var l = await data.Get();
+            Items = new List<TrainingView>();
+            foreach (var e in l)
+            {
+                Items.Add(TrainingViewFactory.Create(e));
+            }
         }
     }
 }

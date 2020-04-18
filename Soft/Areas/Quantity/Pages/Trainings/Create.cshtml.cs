@@ -1,43 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
+using SportClub.Domain.Quantity;
 using SportClub.Facade.Quantity;
-using SportClub.Soft.Data;
+using SportClub.Pages.Quantity;
 
-namespace SportClub.Soft
+namespace SportClub.Soft.Areas.Quantity.Pages.Trainings
 {
-    public class CreateModel : PageModel
+    public class CreateModel : TrainingsPage
     {
-        private readonly SportClub.Soft.Data.ApplicationDbContext _context;
-
-        public CreateModel(SportClub.Soft.Data.ApplicationDbContext context)
+        public CreateModel(ITrainingsRepository r) : base(r)
         {
-            _context = context;
         }
-
-        public IActionResult OnGet()
-        {
-            return Page();
-        }
-
-        [BindProperty]
-        public TrainingView TrainingView { get; set; }
+        public IActionResult OnGet() => Page();
 
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
-            _context.Trainings.Add(TrainingView);
-            await _context.SaveChangesAsync();
+            if (!ModelState.IsValid) return Page();
+            await data.Add(TrainingViewFactory.Create(Item));
 
             return RedirectToPage("./Index");
         }

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using SportClub.Facade.Quantity;
+using SportClub.Infra.Quantity;
 
 namespace SportClub.Soft.Data
 {
@@ -10,12 +10,11 @@ namespace SportClub.Soft.Data
             : base(options)
         {
         }
-        public DbSet<SportClub.Facade.Quantity.TrainingView> Trainings { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder) //loob tabelid
         {
             base.OnModelCreating(builder);
-            builder.Entity<TrainingView>().ToTable(nameof(Trainings));
+            QuantityDbContext.InitializeTables(builder);
         }
     }
 }
