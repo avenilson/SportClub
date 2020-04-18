@@ -51,11 +51,11 @@ namespace SportClub.Soft.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    Definition = table.Column<string>(nullable: true),
-                    CoachName = table.Column<string>(nullable: true),
                     StartTime = table.Column<DateTime>(nullable: true),
-                    EndTime = table.Column<DateTime>(nullable: true)
+                    EndTime = table.Column<DateTime>(nullable: true),
+                    CoachName = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
+                    Definition = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

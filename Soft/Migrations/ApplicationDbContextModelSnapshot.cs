@@ -219,7 +219,7 @@ namespace SportClub.Soft.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("SportClub.Facade.Quantity.TrainingView", b =>
+            modelBuilder.Entity("SportClub.Data.Quantity.TrainingData", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");

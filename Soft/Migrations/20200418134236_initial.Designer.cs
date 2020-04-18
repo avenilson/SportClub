@@ -10,7 +10,7 @@ using SportClub.Soft.Data;
 namespace SportClub.Soft.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200417191920_initial")]
+    [Migration("20200418134236_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -221,7 +221,7 @@ namespace SportClub.Soft.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("SportClub.Facade.Quantity.TrainingView", b =>
+            modelBuilder.Entity("SportClub.Data.Quantity.TrainingData", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
