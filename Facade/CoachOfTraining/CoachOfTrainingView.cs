@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 using SportClub.Facade.Common;
 
-namespace SportClub.Facade.TrainingCoach
+namespace SportClub.Facade.CoachOfTraining
 {
-    public class TrainingCoachView: NamedView
+    public class CoachOfTrainingView: NamedView
     {
         [Required]
         [DisplayName("Training")]

@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
-namespace SportClub.Facade.TrainingParticipant
+namespace SportClub.Facade.ParticipantOfTraining
 {
-    public class TrainingParticipantView
+    public class ParticipantOfTrainingView
     {
         [Required]
         [DisplayName("Training")]
