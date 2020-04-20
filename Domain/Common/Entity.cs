@@ -17,7 +17,6 @@ namespace SportClub.Domain.Common
                 if (data is null) return null;
                 var d = new TData();
                 Copy.Members(data, d);
-
                 return d;
             }
         }
