@@ -5,5 +5,6 @@ namespace SportClub.Data.Quantity
     public class CoachData : DefinedEntityData
     {
         //string CoachId;
+        //Ave kommentaar
     }
 }
