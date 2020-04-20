@@ -3,14 +3,7 @@ using System.Threading.Tasks;
 
 namespace SportClub.Domain.Common
 {
-    public interface IRepository<T>
+    public interface IRepository<T> : ICrudMethods<T>, ISorting, IFiltering, IPaging
     {
-        Task<List<T>> Get();
-        Task<T> Get(string id);
-        Task Delete(string id);
-        Task Add(T obj);
-        Task Update(T obj);
-        string SortOrder { get; set; }
-        string SearchString { get; set; }
     }
 }
