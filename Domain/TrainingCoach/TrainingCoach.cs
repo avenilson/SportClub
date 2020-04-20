@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using SportClub.Data.TrainingCoach;
 
 namespace SportClub.Domain.TrainingCoach
 {
-    //public sealed class TrainingCoach: Entity<TrainingCoachData> 
+    //public sealed class TrainingCoach: Entity<CoachOfTrainingData> 
     //{
     //    public TrainingCoach(): this(null){ }
-    //    public TrainingCoach(TrainingCoachData data) : base(data) { }
+    //    public TrainingCoach(CoachOfTrainingData data) : base(data) { }
     //}
 }
