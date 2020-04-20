@@ -6,5 +6,6 @@ namespace SportClub.Infra.Coach
 {
     class CoachesRepository
     {
+
     }
 }
