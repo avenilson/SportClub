@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using SportClub.Data.Coach;
+﻿using SportClub.Data.Coach;
 using SportClub.Data.Participant;
 using SportClub.Domain.Common;
 
