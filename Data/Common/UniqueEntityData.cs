@@ -1,7 +1,11 @@
-﻿namespace SportClub.Data.Common
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace SportClub.Data.Common
 {
-    public class UniqueEntityData: PeriodData
+    public class UniqueEntityData
     {
-        public string CoachName { get; set; } //id asemel meil coachname
+        public string Id { get; set; }
     }
 }
