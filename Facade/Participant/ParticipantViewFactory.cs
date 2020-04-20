@@ -16,9 +16,9 @@ namespace SportClub.Facade.Participant
             return new Participant(d);
         }
 
-        public static MeasureTermView Create(MeasureTerm obj)
+        public static ParticipantView Create(Participant obj)
         {
-            var v = new MeasureTermView();
+            var v = new ParticipantView();
             Copy.Members(obj.Data, v);
             return v;
         }
