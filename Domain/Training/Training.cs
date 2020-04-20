@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using SportClub.Data.Training;
+﻿using SportClub.Data.Training;
+using SportClub.Domain.Common;
 
 namespace SportClub.Domain.Training
 {
-    //public sealed class Training: Entity<TrainingData>
-    //{
-    //    public Training(): this(null){ }
-    //    public Training(TrainingData data) : base(data) { }
-    //}    
+    public sealed class Training : Entity<TrainingData>
+    {
+        public Training() : this(null) { }
+        public Training(TrainingData data) : base(data) { }
+    }
 }

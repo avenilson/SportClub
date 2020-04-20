@@ -1,25 +1,26 @@
-﻿using SportClub.Data.Common;
+﻿using Abc.Aids;
+
 
 namespace SportClub.Domain.Common
 {
-    //public abstract class Entity<TData> where TData : PeriodData, new()
-    //{
+    public abstract class Entity<TData> 
+    {
 
-    //    protected readonly TData data;
+        protected readonly TData data;
 
-    //    protected internal Entity(TData d = null) => data = d;
+        protected internal Entity(TData d = null) => data = d;
 
-    //    public TData Data
-    //    {
-    //        get
-    //        {
-    //            if (data is null) return null;
-    //            var d = new TData();
-    //            Copy.Members(data, d);
+        public TData Data
+        {
+            get
+            {
+                if (data is null) return null;
+                var d = new TData();
+                Copy.Members(data, d);
 
-    //            return d;
-    //        }
-    //    }
+                return d;
+            }
+        }
 
-    //}
+    }
 }
