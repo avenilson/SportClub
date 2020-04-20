@@ -2,7 +2,7 @@
 
 namespace SportClub.Domain.Common
 {
-    //public abstract class Entity<TData> where TData : PeriodData, new()
+    //public abstract class Entity<TData>
     //{
 
     //    protected readonly TData data;
