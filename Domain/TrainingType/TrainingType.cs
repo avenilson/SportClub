@@ -7,6 +7,5 @@ namespace SportClub.Domain.TrainingType
     {
         public TrainingType() : this(null) { }
         public TrainingType(TrainingTypeData data) : base(data) { }
-
     }
 }
