@@ -7,7 +7,7 @@ using SportClub.Facade.Common;
 
 namespace SportClub.Facade.Coach
 {
-    public class CoachView:NamedView
+    public sealed class CoachView:NamedView
     {
 
     }

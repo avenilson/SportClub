@@ -1,25 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Abc.Aids;
-using SportClub.Data.Participant;
-using SportClub.Facade.Participant;
+﻿using Abc.Aids;
+using SportClub.Data.Training;
 
 namespace SportClub.Facade.Training
 {
-    public class TrainingViewFactory
+     public static class TrainingViewFactory
     {
-        public static Participant Create(ParticipantView view)
+        public static Domain.Training.Training Create(TrainingView view)
         {
-            var d = new ParticipantData();
+            var d = new TrainingData();
             Copy.Members(view, d);
 
-            return new Participant(d);
+            return new Domain.Training.Training(d);
         }
 
-        public static ParticipantView Create(Participant obj)
+        public static TrainingView Create(Domain.Training.Training obj)
         {
-            var v = new ParticipantView();
+            var v = new TrainingView();
             Copy.Members(obj.Data, v);
             return v;
         }

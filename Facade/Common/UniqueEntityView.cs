@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SportClub.Facade.Common
 {
-    public class UniqueEntityView
+    public abstract class UniqueEntityView
     {
         [Required]
         public string Id { get; set; }

@@ -1,4 +1,4 @@
-﻿using SportClub.Data.TrainingParticipant;
+﻿using SportClub.Data.ParticipantOfTraining;
 using SportClub.Domain.Common;
 
 namespace SportClub.Domain.ParticipantOfTraining
@@ -6,7 +6,7 @@ namespace SportClub.Domain.ParticipantOfTraining
     public sealed class ParticipantOfTraining : Entity<ParticipantOfTrainingData>
     {
         public ParticipantOfTraining() : this(null) { }
-        public ParticipantOfTraining(TrainingParticipantData data) : base(data) { }
+        public ParticipantOfTraining(ParticipantOfTrainingData data) : base(data) { }
 
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SportClub.Data.Common
 {
-    public class UniqueEntityData
+    public abstract class UniqueEntityData
     {
         public string Id { get; set; }
     }

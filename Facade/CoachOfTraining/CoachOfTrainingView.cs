@@ -4,7 +4,7 @@ using SportClub.Facade.Common;
 
 namespace SportClub.Facade.CoachOfTraining
 {
-    public class CoachOfTrainingView: NamedView
+    public sealed class CoachOfTrainingView: NamedView
     {
         [Required]
         [DisplayName("Training")]

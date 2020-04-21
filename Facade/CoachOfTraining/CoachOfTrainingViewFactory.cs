@@ -1,20 +1,19 @@
 ﻿using Abc.Aids;
-using SportClub.Data.Participant;
-using SportClub.Facade.Participant;
+using SportClub.Data.CoachOfTraining;
 
 namespace SportClub.Facade.CoachOfTraining
 {
-    public class CoachOfTrainingViewFactory
+    public static class CoachOfTrainingViewFactory
     {
-        public static CoachOfTraining Create(CoachOfTrainingView view)
+        public static Domain.CoachOfTraining.CoachOfTraining Create(CoachOfTrainingView view)
         {
-            var d = new ParticipantData();
+            var d = new CoachOfTrainingData();
             Copy.Members(view, d);
 
-            return new CoachOfTraining(d);
+            return new Domain.CoachOfTraining.CoachOfTraining(d);
         }
 
-        public static CoachOfTraining Create(CoachOfTrainingView obj)
+        public static CoachOfTrainingView Create(Domain.CoachOfTraining.CoachOfTraining obj)
         {
             var v = new CoachOfTrainingView();
             Copy.Members(obj.Data, v);

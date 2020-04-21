@@ -1,26 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Abc.Aids;
-using SportClub.Data.Participant;
-using SportClub.Facade.Participant;
+using SportClub.Data.Coach;
+using SportClub.Domain.Coach;
 
 namespace SportClub.Facade.Coach
 {
-    public class CoachViewFactory
+    public static class CoachViewFactory
     {
-        public static Coach Create(CoachView view)
+        public static Domain.Coach.Coach Create(CoachView view)
         {
-            var d = new ParticipantData();
+            var d = new CoachData();
             Copy.Members(view, d);
 
-            return new Coach(d);
+            return new Domain.Coach.Coach(d);
         }
 
-        public static ParticipantView Create(CoachView obj)
+        public static CoachView Create(Domain.Coach.Coach o)
         {
-            var v = new ParticipantView();
-            Copy.Members(obj.Data, v);
+            var v = new CoachView();
+            if (!(o?.Data is null))
+                Copy.Members(o.Data, v);
+
             return v;
         }
     }

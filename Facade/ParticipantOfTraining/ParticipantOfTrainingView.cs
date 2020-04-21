@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SportClub.Facade.ParticipantOfTraining
 {
-    public class ParticipantOfTrainingView
+    public sealed class ParticipantOfTrainingView
     {
         [Required]
         [DisplayName("Training")]

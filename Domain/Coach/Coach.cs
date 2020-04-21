@@ -10,6 +10,6 @@ namespace SportClub.Domain.Coach
     public sealed class Coach : Entity<CoachData>
     {
         public Coach() : this(null) { }
-        public Coach(ParticipantData data) : base(data) { }
+        public Coach(CoachData data) : base(data) { }
     }
 }

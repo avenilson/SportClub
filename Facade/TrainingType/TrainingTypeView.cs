@@ -7,7 +7,7 @@ using SportClub.Facade.Common;
 
 namespace SportClub.Facade.TrainingType
 {
-    public class TrainingTypeView:UniqueEntityView
+    public sealed class TrainingTypeView:UniqueEntityView
     {
         [Required]
         [DisplayName("Training Type")]

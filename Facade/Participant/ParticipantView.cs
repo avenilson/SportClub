@@ -7,7 +7,7 @@ using SportClub.Facade.Common;
 
 namespace SportClub.Facade.Participant
 {
-    public class ParticipantView: NamedView
+    public sealed class ParticipantView: NamedView
     {
         [Required]
         [DisplayName("Participant")]

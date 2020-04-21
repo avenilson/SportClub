@@ -1,22 +1,23 @@
 ﻿using Abc.Aids;
 using SportClub.Data.Participant;
+using SportClub.Data.ParticipantOfTraining;
 using SportClub.Facade.Participant;
 
 namespace SportClub.Facade.ParticipantOfTraining
 {
     class ParticipantOfTrainingViewFactory
     {
-        public static Participant Create(ParticipantView view)
+        public static Domain.ParticipantOfTraining.ParticipantOfTraining Create(ParticipantOfTrainingView view)
         {
-            var d = new ParticipantData();
+            var d = new ParticipantOfTrainingData();
             Copy.Members(view, d);
 
-            return new Participant(d);
+            return new Domain.ParticipantOfTraining.ParticipantOfTraining(d);
         }
 
-        public static ParticipantView Create(Participant obj)
+        public static ParticipantOfTrainingView Create(Domain.ParticipantOfTraining.ParticipantOfTraining obj)
         {
-            var v = new ParticipantView();
+            var v = new ParticipantOfTrainingView();
             Copy.Members(obj.Data, v);
             return v;
         }
