@@ -27,4 +27,10 @@
     <ProjectReference Include="..\Pages\Pages.csproj" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <Folder Include="Areas\Coaches\" />
+    <Folder Include="Areas\Trainings\" />
+  </ItemGroup>
+
 </Project>

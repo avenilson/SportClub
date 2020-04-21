@@ -5,7 +5,7 @@ using SportClub.Facade.Participant;
 
 namespace SportClub.Facade.ParticipantOfTraining
 {
-    class ParticipantOfTrainingViewFactory
+    public static class ParticipantOfTrainingViewFactory
     {
         public static Domain.ParticipantOfTraining.ParticipantOfTraining Create(ParticipantOfTrainingView view)
         {
