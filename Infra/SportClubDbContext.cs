@@ -1,34 +1,39 @@
-﻿//using Microsoft.EntityFrameworkCore;
-//using SportClub.Data.Coach;
+﻿using Microsoft.EntityFrameworkCore;
+using SportClub.Data.Coach;
+using SportClub.Data.CoachOfTraining;
+using SportClub.Data.Participant;
+using SportClub.Data.ParticipantOfTraining;
+using SportClub.Data.Training;
+using SportClub.Data.TrainingType;
 
-//namespace SportClub.Infra
-//{
-//    public class SportClubDbContext : DbContext
-//    {
-//        public DbSet<CoachData> Coaches { get; set; }
-//        public DbSet<CoachOfTraining> CoachesOfTrainings { get; set; }
-//        public DbSet<SystemOfUnitsData> SystemsOfUnits { get; set; }
-//        public DbSet<UnitFactorData> UnitFactors { get; set; }
-//        public DbSet<MeasureTermData> MeasureTerms { get; set; }
-//        public DbSet<UnitTermData> UnitTerms { get; set; }
-//        public QuantityDbContext(DbContextOptions<QuantityDbContext> options)
-//            : base(options) { }
+namespace SportClub.Infra
+{
+    public class SportClubDbContext : DbContext
+    {
+        public DbSet<CoachData> Coaches { get; set; }
+        public DbSet<CoachOfTrainingData> CoachesOfTrainings { get; set; }
+        public DbSet<ParticipantData> Participants { get; set; }
+        public DbSet<ParticipantOfTrainingData> ParticipantsOfTrainings { get; set; }
+        public DbSet<TrainingData> Trainings { get; set; }
+        public DbSet<TrainingTypeData> TrainingTypes { get; set; }
+        public SportClubDbContext(DbContextOptions<SportClubDbContext> options)
+            : base(options) { }
 
-//        protected override void OnModelCreating(ModelBuilder builder)
-//        {
-//            base.OnModelCreating(builder);
-//            InitializeTables(builder);
-//        }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            InitializeTables(builder);
+        }
 
-//        public static void InitializeTables(ModelBuilder builder)
-//        {
-//            if (builder is null) return;
-//            builder.Entity<MeasureData>().ToTable(nameof(Measures));
-//            builder.Entity<UnitData>().ToTable(nameof(Units));
-//            builder.Entity<SystemOfUnitsData>().ToTable(nameof(SystemsOfUnits));
-//            builder.Entity<UnitFactorData>().ToTable(nameof(UnitFactors)).HasKey(x => new { x.UnitId, x.SystemOfUnitsId });
-//            builder.Entity<MeasureTermData>().ToTable(nameof(MeasureTerms)).HasKey(x => new { x.MasterId, x.TermId });
-//            builder.Entity<UnitTermData>().ToTable(nameof(UnitTerms)).HasKey(x => new { x.MasterId, x.TermId });
-//        }
-//    }
-//}
+        public static void InitializeTables(ModelBuilder builder)
+        {
+            if (builder is null) return;
+            builder.Entity<CoachData>().ToTable(nameof(Coaches));
+            builder.Entity<ParticipantData>().ToTable(nameof(Participants));
+            builder.Entity<TrainingData>().ToTable(nameof(Trainings));
+            builder.Entity<TrainingTypeData>().ToTable(nameof(TrainingTypes));
+            builder.Entity<CoachOfTrainingData>().ToTable(nameof(CoachesOfTrainings)).HasKey(x => new { x.TrainingId, x.CoachId });
+            builder.Entity<ParticipantOfTrainingData>().ToTable(nameof(ParticipantsOfTrainings)).HasKey(x => new { x.TrainingId, x.ParticipantId });
+        }
+    }
+}
