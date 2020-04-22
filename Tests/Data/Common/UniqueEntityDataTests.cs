@@ -4,7 +4,7 @@ using SportClub.Data.Common;
 namespace SportClub.Tests.Data.Common
 {
     [TestClass]
-    public class UniqueEntityDataTests : AbstractClassTests<UniqueEntityData, UniqueEntityData>
+    public class UniqueEntityDataTests : AbstractClassTests<UniqueEntityData, object>
     {
         private class TestClass : UniqueEntityData { }
 

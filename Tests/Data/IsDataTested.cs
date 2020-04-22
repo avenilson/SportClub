@@ -5,7 +5,7 @@ namespace SportClub.Tests.Data
     [TestClass]
     public class IsDataTested : AssemblyTests
     {
-        private const string assembly = "Abc.Data";
+        private const string assembly = "SportClub.Data";
 
         protected override string Namespace(string name)
         {
