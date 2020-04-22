@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using SportClub.Infra.Quantity;
+using SportClub.Infra;
 
 namespace SportClub.Soft.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class SportClubDbContext : IdentityDbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public SportClubDbContext(DbContextOptions<SportClubDbContext> options)
             : base(options)
         {
         }
@@ -14,7 +14,7 @@ namespace SportClub.Soft.Data
         protected override void OnModelCreating(ModelBuilder builder) //loob tabelid
         {
             base.OnModelCreating(builder);
-            QuantityDbContext.InitializeTables(builder);
+            Infra.SportClubDbContext.InitializeTables(builder);
         }
     }
 }
