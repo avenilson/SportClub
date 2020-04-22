@@ -18,19 +18,19 @@ namespace SportClub.Pages
 
         public string PageTitle { get; set; }
 
-        public string PageSubTitle => getPageSubTitle();
+        public string PageSubTitle => GetPageSubTitle();
 
-        protected internal virtual string getPageSubTitle() => string.Empty;
+        protected internal virtual string GetPageSubTitle() => string.Empty;
 
-        public string PageUrl => getPageUrl();
+        public string PageUrl => GetPageUrl();
 
-        protected internal abstract string getPageUrl();
+        protected internal abstract string GetPageUrl();
 
-        public string IndexUrl => getIndexUrl();
+        public string IndexUrl => GetIndexUrl();
 
-        protected internal string getIndexUrl() => $"{PageUrl}/Index?fixedFilter={FixedFilter}&fixedValue={FixedValue}";
+        protected internal string GetIndexUrl() => $"{PageUrl}/Index?fixedFilter={FixedFilter}&fixedValue={FixedValue}";
 
-        protected static IEnumerable<SelectListItem> createSelectList<TTDomain, TTData>(IRepository<TTDomain> r)
+        protected static IEnumerable<SelectListItem> CreateSelectList<TTDomain, TTData>(IRepository<TTDomain> r)
             where TTDomain : Entity<TTData>
             where TTData : NamedEntityData, new() {
             var items = r.Get().GetAwaiter().GetResult();

@@ -16,31 +16,31 @@ namespace SportClub.Pages
         [BindProperty]
         public TView Item { get; set; }
 
-        protected internal async Task<bool> addObject(string fixedFilter, string fixedValue) {
+        protected internal async Task<bool> AddObject(string fixedFilter, string fixedValue) {
             setFixedFilter(fixedFilter, fixedValue);
 
             try {
                 if (!ModelState.IsValid) return false;
-                await db.Add(toObject(Item));
+                await db.Add(ToObject(Item));
             }
             catch { return false; }
 
             return true;
         }
 
-        protected internal async Task<bool> updateObject(string fixedFilter, string fixedValue) {
+        protected internal async Task<bool> UpdateObject(string fixedFilter, string fixedValue) {
             setFixedFilter(fixedFilter, fixedValue);
 
             try {
                 if (!ModelState.IsValid) return false;
-                await db.Update(toObject(Item));
+                await db.Update(ToObject(Item));
             }
             catch { return false; }
 
             return true;
         }
 
-        protected internal async Task<bool> updateObject(string id, string fixedFilter, string fixedValue)
+        protected internal async Task<bool> UpdateObject(string id, string fixedFilter, string fixedValue)
         {
             setFixedFilter(fixedFilter, fixedValue);
 
@@ -48,34 +48,34 @@ namespace SportClub.Pages
             {
                 if (!ModelState.IsValid) return false;
                 await db.Delete(id);
-                await db.Add(toObject(Item));
+                await db.Add(ToObject(Item));
             }
             catch { return false; }
 
             return true;
         }
 
-        protected internal async Task getObject(string id, string fixedFilter, string fixedValue) {
+        protected internal async Task GetObject(string id, string fixedFilter, string fixedValue) {
             setFixedFilter(fixedFilter, fixedValue);
             var o = await db.Get(id);
-            Item = toView(o);
+            Item = ToView(o);
         }
 
-        protected internal async Task getObject(string id, string sortOrder, string searchString, int pageIndex, string fixedFilter, string fixedValue) {
+        protected internal async Task GetObject(string id, string sortOrder, string searchString, int pageIndex, string fixedFilter, string fixedValue) {
             setPageValues(sortOrder, searchString, pageIndex);
             setFixedFilter(fixedFilter, fixedValue);
             var o = await db.Get(id);
-            Item = toView(o);
+            Item = ToView(o);
         }
 
-        protected internal async Task deleteObject(string id, string fixedFilter, string fixedValue) {
+        protected internal async Task DeleteObject(string id, string fixedFilter, string fixedValue) {
             setFixedFilter(fixedFilter, fixedValue);
             await db.Delete(id);
         }
 
-        protected internal abstract TDomain toObject(TView view);
+        protected internal abstract TDomain ToObject(TView view);
 
-        protected internal abstract TView toView(TDomain obj);
+        protected internal abstract TView ToView(TDomain obj);
 
 
     }
