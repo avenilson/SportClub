@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using SportClub.Aids;
 using SportClub.Data.Training;
-using SportClub.Data.TrainingType;
-using SportClub.Domain.Coach;
 using SportClub.Domain.Training;
-using SportClub.Domain.TrainingType;
-using SportClub.Facade.Common;
 using SportClub.Facade.Training;
-using SportClub.Facade.TrainingType;
 
 namespace SportClub.Pages.Training
 {

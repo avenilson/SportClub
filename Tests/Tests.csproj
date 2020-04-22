@@ -25,13 +25,13 @@
     <Folder Include="Data\Training\" />
     <Folder Include="Data\ParticipantOfTraining\" />
     <Folder Include="Data\Participant\" />
-    <Folder Include="Domain\CoachOfTraining\" />
-    <Folder Include="Domain\Coach\" />
-    <Folder Include="Domain\Common\" />
-    <Folder Include="Domain\ParticipantOfTraining\" />
-    <Folder Include="Domain\Participant\" />
-    <Folder Include="Domain\TrainingType\" />
-    <Folder Include="Domain\Training\" />
+    <Folder Include="Facade\CoachOfTraining\" />
+    <Folder Include="Facade\Coach\" />
+    <Folder Include="Facade\Common\" />
+    <Folder Include="Facade\ParticipantOfTraining\" />
+    <Folder Include="Facade\Participant\" />
+    <Folder Include="Facade\TrainingType\" />
+    <Folder Include="Facade\Training\" />
     <Folder Include="Infra\CoachOfTraining\" />
     <Folder Include="Infra\Coach\" />
     <Folder Include="Infra\ParticipantOfTraining\" />
@@ -50,7 +50,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Aids\Aids.csproj" />
     <ProjectReference Include="..\Domain\Domain.csproj" />
-    <ProjectReference Include="..\Facade\Facade.csproj" />
   </ItemGroup>
 
 </Project>
