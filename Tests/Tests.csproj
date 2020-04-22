@@ -18,13 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\Coach\" />
-    <Folder Include="Data\CoachOfTraining\" />
-    <Folder Include="Data\Common\" />
-    <Folder Include="Data\TrainingType\" />
-    <Folder Include="Data\Training\" />
-    <Folder Include="Data\ParticipantOfTraining\" />
-    <Folder Include="Data\Participant\" />
     <Folder Include="Facade\CoachOfTraining\" />
     <Folder Include="Facade\Coach\" />
     <Folder Include="Facade\Common\" />
@@ -38,6 +31,7 @@
     <Folder Include="Infra\Participant\" />
     <Folder Include="Infra\TrainingType\" />
     <Folder Include="Infra\Training\" />
+    <Folder Include="Data\" />
     <Folder Include="Pages\CoachOfTraining\" />
     <Folder Include="Pages\Coach\" />
     <Folder Include="Pages\Extensions\" />
