@@ -4,7 +4,10 @@ using System.Text;
 
 namespace SportClub.Infra.Training
 {
-    class TrainingsRepository
-    {
-    }
+    //public sealed class TrainingsRepository : UniqueEntityRepository<Training, TrainingData>, ITrainingsRepository
+    //{
+    //    public TrainingsRepository(SportClubDbContext c) : base(c, c.Trainings) { }
+
+    //    protected internal override Training ToDomainObject(TrainingData d) => new Training(d);
+    //}
 }
