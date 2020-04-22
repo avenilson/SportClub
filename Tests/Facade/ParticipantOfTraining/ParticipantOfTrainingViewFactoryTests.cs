@@ -1,10 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SportClub.Aids;
+using SportClub.Data.CoachOfTraining;
+using SportClub.Data.ParticipantOfTraining;
+using SportClub.Facade.CoachOfTraining;
+using SportClub.Facade.ParticipantOfTraining;
 
 namespace SportClub.Tests.Facade.ParticipantOfTraining
 {
-    class ParticipantOfTrainingViewFactoryTests
+    [TestClass]
+    public class ParticipantOfTrainingViewFactoryTests : BaseTests
     {
+        [TestInitialize]
+        public virtual void TestInitialize()
+        {
+            type = typeof(ParticipantOfTrainingViewFactory);
+        }
+        [TestMethod]
+        public void CreateTest()
+        {
+        }
+
+        [TestMethod]
+        public void CreateObjectTest()
+        {
+            var view = GetRandom.Object<ParticipantOfTrainingView>();
+            var data = ParticipantOfTrainingViewFactory.Create(view).Data;
+
+            TestArePropertyValuesEqual(view, data);
+        }
+        [TestMethod]
+        public void CreateViewTest()
+        {
+            var data = GetRandom.Object<ParticipantOfTrainingData>();
+            var view = ParticipantOfTrainingViewFactory.Create(new SportClub.Domain.ParticipantOfTraining.ParticipantOfTraining(data));
+            TestArePropertyValuesEqual(view, data);
+        }
+
     }
 }
