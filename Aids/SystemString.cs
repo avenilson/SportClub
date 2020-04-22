@@ -1,6 +1,6 @@
 ﻿
 
-namespace Abc.Aids {
+namespace SportClub.Aids {
 
     public static class SystemString {
 

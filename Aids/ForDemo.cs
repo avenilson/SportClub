@@ -1,4 +1,4 @@
-﻿namespace Abc.Aids
+﻿namespace SportClub.Aids
 {
     public static class ForDemo
     {

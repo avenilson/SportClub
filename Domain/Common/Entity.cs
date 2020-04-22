@@ -1,5 +1,4 @@
-﻿using Abc.Aids;
-using SportClub.Data.Common;
+﻿using SportClub.Data.Common;
 
 
 namespace SportClub.Domain.Common

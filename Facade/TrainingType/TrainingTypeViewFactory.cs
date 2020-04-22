@@ -1,4 +1,4 @@
-﻿using Abc.Aids;
+﻿using SportClub.Aids;
 using SportClub.Data.TrainingType;
 
 namespace SportClub.Facade.TrainingType

@@ -1,5 +1,5 @@
 ﻿
-namespace Abc.Aids {
+namespace SportClub.Aids {
 
     public static class GetString {
         public static string Head(string s, char seperator = '.') {

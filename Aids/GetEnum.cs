@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Abc.Aids {
+namespace SportClub.Aids {
 
     public static class GetEnum {
         public static int Count<T>() {
