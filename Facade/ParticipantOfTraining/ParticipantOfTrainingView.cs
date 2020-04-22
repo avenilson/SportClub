@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using SportClub.Facade.Common;
 
 namespace SportClub.Facade.ParticipantOfTraining
 {
-    public sealed class ParticipantOfTrainingView
+    public sealed class ParticipantOfTrainingView:NamedView
     {
         [Required]
         [DisplayName("Training")]
