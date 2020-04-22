@@ -13,14 +13,14 @@ namespace SportClub.Pages.Participant
 
         public override string ItemId => Item.Id;
 
-        protected internal override string getPageUrl() => "/Participant/Participants";
+        protected internal override string GetPageUrl() => "/Participant/Participants";
 
-        protected internal override Domain.Participant.Participant toObject(ParticipantView view)
+        protected internal override Domain.Participant.Participant ToObject(ParticipantView view)
         {
             return ParticipantViewFactory.Create(view);
         }
 
-        protected internal override ParticipantView toView(Domain.Participant.Participant obj)
+        protected internal override ParticipantView ToView(Domain.Participant.Participant obj)
         {
             return ParticipantViewFactory.Create(obj);
         }

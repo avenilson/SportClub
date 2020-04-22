@@ -12,14 +12,14 @@ namespace SportClub.Pages.ParticipantOfTraining
 
         public override string ItemId => Item.Id;
 
-        protected internal override string getPageUrl() => "/ParticipantOfTraining/ParticipantOfTrainings";
+        protected internal override string GetPageUrl() => "/ParticipantOfTraining/ParticipantOfTrainings";
 
-        protected internal override Domain.ParticipantOfTraining.ParticipantOfTraining toObject(ParticipantOfTrainingView view)
+        protected internal override Domain.ParticipantOfTraining.ParticipantOfTraining ToObject(ParticipantOfTrainingView view)
         {
             return ParticipantOfTrainingViewFactory.Create(view);
         }
 
-        protected internal override ParticipantOfTrainingView toView(Domain.ParticipantOfTraining.ParticipantOfTraining obj)
+        protected internal override ParticipantOfTrainingView ToView(Domain.ParticipantOfTraining.ParticipantOfTraining obj)
         {
             return ParticipantOfTrainingViewFactory.Create(obj);
         }

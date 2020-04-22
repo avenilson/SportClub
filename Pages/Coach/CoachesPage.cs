@@ -13,14 +13,14 @@ namespace SportClub.Pages.Coach
 
         public override string ItemId => Item.Id;
 
-        protected internal override string getPageUrl() => "/Coach/Coaches";
+        protected internal override string GetPageUrl() => "/Coach/Coaches";
 
-        protected internal override Domain.Coach.Coach toObject(CoachView view)
+        protected internal override Domain.Coach.Coach ToObject(CoachView view)
         {
             return CoachViewFactory.Create(view);
         }
 
-        protected internal override CoachView toView(Domain.Coach.Coach obj)
+        protected internal override CoachView ToView(Domain.Coach.Coach obj)
         {
             return CoachViewFactory.Create(obj);
         }

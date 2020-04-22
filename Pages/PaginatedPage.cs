@@ -34,7 +34,7 @@ namespace SportClub.Pages
             PageIndex = pageIndex;
         }
 
-        protected internal async Task getList(string sortOrder, string currentFilter, string searchString,
+        protected internal async Task GetList(string sortOrder, string currentFilter, string searchString,
             int? pageIndex, string fixedFilter, string fixedValue) {
 
             FixedFilter = fixedFilter;
@@ -42,10 +42,10 @@ namespace SportClub.Pages
             SortOrder = sortOrder;
             SearchString = GetSearchString(currentFilter, searchString, ref pageIndex);
             PageIndex = pageIndex ?? 1;
-            Items = await getList();
+            Items = await GetList();
         }
 
-        internal async Task<List<TView>> getList() {
+        internal async Task<List<TView>> GetList() {
             var l = await db.Get();
 
             return l.Select(ToView).ToList();
