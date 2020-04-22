@@ -20,14 +20,14 @@ namespace SportClub.Tests
             Assert.AreEqual(typeof(TBaseClass), type.BaseType);
         }
 
-        protected static void isNullableProperty<T>(Func<T> get, Action<T> set)
+        protected static void IsNullableProperty<T>(Func<T> get, Action<T> set)
         {
-            isProperty(get,set);
+            IsProperty(get,set);
             set(default);
             Assert.IsNull(get());
         }
 
-        protected static void isNullableProperty(object o, string name, Type type)
+        protected static void IsNullableProperty(object o, string name, Type type)
         {
             var property = o.GetType().GetProperty(name);
             Assert.IsNotNull(property);
@@ -39,7 +39,7 @@ namespace SportClub.Tests
             Assert.AreEqual(null, actual);
         }
 
-        protected static void isProperty<T>(Func<T> get, Action<T> set)
+        protected static void IsProperty<T>(Func<T> get, Action<T> set)
         {
             var d = (T)GetRandom.Value(typeof(T));
             Assert.AreNotEqual(d, get());
