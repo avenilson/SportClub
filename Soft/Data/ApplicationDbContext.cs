@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace SportClub.Soft.Data
 {
-    public class SportClubDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext
     {
-        public SportClubDbContext(DbContextOptions<SportClubDbContext> options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
         }
