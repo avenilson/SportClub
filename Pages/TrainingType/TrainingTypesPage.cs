@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using SportClub.Data.Training;
-using SportClub.Data.TrainingType;
-using SportClub.Domain.Training;
+﻿using SportClub.Data.TrainingType;
 using SportClub.Domain.TrainingType;
 using SportClub.Facade.TrainingType;
 

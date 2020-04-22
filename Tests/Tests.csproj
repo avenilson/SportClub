@@ -25,13 +25,6 @@
     <Folder Include="Data\Training\" />
     <Folder Include="Data\ParticipantOfTraining\" />
     <Folder Include="Data\Participant\" />
-    <Folder Include="Domain\CoachOfTraining\" />
-    <Folder Include="Domain\Coach\" />
-    <Folder Include="Domain\Common\" />
-    <Folder Include="Domain\ParticipantOfTraining\" />
-    <Folder Include="Domain\Participant\" />
-    <Folder Include="Domain\TrainingType\" />
-    <Folder Include="Domain\Training\" />
     <Folder Include="Facade\CoachOfTraining\" />
     <Folder Include="Facade\Coach\" />
     <Folder Include="Facade\Common\" />
