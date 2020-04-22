@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using SportClub.Data.Participant;
+﻿using SportClub.Data.Participant;
 using SportClub.Domain.Participant;
 
 namespace SportClub.Infra.Participant
 {
-    //public sealed class ParticipantsRepository : UniqueEntityRepository<Participant, ParticipantData>, IParticipantsRepository
-    //{
-    //    public ParticipantsRepository(SportClubDbContext c) : base(c, c.Participants) { }
+    public sealed class ParticipantsRepository : UniqueEntityRepository<Domain.Participant.Participant, ParticipantData>, IParticipantsRepository
+    {
+        public ParticipantsRepository(SportClubDbContext c) : base(c, c.Participants) { }
 
-    //    protected internal override Participant ToDomainObject(ParticipantData d) => new Participant(d);
-    //}
+        protected internal override Domain.Participant.Participant ToDomainObject(ParticipantData d) => new Domain.Participant.Participant(d);
+    }
 }

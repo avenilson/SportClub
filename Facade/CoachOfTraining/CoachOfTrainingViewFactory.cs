@@ -1,4 +1,4 @@
-﻿using Abc.Aids;
+﻿using SportClub.Aids;
 using SportClub.Data.CoachOfTraining;
 
 namespace SportClub.Facade.CoachOfTraining

@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace Abc.Aids 
+namespace SportClub.Aids 
 {
     public class UseCulture
     {

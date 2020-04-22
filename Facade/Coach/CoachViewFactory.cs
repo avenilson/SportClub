@@ -1,5 +1,5 @@
 ﻿using System;
-using Abc.Aids;
+using SportClub.Aids;
 using SportClub.Data.Coach;
 using SportClub.Domain.Coach;
 

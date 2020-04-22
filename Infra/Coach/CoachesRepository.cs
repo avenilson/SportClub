@@ -3,10 +3,10 @@ using SportClub.Domain.Coach;
 
 namespace SportClub.Infra.Coach
 {
-    //public sealed class CoachesRepository : UniqueEntityRepository<Coach, CoachData>, ICoachesRepository
-    //{
-    //    public CoachesRepository(SportClubDbContext c) : base(c, c.Coaches) { }
+    public sealed class CoachesRepository : UniqueEntityRepository<Domain.Coach.Coach, CoachData>, ICoachesRepository
+    {
+        public CoachesRepository(SportClubDbContext c) : base(c, c.Coaches) { }
 
-    //    protected internal override Coach ToDomainObject(CoachData d) => new Coach(d);
-    //}
+        protected internal override Domain.Coach.Coach ToDomainObject(CoachData d) => new Domain.Coach.Coach(d);
+    }
 }
