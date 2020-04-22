@@ -7,6 +7,7 @@ using SportClub.Facade.Common;
 
 namespace SportClub.Tests.Facade.CoachOfTraining
 {
+    [TestClass]
     public class CoachOfTrainingViewTests : SealedClassTests<CoachOfTrainingView, NamedView>
     {
         [TestMethod]
