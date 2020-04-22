@@ -1,7 +1,5 @@
-﻿using System;
-using SportClub.Aids;
+﻿using SportClub.Aids;
 using SportClub.Data.Coach;
-using SportClub.Domain.Coach;
 
 namespace SportClub.Facade.Coach
 {

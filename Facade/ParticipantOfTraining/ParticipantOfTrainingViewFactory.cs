@@ -1,7 +1,5 @@
 ﻿using SportClub.Aids;
-using SportClub.Data.Participant;
 using SportClub.Data.ParticipantOfTraining;
-using SportClub.Facade.Participant;
 
 namespace SportClub.Facade.ParticipantOfTraining
 {

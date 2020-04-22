@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using SportClub.Data.TrainingType;
+﻿using SportClub.Data.TrainingType;
 using SportClub.Domain.TrainingType;
 
 namespace SportClub.Infra.TrainingType

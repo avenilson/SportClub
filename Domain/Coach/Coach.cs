@@ -1,5 +1,4 @@
 ﻿using SportClub.Data.Coach;
-using SportClub.Data.Participant;
 using SportClub.Domain.Common;
 
 namespace SportClub.Domain.Coach
