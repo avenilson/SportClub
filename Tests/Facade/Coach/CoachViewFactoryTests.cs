@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SportClub.Aids;
 using SportClub.Data.Coach;
 using SportClub.Facade.Coach;
@@ -32,7 +29,7 @@ namespace SportClub.Tests.Facade.Coach
         public void CreateViewTest()
         {
             var data = GetRandom.Object<CoachData>();
-            var view = CoachViewFactory.Create(new Domain.Coach.Coach(data));
+            var view = CoachViewFactory.Create(new SportClub.Domain.Coach.Coach(data));
             TestArePropertyValuesEqual(view, data);
         }
     }
