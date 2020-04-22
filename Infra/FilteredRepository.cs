@@ -28,13 +28,13 @@ namespace SportClub.Infra
             return query;
         }
 
-        internal IQueryable<TData> AddFixedFiltering(IQueryable<TData> query)
+        public IQueryable<TData> AddFixedFiltering(IQueryable<TData> query)
         {
             var expression = CreateFixedWhereExpression();
             return expression is null ? query : query.Where(expression);
         }
 
-        internal Expression<Func<TData, bool>> CreateFixedWhereExpression()
+        public Expression<Func<TData, bool>> CreateFixedWhereExpression()
         {
             if (FixedFilter is null) return null;
             if (FixedValue is null) return null;
@@ -55,14 +55,14 @@ namespace SportClub.Infra
 
         }
 
-        internal IQueryable<TData> AddFiltering(IQueryable<TData> query)
+        public IQueryable<TData> AddFiltering(IQueryable<TData> query)
         {
             if (String.IsNullOrEmpty(SearchString)) return query;
             var expression = CreateWhereExpression();
             return query.Where(expression);
         }
 
-        internal Expression<Func<TData, bool>> CreateWhereExpression()
+        public Expression<Func<TData, bool>> CreateWhereExpression()
         {
             if (string.IsNullOrWhiteSpace(SearchString)) return null;
             var param = Expression.Parameter(typeof(TData), "s");

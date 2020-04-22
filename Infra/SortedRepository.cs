@@ -27,14 +27,14 @@ namespace SportClub.Infra
 
         }
 
-        protected internal IQueryable<TData> AddSorting(IQueryable<TData> query)
+        public IQueryable<TData> AddSorting(IQueryable<TData> query)
         {
             var expression = CreateExpression();
             var r = expression is null ? query : AddOrderBy(query, expression);
             return r;
         }
 
-        internal Expression<Func<TData, object>> CreateExpression()
+        public Expression<Func<TData, object>> CreateExpression()
         {
             var property = FindProperty();
             return property is null ? null : LambdaExpression(property);
@@ -48,13 +48,13 @@ namespace SportClub.Infra
             return Expression.Lambda<Func<TData, object>>(body, param);
         }
 
-        internal PropertyInfo FindProperty()
+        public PropertyInfo FindProperty()
         {
             var name = GetName();
             return typeof(TData).GetProperty(name);
         }
 
-        internal string GetName()
+        public string GetName()
         {
             if (string.IsNullOrEmpty(SortOrder)) return string.Empty;
             var idx = SortOrder.IndexOf(DescendingString, StringComparison.Ordinal);
@@ -62,7 +62,7 @@ namespace SportClub.Infra
             return SortOrder;
         }
 
-        internal IQueryable<TData> AddOrderBy(IQueryable<TData> query, Expression<Func<TData, object>> e)
+        public IQueryable<TData> AddOrderBy(IQueryable<TData> query, Expression<Func<TData, object>> e)
         {
             if (query is null) return null;
             if (e is null) return query;

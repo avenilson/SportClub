@@ -18,7 +18,7 @@ namespace SportClub.Infra
 
         protected PaginatedRepository(DbContext c, DbSet<TData> s) : base(c, s) { }
 
-        internal int GetTotalPages(in int pageSize)
+        public int GetTotalPages(in int pageSize)
         {
             var count = GetItemsCount(); //palju on kirjeid
             var pages = CountTotalPages(count, pageSize);
@@ -26,16 +26,16 @@ namespace SportClub.Infra
             return pages;
         }
 
-        internal int CountTotalPages(int count, in int pageSize) //internal on nagu private, aga saab testida. keegi valjast ligi ei saa
+        public int CountTotalPages(int count, in int pageSize) //internal on nagu private, aga saab testida. keegi valjast ligi ei saa
         {
             return (int)Math.Ceiling(count / (double)pageSize);
         }
 
-        internal int GetItemsCount() => base.createSqlQuery().CountAsync().Result; //result ehk saame asunkr meetodit kutsuda valja sunkr meetodis
+        public int GetItemsCount() => base.createSqlQuery().CountAsync().Result; //result ehk saame asunkr meetodit kutsuda valja sunkr meetodis
         
         protected internal override IQueryable<TData> createSqlQuery() => AddSkipAndTake(base.createSqlQuery()); //lisab skipi (see oli paginatedlist kirjas)
 
-        internal IQueryable<TData> AddSkipAndTake(IQueryable<TData> query)
+        public IQueryable<TData> AddSkipAndTake(IQueryable<TData> query)
         {
             if (PageIndex < 1) return query;
             return query
