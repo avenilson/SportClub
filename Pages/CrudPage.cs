@@ -17,7 +17,7 @@ namespace SportClub.Pages
         public TView Item { get; set; }
 
         protected internal async Task<bool> addObject(string fixedFilter, string fixedValue) {
-            setFixedFilter(fixedFilter, fixedValue);
+            SetFixedFilter(fixedFilter, fixedValue);
 
             try {
                 if (!ModelState.IsValid) return false;
@@ -29,7 +29,7 @@ namespace SportClub.Pages
         }
 
         protected internal async Task<bool> updateObject(string fixedFilter, string fixedValue) {
-            setFixedFilter(fixedFilter, fixedValue);
+            SetFixedFilter(fixedFilter, fixedValue);
 
             try {
                 if (!ModelState.IsValid) return false;
@@ -42,7 +42,7 @@ namespace SportClub.Pages
 
         protected internal async Task<bool> updateObject(string id, string fixedFilter, string fixedValue)
         {
-            setFixedFilter(fixedFilter, fixedValue);
+            SetFixedFilter(fixedFilter, fixedValue);
 
             try
             {
@@ -56,20 +56,20 @@ namespace SportClub.Pages
         }
 
         protected internal async Task getObject(string id, string fixedFilter, string fixedValue) {
-            setFixedFilter(fixedFilter, fixedValue);
+            SetFixedFilter(fixedFilter, fixedValue);
             var o = await db.Get(id);
             Item = toView(o);
         }
 
         protected internal async Task getObject(string id, string sortOrder, string searchString, int pageIndex, string fixedFilter, string fixedValue) {
-            setPageValues(sortOrder, searchString, pageIndex);
-            setFixedFilter(fixedFilter, fixedValue);
+            SetPageValues(sortOrder, searchString, pageIndex);
+            SetFixedFilter(fixedFilter, fixedValue);
             var o = await db.Get(id);
             Item = toView(o);
         }
 
         protected internal async Task deleteObject(string id, string fixedFilter, string fixedValue) {
-            setFixedFilter(fixedFilter, fixedValue);
+            SetFixedFilter(fixedFilter, fixedValue);
             await db.Delete(id);
         }
 

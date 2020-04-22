@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SportClub.Domain.Common;
@@ -27,7 +28,7 @@ namespace SportClub.Pages
 
         public int TotalPages => db.TotalPages;
 
-        protected internal override void setPageValues(string sortOrder, string searchString, in int pageIndex) {
+        protected internal override void SetPageValues(string sortOrder, string searchString, in int pageIndex) {
             SortOrder = sortOrder;
             SearchString = searchString;
             PageIndex = pageIndex;
@@ -39,7 +40,7 @@ namespace SportClub.Pages
             FixedFilter = fixedFilter;
             FixedValue = fixedValue;
             SortOrder = sortOrder;
-            SearchString = getSearchString(currentFilter, searchString, ref pageIndex);
+            SearchString = GetSearchString(currentFilter, searchString, ref pageIndex);
             PageIndex = pageIndex ?? 1;
             Items = await getList();
         }
