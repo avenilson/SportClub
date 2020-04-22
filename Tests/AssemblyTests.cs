@@ -13,8 +13,8 @@ namespace SportClub.Tests
             "No classes found in assembly {0}";
         private static string noClassesInNamespace =>
             "No classes found in namespace {0}";
-        private static string testAssembly => "Abc.Tests";
-        private static string assembly => "Abc";
+        private static string testAssembly => "SportClub.Tests";
+        private static string assembly => "SportClub";
         private static char genericsChar => '`';
         private static char internalClass => '+';
         private static string displayClass => "<>";
