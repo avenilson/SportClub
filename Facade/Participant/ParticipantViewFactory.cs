@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using SportClub.Aids;
+﻿using SportClub.Aids;
 using SportClub.Data.Participant;
 
 namespace SportClub.Facade.Participant

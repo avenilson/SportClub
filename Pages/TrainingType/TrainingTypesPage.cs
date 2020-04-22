@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SportClub.Pages.TrainingType
+﻿namespace SportClub.Pages.TrainingType
 {
     class TrainingTypesPage
     {
