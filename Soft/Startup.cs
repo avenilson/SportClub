@@ -5,8 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using SportClub.Domain.Quantity;
-using SportClub.Infra.Quantity;
+using SportClub.Domain.Training;
+using SportClub.Infra.Training;
 using SportClub.Soft.Data;
 
 namespace SportClub.Soft
@@ -26,7 +26,7 @@ namespace SportClub.Soft
             services.AddDbContext<SportClubDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDbContext<QuantityDbContext>(options =>
+            services.AddDbContext<SportClubDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
