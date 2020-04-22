@@ -33,12 +33,9 @@
     <Folder Include="Infra\Training\" />
     <Folder Include="Data\" />
     <Folder Include="Pages\CoachOfTraining\" />
-    <Folder Include="Pages\Coach\" />
-    <Folder Include="Pages\Extensions\" />
     <Folder Include="Pages\ParticipantOfTraining\" />
     <Folder Include="Pages\Participant\" />
     <Folder Include="Pages\TrainingType\" />
-    <Folder Include="Pages\Training\" />
   </ItemGroup>
 
   <ItemGroup>
