@@ -5,8 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using SportClub.Domain.Quantity;
-using SportClub.Infra.Quantity;
+using SportClub.Domain.Training;
+using SportClub.Infra.Training;
 using SportClub.Soft.Data;
 
 namespace SportClub.Soft
@@ -23,14 +23,14 @@ namespace SportClub.Soft
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<SportClubDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDbContext<QuantityDbContext>(options =>
+            services.AddDbContext<SportClubDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<SportClubDbContext>();
             services.AddScoped<ITrainingsRepository, TrainingsRepository>();
             services.AddRazorPages();
         }

@@ -7,6 +7,17 @@
     <RootNamespace>SportClub.Soft</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Areas\Coaches\**" />
+    <Compile Remove="Areas\Trainings\**" />
+    <Content Remove="Areas\Coaches\**" />
+    <Content Remove="Areas\Trainings\**" />
+    <EmbeddedResource Remove="Areas\Coaches\**" />
+    <EmbeddedResource Remove="Areas\Trainings\**" />
+    <None Remove="Areas\Coaches\**" />
+    <None Remove="Areas\Trainings\**" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.0.2" />
@@ -29,8 +40,12 @@
 
 
   <ItemGroup>
-    <Folder Include="Areas\Coaches\" />
-    <Folder Include="Areas\Trainings\" />
+    <Folder Include="Areas\CoachOfTraining\Pages\CoachesOfTrainings\" />
+    <Folder Include="Areas\Coach\Pages\Coaches\" />
+    <Folder Include="Areas\ParticipantOfTraining\Pages\ParticipantsOfTrainings\" />
+    <Folder Include="Areas\Participant\Pages\Participants\" />
+    <Folder Include="Areas\TrainingType\Pages\TrainingTypes\" />
+    <Folder Include="Areas\Training\Pages\Trainings\" />
   </ItemGroup>
 
 </Project>
