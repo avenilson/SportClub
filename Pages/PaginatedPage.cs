@@ -46,7 +46,7 @@ namespace SportClub.Pages
         internal async Task<List<TView>> getList() {
             var l = await db.Get();
 
-            return l.Select(toView).ToList();
+            return l.Select(ToView).ToList();
         }
     }
 }

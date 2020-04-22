@@ -1,6 +1,29 @@
-﻿namespace SportClub.Pages.ParticipantOfTraining
+﻿using SportClub.Domain.ParticipantOfTraining;
+using SportClub.Facade.ParticipantOfTraining;
+
+namespace SportClub.Pages.ParticipantOfTraining
 {
-    class ParticipantOfTrainingsPage
+    public abstract class ParticipantOfTrainingsPage : CommonPage<IParticipantOfTrainingsRepository, Domain.ParticipantOfTraining.ParticipantOfTraining, ParticipantOfTrainingView, ParticipantOfTrainingsPage>
     {
+        protected internal ParticipantOfTrainingsPage(IParticipantOfTrainingsRepository r) : base(r)
+        {
+            PageTitle = "Participant of Trainings";
+        }
+
+        public override string ItemId => Item.Id;
+
+        protected internal override string getPageUrl() => "/ParticipantOfTraining/ParticipantOfTrainings";
+
+        protected internal override Domain.ParticipantOfTraining.ParticipantOfTraining toObject(ParticipantOfTrainingView view)
+        {
+            return ParticipantOfTrainingViewFactory.Create(view);
+        }
+
+        protected internal override ParticipantOfTrainingView toView(Domain.ParticipantOfTraining.ParticipantOfTraining obj)
+        {
+            return ParticipantOfTrainingViewFactory.Create(obj);
+        }
+
     }
+
 }
