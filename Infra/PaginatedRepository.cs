@@ -3,40 +3,41 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
+using SportClub.Data.Common;
 using SportClub.Domain.Common;
 
 namespace SportClub.Infra
 {
     public abstract class PaginatedRepository<TDomain, TData>: FilteredRepository<TDomain, TData>, IPaging
-        where TData: PeriodData, new()
+        where TData: NamedEntityData, new()
         where TDomain: Entity<TData>, new()
     {
         public int PageIndex { get; set; }
-        public int TotalPages => getTotalPages(PageSize);
+        public int TotalPages => GetTotalPages(PageSize);
         public bool HasNextPage => PageIndex < TotalPages; //lk indeks peab olema vaiksem kui lk arv, siis on veel jargm lk olemas
         public bool HasPreviousPage => PageIndex > 1; //siis on eelm lk olemas
         public int PageSize { get; set; } = 5; //5 kirjet lkl
 
         protected PaginatedRepository(DbContext c, DbSet<TData> s) : base(c, s) { }
 
-        internal int getTotalPages(in int pageSize)
+        internal int GetTotalPages(in int pageSize)
         {
-            var count = getItemsCount(); //palju on kirjeid
-            var pages = countTotalPages(count, pageSize);
+            var count = GetItemsCount(); //palju on kirjeid
+            var pages = CountTotalPages(count, pageSize);
 
             return pages;
         }
 
-        internal int countTotalPages(int count, in int pageSize) //internal on nagu private, aga saab testida. keegi valjast ligi ei saa
+        internal int CountTotalPages(int count, in int pageSize) //internal on nagu private, aga saab testida. keegi valjast ligi ei saa
         {
             return (int)Math.Ceiling(count / (double)pageSize);
         }
 
-        internal int getItemsCount() => base.createSqlQuery().CountAsync().Result; //result ehk saame asunkr meetodit kutsuda valja sunkr meetodis
+        internal int GetItemsCount() => base.createSqlQuery().CountAsync().Result; //result ehk saame asunkr meetodit kutsuda valja sunkr meetodis
         
-        protected internal override IQueryable<TData> createSqlQuery() => addSkipAndTake(base.createSqlQuery()); //lisab skipi (see oli paginatedlist kirjas)
+        protected internal override IQueryable<TData> createSqlQuery() => AddSkipAndTake(base.createSqlQuery()); //lisab skipi (see oli paginatedlist kirjas)
 
-        internal IQueryable<TData> addSkipAndTake(IQueryable<TData> query)
+        internal IQueryable<TData> AddSkipAndTake(IQueryable<TData> query)
         {
             if (PageIndex < 1) return query;
             return query
