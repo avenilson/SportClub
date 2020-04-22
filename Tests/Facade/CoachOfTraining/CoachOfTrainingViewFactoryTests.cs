@@ -5,6 +5,7 @@ using SportClub.Facade.CoachOfTraining;
 
 namespace SportClub.Tests.Facade.CoachOfTraining
 {
+    [TestClass]
     public class CoachOfTrainingViewFactoryTests : BaseTests
     {
         [TestInitialize]
