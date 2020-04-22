@@ -24,19 +24,19 @@ namespace SportClub.Infra
         protected internal override IQueryable<TData> createSqlQuery()
         {
             var query = base.createSqlQuery();
-            query = addFixedFiltering(query);
-            query = addFiltering(query);
+            query = AddFixedFiltering(query);
+            query = AddFiltering(query);
 
             return query;
         }
 
-        internal IQueryable<TData> addFixedFiltering(IQueryable<TData> query)
+        internal IQueryable<TData> AddFixedFiltering(IQueryable<TData> query)
         {
-            var expression = createFixedWhereExpression();
+            var expression = CreateFixedWhereExpression();
             return expression is null ? query : query.Where(expression);
         }
 
-        internal Expression<Func<TData, bool>> createFixedWhereExpression()
+        internal Expression<Func<TData, bool>> CreateFixedWhereExpression()
         {
             if (FixedFilter is null) return null;
             if (FixedValue is null) return null;
@@ -57,14 +57,14 @@ namespace SportClub.Infra
 
         }
 
-        internal IQueryable<TData> addFiltering(IQueryable<TData> query)
+        internal IQueryable<TData> AddFiltering(IQueryable<TData> query)
         {
             if (String.IsNullOrEmpty(SearchString)) return query;
-            var expression = createWhereExpression();
+            var expression = CreateWhereExpression();
             return query.Where(expression);
         }
 
-        internal Expression<Func<TData, bool>> createWhereExpression()
+        internal Expression<Func<TData, bool>> CreateWhereExpression()
         {
             if (string.IsNullOrWhiteSpace(SearchString)) return null;
             var param = Expression.Parameter(typeof(TData), "s");
