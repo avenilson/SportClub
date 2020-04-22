@@ -5,48 +5,48 @@ namespace SportClub.Tests.Domain
     [TestClass]
     public class IsDomainTested : AssemblyTests
     {
-        private const string Assembly = "SportClub.Domain";
+        private const string assembly = "SportClub.Domain";
 
         protected override string Namespace(string name)
         {
-            return $"{Assembly}.{name}"; 
+            return $"{assembly}.{name}"; 
         }
 
         [TestMethod]
         public void IsCommonTested()
         {
-            isAllTested(Assembly, Namespace("Common")); 
+            isAllTested(assembly, Namespace("Common")); 
         }
 
         [TestMethod]
         public void IsCoachTested()
         {
-            isAllTested(Assembly, Namespace("Coach")); 
+            isAllTested(assembly, Namespace("Coach")); 
         }
         [TestMethod]
         public void IsCoachOfTrainingTested()
         {
-            isAllTested(Assembly, Namespace("CoachOfTraining")); 
+            isAllTested(assembly, Namespace("CoachOfTraining")); 
         }
         [TestMethod]
         public void IsParticipantTested()
         {
-            isAllTested(Assembly, Namespace("Participant")); 
+            isAllTested(assembly, Namespace("Participant")); 
         }
         [TestMethod]
         public void IsParticipantOfTrainingTested()
         {
-            isAllTested(Assembly, Namespace("ParticipantOfTraining")); 
+            isAllTested(assembly, Namespace("ParticipantOfTraining")); 
         }
         [TestMethod]
         public void IsTrainingTested()
         {
-            isAllTested(Assembly, Namespace("Training")); 
+            isAllTested(assembly, Namespace("Training")); 
         }
         [TestMethod]
         public void IsTrainingTypeTested()
         {
-            isAllTested(Assembly, Namespace("TrainingType")); 
+            isAllTested(assembly, Namespace("TrainingType")); 
         }
 
         [TestMethod]
