@@ -21,7 +21,7 @@ namespace SportClub.Tests.Data.Training
         [TestMethod]
         public void MaxParticipantsTest()
         {
-            IsNullableProperty(() => obj.MaxParticipants, x => obj.MaxParticipants = x);
+            IsNullableProperty(() => obj.ParticipantsCount, x => obj.ParticipantsCount = x);
         }
     }
 }

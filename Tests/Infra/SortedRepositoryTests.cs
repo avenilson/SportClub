@@ -77,19 +77,19 @@
 //            Test(data, GetMember.Name<TrainingData>(x => x.Duration));
 //            Test(data, GetMember.Name<TrainingData>(x => x.Name));
 //            Test(data, GetMember.Name<TrainingData>(x => x.Definition));
-//            Test(data, GetMember.Name<TrainingData>(x => x.MaxParticipants));
+//            Test(data, GetMember.Name<TrainingData>(x => x.ParticipantsCount));
 //        }
 //        [TestMethod]
 //        public void CreateExpressionTest()
 //        {
 //            string s;
 //            TestCreateExpression(GetMember.Name<TrainingData>(x => x.Duration));
-//            TestCreateExpression(GetMember.Name<TrainingData>(x => x.MaxParticipants));
+//            TestCreateExpression(GetMember.Name<TrainingData>(x => x.ParticipantsCount));
 //            TestCreateExpression(GetMember.Name<TrainingData>(x => x.Id));
 //            TestCreateExpression(GetMember.Name<TrainingData>(x => x.Name));
 //            TestCreateExpression(GetMember.Name<TrainingData>(x => x.Definition));
 //            TestCreateExpression(s= GetMember.Name<TrainingData>(x => x.Duration), s+obj.DescendingString);
-//            TestCreateExpression(s= GetMember.Name<TrainingData>(x => x.MaxParticipants), s + obj.DescendingString);
+//            TestCreateExpression(s= GetMember.Name<TrainingData>(x => x.ParticipantsCount), s + obj.DescendingString);
 //            TestCreateExpression(s= GetMember.Name<TrainingData>(x => x.Id), s + obj.DescendingString);
 //            TestCreateExpression(s= GetMember.Name<TrainingData>(x => x.Name), s + obj.DescendingString);
 //            TestCreateExpression(s= GetMember.Name<TrainingData>(x => x.Definition), s + obj.DescendingString);
@@ -138,12 +138,12 @@
 //            Test(null, null);
 //            Test(null, string.Empty);
 //            Test(typeof(TrainingData).GetProperty(s = GetMember.Name<TrainingData>(x => x.Name)), s);
-//            Test(typeof(TrainingData).GetProperty(s = GetMember.Name<TrainingData>(x => x.MaxParticipants)), s);
+//            Test(typeof(TrainingData).GetProperty(s = GetMember.Name<TrainingData>(x => x.ParticipantsCount)), s);
 //            Test(typeof(TrainingData).GetProperty(s = GetMember.Name<TrainingData>(x => x.Definition)), s);
 //            Test(typeof(TrainingData).GetProperty(s = GetMember.Name<TrainingData>(x => x.Duration)), s);
 //            Test(typeof(TrainingData).GetProperty(s = GetMember.Name<TrainingData>(x => x.Id)), s);
 //            Test(typeof(TrainingData).GetProperty(s = GetMember.Name<TrainingData>(x => x.Name)), s+obj.DescendingString);
-//            Test(typeof(TrainingData).GetProperty(s = GetMember.Name<TrainingData>(x => x.MaxParticipants)), s + obj.DescendingString);
+//            Test(typeof(TrainingData).GetProperty(s = GetMember.Name<TrainingData>(x => x.ParticipantsCount)), s + obj.DescendingString);
 //            Test(typeof(TrainingData).GetProperty(s = GetMember.Name<TrainingData>(x => x.Definition)), s + obj.DescendingString);
 //            Test(typeof(TrainingData).GetProperty(s = GetMember.Name<TrainingData>(x => x.Duration)), s + obj.DescendingString);
 //            Test(typeof(TrainingData).GetProperty(s = GetMember.Name<TrainingData>(x => x.Id)), s + obj.DescendingString);
@@ -186,7 +186,7 @@
 //            Test(data, x => x.Duration, "x => x.Duration");
 //            Test(data, x => x.Name, "x => x.Name");
 //            Test(data, x => x.Definition, "x => x.Definition");
-//            Test(data, x => x.MaxParticipants, "x => x.MaxParticipants");
+//            Test(data, x => x.ParticipantsCount, "x => x.ParticipantsCount");
 //        }
 //        [TestMethod]
 //        public void IsDescendingTest()

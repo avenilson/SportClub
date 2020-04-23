@@ -6,6 +6,6 @@ namespace SportClub.Data.Training
     {
         public string Definition { get; set; }
         public string Duration { get; set; }
-        public string MaxParticipants { get; set; }
+        public string ParticipantsCount { get; set; }
     }
 }
