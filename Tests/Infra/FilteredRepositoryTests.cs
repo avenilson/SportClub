@@ -53,24 +53,24 @@ namespace SportClub.Tests.Infra
         public void FixedValueTest()
             => IsNullableProperty(() => obj.FixedValue, x => obj.FixedValue = x);
 
-        [TestMethod]
-        public void CreateSqlQueryTest()
-        {
-            var sql = obj.createSqlQuery();
-            Assert.IsNotNull(sql);
-        }
+        //[TestMethod]
+        //public void CreateSqlQueryTest()
+        //{
+        //    var sql = obj.createSqlQuery();
+        //    Assert.IsNotNull(sql);
+        //}
 
-        [TestMethod]
-        public void AddFixedFilteringTest()
-        {
-            var sql = obj.createSqlQuery();
-            var fixedFilter = GetMember.Name<TrainingData>(x => x.Definition);
-            obj.FixedFilter = fixedFilter;
-            var fixedValue = GetRandom.String();
-            obj.FixedValue = fixedValue;
-            var sqlNew = obj.AddFixedFiltering(sql);
-            Assert.IsNotNull(sqlNew);
-        }
+        //[TestMethod]
+        //public void AddFixedFilteringTest()
+        //{
+        //    var sql = obj.createSqlQuery();
+        //    var fixedFilter = GetMember.Name<TrainingData>(x => x.Definition);
+        //    obj.FixedFilter = fixedFilter;
+        //    var fixedValue = GetRandom.String();
+        //    obj.FixedValue = fixedValue;
+        //    var sqlNew = obj.AddFixedFiltering(sql);
+        //    Assert.IsNotNull(sqlNew);
+        //}
 
         [TestMethod]
         public void CreateFixedWhereExpressionTest()
@@ -101,15 +101,15 @@ namespace SportClub.Tests.Infra
             Assert.IsNull(obj.CreateFixedWhereExpression());
         }
 
-        [TestMethod]
-        public void AddFilteringTest()
-        {
-            var sql = obj.createSqlQuery();
-            var searchString = GetRandom.String();
-            obj.SearchString = searchString;
-            var sqlNew = obj.AddFiltering(sql);
-            Assert.IsNotNull(sqlNew);
-        }
+        //[TestMethod]
+        //public void AddFilteringTest()
+        //{
+        //    var sql = obj.createSqlQuery();
+        //    var searchString = GetRandom.String();
+        //    obj.SearchString = searchString;
+        //    var sqlNew = obj.AddFiltering(sql);
+        //    Assert.IsNotNull(sqlNew);
+        //}
 
         [TestMethod]
         public void CreateWhereExpressionTest()

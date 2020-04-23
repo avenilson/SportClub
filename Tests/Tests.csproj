@@ -26,12 +26,6 @@
     <Folder Include="Facade\Participant\" />
     <Folder Include="Facade\TrainingType\" />
     <Folder Include="Facade\Training\" />
-    <Folder Include="Infra\CoachOfTraining\" />
-    <Folder Include="Infra\Coach\" />
-    <Folder Include="Infra\ParticipantOfTraining\" />
-    <Folder Include="Infra\Participant\" />
-    <Folder Include="Infra\TrainingType\" />
-    <Folder Include="Infra\Training\" />
     <Folder Include="Data\" />
     <Folder Include="Pages\CoachOfTraining\" />
     <Folder Include="Pages\ParticipantOfTraining\" />
