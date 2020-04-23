@@ -19,7 +19,7 @@ namespace SportClub.Tests.Data.Training
         }
 
         [TestMethod]
-        public void ParticipantsTest()
+        public void ParticipantsCountTest()
         {
             IsNullableProperty(() => obj.ParticipantsCount, x => obj.ParticipantsCount = x);
         }
