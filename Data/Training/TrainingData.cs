@@ -5,7 +5,7 @@ namespace SportClub.Data.Training
     public sealed class TrainingData:NamedEntityData
     {
         public string Definition { get; set; }
-        public int Duration { get; set; }
-        public int MaxParticipants { get; set; }
+        public string Duration { get; set; }
+        public string MaxParticipants { get; set; }
     }
 }
