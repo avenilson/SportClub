@@ -68,16 +68,14 @@ namespace SportClub.Infra
             if (e is null) return query;
             try
             {
-                return IsDecending() ? query.OrderByDescending(e) : query.OrderBy(e);
+                return IsDescending() ? query.OrderByDescending(e) : query.OrderBy(e);
             }
             catch
             {
                 return query;
             }
         }
-
-
-        internal bool IsDecending() => !string.IsNullOrEmpty(SortOrder) && SortOrder.EndsWith(DescendingString);
+        public bool IsDescending() => !string.IsNullOrEmpty(SortOrder) && SortOrder.EndsWith(DescendingString);
 
     }
 }
