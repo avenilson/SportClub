@@ -10,14 +10,15 @@ namespace SportClub.Infra
 {
     public class SportClubDbContext : DbContext
     {
+        public SportClubDbContext(DbContextOptions<SportClubDbContext> options)
+            : base(options) { }
+        
         public DbSet<CoachData> Coaches { get; set; }
         public DbSet<CoachOfTrainingData> CoachesOfTrainings { get; set; }
         public DbSet<ParticipantData> Participants { get; set; }
         public DbSet<ParticipantOfTrainingData> ParticipantsOfTrainings { get; set; }
         public DbSet<TrainingData> Trainings { get; set; }
         public DbSet<TrainingTypeData> TrainingTypes { get; set; }
-        public SportClubDbContext(DbContextOptions<SportClubDbContext> options)
-            : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
