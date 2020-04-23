@@ -9,9 +9,9 @@ namespace SportClub.Facade.Training
         [Required]
         [DisplayName("Training")]
 
-        public int Duration { get; set; }
+        public string Duration { get; set; }
         public string Definition { get; set; }
-        public int ParticipantsCount { get; set; }
+        public string ParticipantsCount { get; set; }
 
     }
 }

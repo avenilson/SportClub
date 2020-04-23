@@ -9,7 +9,7 @@ namespace SportClub.Facade.Participant
         [Required]
         [DisplayName("Participant")]
 
-        public int Age { get; set; }
+        public string Age { get; set; }
         public string Address { get; set; }
 
     }
