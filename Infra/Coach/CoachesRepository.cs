@@ -7,6 +7,6 @@ namespace SportClub.Infra.Coach
     {
         public CoachesRepository(SportClubDbContext c) : base(c, c.Coaches) { }
 
-        protected internal override Domain.Coach.Coach ToDomainObject(CoachData d) => new Domain.Coach.Coach(d);
+        protected override Domain.Coach.Coach ToDomainObject(CoachData d) => new Domain.Coach.Coach(d);
     }
 }

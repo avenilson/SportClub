@@ -30,7 +30,7 @@ namespace SportClub.Infra
         internal List<TDomain> ToDomainObjectsList(List<TData> set)
             => set.Select(ToDomainObject).ToList();
 
-        protected internal abstract TDomain ToDomainObject(TData periodData);
+        protected abstract TDomain ToDomainObject(TData namedEntityData);
 
         internal async Task<List<TData>> RunSqlQueryAsync(IQueryable<TData> query)
             => await query.AsNoTracking().ToListAsync();

@@ -12,7 +12,7 @@ namespace SportClub.Infra.ParticipantOfTraining
         public ParticipantOfTrainingsRepository() : this(null) { }
         public ParticipantOfTrainingsRepository(SportClubDbContext c) : base(c, c?.ParticipantsOfTrainings) { }
 
-        protected internal override Domain.ParticipantOfTraining.ParticipantOfTraining ToDomainObject(ParticipantOfTrainingData d) => new Domain.ParticipantOfTraining.ParticipantOfTraining(d);
+        protected override Domain.ParticipantOfTraining.ParticipantOfTraining ToDomainObject(ParticipantOfTrainingData d) => new Domain.ParticipantOfTraining.ParticipantOfTraining(d);
 
         protected override async Task<ParticipantOfTrainingData> getData(string id)
         {

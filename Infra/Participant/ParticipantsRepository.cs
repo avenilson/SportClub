@@ -7,6 +7,6 @@ namespace SportClub.Infra.Participant
     {
         public ParticipantsRepository(SportClubDbContext c) : base(c, c.Participants) { }
 
-        protected internal override Domain.Participant.Participant ToDomainObject(ParticipantData d) => new Domain.Participant.Participant(d);
+        protected override Domain.Participant.Participant ToDomainObject(ParticipantData d) => new Domain.Participant.Participant(d);
     }
 }

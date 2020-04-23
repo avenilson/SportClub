@@ -7,6 +7,6 @@ namespace SportClub.Infra.Training
     {
         public TrainingsRepository(SportClubDbContext c) : base(c, c.Trainings) { }
 
-        protected internal override Domain.Training.Training ToDomainObject(TrainingData d) => new Domain.Training.Training(d);
+        protected override Domain.Training.Training ToDomainObject(TrainingData d) => new Domain.Training.Training(d);
     }
 }

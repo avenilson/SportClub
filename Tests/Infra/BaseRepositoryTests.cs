@@ -19,7 +19,7 @@ namespace SportClub.Tests.Infra
 
             public TestClass(DbContext c, DbSet<TrainingData> s) : base(c, s) { }
 
-            protected internal override Training ToDomainObject(TrainingData d) => new Training(d);
+            protected override Training ToDomainObject(TrainingData d) => new Training(d);
 
             protected override async Task<TrainingData> getData(string id)
             {
