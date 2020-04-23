@@ -8,19 +8,16 @@ namespace SportClub.Pages.Extensions
 {
     public static class DisabledControlsForHtmlExtension
     {
-        public static IHtmlContent DisabledControlsFor<TClassType, TPropertyType>
-        (this IHtmlHelper<TClassType> htmlHelper,
-            Expression<Func<TClassType, TPropertyType>> expression)
+        public static IHtmlContent DisabledControlsFor<TModel, TResult>(
+            this IHtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TResult>> expression)
         {
 
-            var s = htmlString(htmlHelper, expression);
+            var s = htmlStrings(htmlHelper, expression);
 
             return new HtmlContentBuilder(s);
         }
 
-        internal static List<object> htmlString<TClassType, TPropertyType>(
-            IHtmlHelper<TClassType> htmlHelper,
-            Expression<Func<TClassType, TPropertyType>> expression)
+        public static List<object> htmlStrings<TModel, TResult>(IHtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TResult>> expression)
         {
             return new List<object> {
                 new HtmlString("<div class=\"form-group\">"),

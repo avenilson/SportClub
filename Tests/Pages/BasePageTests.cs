@@ -6,33 +6,43 @@
 //using SportClub.Facade.Training;
 //using SportClub.Pages;
 
-//namespace SportClub.Tests.Pages {
+//namespace SportClub.Tests.Pages
+//{
 
 //    [TestClass]
 //    public class BasePageTests : AbstractPageTests<BasePage<ITrainingsRepository, SportClub.Domain.Training.Training, TrainingView, TrainingData>,
-//        PageModel> {
+//        PageModel>
+//    {
 
 
-//        [TestInitialize] public override void TestInitialize() {
+//        [TestInitialize]
+//        public override void TestInitialize()
+//        {
 //            base.TestInitialize();
 //            obj = new TestClass(db);
 //        }
 
-//        [TestMethod] public void FixedValueTest() {
+//        [TestMethod]
+//        public void FixedValueTest()
+//        {
 //            var s = GetRandom.String();
 //            obj.FixedValue = s;
 //            Assert.AreEqual(s, db.FixedValue);
 //            Assert.AreEqual(s, obj.FixedValue);
 //        }
 
-//        [TestMethod] public void FixedFilterTest() {
+//        [TestMethod]
+//        public void FixedFilterTest()
+//        {
 //            var s = GetRandom.String();
 //            obj.FixedFilter = s;
 //            Assert.AreEqual(s, db.FixedFilter);
 //            Assert.AreEqual(s, obj.FixedFilter);
 //        }
 
-//        [TestMethod] public void SetFixedFilterTest() {
+//        [TestMethod]
+//        public void SetFixedFilterTest()
+//        {
 //            var filter = GetRandom.String();
 //            var value = GetRandom.String();
 //            obj.setFixedFilter(filter, value);
@@ -40,15 +50,20 @@
 //            Assert.AreEqual(value, obj.FixedValue);
 //        }
 
-//        [TestMethod] public void SortOrderTest() {
+//        [TestMethod]
+//        public void SortOrderTest()
+//        {
 //            var s = GetRandom.String();
 //            obj.SortOrder = s;
 //            Assert.AreEqual(s, db.SortOrder);
 //            Assert.AreEqual(s, obj.SortOrder);
 //        }
 
-//        [TestMethod] public void GetSortOrderTest() {
-//            void test(string sortOrder, string name, bool isDesc) {
+//        [TestMethod]
+//        public void GetSortOrderTest()
+//        {
+//            void test(string sortOrder, string name, bool isDesc)
+//            {
 //                obj.SortOrder = sortOrder;
 //                var actual = obj.getSortOrder(name);
 //                var expected = isDesc ? name + "_desc" : name;
@@ -58,30 +73,37 @@
 //            test(GetRandom.String(), GetRandom.String(), false);
 //            var s = GetRandom.String();
 //            test(s, s, true);
-//            test(s+"_desc", s, false);
+//            test(s + "_desc", s, false);
 //        }
 
-//        [TestMethod] public void SearchStringTest() {
+//        [TestMethod]
+//        public void SearchStringTest()
+//        {
 //            var s = GetRandom.String();
 //            obj.SearchString = s;
 //            Assert.AreEqual(s, db.SearchString);
 //            Assert.AreEqual(s, obj.SearchString);
 //        }
 
-//        [TestMethod] public void GetSortStringTest() {
+//        [TestMethod]
+//        public void GetSortStringTest()
+//        {
 //            const string page = "xxx/yyy";
 //            obj.SortOrder = "Code";
 //            obj.SearchString = "AAA";
 //            obj.FixedFilter = "BBB";
 //            obj.FixedValue = "CCC";
-//            var sortString = obj.GetSortString(x=>x.Code, page);
+//            var sortString = obj.GetSortString(x => x.Code, page);
 //            var s = "xxx/yyy?sortOrder=Code_desc&currentFilter=AAA&fixedFilter=BBB&fixedValue=CCC";
 //            Assert.AreEqual(s, sortString);
 //        }
 
-//        [TestMethod] public void GetSearchStringTest() {
-//            void test(string filter, string searchString, int? pageIndex, bool isFirst) {
-//                var expectedSearchString = isFirst ? searchString: filter;
+//        [TestMethod]
+//        public void GetSearchStringTest()
+//        {
+//            void test(string filter, string searchString, int? pageIndex, bool isFirst)
+//            {
+//                var expectedSearchString = isFirst ? searchString : filter;
 //                var expectedIndex = isFirst ? 1 : pageIndex;
 //                var actual = BasePage<ITrainingsRepository, SportClub.Domain.Training.Training, TrainingView, TrainingData>.getSearchString(filter, searchString, ref pageIndex);
 //                Assert.AreEqual(expectedSearchString, actual);
