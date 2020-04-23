@@ -9,5 +9,7 @@ namespace SportClub.Tests.Facade.TrainingType
     {
         [TestMethod]
         public void TypeTest() => IsNullableProperty(() => obj.Type, x => obj.Type = x);
+        [TestMethod]
+        public void DefinitionTest() => IsNullableProperty(() => obj.Definition, x => obj.Definition = x);
     }
 }
