@@ -124,20 +124,20 @@ namespace SportClub.Tests.Infra
                 obj.Add(new Training(GetRandom.Object<TrainingData>())).GetAwaiter();
         }
 
-        [TestMethod]
-        public void CreateSqlQueryTest()
-        {
-            var o = obj.createSqlQuery();
-            Assert.IsNotNull(o);
-        }
+        //[TestMethod]
+        //public void CreateSqlQueryTest()
+        //{
+        //    var o = obj.createSqlQuery();
+        //    Assert.IsNotNull(o);
+        //}
 
-        [TestMethod]
-        public void AddSkipAndTakeTest()
-        {
-            var sql = obj.createSqlQuery();
-            var o = obj.AddSkipAndTake(sql);
-            Assert.IsNotNull(o);
-        }
+        //[TestMethod]
+        //public void AddSkipAndTakeTest()
+        //{
+        //    var sql = obj.createSqlQuery();
+        //    var o = obj.AddSkipAndTake(sql);
+        //    Assert.IsNotNull(o);
+        //}
     }
 }
 
