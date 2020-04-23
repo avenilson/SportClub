@@ -9,5 +9,9 @@ namespace SportClub.Facade.TrainingType
         [Required]
         [DisplayName("Training Type")]
         public string Type { get; set; }
+
+        [Required]
+        [DisplayName("Definition")]
+        public string Definition { get; set; }
     }
 }
