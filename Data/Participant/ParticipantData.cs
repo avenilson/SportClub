@@ -4,7 +4,7 @@ namespace SportClub.Data.Participant
 {
     public sealed class ParticipantData: NamedEntityData
     {
-        public string Age { get; set; }
+        public int Age { get; set; }
         public string Address { get; set; }
     }
 }
