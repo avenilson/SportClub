@@ -14,7 +14,7 @@ namespace SportClub.Tests.Facade.Training
         public void DefinitionTest() => IsNullableProperty(() => obj.Definition, x => obj.Definition = x);
         
         [TestMethod]
-        public void MaxParticipantsTest() => IsProperty(() => obj.MaxParticipants, x => obj.MaxParticipants = x);
+        public void ParticipantsCountTest() => IsProperty(() => obj.ParticipantsCount, x => obj.ParticipantsCount = x);
 
     }
 }

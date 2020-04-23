@@ -11,7 +11,7 @@ namespace SportClub.Facade.Training
 
         public int Duration { get; set; }
         public string Definition { get; set; }
-        public int MaxParticipants { get; set; }
+        public int ParticipantsCount { get; set; }
 
     }
 }
