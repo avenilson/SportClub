@@ -76,20 +76,9 @@ namespace SportClub.Tests.Pages
             Assert.AreEqual(1, obj.PageIndex);
         }
 
-        //[TestMethod]
-        //public void GetListNoArgumentsTest()
-        //{
-        //    var l = obj.GetList().GetAwaiter().GetResult();
-        //    Assert.AreEqual(0, l.Count);
-
-        //    for (var i = 0; i < GetRandom.UInt8(); i++)
-        //    {
-        //        var d = GetRandom.Object<TrainingData>();
-        //        db.Add(new SportClub.Domain.Training.Training(d)).GetAwaiter();
-        //        l = obj.GetList().GetAwaiter().GetResult();
-        //        Assert.AreEqual(i + 1, l.Count);
-        //    }
-        //}
+        [TestMethod] public void SelectedIdTest() {
+            IsNullableProperty(()=>obj.SelectedId, x => obj.SelectedId = x);
+        }
 
     }
 

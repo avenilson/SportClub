@@ -9,7 +9,7 @@ using SportClub.Pages.Participant;
 namespace SportClub.Tests.Pages.Participant
 {
     [TestClass]
-    public class ParticipantPageTests : AbstractClassTests
+    public class ParticipantsPageTests : AbstractClassTests
         <ParticipantsPage, CommonPage<IParticipantsRepository, SportClub.Domain.Participant.Participant, ParticipantView, ParticipantData>>
     {
         private class TestClass : ParticipantsPage

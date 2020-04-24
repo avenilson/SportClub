@@ -20,5 +20,6 @@ namespace SportClub.Tests.Pages.Extensions
         [TestMethod] public void  TrainingPageTitleTest() => Assert.AreEqual( "Trainings", Constants.TrainingPageTitle);
         [TestMethod] public void  TrainingTypesPageTitleTest() => Assert.AreEqual( "Training Types", Constants.TrainingTypesPageTitle);
         [TestMethod] public void DeleteLinkTitleTest() => Assert.AreEqual( "Delete", Constants.DeleteLinkTitle);
+        [TestMethod] public void SelectLinkTitleTest() => Assert.AreEqual( "Select", Constants.SelectLinkTitle);
     }
 }

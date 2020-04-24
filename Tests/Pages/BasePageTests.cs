@@ -84,18 +84,18 @@ namespace SportClub.Tests.Pages
             Assert.AreEqual(s, obj.SearchString);
         }
 
-        //[TestMethod]
-        //public void GetSortStringTest()
-        //{
-        //    const string page = "xxx/yyy";
-        //    obj.SortOrder = "Code";
-        //    obj.SearchString = "AAA";
-        //    obj.FixedFilter = "BBB";
-        //    obj.FixedValue = "CCC";
-        //    var sortString = obj.GetSortString(x => x.Code, page);
-        //    var s = "xxx/yyy?sortOrder=Code_desc&currentFilter=AAA&fixedFilter=BBB&fixedValue=CCC";
-        //    Assert.AreEqual(s, sortString);
-        //}
+        [TestMethod]
+        public void GetSortStringTest()
+        {
+            const string page = "xxx/yyy";
+            obj.SortOrder = "Name";
+            obj.SearchString = "AAA";
+            obj.FixedFilter = "BBB";
+            obj.FixedValue = "CCC";
+            var sortString = obj.GetSortString(x => x.Name, page);
+            var s = "xxx/yyy?sortOrder=Name_desc&currentFilter=AAA&fixedFilter=BBB&fixedValue=CCC";
+            Assert.AreEqual(s, sortString);
+        }
 
         [TestMethod]
         public void GetSearchStringTest()

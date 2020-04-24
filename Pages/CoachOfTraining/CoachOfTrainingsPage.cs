@@ -10,7 +10,6 @@ namespace SportClub.Pages.CoachOfTraining
         {
             PageTitle = "Coach Of Trainings";
         }
-
         public override string ItemId => Item.Id;
 
         public override string GetPageUrl() => "/CoachOfTraining/CoachOfTrainings";

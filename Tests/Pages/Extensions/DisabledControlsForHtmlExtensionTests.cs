@@ -19,7 +19,7 @@ namespace SportClub.Tests.Pages.Extensions
             Assert.IsInstanceOfType(obj, typeof(HtmlContentBuilder));
         }
         [TestMethod]
-        public void HtmlStringsTest()
+        public void htmlStringsTest()
         {
             var expected = new List<string> { "<div", "<fieldset disabled>", "LabelFor", "EditorFor", "ValidationMessageFor", "</fieldset>", "</div" };
             var actual = DisabledControlsForHtmlExtension.htmlStrings(new HtmlHelperMock<TrainingView>(), x => x.Duration);

@@ -9,7 +9,7 @@ using SportClub.Pages.Training;
 namespace SportClub.Tests.Pages.Training
 {
     [TestClass]
-    public class TrainingPageTests : AbstractClassTests
+    public class TrainingsPageTests : AbstractClassTests
         <TrainingsPage, CommonPage<ITrainingsRepository, SportClub.Domain.Training.Training, TrainingView, TrainingData>>
     {
         private class TestClass : TrainingsPage

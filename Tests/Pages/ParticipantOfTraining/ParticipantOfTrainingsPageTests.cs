@@ -9,8 +9,8 @@ using SportClub.Pages.ParticipantOfTraining;
 namespace SportClub.Tests.Pages.ParticipantOfTraining
 {
     [TestClass]
-    public class ParticipantOfTrainingPageTests : AbstractClassTests
-        <ParticipantsPage, CommonPage<IParticipantOfTrainingsRepository, SportClub.Domain.ParticipantOfTraining.ParticipantOfTraining, ParticipantOfTrainingView, ParticipantOfTrainingData>>
+    public class ParticipantOfTrainingsPageTests : AbstractClassTests
+        <ParticipantOfTrainingsPage, CommonPage<IParticipantOfTrainingsRepository, SportClub.Domain.ParticipantOfTraining.ParticipantOfTraining, ParticipantOfTrainingView, ParticipantOfTrainingData>>
     {
         private class TestClass : ParticipantOfTrainingsPage
         {

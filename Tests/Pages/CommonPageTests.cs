@@ -41,7 +41,7 @@ namespace SportClub.Tests.Pages
         }
 
         [TestMethod]
-        public void GetPageSubtitleTest()
+        public void GetPageSubTitleTest()
         {
             Assert.AreEqual(obj.PageSubTitle, obj.GetPageSubTitle());
         }
