@@ -27,10 +27,6 @@
     <Folder Include="Facade\TrainingType\" />
     <Folder Include="Facade\Training\" />
     <Folder Include="Data\" />
-    <Folder Include="Pages\CoachOfTraining\" />
-    <Folder Include="Pages\ParticipantOfTraining\" />
-    <Folder Include="Pages\Participant\" />
-    <Folder Include="Pages\TrainingType\" />
   </ItemGroup>
 
   <ItemGroup>

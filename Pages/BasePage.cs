@@ -33,7 +33,7 @@ namespace SportClub.Pages
             set => db.FixedFilter = value;
         }
 
-        protected internal void SetFixedFilter(string fixedFilter, string fixedValue) {
+        public void SetFixedFilter(string fixedFilter, string fixedValue) {
             FixedFilter = fixedFilter;
             FixedValue = fixedValue;
         }
@@ -48,7 +48,7 @@ namespace SportClub.Pages
                    + $"&fixedFilter={FixedFilter}&fixedValue={FixedValue}";
         }
 
-        internal string GetSortOrder(string name) {
+        public string GetSortOrder(string name) {
             if (string.IsNullOrEmpty(SortOrder)) return name;
             if (!SortOrder.StartsWith(name)) return name;
             if (SortOrder.EndsWith("_desc")) return name;
@@ -56,7 +56,7 @@ namespace SportClub.Pages
             return name + "_desc";
         }
 
-        internal static string
+        public static string
             GetSearchString(string currentFilter, string searchString, ref int? pageIndex) {
             if (searchString != null) { pageIndex = 1; }
             else { searchString = currentFilter; }

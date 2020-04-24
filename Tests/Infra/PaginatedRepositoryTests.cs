@@ -10,19 +10,19 @@ using SportClub.Infra;
 namespace SportClub.Tests.Infra
 {
     [TestClass]
-    public class PaginatedRepositoryTests : AbstractClassTests<PaginatedRepository<Training, TrainingData>,
-        FilteredRepository<Training, TrainingData>>
+    public class PaginatedRepositoryTests : AbstractClassTests<PaginatedRepository<SportClub.Domain.Training.Training, TrainingData>,
+        FilteredRepository<SportClub.Domain.Training.Training, TrainingData>>
     {
-        private class testClass : PaginatedRepository<Training, TrainingData>
+        private class testClass : PaginatedRepository<SportClub.Domain.Training.Training, TrainingData>
         {
 
             public testClass(DbContext c, DbSet<TrainingData> s) : base(c, s) { }
 
-            protected override Training ToDomainObject(TrainingData d) => new Training(d);
+            protected override SportClub.Domain.Training.Training ToDomainObject(TrainingData d) => new SportClub.Domain.Training.Training(d);
 
             protected override async Task<TrainingData> getData(string id) => await dbSet.FirstOrDefaultAsync(m => m.Id == id);
 
-            protected override string getId(Training entity) => entity?.Data?.Id;
+            protected override string getId(SportClub.Domain.Training.Training entity) => entity?.Data?.Id;
 
         }
 
@@ -121,7 +121,7 @@ namespace SportClub.Tests.Infra
         private void addItems()
         {
             for (var i = 0; i < count; i++)
-                obj.Add(new Training(GetRandom.Object<TrainingData>())).GetAwaiter();
+                obj.Add(new SportClub.Domain.Training.Training(GetRandom.Object<TrainingData>())).GetAwaiter();
         }
 
         //[TestMethod]

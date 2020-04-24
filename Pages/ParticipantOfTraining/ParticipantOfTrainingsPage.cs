@@ -7,19 +7,19 @@ namespace SportClub.Pages.ParticipantOfTraining
     {
         protected internal ParticipantOfTrainingsPage(IParticipantOfTrainingsRepository r) : base(r)
         {
-            PageTitle = "Participant of Trainings";
+            PageTitle = "Participant Of Trainings";
         }
 
         public override string ItemId => Item.Id;
 
-        protected internal override string GetPageUrl() => "/ParticipantOfTraining/ParticipantOfTrainings";
+        public override string GetPageUrl() => "/ParticipantOfTraining/ParticipantOfTrainings";
 
-        protected internal override Domain.ParticipantOfTraining.ParticipantOfTraining ToObject(ParticipantOfTrainingView view)
+        public override Domain.ParticipantOfTraining.ParticipantOfTraining ToObject(ParticipantOfTrainingView view)
         {
             return ParticipantOfTrainingViewFactory.Create(view);
         }
 
-        protected internal override ParticipantOfTrainingView ToView(Domain.ParticipantOfTraining.ParticipantOfTraining obj)
+        public override ParticipantOfTrainingView ToView(Domain.ParticipantOfTraining.ParticipantOfTraining obj)
         {
             return ParticipantOfTrainingViewFactory.Create(obj);
         }

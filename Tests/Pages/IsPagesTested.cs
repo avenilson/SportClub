@@ -24,11 +24,30 @@ namespace SportClub.Tests.Pages
             isAllTested(assembly, Namespace("Coach")); 
         }
         [TestMethod]
+        public void IsCoachOfTrainingTested()
+        {
+            isAllTested(assembly, Namespace("CoachOfTraining")); 
+        }
+        [TestMethod]
+        public void IsParticipantTested()
+        {
+            isAllTested(assembly, Namespace("Participant")); 
+        }
+        [TestMethod]
+        public void IsParticipantOfTrainingTested()
+        {
+            isAllTested(assembly, Namespace("ParticipantOfTraining")); 
+        }
+        [TestMethod]
         public void IsTrainingTested()
         {
             isAllTested(assembly, Namespace("Training")); 
         }
-
+        [TestMethod]
+        public void IsTrainingTypeTested()
+        {
+            isAllTested(assembly, Namespace("TrainingType")); 
+        }
         [TestMethod]
         public void IsTested()
         {

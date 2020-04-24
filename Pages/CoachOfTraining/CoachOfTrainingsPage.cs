@@ -8,19 +8,19 @@ namespace SportClub.Pages.CoachOfTraining
     {
         protected internal CoachOfTrainingsPage(ICoachOfTrainingsRepository r) : base(r)
         {
-            PageTitle = "Coach of Trainings";
+            PageTitle = "Coach Of Trainings";
         }
 
         public override string ItemId => Item.Id;
 
-        protected internal override string GetPageUrl() => "/CoachOfTraining/CoachOfTrainings";
+        public override string GetPageUrl() => "/CoachOfTraining/CoachOfTrainings";
 
-        protected internal override Domain.CoachOfTraining.CoachOfTraining ToObject(CoachOfTrainingView view)
+        public override Domain.CoachOfTraining.CoachOfTraining ToObject(CoachOfTrainingView view)
         {
             return CoachOfTrainingViewFactory.Create(view);
         }
 
-        protected internal override CoachOfTrainingView ToView(Domain.CoachOfTraining.CoachOfTraining obj)
+        public override CoachOfTrainingView ToView(Domain.CoachOfTraining.CoachOfTraining obj)
         {
             return CoachOfTrainingViewFactory.Create(obj);
         }

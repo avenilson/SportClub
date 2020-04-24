@@ -1,6 +1,10 @@
-﻿using SportClub.Data.Coach;
+﻿using System.Collections.Generic;
+using SportClub.Aids;
+using SportClub.Data.Coach;
 using SportClub.Domain.Coach;
+using SportClub.Domain.CoachOfTraining;
 using SportClub.Facade.Coach;
+using SportClub.Facade.CoachOfTraining;
 
 namespace SportClub.Pages.Coach
 {
@@ -13,19 +17,18 @@ namespace SportClub.Pages.Coach
 
         public override string ItemId => Item.Id;
 
-        protected internal override string GetPageUrl() => "/Coach/Coaches";
+        public override string GetPageUrl() => "/Coach/Coaches";
 
-        protected internal override Domain.Coach.Coach ToObject(CoachView view)
+        public override Domain.Coach.Coach ToObject(CoachView view)
         {
             return CoachViewFactory.Create(view);
         }
 
-        protected internal override CoachView ToView(Domain.Coach.Coach obj)
+        public override CoachView ToView(Domain.Coach.Coach obj)
         {
             return CoachViewFactory.Create(obj);
         }
 
 
     }
-
 }

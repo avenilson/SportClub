@@ -10,23 +10,23 @@ namespace SportClub.Tests.Infra
 {
 
     [TestClass]
-    public class BaseRepositoryTests : AbstractClassTests<BaseRepository<Training, TrainingData>, object>
+    public class BaseRepositoryTests : AbstractClassTests<BaseRepository<SportClub.Domain.Training.Training, TrainingData>, object>
     {
         private TrainingData data;
 
-        private class TestClass : BaseRepository<Training, TrainingData>
+        private class TestClass : BaseRepository<SportClub.Domain.Training.Training, TrainingData>
         {
 
             public TestClass(DbContext c, DbSet<TrainingData> s) : base(c, s) { }
 
-            protected override Training ToDomainObject(TrainingData d) => new Training(d);
+            protected override SportClub.Domain.Training.Training ToDomainObject(TrainingData d) => new SportClub.Domain.Training.Training(d);
 
             protected override async Task<TrainingData> getData(string id)
             {
                 return await dbSet.FirstOrDefaultAsync(m => m.Id == id);
             }
 
-            protected override string getId(Training entity) => entity?.Data?.Id;
+            protected override string getId(SportClub.Domain.Training.Training entity) => entity?.Data?.Id;
 
         }
 
@@ -74,7 +74,7 @@ namespace SportClub.Tests.Infra
         {
             var expected = obj.Get(data.Id).GetAwaiter().GetResult();
             Assert.IsNull(expected.Data);
-            obj.Add(new Training(data)).GetAwaiter();
+            obj.Add(new SportClub.Domain.Training.Training(data)).GetAwaiter();
             expected = obj.Get(data.Id).GetAwaiter().GetResult();
             TestArePropertyValuesEqual(data, expected.Data);
         }
@@ -85,7 +85,7 @@ namespace SportClub.Tests.Infra
             AddTest();
             var newData = GetRandom.Object<TrainingData>();
             newData.Id = data.Id;
-            obj.Update(new Training(newData)).GetAwaiter();
+            obj.Update(new SportClub.Domain.Training.Training(newData)).GetAwaiter();
             var expected = obj.Get(data.Id).GetAwaiter().GetResult();
             TestArePropertyValuesEqual(newData, expected.Data);
         }

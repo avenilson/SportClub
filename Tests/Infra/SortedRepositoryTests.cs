@@ -13,13 +13,13 @@ using SportClub.Infra;
 namespace SportClub.Tests.Infra
 {
     [TestClass]
-    public class SortedRepositoryTests : AbstractClassTests<SortedRepository<Training, TrainingData>, BaseRepository<Training, TrainingData>>
+    public class SortedRepositoryTests : AbstractClassTests<SortedRepository<SportClub.Domain.Training.Training, TrainingData>, BaseRepository<SportClub.Domain.Training.Training, TrainingData>>
     {
-        private class TestClass : SortedRepository<Training, TrainingData>
+        private class TestClass : SortedRepository<SportClub.Domain.Training.Training, TrainingData>
         {
             public TestClass(DbContext c, DbSet<TrainingData> s) : base(c, s) { }
 
-            protected override Training ToDomainObject(TrainingData d) => new Training(d);
+            protected override SportClub.Domain.Training.Training ToDomainObject(TrainingData d) => new SportClub.Domain.Training.Training(d);
 
             protected override async Task<TrainingData> getData(string id)
             {
@@ -27,7 +27,7 @@ namespace SportClub.Tests.Infra
                 return new TrainingData();
             }
 
-            protected override string getId(Training entity) => entity?.Data?.Id;
+            protected override string getId(SportClub.Domain.Training.Training entity) => entity?.Data?.Id;
         }
 
         [TestInitialize]

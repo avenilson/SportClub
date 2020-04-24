@@ -13,15 +13,15 @@ namespace SportClub.Pages.Training
            
         }
         public override string ItemId => Item.Id;
-        
-        protected internal override string GetPageUrl() => "/Training/Trainings";
-      
-        protected internal override Domain.Training.Training ToObject(TrainingView view)
+
+        public override string GetPageUrl() => "/Training/Trainings";
+
+        public override Domain.Training.Training ToObject(TrainingView view)
         {
             return TrainingViewFactory.Create(view);
         }
 
-        protected internal override TrainingView ToView(Domain.Training.Training obj)
+        public override TrainingView ToView(Domain.Training.Training obj)
         {
             return TrainingViewFactory.Create(obj);
         }

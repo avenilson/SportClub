@@ -11,21 +11,21 @@ namespace SportClub.Tests.Pages {
     {
 
         internal TestRepository db;
-        internal abstract class TestClass : CommonPage<ITrainingsRepository, SportClub.Domain.Training.Training, TrainingView, TrainingData>
+        internal class TestClass : CommonPage<ITrainingsRepository, SportClub.Domain.Training.Training, TrainingView, TrainingData>
         {
 
             protected internal TestClass(ITrainingsRepository r) : base(r)
             {
-                PageTitle = "Measures";
+                PageTitle = "Trainings";
             }
 
             public override string ItemId => Item?.Id ?? string.Empty;
 
-            protected internal string getPageUrl() => "/Training/Trainings";
+            public override string GetPageUrl() => "/Training/Trainings";
 
-            protected internal SportClub.Domain.Training.Training toObject(TrainingView view) => TrainingViewFactory.Create(view);
+            public override SportClub.Domain.Training.Training ToObject(TrainingView view) => TrainingViewFactory.Create(view);
 
-            protected internal TrainingView toView(SportClub.Domain.Training.Training obj) => TrainingViewFactory.Create(obj);
+            public override TrainingView ToView(SportClub.Domain.Training.Training obj) => TrainingViewFactory.Create(obj);
 
         }
 

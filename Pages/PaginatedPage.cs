@@ -32,7 +32,7 @@ namespace SportClub.Pages
             PageIndex = pageIndex;
         }
 
-        protected internal async Task GetList(string sortOrder, string currentFilter, string searchString,
+        public async Task GetList(string sortOrder, string currentFilter, string searchString,
             int? pageIndex, string fixedFilter, string fixedValue) {
 
             FixedFilter = fixedFilter;
