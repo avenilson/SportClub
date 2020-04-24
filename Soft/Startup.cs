@@ -5,7 +5,17 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SportClub.Domain.Coach;
+using SportClub.Domain.CoachOfTraining;
+using SportClub.Domain.Participant;
+using SportClub.Domain.ParticipantOfTraining;
 using SportClub.Domain.Training;
+using SportClub.Domain.TrainingType;
+using SportClub.Infra;
+using SportClub.Infra.Coach;
+using SportClub.Infra.CoachOfTraining;
+using SportClub.Infra.Participant;
+using SportClub.Infra.ParticipantOfTraining;
 using SportClub.Infra.Training;
 using SportClub.Soft.Data;
 
@@ -23,12 +33,18 @@ namespace SportClub.Soft
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<SportClubDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddScoped<ICoachesRepository, CoachesRepository>();
+            services.AddScoped<ICoachOfTrainingsRepository, CoachOfTrainingsRepository>();
+            services.AddScoped<IParticipantsRepository, ParticipantsRepository>();
+            services.AddScoped<IParticipantOfTrainingsRepository, ParticipantOfTrainingsRepository>();
             services.AddScoped<ITrainingsRepository, TrainingsRepository>();
+            services.AddScoped<ITrainingTypesRepository, ITrainingTypesRepository>();
+
             services.AddRazorPages();
         }
 

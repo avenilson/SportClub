@@ -32,18 +32,10 @@
 
 
   <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj" />
     <ProjectReference Include="..\Facade\Facade.csproj" />
+    <ProjectReference Include="..\Infra\Infra.csproj" />
     <ProjectReference Include="..\Pages\Pages.csproj" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <Folder Include="Areas\CoachOfTraining\Pages\CoachesOfTrainings\" />
-    <Folder Include="Areas\Coach\Pages\Coaches\" />
-    <Folder Include="Areas\ParticipantOfTraining\Pages\ParticipantsOfTrainings\" />
-    <Folder Include="Areas\Participant\Pages\Participants\" />
-    <Folder Include="Areas\TrainingType\Pages\TrainingTypes\" />
-    <Folder Include="Areas\Training\Pages\Trainings\" />
   </ItemGroup>
 
 </Project>
