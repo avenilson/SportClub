@@ -60,13 +60,13 @@ namespace SportClub.Tests.Infra
                 Assert.AreNotEqual(d, set);
                 var str = set.Expression.ToString();
                 Assert.IsTrue(str
-                    .Contains($"SportClub.Data.TrainingData]).OrderByDescending(x => Convert(x.{sortOrder}, Object))"));
+                    .Contains($"SportClub.Data.Training.TrainingData]).OrderByDescending(x => Convert(x.{sortOrder}, Object))"));
                 obj.SortOrder = sortOrder;
                 set = obj.AddSorting(d);
                 Assert.IsNotNull(set);
                 Assert.AreNotEqual(d, set);
                 str = set.Expression.ToString();
-                Assert.IsTrue(str.Contains($"SportClub.Data.TrainingData]).OrderBy(x => Convert(x.{sortOrder}, Object))"));
+                Assert.IsTrue(str.Contains($"SportClub.Data.Training.TrainingData]).OrderBy(x => Convert(x.{sortOrder}, Object))"));
             }
             Assert.IsNull(obj.AddSorting(null));
             IQueryable<TrainingData> data = obj.dbSet;
@@ -172,12 +172,12 @@ namespace SportClub.Tests.Infra
                 Assert.IsNotNull(set);
                 Assert.AreNotEqual(d, set);
                 Assert.IsTrue(set.Expression.ToString()
-                    .Contains($"SportClub.Data.TrainingData]).OrderByDescending({expected})"));
+                    .Contains($"SportClub.Data.Training.TrainingData]).OrderByDescending({expected})"));
                 obj.SortOrder = GetRandom.String();
                 set = obj.AddOrderBy(d, e);
                 Assert.IsNotNull(set);
                 Assert.AreNotEqual(d, set);
-                Assert.IsTrue(set.Expression.ToString().Contains($"SportClub.Data.TrainingData]).OrderBy({expected})"));
+                Assert.IsTrue(set.Expression.ToString().Contains($"SportClub.Data.Training.TrainingData]).OrderBy({expected})"));
             }
             Assert.IsNull(obj.AddOrderBy(null, null));
             IQueryable<TrainingData> data = obj.dbSet;
