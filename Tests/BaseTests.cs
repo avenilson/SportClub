@@ -21,8 +21,7 @@ namespace SportClub.Tests
             members = m.Select(e => e.Name).ToList();
             RemoveTested();
 
-            if (members.Count == 0) return;
-            Assert.Fail(notTested, members[0]);
+            if (members.Count != 0) Assert.Fail(notTested, members[0]);
         }
 
         private void RemoveTested()
@@ -34,8 +33,7 @@ namespace SportClub.Tests
                 var m = members[i - 1] + "Test";
                 var isTested = tests.Find(o => o == m);
 
-                if (string.IsNullOrEmpty(isTested)) continue;
-                members.RemoveAt(i - 1);
+                if (!string.IsNullOrEmpty(isTested)) members.RemoveAt(i - 1);
             }
         }
         protected static void TestArePropertyValuesEqual(object obj1, object obj2)

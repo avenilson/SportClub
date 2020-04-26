@@ -202,5 +202,4 @@ namespace SportClub.Tests
         ViewDataDictionary IHtmlHelper.ViewData => ViewData;
 
     }
-
 }

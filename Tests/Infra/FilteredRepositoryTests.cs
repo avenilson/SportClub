@@ -12,10 +12,10 @@ namespace SportClub.Tests.Infra
     public class FilteredRepositoryTests : AbstractClassTests<FilteredRepository<SportClub.Domain.Training.Training, TrainingData>,
         SortedRepository<SportClub.Domain.Training.Training, TrainingData>>
     {
-        private class testClass : FilteredRepository<SportClub.Domain.Training.Training, TrainingData>
+        private class TestClass : FilteredRepository<SportClub.Domain.Training.Training, TrainingData>
         {
 
-            public testClass(DbContext c, DbSet<TrainingData> s) : base(c, s) { }
+            public TestClass(DbContext c, DbSet<TrainingData> s) : base(c, s) { }
 
             protected override SportClub.Domain.Training.Training ToDomainObject(TrainingData d) => new SportClub.Domain.Training.Training(d);
 
@@ -37,7 +37,7 @@ namespace SportClub.Tests.Infra
                 .UseInMemoryDatabase("TestDb")
                 .Options;
             var c = new SportClubDbContext(options);
-            obj = new testClass(c, c.Trainings);
+            obj = new TestClass(c, c.Trainings);
         }
 
         [TestMethod]
@@ -135,7 +135,5 @@ namespace SportClub.Tests.Infra
             var e = obj.CreateWhereExpression();
             Assert.IsNull(e);
         }
-
     }
-
 }
