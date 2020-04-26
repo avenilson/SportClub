@@ -59,6 +59,7 @@ namespace SportClub.Tests.Pages.TrainingType
 
         [TestMethod]
         public void GetPageUrlTest() => Assert.AreEqual("/TrainingType/TrainingTypes", obj.PageUrl);
+
         //[TestMethod]
         //public void ToObjectTest()
         //{
