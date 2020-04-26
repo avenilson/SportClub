@@ -49,12 +49,6 @@ namespace SportClub.Tests.Infra
             var propertyName = GetMember.Name<TestClass>(x => x.DescendingString);
             IsReadOnlyProperty(obj, propertyName, "_desc");
         }
-        //[TestMethod]
-        //public void CreateSqlQueryTest()
-        //{
-        //    var o = obj.CreateSqlQuery();
-        //    Assert.IsNotNull(o);
-        //}
 
         [TestMethod]
         public void SetSortingTest()
