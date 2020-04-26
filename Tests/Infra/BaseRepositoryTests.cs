@@ -24,7 +24,6 @@ namespace SportClub.Tests.Infra
             {
                 return await dbSet.FirstOrDefaultAsync(m => m.Id == id);
             }
-
             protected override string GetId(SportClub.Domain.Training.Training entity) => entity?.Data?.Id;
 
         }
