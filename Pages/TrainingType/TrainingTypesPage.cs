@@ -11,7 +11,7 @@ namespace SportClub.Pages.TrainingType
             PageTitle = "Training Types";
            
         }
-        public override string ItemId => Item.Id;
+        public override string ItemId => Item?.Id ?? string.Empty;
 
         public override string GetPageUrl() => "/TrainingType/TrainingTypes";
 
