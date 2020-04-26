@@ -1,10 +1,14 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SportClub.Aids;
+using SportClub.Data.ParticipantOfTraining;
 using SportClub.Data.TrainingType;
 using SportClub.Domain.TrainingType;
+using SportClub.Facade.ParticipantOfTraining;
 using SportClub.Facade.TrainingType;
 using SportClub.Pages;
 using SportClub.Pages.Participant;
 using SportClub.Pages.TrainingType;
+using SportClub.Tests.Pages.ParticipantOfTraining;
 
 namespace SportClub.Tests.Pages.TrainingType
 {
@@ -12,20 +16,25 @@ namespace SportClub.Tests.Pages.TrainingType
     public class TrainingTypesPageTests: AbstractClassTests
         <ParticipantsPage, CommonPage<ITrainingTypesRepository, SportClub.Domain.TrainingType.TrainingType, TrainingTypeView, TrainingTypeData>>
     {
-        private class TestClass : TrainingTypesPage
+        public class TestClass : TrainingTypesPage
         {
-            internal TestClass(ITrainingTypesRepository r) : base(r)
-            {
-            }
+            internal TestClass(ITrainingTypesRepository r) : base(r) { }
         }
         private class TestRepository : BaseTestRepositoryForUniqueEntity<SportClub.Domain.TrainingType.TrainingType, TrainingTypeData>,
             ITrainingTypesRepository { } 
 
+        //[TestInitialize]
+        //public override void TestInitialize()
+        //{
+        //    base.TestInitialize(); //kasutab inmemorydb extensionit, mis on malus!
+        //    var r = new TrainingTypesPageTests.TestRepository();
+        //    obj = new TrainingTypesPageTests.TestClass(r); //annan repository katte
+        //}
         //[TestMethod]
         //public void ItemIdTest()
         //{
         //    var item = GetRandom.Object<TrainingTypeView>();
-        //    obj.Item = item;C:\Users\Helen\source\repos\SportClub\Tests\Pages\Extensions\
+        //    obj.Item = item;
         //    Assert.AreEqual(item.Id, obj.ItemId);
         //    obj.Item = null;
         //    Assert.AreEqual(string.Empty, obj.ItemId);
@@ -35,7 +44,19 @@ namespace SportClub.Tests.Pages.TrainingType
         public void PageTitleTest() => Assert.AreEqual("Training Types", obj.PageTitle);
 
         [TestMethod]
-        public void PageUrlTest() => Assert.AreEqual("/TrainingType/TrainingTypes", obj.PageUrl);
+        public void GetPageUrlTest() => Assert.AreEqual("/TrainingType/TrainingTypes", obj.PageUrl);
+        //[TestMethod] public void ToObjectTest()
+        //{
+        //    var view = GetRandom.Object<TrainingTypeView>();
+        //    var o = obj.ToObject(view);
+        //    TestArePropertyValuesEqual(view, o.Data);
+        //}
+        //[TestMethod] public void ToViewTest()
+        //{
+        //    var data = GetRandom.Object<TrainingTypeData>();
+        //    var view = obj.ToView(new SportClub.Domain.TrainingType.TrainingType(data));
+        //    TestArePropertyValuesEqual(view, data);
+        //}
 
     }
 }

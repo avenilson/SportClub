@@ -5,6 +5,7 @@ using SportClub.Domain.Training;
 using SportClub.Facade.Training;
 using SportClub.Pages;
 using SportClub.Pages.Training;
+using SportClub.Tests.Pages.Participant;
 
 namespace SportClub.Tests.Pages.Training
 {
@@ -14,12 +15,18 @@ namespace SportClub.Tests.Pages.Training
     {
         private class TestClass : TrainingsPage
         {
-            internal TestClass(ITrainingsRepository r) : base(r)
-            {
-            }
+            internal TestClass(ITrainingsRepository r) : base(r) { }
         }
         private class TestRepository : BaseTestRepositoryForUniqueEntity<SportClub.Domain.Training.Training, TrainingData>,
             ITrainingsRepository { } 
+       
+        [TestInitialize]
+        public override void TestInitialize()
+        {
+            base.TestInitialize(); //kasutab inmemorydb extensionit, mis on malus!
+            var r = new TrainingsPageTests.TestRepository();
+            obj = new TrainingsPageTests.TestClass(r); //annan repository katte
+        }
 
         [TestMethod]
         public void ItemIdTest()
@@ -35,7 +42,19 @@ namespace SportClub.Tests.Pages.Training
         public void PageTitleTest() => Assert.AreEqual("Trainings", obj.PageTitle);
 
         [TestMethod]
-        public void PageUrlTest() => Assert.AreEqual("/Training/Trainings", obj.PageUrl);
+        public void GetPageUrlTest() => Assert.AreEqual("/Training/Trainings", obj.PageUrl);
+        [TestMethod] public void ToObjectTest()
+        {
+            var view = GetRandom.Object<TrainingView>();
+            var o = obj.ToObject(view);
+            TestArePropertyValuesEqual(view, o.Data);
+        }
+        [TestMethod] public void ToViewTest()
+        {
+            var data = GetRandom.Object<TrainingData>();
+            var view = obj.ToView(new SportClub.Domain.Training.Training(data));
+            TestArePropertyValuesEqual(view, data);
+        }
 
     }
 
