@@ -31,9 +31,9 @@ namespace SportClub.Infra
             return (int)Math.Ceiling(count / (double)pageSize);
         }
 
-        public int GetItemsCount() => base.createSqlQuery().CountAsync().Result; //result ehk saame asunkr meetodit kutsuda valja sunkr meetodis
-        
-        protected internal override IQueryable<TData> createSqlQuery() => AddSkipAndTake(base.createSqlQuery()); //lisab skipi (see oli paginatedlist kirjas)
+        public int GetItemsCount() => base.CreateSqlQuery().CountAsync().Result; //result ehk saame asunkr meetodit kutsuda valja sunkr meetodis
+
+        public override IQueryable<TData> CreateSqlQuery() => AddSkipAndTake(base.CreateSqlQuery()); //lisab skipi (see oli paginatedlist kirjas)
 
         public IQueryable<TData> AddSkipAndTake(IQueryable<TData> query)
         {

@@ -22,7 +22,7 @@ namespace SportClub.Infra
 
         public virtual async Task<List<TDomain>> Get()
         {
-            var query = createSqlQuery();
+            var query = CreateSqlQuery();
             var set = await RunSqlQueryAsync(query);
             return ToDomainObjectsList(set);
         }
@@ -36,7 +36,7 @@ namespace SportClub.Infra
             => await query.AsNoTracking().ToListAsync();
 
 
-        protected internal virtual IQueryable<TData> createSqlQuery()
+        public virtual IQueryable<TData> CreateSqlQuery()
         {
             var query = from s in dbSet select s; //sql paring
             return query;
