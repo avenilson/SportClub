@@ -10,7 +10,7 @@ using SportClub.Soft.Data;
 namespace SportClub.Soft.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200426062222_initial")]
+    [Migration("20200426090548_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
