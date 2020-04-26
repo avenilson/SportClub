@@ -1,9 +1,10 @@
-﻿using SportClub.Domain.ParticipantOfTraining;
+﻿using SportClub.Data.ParticipantOfTraining;
+using SportClub.Domain.ParticipantOfTraining;
 using SportClub.Facade.ParticipantOfTraining;
 
 namespace SportClub.Pages.ParticipantOfTraining
 {
-    public abstract class ParticipantOfTrainingsPage : CommonPage<IParticipantOfTrainingsRepository, Domain.ParticipantOfTraining.ParticipantOfTraining, ParticipantOfTrainingView, ParticipantOfTrainingsPage>
+    public abstract class ParticipantOfTrainingsPage : CommonPage<IParticipantOfTrainingsRepository, Domain.ParticipantOfTraining.ParticipantOfTraining, ParticipantOfTrainingView, ParticipantOfTrainingData>
     {
         protected internal ParticipantOfTrainingsPage(IParticipantOfTrainingsRepository r) : base(r)
         {
