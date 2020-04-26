@@ -7,7 +7,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SportClub.Aids;
 using SportClub.Data.Training;
-using SportClub.Domain.Training;
 using SportClub.Infra;
 
 namespace SportClub.Tests.Infra
@@ -21,13 +20,13 @@ namespace SportClub.Tests.Infra
 
             protected override SportClub.Domain.Training.Training ToDomainObject(TrainingData d) => new SportClub.Domain.Training.Training(d);
 
-            protected override async Task<TrainingData> getData(string id)
+            protected override async Task<TrainingData> GetData(string id)
             {
                 await Task.CompletedTask;
                 return new TrainingData();
             }
 
-            protected override string getId(SportClub.Domain.Training.Training entity) => entity?.Data?.Id;
+            protected override string GetId(SportClub.Domain.Training.Training entity) => entity?.Data?.Id;
         }
 
         [TestInitialize]
@@ -48,7 +47,13 @@ namespace SportClub.Tests.Infra
         public void DescendingStringTest()
         {
             var propertyName = GetMember.Name<TestClass>(x => x.DescendingString);
-            isReadOnlyProperty(obj, propertyName, "_desc");
+            IsReadOnlyProperty(obj, propertyName, "_desc");
+        }
+        [TestMethod]
+        public void CreateSqlQueryTest()
+        {
+            var o = obj.CreateSqlQuery();
+            Assert.IsNotNull(o);
         }
         [TestMethod]
         public void SetSortingTest()
@@ -61,13 +66,13 @@ namespace SportClub.Tests.Infra
                 Assert.AreNotEqual(d, set);
                 var str = set.Expression.ToString();
                 Assert.IsTrue(str
-                    .Contains($"SportClub.Data.TrainingData]).OrderByDescending(x => Convert(x.{sortOrder}, Object))"));
+                    .Contains($"SportClub.Data.Training.TrainingData]).OrderByDescending(x => Convert(x.{sortOrder}, Object))"));
                 obj.SortOrder = sortOrder;
                 set = obj.AddSorting(d);
                 Assert.IsNotNull(set);
                 Assert.AreNotEqual(d, set);
                 str = set.Expression.ToString();
-                Assert.IsTrue(str.Contains($"SportClub.Data.TrainingData]).OrderBy(x => Convert(x.{sortOrder}, Object))"));
+                Assert.IsTrue(str.Contains($"SportClub.Data.Training.TrainingData]).OrderBy(x => Convert(x.{sortOrder}, Object))"));
             }
             Assert.IsNull(obj.AddSorting(null));
             IQueryable<TrainingData> data = obj.dbSet;
@@ -125,6 +130,7 @@ namespace SportClub.Tests.Infra
         //    Assert.IsInstanceOfType(lambda, typeof(Expression<Func<TrainingData, object>>));
         //    Assert.IsTrue(lambda.ToString().Contains(name));
         //}
+
         [TestMethod]
         public void FindPropertyTest()
         {
@@ -172,12 +178,12 @@ namespace SportClub.Tests.Infra
                 Assert.IsNotNull(set);
                 Assert.AreNotEqual(d, set);
                 Assert.IsTrue(set.Expression.ToString()
-                    .Contains($"SportClub.Data.TrainingData]).OrderByDescending({expected})"));
+                    .Contains($"SportClub.Data.Training.TrainingData]).OrderByDescending({expected})"));
                 obj.SortOrder = GetRandom.String();
                 set = obj.AddOrderBy(d, e);
                 Assert.IsNotNull(set);
                 Assert.AreNotEqual(d, set);
-                Assert.IsTrue(set.Expression.ToString().Contains($"SportClub.Data.TrainingData]).OrderBy({expected})"));
+                Assert.IsTrue(set.Expression.ToString().Contains($"SportClub.Data.Training.TrainingData]).OrderBy({expected})"));
             }
             Assert.IsNull(obj.AddOrderBy(null, null));
             IQueryable<TrainingData> data = obj.dbSet;

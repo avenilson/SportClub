@@ -15,43 +15,43 @@ namespace SportClub.Tests.Pages
         [TestMethod]
         public void IsExtensionsTested()
         {
-            isAllTested(assembly, Namespace("Extensions")); 
+            IsAllTested(assembly, Namespace("Extensions")); 
         }
 
         [TestMethod]
         public void IsCoachTested()
         {
-            isAllTested(assembly, Namespace("Coach")); 
+            IsAllTested(assembly, Namespace("Coach")); 
         }
         [TestMethod]
         public void IsCoachOfTrainingTested()
         {
-            isAllTested(assembly, Namespace("CoachOfTraining")); 
+            IsAllTested(assembly, Namespace("CoachOfTraining")); 
         }
         [TestMethod]
         public void IsParticipantTested()
         {
-            isAllTested(assembly, Namespace("Participant")); 
+            IsAllTested(assembly, Namespace("Participant")); 
         }
         [TestMethod]
         public void IsParticipantOfTrainingTested()
         {
-            isAllTested(assembly, Namespace("ParticipantOfTraining")); 
+            IsAllTested(assembly, Namespace("ParticipantOfTraining")); 
         }
         [TestMethod]
         public void IsTrainingTested()
         {
-            isAllTested(assembly, Namespace("Training")); 
+            IsAllTested(assembly, Namespace("Training")); 
         }
         [TestMethod]
         public void IsTrainingTypeTested()
         {
-            isAllTested(assembly, Namespace("TrainingType")); 
+            IsAllTested(assembly, Namespace("TrainingType")); 
         }
         [TestMethod]
         public void IsTested()
         {
-            isAllTested(base.Namespace("Pages")); 
+            IsAllTested(base.Namespace("Pages")); 
         }
     }
 }

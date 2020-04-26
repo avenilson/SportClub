@@ -24,7 +24,7 @@ namespace SportClub.Tests.Pages
         [TestMethod]
         public void ItemsTest()
         {
-            isReadOnlyProperty(obj, nameof(obj.Items), null);
+            IsReadOnlyProperty(obj, nameof(obj.Items), null);
         }
 
         [TestMethod]
@@ -40,21 +40,21 @@ namespace SportClub.Tests.Pages
         public void HasPreviousPageTest()
         {
             db.HasPreviousPage = GetRandom.Bool();
-            isReadOnlyProperty(obj, nameof(obj.HasPreviousPage), db.HasPreviousPage);
+            IsReadOnlyProperty(obj, nameof(obj.HasPreviousPage), db.HasPreviousPage);
         }
 
         [TestMethod]
         public void HasNextPageTest()
         {
             db.HasNextPage = GetRandom.Bool();
-            isReadOnlyProperty(obj, nameof(obj.HasNextPage), db.HasNextPage);
+            IsReadOnlyProperty(obj, nameof(obj.HasNextPage), db.HasNextPage);
         }
 
         [TestMethod]
         public void TotalPagesTest()
         {
             db.TotalPages = GetRandom.UInt8();
-            isReadOnlyProperty(obj, nameof(obj.TotalPages), db.TotalPages);
+            IsReadOnlyProperty(obj, nameof(obj.TotalPages), db.TotalPages);
         }
 
         [TestMethod]

@@ -8,16 +8,9 @@ namespace SportClub.Tests.Data.TrainingType
     public class TrainingTypeDataTests : SealedClassTests<TrainingTypeData, NamedEntityData>
     {
         [TestMethod]
-        public void TypeTest()
-        {
-            IsNullableProperty(() => obj.Type, x => obj.Type = x);
-        }
+        public void TypeTest() => IsNullableProperty(() => obj.Type, x => obj.Type = x);
 
         [TestMethod]
-        public void DefinitionTest()
-        {
-            IsNullableProperty(() => obj.Definition, x => obj.Definition = x);
-        }
-
+        public void DefinitionTest() => IsNullableProperty(() => obj.Definition, x => obj.Definition = x);
     }
 }

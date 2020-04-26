@@ -22,7 +22,7 @@ namespace SportClub.Infra
 
         public virtual async Task<List<TDomain>> Get()
         {
-            var query = createSqlQuery();
+            var query = CreateSqlQuery();
             var set = await RunSqlQueryAsync(query);
             return ToDomainObjectsList(set);
         }
@@ -36,7 +36,7 @@ namespace SportClub.Infra
             => await query.AsNoTracking().ToListAsync();
 
 
-        protected internal virtual IQueryable<TData> createSqlQuery()
+        public virtual IQueryable<TData> CreateSqlQuery()
         {
             var query = from s in dbSet select s; //sql paring
             return query;
@@ -45,18 +45,18 @@ namespace SportClub.Infra
         public async Task<TDomain> Get(string id)
         {
             if (id is null) return new TDomain();
-            var d = await getData(id);
+            var d = await GetData(id);
             var obj = ToDomainObject(d);
             return obj;
         }
 
-        protected abstract Task<TData> getData(string id);
+        protected abstract Task<TData> GetData(string id);
 
         public async Task Delete(string id)
         {
             if (id is null) return;
 
-            var v = await getData(id);
+            var v = await GetData(id);
 
             if (v is null) return;
             dbSet.Remove(v);
@@ -74,7 +74,7 @@ namespace SportClub.Infra
         {
             if (obj is null) return;
 
-            var v = await getData(getId(obj));
+            var v = await GetData(GetId(obj));
 
             if (v is null) return;
             dbSet.Remove(v);
@@ -82,6 +82,6 @@ namespace SportClub.Infra
             await db.SaveChangesAsync();
         }
 
-        protected abstract string getId(TDomain entity);
+        protected abstract string GetId(TDomain entity);
     }
 }

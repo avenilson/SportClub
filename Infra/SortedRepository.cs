@@ -18,9 +18,10 @@ namespace SportClub.Infra
         protected SortedRepository(DbContext c, DbSet<TData> s) : base(c, s)
         {
         }
-        protected internal override IQueryable<TData> createSqlQuery()
+
+        public override IQueryable<TData> CreateSqlQuery()
         {
-            var query = base.createSqlQuery();
+            var query = base.CreateSqlQuery();
             query = AddSorting(query);
 
             return query;

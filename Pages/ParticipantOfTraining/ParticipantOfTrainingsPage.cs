@@ -10,7 +10,14 @@ namespace SportClub.Pages.ParticipantOfTraining
             PageTitle = "Participant Of Trainings";
         }
 
-        public override string ItemId => Item.Id;
+        public override string ItemId 
+        {
+            get
+            {
+                if (Item is null) return string.Empty;
+                return $"{Item.Id}";
+            }
+        }
 
         public override string GetPageUrl() => "/ParticipantOfTraining/ParticipantOfTrainings";
 

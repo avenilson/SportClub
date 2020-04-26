@@ -37,7 +37,7 @@ namespace SportClub.Tests.Pages
         [TestMethod]
         public void PageSubTitleTest()
         {
-            isReadOnlyProperty(obj, nameof(obj.PageSubTitle), obj.GetPageSubTitle());
+            IsReadOnlyProperty(obj, nameof(obj.PageSubTitle), obj.GetPageSubTitle());
         }
 
         [TestMethod]
@@ -49,7 +49,7 @@ namespace SportClub.Tests.Pages
         [TestMethod]
         public void PageUrlTest()
         {
-            isReadOnlyProperty(obj, nameof(obj.PageUrl), obj.GetPageUrl());
+            IsReadOnlyProperty(obj, nameof(obj.PageUrl), obj.GetPageUrl());
         }
 
         [TestMethod]
@@ -61,7 +61,7 @@ namespace SportClub.Tests.Pages
         [TestMethod]
         public void IndexUrlTest()
         {
-            isReadOnlyProperty(obj, nameof(obj.IndexUrl), obj.GetIndexUrl());
+            IsReadOnlyProperty(obj, nameof(obj.IndexUrl), obj.GetIndexUrl());
         }
 
         [TestMethod]

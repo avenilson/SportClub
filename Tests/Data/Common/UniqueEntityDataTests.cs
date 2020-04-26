@@ -16,9 +16,6 @@ namespace SportClub.Tests.Data.Common
         }
 
         [TestMethod]
-        public void IdTest()
-        {
-            IsNullableProperty(() => obj.Id, x => obj.Id = x);
-        }
+        public void IdTest() => IsNullableProperty(() => obj.Id, x => obj.Id = x);
     }
 }

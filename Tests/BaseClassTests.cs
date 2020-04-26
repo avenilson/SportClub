@@ -9,16 +9,10 @@ namespace SportClub.Tests
         protected TClass obj;
 
         [TestInitialize]
-        public virtual void TestInitialize()
-        {
-            type = typeof(TClass);
-        }
+        public virtual void TestInitialize() => type = typeof(TClass);
 
         [TestMethod]
-        public void IsInheritedTest()
-        {
-            Assert.AreEqual(typeof(TBaseClass), type.BaseType);
-        }
+        public void IsInheritedTest() => Assert.AreEqual(typeof(TBaseClass), type.BaseType);
 
         protected static void IsNullableProperty<T>(Func<T> get, Action<T> set)
         {
@@ -47,7 +41,7 @@ namespace SportClub.Tests
             Assert.AreEqual(d, get());
         }
 
-        protected static void isReadOnlyProperty(object o, string name, object expected)
+        protected static void IsReadOnlyProperty(object o, string name, object expected)
         {
             var property = o.GetType().GetProperty(name);
             Assert.IsNotNull(property);

@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SportClub.Aids;
 using SportClub.Data.Training;
-using SportClub.Domain.Training;
 using SportClub.Infra;
 
 namespace SportClub.Tests.Infra
@@ -16,17 +15,15 @@ namespace SportClub.Tests.Infra
 
         private class TestClass : BaseRepository<SportClub.Domain.Training.Training, TrainingData>
         {
-
             public TestClass(DbContext c, DbSet<TrainingData> s) : base(c, s) { }
 
             protected override SportClub.Domain.Training.Training ToDomainObject(TrainingData d) => new SportClub.Domain.Training.Training(d);
 
-            protected override async Task<TrainingData> getData(string id)
+            protected override async Task<TrainingData> GetData(string id)
             {
                 return await dbSet.FirstOrDefaultAsync(m => m.Id == id);
             }
-
-            protected override string getId(SportClub.Domain.Training.Training entity) => entity?.Data?.Id;
+            protected override string GetId(SportClub.Domain.Training.Training entity) => entity?.Data?.Id;
 
         }
 

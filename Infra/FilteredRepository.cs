@@ -19,9 +19,9 @@ namespace SportClub.Infra
         {
         }
 
-        protected internal override IQueryable<TData> createSqlQuery()
+        public override IQueryable<TData> CreateSqlQuery()
         {
-            var query = base.createSqlQuery();
+            var query = base.CreateSqlQuery();
             query = AddFixedFiltering(query);
             query = AddFiltering(query);
 

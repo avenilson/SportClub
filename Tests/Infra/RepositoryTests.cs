@@ -24,10 +24,10 @@ namespace SportClub.Tests.Infra
             type = typeof(TRepository);
             data = GetRandom.Object<TData>();
             count = GetRandom.UInt8(20, 40);
-            cleanDbSet();
-            addItems();
+            CleanDbSet();
+            AddItems();
         }
-        protected void testGetList()
+        protected void TestGetList()
         {
             obj.PageIndex = GetRandom.Int32(2, obj.TotalPages - 1);
             var l = obj.Get().GetAwaiter().GetResult();
@@ -35,31 +35,31 @@ namespace SportClub.Tests.Infra
         }
 
         [TestCleanup]
-        public void TestCleanup() => cleanDbSet();
+        public void TestCleanup() => CleanDbSet();
 
-        protected void cleanDbSet()
+        protected void CleanDbSet()
         {
             foreach (var p in dbSet)
                 db.Entry(p).State = EntityState.Deleted;
             db.SaveChanges();
         }
 
-        protected void addItems()
+        protected void AddItems()
         {
             for (var i = 0; i < count; i++)
-                obj.Add(getObject(GetRandom.Object<TData>())).GetAwaiter();
+                obj.Add(GetObject(GetRandom.Object<TData>())).GetAwaiter();
         }
 
         [TestMethod]
         public void IsSealed() => Assert.IsTrue(type.IsSealed);
 
         [TestMethod]
-        public void IsInherited() => Assert.AreEqual(getBaseType().Name,type?.BaseType?.Name);
+        public void IsInherited() => Assert.AreEqual(GetBaseType().Name,type?.BaseType?.Name);
 
-        protected abstract Type getBaseType();
+        protected abstract Type GetBaseType();
 
         [TestMethod]
-        public void GetTest() => testGetList();
+        public void GetTest() => TestGetList();
 
         [TestMethod]
         public void GetByIdTest() => AddTest();
@@ -68,7 +68,7 @@ namespace SportClub.Tests.Infra
         public void DeleteTest()
         {
             AddTest();
-            var id = getId(data);
+            var id = GetId(data);
             var expected = obj.Get(id).GetAwaiter().GetResult();
             TestArePropertyValuesEqual(data, expected.Data);
             obj.Delete(id).GetAwaiter();
@@ -76,33 +76,33 @@ namespace SportClub.Tests.Infra
             Assert.IsNull(expected.Data);
         }
 
-        protected abstract string getId(TData d);
+        protected abstract string GetId(TData d);
 
         [TestMethod]
         public void AddTest()
         {
-            var id = getId(data);
+            var id = GetId(data);
             var expected = obj.Get(id).GetAwaiter().GetResult();
             Assert.IsNull(expected.Data);
-            obj.Add(getObject(data)).GetAwaiter();
+            obj.Add(GetObject(data)).GetAwaiter();
             expected = obj.Get(id).GetAwaiter().GetResult();
             TestArePropertyValuesEqual(data, expected.Data);
         }
 
-        protected abstract TObject getObject(TData d);
+        protected abstract TObject GetObject(TData d);
 
         [TestMethod]
         public void UpdateTest()
         {
             AddTest();
-            var id = getId(data);
+            var id = GetId(data);
             var newData = GetRandom.Object<TData>();
-            setId(newData,id);
-            obj.Update(getObject(newData)).GetAwaiter();
+            SetId(newData,id);
+            obj.Update(GetObject(newData)).GetAwaiter();
             var expected = obj.Get(id).GetAwaiter().GetResult();
             TestArePropertyValuesEqual(newData, expected.Data);
         }
 
-        protected abstract void setId(TData d, string id);
+        protected abstract void SetId(TData d, string id);
     }
 }
