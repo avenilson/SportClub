@@ -1,4 +1,5 @@
 ﻿@page
+@using SportClub.Pages.Extensions
 @model SportClub.Soft.Areas.Coach.Pages.Coaches.EditModel
 
 @{
@@ -7,18 +8,15 @@
 
 <h1>Edit</h1>
 
-<h4>CoachData</h4>
+<h4>Coach Data</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="CoachData.Name" class="control-label"></label>
-                <input asp-for="CoachData.Name" class="form-control" />
-                <span asp-validation-for="CoachData.Name" class="text-danger"></span>
-            </div>
             <input type="hidden" asp-for="CoachData.Id" />
+            @Html.EditControlsFor(x => x.CoachData.Id)
+            @Html.EditControlsFor(x => x.CoachData.Name)
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

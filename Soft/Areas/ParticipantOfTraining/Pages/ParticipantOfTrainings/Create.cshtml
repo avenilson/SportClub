@@ -1,4 +1,5 @@
 ﻿@page
+@using SportClub.Pages.Extensions
 @model SportClub.Soft.Areas.ParticipantOfTraining.Pages.ParticipantOfTrainings.CreateModel
 
 @{
@@ -7,32 +8,16 @@
 
 <h1>Create</h1>
 
-<h4>ParticipantOfTrainingData</h4>
+<h4>Participant Of Training Data</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="ParticipantOfTrainingData.TrainingId" class="control-label"></label>
-                <input asp-for="ParticipantOfTrainingData.TrainingId" class="form-control" />
-                <span asp-validation-for="ParticipantOfTrainingData.TrainingId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ParticipantOfTrainingData.ParticipantId" class="control-label"></label>
-                <input asp-for="ParticipantOfTrainingData.ParticipantId" class="form-control" />
-                <span asp-validation-for="ParticipantOfTrainingData.ParticipantId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ParticipantOfTrainingData.Name" class="control-label"></label>
-                <input asp-for="ParticipantOfTrainingData.Name" class="form-control" />
-                <span asp-validation-for="ParticipantOfTrainingData.Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ParticipantOfTrainingData.Id" class="control-label"></label>
-                <input asp-for="ParticipantOfTrainingData.Id" class="form-control" />
-                <span asp-validation-for="ParticipantOfTrainingData.Id" class="text-danger"></span>
-            </div>
+            @Html.EditControlsFor(x => x.ParticipantOfTrainingData.Id)
+            @Html.EditControlsFor(x => x.ParticipantOfTrainingData.Name)
+            @Html.EditControlsFor(x => x.ParticipantOfTrainingData.ParticipantId)
+            @Html.EditControlsFor(x => x.ParticipantOfTrainingData.TrainingId)
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

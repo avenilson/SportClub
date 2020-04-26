@@ -2,7 +2,7 @@
 @model SportClub.Soft.Areas.Participant.Pages.Participants.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Participant";
 }
 
 <h1>Index</h1>
@@ -14,13 +14,16 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.ParticipantData[0].Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParticipantData[0].Name)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.ParticipantData[0].Age)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ParticipantData[0].Address)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ParticipantData[0].Name)
             </th>
             <th></th>
         </tr>
@@ -29,13 +32,16 @@
 @foreach (var item in Model.ParticipantData) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Age)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
