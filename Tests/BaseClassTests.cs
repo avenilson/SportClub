@@ -9,16 +9,10 @@ namespace SportClub.Tests
         protected TClass obj;
 
         [TestInitialize]
-        public virtual void TestInitialize()
-        {
-            type = typeof(TClass);
-        }
+        public virtual void TestInitialize() => type = typeof(TClass);
 
         [TestMethod]
-        public void IsInheritedTest()
-        {
-            Assert.AreEqual(typeof(TBaseClass), type.BaseType);
-        }
+        public void IsInheritedTest() => Assert.AreEqual(typeof(TBaseClass), type.BaseType);
 
         protected static void IsNullableProperty<T>(Func<T> get, Action<T> set)
         {

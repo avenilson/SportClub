@@ -12,9 +12,6 @@ namespace SportClub.Tests
         }
 
         [TestMethod]
-        public void CanCreateTest() 
-        {
-            Assert.IsNotNull(obj);
-        }
+        public void CanCreateTest() => Assert.IsNotNull(obj);
     }
 }

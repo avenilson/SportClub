@@ -8,14 +8,9 @@ namespace SportClub.Tests.Data.ParticipantOfTraining
     public class ParticipantOfTrainingDataTests : SealedClassTests<ParticipantOfTrainingData, NamedEntityData>
     {
         [TestMethod]
-        public void TrainingIdTest()
-        {
-            IsNullableProperty(() => obj.TrainingId, x => obj.TrainingId = x);
-        }
+        public void TrainingIdTest() => IsNullableProperty(() => obj.TrainingId, x => obj.TrainingId = x);
+
         [TestMethod]
-        public void ParticipantIdTest()
-        {
-            IsNullableProperty(() => obj.ParticipantId, x => obj.ParticipantId = x);
-        }
+        public void ParticipantIdTest() => IsNullableProperty(() => obj.ParticipantId, x => obj.ParticipantId = x);
     }
 }

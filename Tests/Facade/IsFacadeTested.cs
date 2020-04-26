@@ -11,39 +11,39 @@ namespace SportClub.Tests.Facade
         [TestMethod]
         public void IsCoachTested()
         {
-            isAllTested(Assembly, Namespace("Coach"));
+            IsAllTested(Assembly, Namespace("Coach"));
         }
         [TestMethod]
         public void IsCoachOfTrainingTested()
         {
-            isAllTested(Assembly, Namespace("CoachOfTraining"));
+            IsAllTested(Assembly, Namespace("CoachOfTraining"));
         }
         [TestMethod]
         public void IsCommonTested()
         {
-            isAllTested(Assembly, Namespace("Common"));
+            IsAllTested(Assembly, Namespace("Common"));
         }
         [TestMethod]
         public void IsParticipantTested()
         {
-            isAllTested(Assembly, Namespace("Participant"));
+            IsAllTested(Assembly, Namespace("Participant"));
         }
         [TestMethod]
         public void IsParticipantOfTrainingTested()
         {
-            isAllTested(Assembly, Namespace("ParticipantOfTraining"));
+            IsAllTested(Assembly, Namespace("ParticipantOfTraining"));
         }
         [TestMethod]
         public void IsTrainingTested()
         {
-            isAllTested(Assembly, Namespace("Training"));
+            IsAllTested(Assembly, Namespace("Training"));
         }
         [TestMethod]
         public void IsTrainingTypeTested()
         {
-            isAllTested(Assembly, Namespace("TrainingType"));
+            IsAllTested(Assembly, Namespace("TrainingType"));
         }
-        [TestMethod] public void IsTested() { isAllTested(base.Namespace("Facade")); }
+        [TestMethod] public void IsTested() { IsAllTested(base.Namespace("Facade")); }
 
     }
 }

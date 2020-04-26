@@ -15,9 +15,6 @@ namespace SportClub.Tests.Data.Common
             obj = new TestClass();
         }
         [TestMethod]
-        public void NameTest()
-        {
-            IsNullableProperty(() => obj.Name, x => obj.Name = x);
-        }
+        public void NameTest() => IsNullableProperty(() => obj.Name, x => obj.Name = x);
     }
 }
