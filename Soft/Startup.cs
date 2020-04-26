@@ -17,6 +17,7 @@ using SportClub.Infra.CoachOfTraining;
 using SportClub.Infra.Participant;
 using SportClub.Infra.ParticipantOfTraining;
 using SportClub.Infra.Training;
+using SportClub.Infra.TrainingType;
 using SportClub.Soft.Data;
 
 namespace SportClub.Soft
@@ -43,7 +44,7 @@ namespace SportClub.Soft
             services.AddScoped<IParticipantsRepository, ParticipantsRepository>();
             services.AddScoped<IParticipantOfTrainingsRepository, ParticipantOfTrainingsRepository>();
             services.AddScoped<ITrainingsRepository, TrainingsRepository>();
-            services.AddScoped<ITrainingTypesRepository, ITrainingTypesRepository>();
+            services.AddScoped<ITrainingTypesRepository, TrainingTypesRepository>();
 
             services.AddRazorPages();
         }
