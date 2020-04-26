@@ -7,13 +7,14 @@ using SportClub.Domain.TrainingType;
 using SportClub.Facade.TrainingType;
 using SportClub.Pages;
 using SportClub.Pages.Participant;
+using SportClub.Pages.Training;
 using SportClub.Pages.TrainingType;
 
 namespace SportClub.Tests.Pages.TrainingType
 {
     [TestClass]
     public class TrainingTypesPageTests: AbstractClassTests
-        <ParticipantsPage, CommonPage<ITrainingTypesRepository, SportClub.Domain.TrainingType.TrainingType, TrainingTypeView, TrainingTypeData>>
+        <TrainingTypesPage, CommonPage<ITrainingTypesRepository, SportClub.Domain.TrainingType.TrainingType, TrainingTypeView, TrainingTypeData>>
     {
         public class TestClass : TrainingTypesPage
         {
@@ -35,45 +36,43 @@ namespace SportClub.Tests.Pages.TrainingType
             }
         }
 
-        //[TestInitialize]
-        //public override void TestInitialize()
-        //{
-        //    base.TestInitialize(); 
-        //    var r = new TestRepository();
-        //    var t = new TermRepository();
-        //    obj = new TestClass(r); 
-        //}
+        [TestInitialize]
+        public override void TestInitialize()
+        {
+            base.TestInitialize();
+            var r = new TestRepository();
+            var t = new TermRepository();
+            obj = new TestClass(r);
+        }
 
-        //[TestMethod]
-        //public void ItemIdTest()
-        //{
-        //    var item = GetRandom.Object<TrainingTypeView>();
-        //    obj.Item = item;
-        //    Assert.AreEqual(item.Id, obj.ItemId);
-        //    obj.Item = null;
-        //    Assert.AreEqual(string.Empty, obj.ItemId);
-        //}
-       
-       [TestMethod]
+        [TestMethod]
+        public void ItemIdTest()
+        {
+            var item = GetRandom.Object<TrainingTypeView>();
+            obj.Item = item;
+            Assert.AreEqual(item.Id, obj.ItemId);
+            obj.Item = null;
+            Assert.AreEqual(string.Empty, obj.ItemId);
+        }
+
+        [TestMethod]
         public void PageTitleTest() => Assert.AreEqual("Training Types", obj.PageTitle);
 
         [TestMethod]
         public void GetPageUrlTest() => Assert.AreEqual("/TrainingType/TrainingTypes", obj.PageUrl);
-
-        //[TestMethod]
-        //public void ToObjectTest()
-        //{
-        //    var view = GetRandom.Object<TrainingTypeView>();
-        //    var o = obj.ToObject(view);
-        //    TestArePropertyValuesEqual(view, o.Data);
-        //}
-        //[TestMethod]
-        //public void ToViewTest()
-        //{
-        //    var data = GetRandom.Object<TrainingTypeData>();
-        //    var view = obj.ToView(new SportClub.Domain.TrainingType.TrainingType(data));
-        //    TestArePropertyValuesEqual(view, data);
-        //}
-
+        [TestMethod]
+        public void ToObjectTest()
+        {
+            var view = GetRandom.Object<TrainingTypeView>();
+            var o = obj.ToObject(view);
+            TestArePropertyValuesEqual(view, o.Data);
+        }
+        [TestMethod]
+        public void ToViewTest()
+        {
+            var data = GetRandom.Object<TrainingTypeData>();
+            var view = obj.ToView(new SportClub.Domain.TrainingType.TrainingType(data));
+            TestArePropertyValuesEqual(view, data);
+        }
     }
 }

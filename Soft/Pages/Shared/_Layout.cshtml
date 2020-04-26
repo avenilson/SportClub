@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using SportClub.Pages.Extensions
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -19,13 +20,19 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                    </ul>
+                        @Html.DropDownNavigationMenuFor("Coach",
+                            new Link("Coach Info", "/Coach/Coaches"),
+                            new Link("Coach Of Training", "/CoachOfTraining/CoachOfTrainings"))
+                        @Html.DropDownNavigationMenuFor("Participant",
+                            new Link("Participant Info", "/Participant/Participants"),
+                            new Link("Participant Of Training", "/ParticipantOfTraining/ParticipantOfTrainings"))
+                        @Html.DropDownNavigationMenuFor("Training",
+                            new Link("Training Info", "/Training/Trainings"),
+                            new Link("Training Type", "/TrainingType/TrainingTypes"))
+                        @Html.DropDownNavigationMenuFor("Help",
+                            new Link("About", "/Index"),
+                            new Link("Privacy", "/Privacy"))
+                        </ul>
                 </div>
             </div>
         </nav>
