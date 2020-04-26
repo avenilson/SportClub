@@ -101,15 +101,15 @@ namespace SportClub.Tests.Infra
             Assert.IsNull(obj.CreateFixedWhereExpression());
         }
 
-        //[TestMethod]
-        //public void AddFilteringTest()
-        //{
-        //    var sql = obj.createSqlQuery();
-        //    var searchString = GetRandom.String();
-        //    obj.SearchString = searchString;
-        //    var sqlNew = obj.AddFiltering(sql);
-        //    Assert.IsNotNull(sqlNew);
-        //}
+        [TestMethod]
+        public void AddFilteringTest()
+        {
+            var sql = obj.createSqlQuery();
+            var searchString = GetRandom.String();
+            obj.SearchString = searchString;
+            var sqlNew = obj.AddFiltering(sql);
+            Assert.IsNotNull(sqlNew);
+        }
 
         [TestMethod]
         public void CreateWhereExpressionTest()
