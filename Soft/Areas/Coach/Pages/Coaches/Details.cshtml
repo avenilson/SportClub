@@ -1,4 +1,5 @@
 ﻿@page
+@using SportClub.Pages.Extensions
 @model SportClub.Soft.Areas.Coach.Pages.Coaches.DetailsModel
 
 @{
@@ -11,12 +12,8 @@
     <h4>CoachData</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.CoachData.Name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.CoachData.Name)
-        </dd>
+        @Html.DisplayControlsFor(model=>model.CoachData.Id)
+        @Html.DisplayControlsFor(model => model.CoachData.Name)
     </dl>
 </div>
 <div>

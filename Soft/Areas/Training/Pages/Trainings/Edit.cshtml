@@ -1,4 +1,5 @@
 ﻿@page
+@using SportClub.Pages.Extensions
 @model SportClub.Soft.Areas.Training.Pages.Trainings.EditModel
 
 @{
@@ -13,27 +14,12 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="TrainingData.Definition" class="control-label"></label>
-                <input asp-for="TrainingData.Definition" class="form-control" />
-                <span asp-validation-for="TrainingData.Definition" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TrainingData.Duration" class="control-label"></label>
-                <input asp-for="TrainingData.Duration" class="form-control" />
-                <span asp-validation-for="TrainingData.Duration" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TrainingData.ParticipantsCount" class="control-label"></label>
-                <input asp-for="TrainingData.ParticipantsCount" class="form-control" />
-                <span asp-validation-for="TrainingData.ParticipantsCount" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TrainingData.Name" class="control-label"></label>
-                <input asp-for="TrainingData.Name" class="form-control" />
-                <span asp-validation-for="TrainingData.Name" class="text-danger"></span>
-            </div>
             <input type="hidden" asp-for="TrainingData.Id" />
+            @Html.EditControlsFor(x => x.TrainingData.Id)
+            @Html.EditControlsFor(x => x.TrainingData.Name)
+            @Html.EditControlsFor(x => x.TrainingData.Definition)
+            @Html.EditControlsFor(x => x.TrainingData.Duration)
+            @Html.EditControlsFor(x => x.TrainingData.ParticipantsCount)
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

@@ -1,4 +1,5 @@
 ﻿@page
+@using SportClub.Pages.Extensions
 @model SportClub.Soft.Areas.Participant.Pages.Participants.CreateModel
 
 @{
@@ -7,32 +8,17 @@
 
 <h1>Create</h1>
 
-<h4>ParticipantData</h4>
+<h4>Participant Data</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="ParticipantData.Age" class="control-label"></label>
-                <input asp-for="ParticipantData.Age" class="form-control" />
-                <span asp-validation-for="ParticipantData.Age" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ParticipantData.Address" class="control-label"></label>
-                <input asp-for="ParticipantData.Address" class="form-control" />
-                <span asp-validation-for="ParticipantData.Address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ParticipantData.Name" class="control-label"></label>
-                <input asp-for="ParticipantData.Name" class="form-control" />
-                <span asp-validation-for="ParticipantData.Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ParticipantData.Id" class="control-label"></label>
-                <input asp-for="ParticipantData.Id" class="form-control" />
-                <span asp-validation-for="ParticipantData.Id" class="text-danger"></span>
-            </div>
+            @Html.EditControlsFor(x => x.ParticipantData.Id)
+            @Html.EditControlsFor(x => x.ParticipantData.Name)
+            @Html.EditControlsFor(x => x.ParticipantData.Age)
+            @Html.EditControlsFor(x => x.ParticipantData.Address)
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

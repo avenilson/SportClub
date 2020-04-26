@@ -1,4 +1,5 @@
 ﻿@page
+@using SportClub.Pages.Extensions
 @model SportClub.Soft.Areas.Training.Pages.Trainings.DetailsModel
 
 @{
@@ -11,30 +12,11 @@
     <h4>TrainingData</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TrainingData.Definition)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TrainingData.Definition)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TrainingData.Duration)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TrainingData.Duration)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TrainingData.ParticipantsCount)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TrainingData.ParticipantsCount)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.TrainingData.Name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.TrainingData.Name)
-        </dd>
+        @Html.DisplayControlsFor(model => model.TrainingData.Id)
+        @Html.DisplayControlsFor(model => model.TrainingData.Name)
+        @Html.DisplayControlsFor(model => model.TrainingData.Definition)
+        @Html.DisplayControlsFor(model => model.TrainingData.Duration)
+        @Html.DisplayControlsFor(model => model.TrainingData.ParticipantsCount)
     </dl>
 </div>
 <div>

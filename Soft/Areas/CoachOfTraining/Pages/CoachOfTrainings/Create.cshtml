@@ -1,4 +1,5 @@
 ﻿@page
+@using SportClub.Pages.Extensions
 @model SportClub.Soft.Areas.CoachOfTraining.Pages.CoachOfTrainings.CreateModel
 
 @{
@@ -7,32 +8,16 @@
 
 <h1>Create</h1>
 
-<h4>CoachOfTrainingData</h4>
+<h4>Coach Of Training Data</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="CoachOfTrainingData.TrainingId" class="control-label"></label>
-                <input asp-for="CoachOfTrainingData.TrainingId" class="form-control" />
-                <span asp-validation-for="CoachOfTrainingData.TrainingId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CoachOfTrainingData.CoachId" class="control-label"></label>
-                <input asp-for="CoachOfTrainingData.CoachId" class="form-control" />
-                <span asp-validation-for="CoachOfTrainingData.CoachId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CoachOfTrainingData.Name" class="control-label"></label>
-                <input asp-for="CoachOfTrainingData.Name" class="form-control" />
-                <span asp-validation-for="CoachOfTrainingData.Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CoachOfTrainingData.Id" class="control-label"></label>
-                <input asp-for="CoachOfTrainingData.Id" class="form-control" />
-                <span asp-validation-for="CoachOfTrainingData.Id" class="text-danger"></span>
-            </div>
+            @Html.EditControlsFor(x => x.CoachOfTrainingData.Id)
+            @Html.EditControlsFor(x => x.CoachOfTrainingData.Name)
+            @Html.EditControlsFor(x => x.CoachOfTrainingData.TrainingId)
+            @Html.EditControlsFor(x => x.CoachOfTrainingData.CoachId)
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

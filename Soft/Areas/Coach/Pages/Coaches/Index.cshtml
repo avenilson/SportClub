@@ -2,7 +2,7 @@
 @model SportClub.Soft.Areas.Coach.Pages.Coaches.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Coach";
 }
 
 <h1>Index</h1>
@@ -14,6 +14,9 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.CoachData[0].Id)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.CoachData[0].Name)
             </th>
             <th></th>
@@ -22,6 +25,9 @@
     <tbody>
 @foreach (var item in Model.CoachData) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>

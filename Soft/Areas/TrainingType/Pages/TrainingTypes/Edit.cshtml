@@ -1,4 +1,5 @@
 ﻿@page
+@using SportClub.Pages.Extensions
 @model SportClub.Soft.Areas.TrainingType.Pages.TrainingTypes.EditModel
 
 @{
@@ -13,22 +14,11 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="TrainingTypeData.Type" class="control-label"></label>
-                <input asp-for="TrainingTypeData.Type" class="form-control" />
-                <span asp-validation-for="TrainingTypeData.Type" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TrainingTypeData.Definition" class="control-label"></label>
-                <input asp-for="TrainingTypeData.Definition" class="form-control" />
-                <span asp-validation-for="TrainingTypeData.Definition" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TrainingTypeData.Name" class="control-label"></label>
-                <input asp-for="TrainingTypeData.Name" class="form-control" />
-                <span asp-validation-for="TrainingTypeData.Name" class="text-danger"></span>
-            </div>
             <input type="hidden" asp-for="TrainingTypeData.Id" />
+            @Html.EditControlsFor(x => x.TrainingTypeData.Id)
+            @Html.EditControlsFor(x => x.TrainingTypeData.Name)
+            @Html.EditControlsFor(x => x.TrainingTypeData.Type)
+            @Html.EditControlsFor(x => x.TrainingTypeData.Definition)
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
