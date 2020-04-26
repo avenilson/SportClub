@@ -1,15 +1,13 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SportClub.Aids;
+using SportClub.Data.Coach;
+using SportClub.Data.Participant;
 using SportClub.Data.ParticipantOfTraining;
-using SportClub.Data.Training;
+using SportClub.Domain.Participant;
 using SportClub.Domain.ParticipantOfTraining;
 using SportClub.Facade.ParticipantOfTraining;
-using SportClub.Facade.Training;
 using SportClub.Pages;
-using SportClub.Pages.Participant;
 using SportClub.Pages.ParticipantOfTraining;
-using SportClub.Tests.Pages.Training;
-using ParticipantOfTrainingView = SportClub.Facade.ParticipantOfTraining.ParticipantOfTrainingView;
 
 namespace SportClub.Tests.Pages.ParticipantOfTraining
 {
@@ -24,14 +22,27 @@ namespace SportClub.Tests.Pages.ParticipantOfTraining
 
         private class TestRepository : BaseTestRepositoryForUniqueEntity<SportClub.Domain.ParticipantOfTraining.ParticipantOfTraining, ParticipantOfTrainingData>,
             IParticipantOfTrainingsRepository { } 
+        private class TermRepository : BaseTestRepositoryForNamedEntity<SportClub.Domain.Participant.Participant, ParticipantData>,
+            IParticipantsRepository
+        {
+            protected override bool isThis(SportClub.Domain.Participant.Participant entity, string id)
+            {
+                return true;
+            }
 
-        
+            protected override string getId(SportClub.Domain.Participant.Participant entity)
+            {
+                return string.Empty;
+            }
+        }
+
         [TestInitialize]
         public override void TestInitialize()
         {
             base.TestInitialize(); //kasutab inmemorydb extensionit, mis on malus!
-            var r = new ParticipantOfTrainingsPageTests.TestRepository();
-            obj = new ParticipantOfTrainingsPageTests.TestClass(r); //annan repository katte
+            var r = new TestRepository();
+            var t = new TermRepository();
+            obj = new TestClass(r); //annan repository katte
         }
 
         [TestMethod]

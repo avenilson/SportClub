@@ -1,14 +1,13 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SportClub.Aids;
-using SportClub.Data.ParticipantOfTraining;
+using SportClub.Data.Training;
 using SportClub.Data.TrainingType;
+using SportClub.Domain.Training;
 using SportClub.Domain.TrainingType;
-using SportClub.Facade.ParticipantOfTraining;
 using SportClub.Facade.TrainingType;
 using SportClub.Pages;
 using SportClub.Pages.Participant;
 using SportClub.Pages.TrainingType;
-using SportClub.Tests.Pages.ParticipantOfTraining;
 
 namespace SportClub.Tests.Pages.TrainingType
 {
@@ -22,14 +21,29 @@ namespace SportClub.Tests.Pages.TrainingType
         }
         private class TestRepository : BaseTestRepositoryForUniqueEntity<SportClub.Domain.TrainingType.TrainingType, TrainingTypeData>,
             ITrainingTypesRepository { } 
+        private class TermRepository : BaseTestRepositoryForNamedEntity<SportClub.Domain.Training.Training, TrainingData>,
+            ITrainingsRepository
+        {
+            protected override bool isThis(SportClub.Domain.Training.Training entity, string id)
+            {
+                return true;
+            }
+
+            protected override string getId(SportClub.Domain.Training.Training entity)
+            {
+                return string.Empty;
+            }
+        }
 
         //[TestInitialize]
         //public override void TestInitialize()
         //{
-        //    base.TestInitialize(); //kasutab inmemorydb extensionit, mis on malus!
-        //    var r = new TrainingTypesPageTests.TestRepository();
-        //    obj = new TrainingTypesPageTests.TestClass(r); //annan repository katte
+        //    base.TestInitialize(); 
+        //    var r = new TestRepository();
+        //    var t = new TermRepository();
+        //    obj = new TestClass(r); 
         //}
+
         //[TestMethod]
         //public void ItemIdTest()
         //{
@@ -39,19 +53,21 @@ namespace SportClub.Tests.Pages.TrainingType
         //    obj.Item = null;
         //    Assert.AreEqual(string.Empty, obj.ItemId);
         //}
-
-        [TestMethod]
+       
+       [TestMethod]
         public void PageTitleTest() => Assert.AreEqual("Training Types", obj.PageTitle);
 
         [TestMethod]
         public void GetPageUrlTest() => Assert.AreEqual("/TrainingType/TrainingTypes", obj.PageUrl);
-        //[TestMethod] public void ToObjectTest()
+        //[TestMethod]
+        //public void ToObjectTest()
         //{
         //    var view = GetRandom.Object<TrainingTypeView>();
         //    var o = obj.ToObject(view);
         //    TestArePropertyValuesEqual(view, o.Data);
         //}
-        //[TestMethod] public void ToViewTest()
+        //[TestMethod]
+        //public void ToViewTest()
         //{
         //    var data = GetRandom.Object<TrainingTypeData>();
         //    var view = obj.ToView(new SportClub.Domain.TrainingType.TrainingType(data));
