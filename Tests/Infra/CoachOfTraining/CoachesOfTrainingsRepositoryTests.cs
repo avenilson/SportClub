@@ -8,7 +8,6 @@ using SportClub.Infra.CoachOfTraining;
 
 namespace SportClub.Tests.Infra.CoachOfTraining
 {
-
     [TestClass]
     public class CoachesOfTrainingsRepositoryTests : RepositoryTests<CoachOfTrainingsRepository, SportClub.Domain.CoachOfTraining.CoachOfTraining, CoachOfTrainingData>
     {
