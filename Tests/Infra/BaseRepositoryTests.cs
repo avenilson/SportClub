@@ -15,7 +15,6 @@ namespace SportClub.Tests.Infra
 
         private class TestClass : BaseRepository<SportClub.Domain.Training.Training, TrainingData>
         {
-
             public TestClass(DbContext c, DbSet<TrainingData> s) : base(c, s) { }
 
             protected override SportClub.Domain.Training.Training ToDomainObject(TrainingData d) => new SportClub.Domain.Training.Training(d);
