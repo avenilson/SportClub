@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SportClub.Aids;
 using SportClub.Data.Training;
-using SportClub.Domain.Training;
 using SportClub.Infra;
 
 namespace SportClub.Tests.Infra
@@ -13,16 +12,16 @@ namespace SportClub.Tests.Infra
     public class PaginatedRepositoryTests : AbstractClassTests<PaginatedRepository<SportClub.Domain.Training.Training, TrainingData>,
         FilteredRepository<SportClub.Domain.Training.Training, TrainingData>>
     {
-        private class testClass : PaginatedRepository<SportClub.Domain.Training.Training, TrainingData>
+        private class TestClass : PaginatedRepository<SportClub.Domain.Training.Training, TrainingData>
         {
 
-            public testClass(DbContext c, DbSet<TrainingData> s) : base(c, s) { }
+            public TestClass(DbContext c, DbSet<TrainingData> s) : base(c, s) { }
 
             protected override SportClub.Domain.Training.Training ToDomainObject(TrainingData d) => new SportClub.Domain.Training.Training(d);
 
-            protected override async Task<TrainingData> getData(string id) => await dbSet.FirstOrDefaultAsync(m => m.Id == id);
+            protected override async Task<TrainingData> GetData(string id) => await dbSet.FirstOrDefaultAsync(m => m.Id == id);
 
-            protected override string getId(SportClub.Domain.Training.Training entity) => entity?.Data?.Id;
+            protected override string GetId(SportClub.Domain.Training.Training entity) => entity?.Data?.Id;
 
         }
 
@@ -37,11 +36,11 @@ namespace SportClub.Tests.Infra
                 .UseInMemoryDatabase("TestDb")
                 .Options;
             var c = new SportClubDbContext(options);
-            obj = new testClass(c, c.Trainings);
+            obj = new TestClass(c, c.Trainings);
             count = GetRandom.UInt8(20, 40);
             foreach (var p in c.Trainings)
                 c.Entry(p).State = EntityState.Deleted;
-            addItems();
+            AddItems();
         }
         [TestMethod]
         public void PageIndexTest()
@@ -60,32 +59,32 @@ namespace SportClub.Tests.Infra
         [TestMethod]
         public void HasNextPageTest()
         {
-            void testNextPage(int pageIndex, bool expected)
+            void TestNextPage(int pageIndex, bool expected)
             {
                 obj.PageIndex = pageIndex;
                 var actual = obj.HasNextPage;
                 Assert.AreEqual(expected, actual);
             }
-            testNextPage(0, true);
-            testNextPage(1, true);
-            testNextPage(GetRandom.Int32(2, obj.TotalPages - 1), true);
-            testNextPage(obj.TotalPages, false);
+            TestNextPage(0, true);
+            TestNextPage(1, true);
+            TestNextPage(GetRandom.Int32(2, obj.TotalPages - 1), true);
+            TestNextPage(obj.TotalPages, false);
         }
 
         [TestMethod]
         public void HasPreviousPageTest()
         {
-            void testPreviousPage(int pageIndex, bool expected)
+            void TestPreviousPage(int pageIndex, bool expected)
             {
                 obj.PageIndex = pageIndex;
                 var actual = obj.HasPreviousPage;
                 Assert.AreEqual(expected, actual);
             }
-            testPreviousPage(0, false);
-            testPreviousPage(1, false);
-            testPreviousPage(2, true);
-            testPreviousPage(GetRandom.Int32(2, obj.TotalPages), true);
-            testPreviousPage(obj.TotalPages, true);
+            TestPreviousPage(0, false);
+            TestPreviousPage(1, false);
+            TestPreviousPage(2, true);
+            TestPreviousPage(GetRandom.Int32(2, obj.TotalPages), true);
+            TestPreviousPage(obj.TotalPages, true);
         }
 
         [TestMethod]
@@ -118,26 +117,26 @@ namespace SportClub.Tests.Infra
             Assert.AreEqual(count, itemsCount);
         }
 
-        private void addItems()
+        private void AddItems()
         {
             for (var i = 0; i < count; i++)
                 obj.Add(new SportClub.Domain.Training.Training(GetRandom.Object<TrainingData>())).GetAwaiter();
         }
 
-        //[TestMethod]
-        //public void CreateSqlQueryTest()
-        //{
-        //    var o = obj.createSqlQuery();
-        //    Assert.IsNotNull(o);
-        //}
+        [TestMethod]
+        public void CreateSqlQueryTest()
+        {
+            var o = obj.CreateSqlQuery();
+            Assert.IsNotNull(o);
+        }
 
-        //[TestMethod]
-        //public void AddSkipAndTakeTest()
-        //{
-        //    var sql = obj.createSqlQuery();
-        //    var o = obj.AddSkipAndTake(sql);
-        //    Assert.IsNotNull(o);
-        //}
+        [TestMethod]
+        public void AddSkipAndTakeTest()
+        {
+            var sql = obj.CreateSqlQuery();
+            var o = obj.AddSkipAndTake(sql);
+            Assert.IsNotNull(o);
+        }
     }
 }
 

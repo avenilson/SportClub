@@ -7,7 +7,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SportClub.Aids;
 using SportClub.Data.Training;
-using SportClub.Domain.Training;
 using SportClub.Infra;
 
 namespace SportClub.Tests.Infra
@@ -21,13 +20,13 @@ namespace SportClub.Tests.Infra
 
             protected override SportClub.Domain.Training.Training ToDomainObject(TrainingData d) => new SportClub.Domain.Training.Training(d);
 
-            protected override async Task<TrainingData> getData(string id)
+            protected override async Task<TrainingData> GetData(string id)
             {
                 await Task.CompletedTask;
                 return new TrainingData();
             }
 
-            protected override string getId(SportClub.Domain.Training.Training entity) => entity?.Data?.Id;
+            protected override string GetId(SportClub.Domain.Training.Training entity) => entity?.Data?.Id;
         }
 
         [TestInitialize]
@@ -48,7 +47,7 @@ namespace SportClub.Tests.Infra
         public void DescendingStringTest()
         {
             var propertyName = GetMember.Name<TestClass>(x => x.DescendingString);
-            isReadOnlyProperty(obj, propertyName, "_desc");
+            IsReadOnlyProperty(obj, propertyName, "_desc");
         }
         [TestMethod]
         public void SetSortingTest()
@@ -125,6 +124,7 @@ namespace SportClub.Tests.Infra
         //    Assert.IsInstanceOfType(lambda, typeof(Expression<Func<TrainingData, object>>));
         //    Assert.IsTrue(lambda.ToString().Contains(name));
         //}
+
         [TestMethod]
         public void FindPropertyTest()
         {

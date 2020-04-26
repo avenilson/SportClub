@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SportClub.Aids;
 using SportClub.Data.Training;
-using SportClub.Domain.Training;
 using SportClub.Infra;
 
 namespace SportClub.Tests.Infra
@@ -20,12 +19,12 @@ namespace SportClub.Tests.Infra
 
             protected override SportClub.Domain.Training.Training ToDomainObject(TrainingData d) => new SportClub.Domain.Training.Training(d);
 
-            protected override async Task<TrainingData> getData(string id)
+            protected override async Task<TrainingData> GetData(string id)
             {
                 return await dbSet.FirstOrDefaultAsync(m => m.Id == id);
             }
 
-            protected override string getId(SportClub.Domain.Training.Training entity) => entity?.Data?.Id;
+            protected override string GetId(SportClub.Domain.Training.Training entity) => entity?.Data?.Id;
 
         }
 
@@ -104,7 +103,7 @@ namespace SportClub.Tests.Infra
         [TestMethod]
         public void AddFilteringTest()
         {
-            var sql = obj.createSqlQuery();
+            var sql = obj.CreateSqlQuery();
             var searchString = GetRandom.String();
             obj.SearchString = searchString;
             var sqlNew = obj.AddFiltering(sql);

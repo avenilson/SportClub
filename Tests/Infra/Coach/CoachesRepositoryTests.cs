@@ -22,12 +22,12 @@ namespace SportClub.Tests.Infra.Coach
             base.TestInitialize();
         }
 
-        protected override Type getBaseType() => typeof(UniqueEntityRepository<SportClub.Domain.Coach.Coach, CoachData>);
+        protected override Type GetBaseType() => typeof(UniqueEntityRepository<SportClub.Domain.Coach.Coach, CoachData>);
 
-        protected override string getId(CoachData d) => d.Id;
+        protected override string GetId(CoachData d) => d.Id;
 
-        protected override SportClub.Domain.Coach.Coach getObject(CoachData d) => new SportClub.Domain.Coach.Coach(d);
+        protected override SportClub.Domain.Coach.Coach GetObject(CoachData d) => new SportClub.Domain.Coach.Coach(d);
 
-        protected override void setId(CoachData d, string id) => d.Id = id;
+        protected override void SetId(CoachData d, string id) => d.Id = id;
     }
 }

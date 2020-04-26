@@ -14,7 +14,7 @@ namespace SportClub.Infra.CoachOfTraining
 
         protected override Domain.CoachOfTraining.CoachOfTraining ToDomainObject(CoachOfTrainingData d) => new Domain.CoachOfTraining.CoachOfTraining(d);
 
-        protected override async Task<CoachOfTrainingData> getData(string id)
+        protected override async Task<CoachOfTrainingData> GetData(string id)
         {
             var coachId = GetString.Head(id);
             var trainingId = GetString.Tail(id);
@@ -22,7 +22,7 @@ namespace SportClub.Infra.CoachOfTraining
             return await dbSet.SingleOrDefaultAsync(x => x.CoachId == coachId && x.TrainingId == trainingId);
         }
 
-        protected override string getId(Domain.CoachOfTraining.CoachOfTraining obj)
+        protected override string GetId(Domain.CoachOfTraining.CoachOfTraining obj)
         {
             return obj?.Data is null ? string.Empty : $"{obj.Data.CoachId}.{obj.Data.TrainingId}";
         }

@@ -47,7 +47,7 @@ namespace SportClub.Tests
             Assert.AreEqual(d, get());
         }
 
-        protected static void isReadOnlyProperty(object o, string name, object expected)
+        protected static void IsReadOnlyProperty(object o, string name, object expected)
         {
             var property = o.GetType().GetProperty(name);
             Assert.IsNotNull(property);
