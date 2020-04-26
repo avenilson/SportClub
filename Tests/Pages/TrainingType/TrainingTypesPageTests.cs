@@ -24,12 +24,12 @@ namespace SportClub.Tests.Pages.TrainingType
         private class TermRepository : BaseTestRepositoryForNamedEntity<SportClub.Domain.Training.Training, TrainingData>,
             ITrainingsRepository
         {
-            protected override bool isThis(SportClub.Domain.Training.Training entity, string id)
+            protected override bool IsThis(SportClub.Domain.Training.Training entity, string id)
             {
                 return true;
             }
 
-            protected override string getId(SportClub.Domain.Training.Training entity)
+            protected override string GetId(SportClub.Domain.Training.Training entity)
             {
                 return string.Empty;
             }
