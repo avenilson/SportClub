@@ -89,7 +89,7 @@ namespace SportClub.Tests
 
         private void RemoveTested()
         {
-            var tests = getTestClasses();
+            var tests = GetTestClasses();
 
             for (var i = list.Count; i > 0; i--)
             {
@@ -103,7 +103,7 @@ namespace SportClub.Tests
             }
         }
 
-        private List<string> getTestClasses()
+        private List<string> GetTestClasses()
         {
             var tests = GetSolution.TypeNamesForAssembly(testAssembly);
 
