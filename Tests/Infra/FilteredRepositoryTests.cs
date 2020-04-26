@@ -56,14 +56,14 @@ namespace SportClub.Tests.Infra
         [TestMethod]
         public void CreateSqlQueryTest()
         {
-            var sql = obj.createSqlQuery();
+            var sql = obj.CreateSqlQuery();
             Assert.IsNotNull(sql);
         }
 
         [TestMethod]
         public void AddFixedFilteringTest()
         {
-            var sql = obj.createSqlQuery();
+            var sql = obj.CreateSqlQuery();
             var fixedFilter = GetMember.Name<TrainingData>(x => x.Definition);
             obj.FixedFilter = fixedFilter;
             var fixedValue = GetRandom.String();
