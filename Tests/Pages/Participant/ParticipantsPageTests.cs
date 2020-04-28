@@ -1,17 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SportClub.Aids;
-using SportClub.Data.Coach;
-using SportClub.Data.CoachOfTraining;
 using SportClub.Data.Participant;
-using SportClub.Data.ParticipantOfTraining;
-using SportClub.Domain.CoachOfTraining;
 using SportClub.Domain.Participant;
-using SportClub.Domain.ParticipantOfTraining;
-using SportClub.Facade.Coach;
 using SportClub.Facade.Participant;
 using SportClub.Pages;
 using SportClub.Pages.Participant;
-using SportClub.Tests.Pages.Coach;
 
 namespace SportClub.Tests.Pages.Participant
 {

@@ -1,5 +1,4 @@
-﻿using System;
-using SportClub.Data.Training;
+﻿using SportClub.Data.Training;
 using SportClub.Domain.Training;
 using SportClub.Facade.Training;
 

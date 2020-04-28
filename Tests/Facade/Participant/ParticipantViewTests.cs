@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SportClub.Facade.CoachOfTraining;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SportClub.Facade.Common;
 using SportClub.Facade.Participant;
 

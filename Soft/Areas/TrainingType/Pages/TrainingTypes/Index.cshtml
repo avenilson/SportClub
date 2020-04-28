@@ -1,54 +1,49 @@
 ﻿@page
+@using SportClub.Pages.Extensions
 @model SportClub.Soft.Areas.TrainingType.Pages.TrainingTypes.IndexModel
 
 @{
-    ViewData["Title"] = "Training Type";
+    Layout = "_Index";
+    var page = Model.PageUrl;
+
 }
 
-<h1>Index</h1>
+@section Create {
+    @Html.HypertextLinkFor(string.Empty, new Link(Constants.CreateNewLinkTitle, $"{page}/Create?fixedFilter={Model.FixedFilter}&fixedValue={Model.FixedValue}"))
+}
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+
+<body>
 <table class="table">
     <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.TrainingTypeData[0].Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TrainingTypeData[0].Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TrainingTypeData[0].Type)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TrainingTypeData[0].Definition)
-            </th>
-            <th></th>
-        </tr>
+    @Html.TableHeaderFor(
+        new Link(Html.DisplayNameFor(m => m.Item.Id), Model.GetSortString(m => m.Id, page)),
+        new Link(Html.DisplayNameFor(m => m.Item.Name), Model.GetSortString(m => m.Name, page)),
+        new Link(Html.DisplayNameFor(m => m.Item.Type), Model.GetSortString(m => m.Type, page)),
+        new Link(Html.DisplayNameFor(m => m.Item.Definition), Model.GetSortString(m => m.Definition, page))
+        )
     </thead>
     <tbody>
-@foreach (var item in Model.TrainingTypeData) {
+    @foreach (var item in Model.Items)
+    {
+
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Definition)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
+            @Html.TableRowWithSelectFor(
+                page,
+                item.Id,
+                Model.SortOrder,
+                Model.SearchString,
+                Model.PageIndex,
+                Model.FixedFilter,
+                Model.FixedValue,
+                Html.DisplayFor(modelItem => item.Id),
+                Html.DisplayFor(modelItem => item.Name),
+                Html.DisplayFor(modelItem => item.Type),
+                Html.DisplayFor(modelItem => item.Definition)
+                )
         </tr>
-}
+    }
     </tbody>
 </table>
+
+</body>

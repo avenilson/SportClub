@@ -6,8 +6,6 @@ using SportClub.Domain.Training;
 using SportClub.Domain.TrainingType;
 using SportClub.Facade.TrainingType;
 using SportClub.Pages;
-using SportClub.Pages.Participant;
-using SportClub.Pages.Training;
 using SportClub.Pages.TrainingType;
 
 namespace SportClub.Tests.Pages.TrainingType

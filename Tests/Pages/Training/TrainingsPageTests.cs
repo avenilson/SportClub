@@ -5,7 +5,6 @@ using SportClub.Domain.Training;
 using SportClub.Facade.Training;
 using SportClub.Pages;
 using SportClub.Pages.Training;
-using SportClub.Tests.Pages.Participant;
 
 namespace SportClub.Tests.Pages.Training
 {

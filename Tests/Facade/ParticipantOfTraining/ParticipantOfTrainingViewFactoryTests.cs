@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SportClub.Aids;
-using SportClub.Data.CoachOfTraining;
 using SportClub.Data.ParticipantOfTraining;
-using SportClub.Facade.CoachOfTraining;
 using SportClub.Facade.ParticipantOfTraining;
 
 namespace SportClub.Tests.Facade.ParticipantOfTraining

@@ -1,10 +1,6 @@
-﻿using System.Collections.Generic;
-using SportClub.Aids;
-using SportClub.Data.Coach;
+﻿using SportClub.Data.Coach;
 using SportClub.Domain.Coach;
-using SportClub.Domain.CoachOfTraining;
 using SportClub.Facade.Coach;
-using SportClub.Facade.CoachOfTraining;
 
 namespace SportClub.Pages.Coach
 {

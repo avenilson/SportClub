@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SportClub.Aids;
-using SportClub.Data.Coach;
 using SportClub.Data.Participant;
 using SportClub.Data.ParticipantOfTraining;
 using SportClub.Domain.Participant;
