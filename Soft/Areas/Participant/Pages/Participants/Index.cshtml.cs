@@ -6,24 +6,28 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using SportClub.Data.Participant;
+using SportClub.Domain.Participant;
 using SportClub.Infra;
+using SportClub.Pages.Participant;
 
 namespace SportClub.Soft.Areas.Participant.Pages.Participants
 {
-    public class IndexModel : PageModel
+    public class IndexModel : ParticipantsPage
     {
-        private readonly SportClub.Infra.SportClubDbContext _context;
-
-        public IndexModel(SportClub.Infra.SportClubDbContext context)
+        public IndexModel(IParticipantsRepository r) : base(r)
         {
-            _context = context;
         }
 
-        public IList<ParticipantData> ParticipantData { get;set; }
+        public IList<ParticipantData> ParticipantData { get; set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string sortOrder,
+            string id, string currentFilter, string searchString, int? pageIndex,
+            string fixedFilter, string fixedValue)
         {
-            ParticipantData = await _context.Participants.ToListAsync();
+            SelectedId = id;
+            await GetList(sortOrder, currentFilter, searchString, pageIndex,
+                fixedFilter, fixedValue);
+
         }
     }
 }
