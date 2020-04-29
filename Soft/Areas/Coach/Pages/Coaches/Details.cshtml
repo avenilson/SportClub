@@ -1,9 +1,13 @@
 ﻿@page
+@using SportClub.Aids
+@using SportClub.Data.CoachOfTraining
 @using SportClub.Pages.Extensions
 @model SportClub.Soft.Areas.Coach.Pages.Coaches.DetailsModel
 
 @{
     Layout = "_Details";
+    const string coachOfTrainings = "/CoachOfTrainings";
+    var coachId = GetMember.Name<CoachOfTrainingData>(x => x.CoachId);
 }
 
 <body>
@@ -11,3 +15,8 @@
     @Html.DisplayControlsFor(model => model.Item.Name)
 </body>
 
+@section Details
+{
+    @Html.HypertextLinkFor(string.Empty, new Link("Show coach of trainings",
+        $"{coachOfTrainings}/Index?fixedFilter={coachId}&fixedValue={Model.Item.Id}"))
+}
