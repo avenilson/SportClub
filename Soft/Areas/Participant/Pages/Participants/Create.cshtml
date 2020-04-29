@@ -3,33 +3,11 @@
 @model SportClub.Soft.Areas.Participant.Pages.Participants.CreateModel
 
 @{
-    ViewData["Title"] = "Create";
+    Layout = "_Create";
 }
-
-<h1>Create</h1>
-
-<h4>Participant Data</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            @Html.EditControlsFor(x => x.ParticipantData.Id)
-            @Html.EditControlsFor(x => x.ParticipantData.Name)
-            @Html.EditControlsFor(x => x.ParticipantData.Age)
-            @Html.EditControlsFor(x => x.ParticipantData.Address)
-
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-
-<div>
-    <a asp-page="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    <body>
+    @Html.EditControlsFor(m => m.Item.Id)
+    @Html.EditControlsFor(m => m.Item.Name)
+    @Html.EditControlsFor(m => m.Item.Age)
+    @Html.EditControlsFor(m => m.Item.Address)
+    </body>
