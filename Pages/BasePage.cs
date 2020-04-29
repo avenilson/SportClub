@@ -12,9 +12,7 @@ namespace SportClub.Pages
 
         protected TRepository db;
 
-
         protected internal BasePage(TRepository r) => db = r;
-
 
         public string SortOrder {
             get => db.SortOrder;

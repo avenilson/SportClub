@@ -3,20 +3,11 @@
 @model SportClub.Soft.Areas.Coach.Pages.Coaches.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+    Layout = "_Details";
 }
 
-<h1>Details</h1>
+<body>
+    @Html.DisplayControlsFor(model => model.Item.Id)
+    @Html.DisplayControlsFor(model => model.Item.Name)
+</body>
 
-<div>
-    <h4>CoachData</h4>
-    <hr />
-    <dl class="row">
-        @Html.DisplayControlsFor(model=>model.CoachData.Id)
-        @Html.DisplayControlsFor(model => model.CoachData.Name)
-    </dl>
-</div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.CoachData.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
-</div>

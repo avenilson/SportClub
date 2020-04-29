@@ -8,10 +8,7 @@ namespace SportClub.Soft.Areas.Coach.Pages.Coaches
 {
     public class IndexModel : CoachesPage
     {
-        public IndexModel(ICoachesRepository r) : base(r)
-        {
-        }
-
+        public IndexModel(ICoachesRepository r) : base(r) { }
         public IList<CoachData> CoachData { get;set; }
 
         public async Task OnGetAsync(string sortOrder,
@@ -19,9 +16,7 @@ namespace SportClub.Soft.Areas.Coach.Pages.Coaches
             string fixedFilter, string fixedValue)
         {
             SelectedId = id;
-            await GetList(sortOrder, currentFilter, searchString, pageIndex,
-                fixedFilter, fixedValue);
-
+            await GetList(sortOrder, currentFilter, searchString, pageIndex, fixedFilter, fixedValue);
         }
     }
 }
