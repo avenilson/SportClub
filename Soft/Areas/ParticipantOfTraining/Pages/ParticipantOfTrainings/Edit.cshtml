@@ -6,11 +6,12 @@
     Layout = "_Edit";
 }
 
-<body>
-    <input type="hidden" asp-for="Item.Id" />
-    <input type="hidden" asp-for="Item.TrainingId" />
-    @Html.DisabledControlsFor(m => m.Item.Id)
-    @Html.DisabledControlsFor(m => m.Item.TrainingId)
-    @Html.EditControlsFor(m => m.Item.Name)
-</body>
+    <body>
+        <input type="hidden" asp-for="Item.ParticipantId" />
+        <input type="hidden" asp-for="Item.TrainingId" />
+        @Html.DisabledControlsFor(m => m.Item.ParticipantId)
+        @Html.DisabledControlsFor(m => m.Item.TrainingId)
+        @Html.EditControlsFor(m => m.Item.Id)
+        @Html.EditControlsFor(m => m.Item.Name)
+    </body>
 

@@ -12,12 +12,12 @@ namespace SportClub.Pages.Extensions
             this IHtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TResult>> expression)
         {
 
-            var s = htmlStrings(htmlHelper, expression);
+            var s = HtmlStrings(htmlHelper, expression);
 
             return new HtmlContentBuilder(s);
         }
 
-        public static List<object> htmlStrings<TModel, TResult>(IHtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TResult>> expression)
+        public static List<object> HtmlStrings<TModel, TResult>(IHtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TResult>> expression)
         {
             return new List<object> {
                 new HtmlString("<div class=\"form-group\">"),

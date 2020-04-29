@@ -22,7 +22,7 @@ namespace SportClub.Tests.Pages.Extensions
         public void HtmlStringsTest()
         {
             var expected = new List<string> { "<div", "<fieldset disabled>", "LabelFor", "EditorFor", "ValidationMessageFor", "</fieldset>", "</div" };
-            var actual = DisabledControlsForHtmlExtension.htmlStrings(new HtmlHelperMock<TrainingView>(), x => x.Duration);
+            var actual = DisabledControlsForHtmlExtension.HtmlStrings(new HtmlHelperMock<TrainingView>(), x => x.Duration);
             TestHtml.Strings(actual, expected);
         }
     }
