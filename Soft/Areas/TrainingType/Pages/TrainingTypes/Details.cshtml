@@ -3,22 +3,12 @@
 @model SportClub.Soft.Areas.TrainingType.Pages.TrainingTypes.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+    Layout = "_Details";
 }
 
-<h1>Details</h1>
-
-<div>
-    <h4>TrainingTypeData</h4>
-    <hr />
-    <dl class="row">
-        @Html.DisplayControlsFor(model => model.TrainingTypeData.Id)
-        @Html.DisplayControlsFor(model => model.TrainingTypeData.Name)
-        @Html.DisplayControlsFor(model => model.TrainingTypeData.Type)
-        @Html.DisplayControlsFor(model => model.TrainingTypeData.Definition)
-    </dl>
-</div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.TrainingTypeData.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
-</div>
+<body>
+    @Html.DisplayControlsFor(model => model.Item.Id)
+    @Html.DisplayControlsFor(model => model.Item.Name)
+    @Html.DisplayControlsFor(model => model.Item.Type)
+    @Html.DisplayControlsFor(model => model.Item.Definition)
+</body>

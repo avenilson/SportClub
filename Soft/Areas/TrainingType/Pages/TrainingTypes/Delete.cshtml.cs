@@ -1,55 +1,23 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using SportClub.Data.TrainingType;
+using SportClub.Domain.TrainingType;
+using SportClub.Pages.TrainingType;
 
 namespace SportClub.Soft.Areas.TrainingType.Pages.TrainingTypes
 {
-    public class DeleteModel : PageModel
+    public class DeleteModel : TrainingTypesPage
     {
-        private readonly SportClub.Infra.SportClubDbContext _context;
-
-        public DeleteModel(SportClub.Infra.SportClubDbContext context)
+        public DeleteModel(ITrainingTypesRepository r) : base(r) { }
+        public async Task<IActionResult> OnGetAsync(string id, string fixedFilter, string fixedValue)
         {
-            _context = context;
-        }
-
-        [BindProperty]
-        public TrainingTypeData TrainingTypeData { get; set; }
-
-        public async Task<IActionResult> OnGetAsync(string id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            TrainingTypeData = await _context.TrainingTypes.FirstOrDefaultAsync(m => m.Id == id);
-
-            if (TrainingTypeData == null)
-            {
-                return NotFound();
-            }
+            await GetObject(id, fixedFilter, fixedValue);
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(string id)
+        public async Task<IActionResult> OnPostAsync(string id, string fixedFilter, string fixedValue)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            TrainingTypeData = await _context.TrainingTypes.FindAsync(id);
-
-            if (TrainingTypeData != null)
-            {
-                _context.TrainingTypes.Remove(TrainingTypeData);
-                await _context.SaveChangesAsync();
-            }
-
-            return RedirectToPage("./Index");
+            await DeleteObject(id, fixedFilter, fixedValue);
+            return Redirect(IndexUrl);
         }
     }
 }
