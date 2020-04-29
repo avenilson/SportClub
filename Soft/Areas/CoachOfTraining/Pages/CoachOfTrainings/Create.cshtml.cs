@@ -1,40 +1,42 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using SportClub.Data.CoachOfTraining;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using SportClub.Data.Coach;
+using SportClub.Data.Training;
+using SportClub.Domain.Coach;
+using SportClub.Domain.CoachOfTraining;
+using SportClub.Domain.Training;
+using SportClub.Pages.CoachOfTraining;
 
 namespace SportClub.Soft.Areas.CoachOfTraining.Pages.CoachOfTrainings
 {
-    public class CreateModel : PageModel
+    public class CreateModel : CoachOfTrainingsPage
     {
-        private readonly SportClub.Infra.SportClubDbContext _context;
-
-        public CreateModel(SportClub.Infra.SportClubDbContext context)
-        {
-            _context = context;
+        public CreateModel(ICoachOfTrainingsRepository r,
+            ICoachesRepository u, ITrainingsRepository s) : base(r) { 
+            Coaches = CreateSelectList<Domain.Coach.Coach, CoachData>(u);
+            Trainings = CreateSelectList<Domain.Training.Training, TrainingData>(s);
         }
 
-        public IActionResult OnGet()
+        public IEnumerable<SelectListItem> Coaches { get; }
+
+        public IEnumerable<SelectListItem> Trainings { get; }
+
+
+        public IActionResult OnGet(string fixedFilter, string fixedValue)
         {
+            FixedFilter = fixedFilter;
+            FixedValue = fixedValue;
             return Page();
         }
 
-        [BindProperty]
-        public CoachOfTrainingData CoachOfTrainingData { get; set; }
-
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(string fixedFilter, string fixedValue)
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
-            _context.CoachesOfTrainings.Add(CoachOfTrainingData);
-            await _context.SaveChangesAsync();
-
-            return RedirectToPage("./Index");
+            if (!await AddObject(fixedFilter, fixedValue)) return Page();
+            return Redirect(IndexUrl);
         }
+
     }
+
 }

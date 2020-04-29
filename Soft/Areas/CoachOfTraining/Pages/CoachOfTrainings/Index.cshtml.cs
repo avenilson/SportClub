@@ -12,15 +12,14 @@ namespace SportClub.Soft.Areas.CoachOfTraining.Pages.CoachOfTrainings
         {
         }
 
-        public IList<CoachOfTrainingData> CoachOfTrainingData { get; set; }
-
         public async Task OnGetAsync(string sortOrder,
-            string id, string currentFilter, string searchString, int? pageIndex,
+            string currentFilter, string searchString, int? pageIndex,
             string fixedFilter, string fixedValue)
         {
-            SelectedId = id;
+
             await GetList(sortOrder, currentFilter, searchString, pageIndex,
                 fixedFilter, fixedValue);
+
 
         }
     }
