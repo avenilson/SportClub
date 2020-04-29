@@ -1,55 +1,26 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using SportClub.Data.ParticipantOfTraining;
+using SportClub.Domain.ParticipantOfTraining;
+using SportClub.Pages.ParticipantOfTraining;
 
 namespace SportClub.Soft.Areas.ParticipantOfTraining.Pages.ParticipantOfTrainings
 {
-    public class DeleteModel : PageModel
+    public class DeleteModel : ParticipantOfTrainingsPage
     {
-        private readonly SportClub.Infra.SportClubDbContext _context;
-
-        public DeleteModel(SportClub.Infra.SportClubDbContext context)
+        public DeleteModel(IParticipantOfTrainingsRepository r) : base(r) { }
+        public async Task<IActionResult> OnGetAsync(string id, string fixedFilter, string fixedValue)
         {
-            _context = context;
-        }
-
-        [BindProperty]
-        public ParticipantOfTrainingData ParticipantOfTrainingData { get; set; }
-
-        public async Task<IActionResult> OnGetAsync(string id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            ParticipantOfTrainingData = await _context.ParticipantsOfTrainings.FirstOrDefaultAsync(m => m.TrainingId == id);
-
-            if (ParticipantOfTrainingData == null)
-            {
-                return NotFound();
-            }
+            await GetObject(id, fixedFilter, fixedValue);
+            
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(string id)
+        public async Task<IActionResult> OnPostAsync(string id, string fixedFilter, string fixedValue)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            await DeleteObject(id, fixedFilter, fixedValue);
 
-            ParticipantOfTrainingData = await _context.ParticipantsOfTrainings.FindAsync(id);
-
-            if (ParticipantOfTrainingData != null)
-            {
-                _context.ParticipantsOfTrainings.Remove(ParticipantOfTrainingData);
-                await _context.SaveChangesAsync();
-            }
-
-            return RedirectToPage("./Index");
+            return Redirect(IndexUrl);
         }
+
     }
 }
