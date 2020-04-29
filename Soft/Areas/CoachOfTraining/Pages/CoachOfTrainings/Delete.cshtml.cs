@@ -3,53 +3,28 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using SportClub.Data.CoachOfTraining;
+using SportClub.Domain.CoachOfTraining;
+using SportClub.Pages.CoachOfTraining;
 
 namespace SportClub.Soft.Areas.CoachOfTraining.Pages.CoachOfTrainings
 {
-    public class DeleteModel : PageModel
+    public class DeleteModel : CoachOfTrainingsPage
     {
-        private readonly SportClub.Infra.SportClubDbContext _context;
+        public DeleteModel(ICoachOfTrainingsRepository r) : base(r) { }
 
-        public DeleteModel(SportClub.Infra.SportClubDbContext context)
+        public async Task<IActionResult> OnGetAsync(string id, string fixedFilter, string fixedValue)
         {
-            _context = context;
-        }
+            await GetObject(id, fixedFilter, fixedValue);
 
-        [BindProperty]
-        public CoachOfTrainingData CoachOfTrainingData { get; set; }
-
-        public async Task<IActionResult> OnGetAsync(string id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            CoachOfTrainingData = await _context.CoachesOfTrainings.FirstOrDefaultAsync(m => m.TrainingId == id);
-
-            if (CoachOfTrainingData == null)
-            {
-                return NotFound();
-            }
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(string id)
+        public async Task<IActionResult> OnPostAsync(string id, string fixedFilter, string fixedValue)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            await DeleteObject(id, fixedFilter, fixedValue);
 
-            CoachOfTrainingData = await _context.CoachesOfTrainings.FindAsync(id);
-
-            if (CoachOfTrainingData != null)
-            {
-                _context.CoachesOfTrainings.Remove(CoachOfTrainingData);
-                await _context.SaveChangesAsync();
-            }
-
-            return RedirectToPage("./Index");
+            return Redirect(IndexUrl);
         }
     }
 }
+

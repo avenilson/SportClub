@@ -9,8 +9,7 @@
                 var name = property.Name;
                 var p = to.GetType().GetProperty(name);
                 var v = property.GetValue(from);
-                p.SetValue(to, v);
-
+                if (p != null) p.SetValue(to, v);
             }
         }
     }
