@@ -1,40 +1,24 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using SportClub.Data.TrainingType;
+using SportClub.Domain.TrainingType;
+using SportClub.Pages.TrainingType;
 
 namespace SportClub.Soft.Areas.TrainingType.Pages.TrainingTypes
 {
-    public class CreateModel : PageModel
+    public class CreateModel : TrainingTypesPage
     {
-        private readonly SportClub.Infra.SportClubDbContext _context;
+        public CreateModel(ITrainingTypesRepository r) : base(r) { }
 
-        public CreateModel(SportClub.Infra.SportClubDbContext context)
+        public IActionResult OnGet(string fixedFilter, string fixedValue)
         {
-            _context = context;
-        }
-
-        public IActionResult OnGet()
-        {
+            FixedFilter = fixedFilter;
+            FixedValue = fixedValue;
             return Page();
         }
-
-        [BindProperty]
-        public TrainingTypeData TrainingTypeData { get; set; }
-
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(string fixedFilter, string fixedValue)
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
-            _context.TrainingTypes.Add(TrainingTypeData);
-            await _context.SaveChangesAsync();
-
-            return RedirectToPage("./Index");
+            if (!await AddObject(fixedFilter, fixedValue)) return Page();
+            return Redirect(IndexUrl);
         }
     }
 }
