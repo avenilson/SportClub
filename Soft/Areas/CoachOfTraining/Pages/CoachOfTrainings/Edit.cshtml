@@ -3,34 +3,14 @@
 @model SportClub.Soft.Areas.CoachOfTraining.Pages.CoachOfTrainings.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+    Layout = "_Edit";
 }
 
-<h1>Edit</h1>
-
-<h4>CoachOfTrainingData</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="CoachOfTrainingData.TrainingId" />
-            <input type="hidden" asp-for="CoachOfTrainingData.CoachId" />
-            @Html.EditControlsFor(x => x.CoachOfTrainingData.Id)
-            @Html.EditControlsFor(x => x.CoachOfTrainingData.Name)
-            @Html.EditControlsFor(x => x.CoachOfTrainingData.CoachId)
-            @Html.EditControlsFor(x => x.CoachOfTrainingData.TrainingId)
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-
-<div>
-    <a asp-page="./Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+<body>
+    <input type="hidden" asp-for="Item.CoachId" />
+    <input type="hidden" asp-for="Item.TrainingId" />
+    @Html.DisabledControlsFor(x => x.Item.CoachId)
+    @Html.DisabledControlsFor(x => x.Item.TrainingId)
+    @Html.EditControlsFor(x => x.Item.Id)
+    @Html.EditControlsFor(x => x.Item.Name)
+</body>

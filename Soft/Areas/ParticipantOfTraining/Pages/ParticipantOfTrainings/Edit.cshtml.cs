@@ -1,73 +1,26 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using SportClub.Data.ParticipantOfTraining;
+using SportClub.Domain.ParticipantOfTraining;
+using SportClub.Pages.ParticipantOfTraining;
 
 namespace SportClub.Soft.Areas.ParticipantOfTraining.Pages.ParticipantOfTrainings
 {
-    public class EditModel : PageModel
+    public class EditModel : ParticipantOfTrainingsPage
     {
-        private readonly SportClub.Infra.SportClubDbContext _context;
+        public EditModel(IParticipantOfTrainingsRepository r) : base(r) { }
 
-        public EditModel(SportClub.Infra.SportClubDbContext context)
+        public async Task<IActionResult> OnGetAsync(string id, string fixedFilter, string fixedValue)
         {
-            _context = context;
-        }
-
-        [BindProperty]
-        public ParticipantOfTrainingData ParticipantOfTrainingData { get; set; }
-
-        public async Task<IActionResult> OnGetAsync(string id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            ParticipantOfTrainingData = await _context.ParticipantsOfTrainings.FirstOrDefaultAsync(m => m.TrainingId == id);
-
-            if (ParticipantOfTrainingData == null)
-            {
-                return NotFound();
-            }
+            await GetObject(id, fixedFilter, fixedValue);            
             return Page();
         }
 
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(string fixedFilter, string fixedValue)
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+            await UpdateObject(fixedFilter, fixedValue);
 
-            _context.Attach(ParticipantOfTrainingData).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ParticipantOfTrainingDataExists(ParticipantOfTrainingData.TrainingId))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return RedirectToPage("./Index");
-        }
-
-        private bool ParticipantOfTrainingDataExists(string id)
-        {
-            return _context.ParticipantsOfTrainings.Any(e => e.TrainingId == id);
-        }
+            return Redirect(IndexUrl);
+        }      
     }
 }

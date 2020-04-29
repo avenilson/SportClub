@@ -3,33 +3,19 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using SportClub.Data.CoachOfTraining;
+using SportClub.Domain.CoachOfTraining;
+using SportClub.Pages.CoachOfTraining;
 
 namespace SportClub.Soft.Areas.CoachOfTraining.Pages.CoachOfTrainings
 {
-    public class DetailsModel : PageModel
+    public class DetailsModel : CoachOfTrainingsPage
     {
-        private readonly SportClub.Infra.SportClubDbContext _context;
+        public DetailsModel(ICoachOfTrainingsRepository r) : base(r) { }
 
-        public DetailsModel(SportClub.Infra.SportClubDbContext context)
+        public async Task<IActionResult> OnGetAsync(string id, string fixedFilter, string fixedValue)
         {
-            _context = context;
-        }
+            await GetObject(id, fixedFilter, fixedValue);
 
-        public CoachOfTrainingData CoachOfTrainingData { get; set; }
-
-        public async Task<IActionResult> OnGetAsync(string id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            CoachOfTrainingData = await _context.CoachesOfTrainings.FirstOrDefaultAsync(m => m.TrainingId == id);
-
-            if (CoachOfTrainingData == null)
-            {
-                return NotFound();
-            }
             return Page();
         }
     }

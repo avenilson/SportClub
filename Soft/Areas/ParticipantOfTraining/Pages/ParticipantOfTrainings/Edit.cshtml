@@ -3,34 +3,14 @@
 @model SportClub.Soft.Areas.ParticipantOfTraining.Pages.ParticipantOfTrainings.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+    Layout = "_Edit";
 }
 
-<h1>Edit</h1>
+<body>
+    <input type="hidden" asp-for="Item.Id" />
+    <input type="hidden" asp-for="Item.TrainingId" />
+    @Html.DisabledControlsFor(m => m.Item.Id)
+    @Html.DisabledControlsFor(m => m.Item.TrainingId)
+    @Html.EditControlsFor(m => m.Item.Name)
+</body>
 
-<h4>ParticipantOfTrainingData</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="ParticipantOfTrainingData.TrainingId" />
-            <input type="hidden" asp-for="ParticipantOfTrainingData.ParticipantId" />
-            @Html.EditControlsFor(x => x.ParticipantOfTrainingData.Id)
-            @Html.EditControlsFor(x => x.ParticipantOfTrainingData.Name)
-            @Html.EditControlsFor(x => x.ParticipantOfTrainingData.ParticipantId)
-            @Html.EditControlsFor(x => x.ParticipantOfTrainingData.TrainingId)
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-
-<div>
-    <a asp-page="./Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
