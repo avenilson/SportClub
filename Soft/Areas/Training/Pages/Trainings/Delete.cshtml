@@ -3,26 +3,13 @@
 @model SportClub.Soft.Areas.Training.Pages.Trainings.DeleteModel
 
 @{
-    ViewData["Title"] = "Delete";
+    Layout = "_Delete";
 }
 
-<h1>Delete</h1>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>TrainingData</h4>
-    <hr />
-    <dl class="row">
-        @Html.DisplayControlsFor(model => model.TrainingData.Id)
-        @Html.DisplayControlsFor(model => model.TrainingData.Name)
-        @Html.DisplayControlsFor(model => model.TrainingData.Definition)
-        @Html.DisplayControlsFor(model => model.TrainingData.Duration)
-        @Html.DisplayControlsFor(model => model.TrainingData.ParticipantsCount)
-    </dl>
-    
-    <form method="post">
-        <input type="hidden" asp-for="TrainingData.Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Index">Back to List</a>
-    </form>
-</div>
+<body>
+    @Html.DisplayControlsFor(model => model.Item.Id)
+    @Html.DisplayControlsFor(model => model.Item.Name)
+    @Html.DisplayControlsFor(model => model.Item.Definition)
+    @Html.DisplayControlsFor(model => model.Item.Duration)
+    @Html.DisplayControlsFor(model => model.Item.ParticipantsCount)
+</body>

@@ -1,55 +1,23 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using SportClub.Data.Training;
+using SportClub.Domain.Training;
+using SportClub.Pages.Training;
 
 namespace SportClub.Soft.Areas.Training.Pages.Trainings
 {
-    public class DeleteModel : PageModel
+    public class DeleteModel : TrainingsPage
     {
-        private readonly SportClub.Infra.SportClubDbContext _context;
-
-        public DeleteModel(SportClub.Infra.SportClubDbContext context)
+        public DeleteModel(ITrainingsRepository r) : base(r) { }
+        public async Task<IActionResult> OnGetAsync(string id, string fixedFilter, string fixedValue)
         {
-            _context = context;
-        }
-
-        [BindProperty]
-        public TrainingData TrainingData { get; set; }
-
-        public async Task<IActionResult> OnGetAsync(string id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            TrainingData = await _context.Trainings.FirstOrDefaultAsync(m => m.Id == id);
-
-            if (TrainingData == null)
-            {
-                return NotFound();
-            }
+            await GetObject(id, fixedFilter, fixedValue);
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(string id)
+        public async Task<IActionResult> OnPostAsync(string id, string fixedFilter, string fixedValue)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            TrainingData = await _context.Trainings.FindAsync(id);
-
-            if (TrainingData != null)
-            {
-                _context.Trainings.Remove(TrainingData);
-                await _context.SaveChangesAsync();
-            }
-
-            return RedirectToPage("./Index");
+            await DeleteObject(id, fixedFilter, fixedValue);
+            return Redirect(IndexUrl);
         }
     }
 }

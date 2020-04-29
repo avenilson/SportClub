@@ -1,35 +1,16 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using SportClub.Data.Training;
+using SportClub.Domain.Training;
+using SportClub.Pages.Training;
 
 namespace SportClub.Soft.Areas.Training.Pages.Trainings
 {
-    public class DetailsModel : PageModel
+    public class DetailsModel : TrainingsPage
     {
-        private readonly SportClub.Infra.SportClubDbContext _context;
-
-        public DetailsModel(SportClub.Infra.SportClubDbContext context)
+        public DetailsModel(ITrainingsRepository r) : base(r) { }
+        public async Task<IActionResult> OnGetAsync(string id, string fixedFilter, string fixedValue)
         {
-            _context = context;
-        }
-
-        public TrainingData TrainingData { get; set; }
-
-        public async Task<IActionResult> OnGetAsync(string id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            TrainingData = await _context.Trainings.FirstOrDefaultAsync(m => m.Id == id);
-
-            if (TrainingData == null)
-            {
-                return NotFound();
-            }
+            await GetObject(id, fixedFilter, fixedValue);
             return Page();
         }
     }

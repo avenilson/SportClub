@@ -1,73 +1,22 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using SportClub.Data.Training;
+using SportClub.Domain.Training;
+using SportClub.Pages.Training;
 
 namespace SportClub.Soft.Areas.Training.Pages.Trainings
 {
-    public class EditModel : PageModel
+    public class EditModel : TrainingsPage
     {
-        private readonly SportClub.Infra.SportClubDbContext _context;
-
-        public EditModel(SportClub.Infra.SportClubDbContext context)
+        public EditModel(ITrainingsRepository r) : base(r) { }
+        public async Task<IActionResult> OnGetAsync(string id, string fixedFilter, string fixedValue)
         {
-            _context = context;
-        }
-
-        [BindProperty]
-        public TrainingData TrainingData { get; set; }
-
-        public async Task<IActionResult> OnGetAsync(string id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            TrainingData = await _context.Trainings.FirstOrDefaultAsync(m => m.Id == id);
-
-            if (TrainingData == null)
-            {
-                return NotFound();
-            }
+            await GetObject(id, fixedFilter, fixedValue);
             return Page();
         }
-
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(string fixedFilter, string fixedValue)
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
-            _context.Attach(TrainingData).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!TrainingDataExists(TrainingData.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return RedirectToPage("./Index");
-        }
-
-        private bool TrainingDataExists(string id)
-        {
-            return _context.Trainings.Any(e => e.Id == id);
+            await UpdateObject(fixedFilter, fixedValue);
+            return Redirect(IndexUrl);
         }
     }
 }

@@ -1,25 +1,31 @@
 ﻿@page
+@using SportClub.Aids
+@using SportClub.Data.CoachOfTraining
+@using SportClub.Data.ParticipantOfTraining
 @using SportClub.Pages.Extensions
 @model SportClub.Soft.Areas.Training.Pages.Trainings.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+    Layout = "_Details";
+    const string participantsOfTraining = "/ParticipantOfTraining/ParticipantOfTrainings";
+    var trainingIdForParticipants = GetMember.Name<ParticipantOfTrainingData>(x => x.TrainingId);
+    const string coachesOfTraining = "/CoachOfTraining/CoachOfTrainings";
+    var trainingIdForCoaches = GetMember.Name<CoachOfTrainingData>(x => x.TrainingId);
 }
 
-<h1>Details</h1>
+<body>
+    @Html.DisplayControlsFor(model => model.Item.Id)
+    @Html.DisplayControlsFor(model => model.Item.Name)
+    @Html.DisplayControlsFor(model => model.Item.Definition)
+    @Html.DisplayControlsFor(model => model.Item.Duration)
+    @Html.DisplayControlsFor(model => model.Item.ParticipantsCount)
+</body>
 
-<div>
-    <h4>TrainingData</h4>
-    <hr />
-    <dl class="row">
-        @Html.DisplayControlsFor(model => model.TrainingData.Id)
-        @Html.DisplayControlsFor(model => model.TrainingData.Name)
-        @Html.DisplayControlsFor(model => model.TrainingData.Definition)
-        @Html.DisplayControlsFor(model => model.TrainingData.Duration)
-        @Html.DisplayControlsFor(model => model.TrainingData.ParticipantsCount)
-    </dl>
-</div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.TrainingData.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
-</div>
+@section Details
+{
+    @Html.HypertextLinkFor(string.Empty, new Link("Show participants of training",
+        $"{participantsOfTraining}/Index?fixedFilter={trainingIdForParticipants}&fixedValue={Model.Item.Id}"))
+    @Html.HypertextLinkFor(string.Empty, new Link("Show coaches of training",
+        $"{coachesOfTraining}/Index?fixedFilter={trainingIdForCoaches}&fixedValue={Model.Item.Id}"))
+}
+
