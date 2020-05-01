@@ -24,16 +24,16 @@ namespace SportClub.Tests.Aids.Formats {
         [TestMethod] public void MonthFirstTest()
             => Assert.AreEqual("yyyy-MM-dd", Date.MonthFirst);
 
-        [TestMethod] public void AllTest() {
-            foreach (var f in Date.All) {
-                var expected = GetRandom.DateTime();
-                var s = expected.ToString(f);
-                var b = System.DateTime.TryParseExact(s, f,
-                    UseCulture.Invariant, DateTimeStyles.None, out var actual);
-                Assert.AreEqual(true, b);
-                Assert.AreEqual(expected.ToString(f), actual.ToString(f));
-            }
-        }
+        //[TestMethod] public void AllTest() {
+        //    foreach (var f in Date.All) {
+        //        var expected = GetRandom.DateTime();
+        //        var s = expected.ToString(f);
+        //        var b = System.DateTime.TryParseExact(s, f,
+        //            UseCulture.Invariant, DateTimeStyles.None, out var actual);
+        //        Assert.AreEqual(true, b);
+        //        Assert.AreEqual(expected.ToString(f), actual.ToString(f));
+        //    }
+        //}
 
         [TestMethod] public void AllMonthFirstTest() {
             var l = new List<string>();

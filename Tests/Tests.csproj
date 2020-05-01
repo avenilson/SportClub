@@ -29,7 +29,6 @@
     <Folder Include="Aids\Extensions\" />
     <Folder Include="Aids\Formats\" />
     <Folder Include="Aids\Services\" />
-    <Folder Include="Aids\Regions\" />
     <Folder Include="Aids\Reflection\" />
     <Folder Include="Aids\Random\" />
     <Folder Include="Facade\CoachOfTraining\" />

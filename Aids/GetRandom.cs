@@ -210,10 +210,12 @@ namespace SportClub.Aids
             return $"{String()}{Char('\x20', '\x2f')}{UInt32().ToString()}.{String().ToUpper()}";
         }
 
+
         public static List<T> List<T>(Func<T> func)
         {
             var list = new List<T>();
-            for (var i = 0; i < UInt8(0, 10); i++) list.Add(func());
+            for (var i = 0; i < UInt8(2, 10); i++) list.Add(func());
+
             return list;
         }
 
