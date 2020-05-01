@@ -10,7 +10,7 @@ namespace SportClub.Tests.Infra.ParticipantOfTraining
 {
 
     [TestClass]
-    public class ParticipantsOfTrainingsRepositoryTests : RepositoryTests<ParticipantOfTrainingsRepository,
+    public class ParticipantOfTrainingsRepositoryTests : RepositoryTests<ParticipantOfTrainingsRepository,
         SportClub.Domain.ParticipantOfTraining.ParticipantOfTraining, ParticipantOfTrainingData>
     {
         [TestInitialize]
