@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SportClub.Aids;
+using SportClub.Data.Coach;
 
 namespace SportClub.Tests.Aids.Random {
 
@@ -196,20 +197,21 @@ namespace SportClub.Tests.Aids.Random {
             test(typeof(ulong?), typeof(ulong));
             test(typeof(string));
             test(typeof(object));
-            //test(typeof(CountryData));
+            test(typeof(CoachData));
         }
 
-        //[TestMethod] public void ObjectTest() {
-        //    Assert.IsNull(GetRandom.Object(null));
-        //    var o = GetRandom.Object(typeof(CountryData)) as CountryData;
-        //    Assert.IsNotNull(o);
-        //    Assert.IsFalse(string.IsNullOrWhiteSpace(o.Id));
-        //    Assert.IsFalse(string.IsNullOrWhiteSpace(o.Code));
-        //    Assert.IsFalse(string.IsNullOrWhiteSpace(o.Name));
-        //    var l = GetRandom.Object(typeof(List<int>)) as List<int>;
-        //    Assert.IsNotNull(l);
-        //    Assert.IsTrue(l.Count > 0);
-        //}
+        [TestMethod]
+        public void ObjectTest()
+        {
+            Assert.IsNull(GetRandom.Object(null));
+            var o = GetRandom.Object(typeof(CoachData)) as CoachData;
+            Assert.IsNotNull(o);
+            Assert.IsFalse(string.IsNullOrWhiteSpace(o.Id));
+            Assert.IsFalse(string.IsNullOrWhiteSpace(o.Name));
+            var l = GetRandom.Object(typeof(List<int>)) as List<int>;
+            Assert.IsNotNull(l);
+            Assert.IsTrue(l.Count > 0);
+        }
 
         [TestMethod] public void ListTest() {
             var l = GetRandom.List(() => GetRandom.String());

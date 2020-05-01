@@ -24,6 +24,7 @@ namespace SportClub.Aids {
             if (clean) RemoveSurrogates(l);
             return l;
         }
+
         public static List<PropertyInfo> Properties(Type type,
             BindingFlags f = PublicBindingFlagsFor.AllMembers) {
             return type?.GetProperties(f).ToList() ?? new List<PropertyInfo>();
