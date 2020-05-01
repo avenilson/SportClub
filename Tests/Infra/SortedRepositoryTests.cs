@@ -202,5 +202,22 @@ namespace SportClub.Tests.Infra
             Test(string.Empty, false);
             Test(null, false);
         }
+        [TestMethod] public void CreateSqlQueryTest()
+        {
+            var sql = obj.CreateSqlQuery();
+            Assert.IsNotNull(sql);
+        }
+        [TestMethod] public void AddSortingTest()
+        {
+            var sql = obj.CreateSqlQuery();
+            var searchString = GetRandom.String();
+            obj.SortOrder = searchString;
+            var sqlNew = obj.AddSorting(sql);
+            Assert.IsNotNull(sqlNew);
+        }
+        [TestMethod] public void AddOrderByTest()
+        {
+            Assert.Inconclusive();
+        }
     }
 }
