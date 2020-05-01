@@ -13,8 +13,4 @@ namespace SportClub.Aids {
             logBook?.WriteEntry(e);
         }
     }
-
 }
-
-
-
