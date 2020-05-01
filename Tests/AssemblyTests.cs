@@ -12,7 +12,7 @@ namespace SportClub.Tests
         private static string noClassesInAssembly => "No classes found in assembly {0}";
         private static string noClassesInNamespace => "No classes found in namespace {0}";
         private static string testAssembly => "SportClub.Tests";
-        private static string assembly => "SportClub";
+        protected virtual string assembly => "SportClub";
         private static char genericsChar => '`';
         private static char internalClass => '+';
         private static string displayClass => "<>";
@@ -110,7 +110,7 @@ namespace SportClub.Tests
             return tests.Select(t => RemoveGenericsChars(t)).ToList();
         }
 
-        private static string ToTestName(string className)
+        private string ToTestName(string className)
         {
             className = RemoveAssemblyName(className);
             className = RemoveGenericsChars(className);
@@ -126,6 +126,6 @@ namespace SportClub.Tests
             return className;
         }
 
-        private static string RemoveAssemblyName(string className) => className.Substring(assembly.Length);
+        private string RemoveAssemblyName(string className) => className.Substring(assembly.Length);
     }
 }
