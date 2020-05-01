@@ -24,7 +24,7 @@ namespace SportClub.Infra.CoachOfTraining
 
         protected override string GetId(Domain.CoachOfTraining.CoachOfTraining obj)
         {
-            return obj?.Data is null ? string.Empty : $"{obj.Data.TrainingId}.{obj.Data.CoachId}";
+            return obj?.Data is null ? string.Empty : $"{obj.Data.CoachId}.{obj.Data.TrainingId}";
         }
     }
 }
