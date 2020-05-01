@@ -26,8 +26,6 @@
     <Folder Include="Aids\Classes\" />
     <Folder Include="Aids\Logging\" />
     <Folder Include="Aids\Methods\" />
-    <Folder Include="Aids\Extensions\" />
-    <Folder Include="Aids\Formats\" />
     <Folder Include="Aids\Services\" />
     <Folder Include="Aids\Reflection\" />
     <Folder Include="Aids\Random\" />

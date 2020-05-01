@@ -18,7 +18,5 @@ namespace SportClub.Tests.Aids.Methods {
             Copy.Members(x, y);
             TestArePropertyValuesEqual(x, y);
         }
-
     }
-
 }
