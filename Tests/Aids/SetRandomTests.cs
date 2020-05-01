@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SportClub.Aids;
 
-namespace SportClub.Tests.Aids.Random {
+namespace SportClub.Tests.Aids {
 
     [TestClass] public class SetRandomTests : BaseTests {
 

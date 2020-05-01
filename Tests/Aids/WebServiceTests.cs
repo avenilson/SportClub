@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SportClub.Aids;
 
-namespace SportClub.Tests.Aids.Services {
+namespace SportClub.Tests.Aids {
 
     [TestClass] public class WebServiceTests : BaseTests {
 

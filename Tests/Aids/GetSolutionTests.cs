@@ -4,7 +4,7 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SportClub.Aids;
 
-namespace SportClub.Tests.Aids.Reflection {
+namespace SportClub.Tests.Aids {
 
     [TestClass] public class GetSolutionTests : BaseTests {
 

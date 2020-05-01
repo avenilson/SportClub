@@ -1,8 +1,7 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SportClub.Aids;
 
-namespace SportClub.Tests.Aids.Methods {
+namespace SportClub.Tests.Aids {
 
     [TestClass] public class SortTests : BaseTests {
 
