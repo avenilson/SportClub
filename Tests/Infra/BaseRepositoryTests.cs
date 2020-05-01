@@ -86,5 +86,15 @@ namespace SportClub.Tests.Infra
             var expected = obj.Get(data.Id).GetAwaiter().GetResult();
             TestArePropertyValuesEqual(newData, expected.Data);
         }
+        [TestMethod] public void CreateSqlQueryTest()
+        {
+            var sql = obj.CreateSqlQuery();
+            Assert.IsNotNull(sql);
+        }
+        [TestMethod]
+        public void dbSetTest()
+        {
+            Assert.Inconclusive();
+        }
     }
 }
