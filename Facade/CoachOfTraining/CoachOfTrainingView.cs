@@ -18,7 +18,7 @@ namespace SportClub.Facade.CoachOfTraining
 
         public string GetId()
         {
-            return $"{CoachId}.{TrainingId}";
+            return $"{TrainingId}.{CoachId}";
         }
     }
 }
