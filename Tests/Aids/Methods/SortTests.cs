@@ -9,6 +9,11 @@ namespace SportClub.Tests.Aids.Methods {
         [TestInitialize] public void TestInitialize() {
             type = typeof(Sort);
         }
+        [TestMethod]
+        public void UpwardsTest()
+        {
+           Assert.Inconclusive();
+        }
 
         //[TestMethod] public void AscendingTest() {
         //    sortAscendingTest(DateTime.MaxValue, DateTime.MinValue);

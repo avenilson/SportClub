@@ -17,12 +17,11 @@ namespace SportClub.Tests.Aids.Reflection {
             Assert.AreEqual(string.Empty, GetClass.Namespace(null));
         }
 
-        //[TestMethod]
-        //public void MembersTest()
-        //{
-        //    testMember(typeof(testClass));
-        //    testNull(null);
-        //}
+        [TestMethod]
+        public void MembersTest()
+        {
+           Assert.Inconclusive();
+        }
 
         private static void testNull(Type t) {
             var a = GetClass.Members(t);
@@ -30,7 +29,8 @@ namespace SportClub.Tests.Aids.Reflection {
             Assert.AreEqual(0, a.Count);
         }
 
-        //private static void testMember(Type t) {
+        //private static void testMember(Type t)
+        //{
         //    var a = GetClass.Members(t, PublicFlagsFor.All, false);
         //    var e = t.GetMembers(PublicFlagsFor.All);
         //    Assert.AreEqual(e.Length, a.Count);
