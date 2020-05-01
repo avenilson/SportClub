@@ -37,6 +37,10 @@ namespace SportClub.Tests.Aids.Regions {
             Assert.IsFalse(SystemRegionInfo.IsCountry(r));
             Assert.AreEqual("World", r.EnglishName);
         }
+        [TestMethod] public void GetRegionsListTest()
+        {
+            Assert.Inconclusive();
+        }
 
     }
 

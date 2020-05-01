@@ -17,7 +17,9 @@ namespace SportClub.Tests.Aids.Reflection {
             Assert.AreEqual(string.Empty, GetClass.Namespace(null));
         }
 
-        //[TestMethod] public void MembersTest() {
+        //[TestMethod]
+        //public void MembersTest()
+        //{
         //    testMember(typeof(testClass));
         //    testNull(null);
         //}

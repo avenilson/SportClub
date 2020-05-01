@@ -36,6 +36,9 @@ namespace SportClub.Tests.Aids.Regions {
                 Assert.Fail("{0} is not in list", a);
             }
         }
+        [TestMethod] public void GetSpecificCulturesTest() {
+           Assert.Inconclusive();
+        }
 
         [TestMethod] public void ToRegionInfoTest() {
             var culture = new CultureInfo("et-EE");
