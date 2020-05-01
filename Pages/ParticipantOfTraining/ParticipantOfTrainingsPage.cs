@@ -16,7 +16,7 @@ namespace SportClub.Pages.ParticipantOfTraining
             get
             {
                 if (Item is null) return string.Empty;
-                return $"{Item.Id}";
+                return $"{Item.ParticipantId}.{Item.TrainingId}";
             }
         }
 

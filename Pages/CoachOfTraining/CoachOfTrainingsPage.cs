@@ -15,7 +15,7 @@ namespace SportClub.Pages.CoachOfTraining
             get
             {
                 if (Item is null) return string.Empty;
-                return $"{Item.Id}";
+                return $"{Item.CoachId}.{Item.TrainingId}";
             }
         }
 
