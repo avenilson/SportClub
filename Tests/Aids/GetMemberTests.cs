@@ -6,7 +6,7 @@ using SportClub.Data.Coach;
 using SportClub.Domain.Coach;
 using SportClub.Facade.Coach;
 
-namespace SportClub.Tests.Aids.Reflection {
+namespace SportClub.Tests.Aids {
 
     [TestClass] public class GetMemberTests : BaseTests {
 

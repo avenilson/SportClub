@@ -3,7 +3,7 @@ using SportClub.Aids;
 using SportClub.Data.Participant;
 using SportClub.Facade.Participant;
 
-namespace SportClub.Tests.Aids.Methods {
+namespace SportClub.Tests.Aids {
 
     [TestClass] public class CopyTests : BaseTests {
 

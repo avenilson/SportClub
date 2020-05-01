@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SportClub.Aids;
 
-namespace SportClub.Tests.Aids.Classes {
+namespace SportClub.Tests.Aids {
     [TestClass] public class IsReadOnlyTests : BaseTests {
         private class testClass {
             public string A;
