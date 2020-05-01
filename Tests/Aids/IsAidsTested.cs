@@ -8,8 +8,6 @@ namespace SportClub.Tests.Aids {
 
         protected override string Namespace(string name) => $"{assembly}.{name}";
 
-        [TestMethod] public void IsExtensionsTested()
-            => IsAllTested(assembly, Namespace("Extensions"));
 
         [TestMethod] public void IsLoggingTested()
             => IsAllTested(assembly, Namespace("Logging"));
@@ -25,17 +23,10 @@ namespace SportClub.Tests.Aids {
 
         [TestMethod] public void IsMethodsTested()
             => IsAllTested(assembly, Namespace("Methods"));
-
-        [TestMethod] public void IsRegionsTested()
-            => IsAllTested(assembly, Namespace("Regions"));
-
         [TestMethod]
-        public void IsClassesTested()
+        public void ClassesTested()
             => IsAllTested(assembly, Namespace("Classes"));
-        [TestMethod]
-        public void IsFormatsTested()
-            => IsAllTested(assembly, Namespace("Formats"));
-
+        
 
     }
 
