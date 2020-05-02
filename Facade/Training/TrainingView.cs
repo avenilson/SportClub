@@ -11,6 +11,7 @@ namespace SportClub.Facade.Training
 
         public string Duration { get; set; }
         public string Definition { get; set; }
+        [DisplayName("Participants Count")]
         public string ParticipantsCount { get; set; }
 
     }
