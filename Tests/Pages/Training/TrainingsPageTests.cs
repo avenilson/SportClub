@@ -1,10 +1,13 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SportClub.Aids;
 using SportClub.Data.Training;
+using SportClub.Data.TrainingType;
 using SportClub.Domain.Training;
+using SportClub.Domain.TrainingType;
 using SportClub.Facade.Training;
 using SportClub.Pages;
 using SportClub.Pages.Training;
+using SportClub.Tests.Aids;
 
 namespace SportClub.Tests.Pages.Training
 {
@@ -14,17 +17,20 @@ namespace SportClub.Tests.Pages.Training
     {
         private class TestClass : TrainingsPage
         {
-            internal TestClass(ITrainingsRepository r) : base(r) { }
+            internal TestClass(ITrainingsRepository r, ITrainingTypesRepository t) : base(r, t) { }
         }
         private class TestRepository : BaseTestRepositoryForUniqueEntity<SportClub.Domain.Training.Training, TrainingData>,
             ITrainingsRepository { } 
+        private class TermRepository :  BaseTestRepositoryForUniqueEntity<SportClub.Domain.TrainingType.TrainingType, TrainingTypeData>,
+            ITrainingTypesRepository { } 
        
         [TestInitialize]
         public override void TestInitialize()
         {
             base.TestInitialize(); //kasutab inmemorydb extensionit, mis on malus!
-            var r = new TrainingsPageTests.TestRepository();
-            obj = new TrainingsPageTests.TestClass(r); //annan repository katte
+            var r = new TestRepository();
+            var t = new TermRepository();
+            obj = new TestClass(r, t); //annan repository katte
         }
 
         [TestMethod]

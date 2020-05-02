@@ -14,7 +14,7 @@ namespace SportClub.Tests.Aids {
         [TestMethod] public void MembersTest() {
             var x = GetRandom.Object<ParticipantData>();
             var y = GetRandom.Object<ParticipantView>();
-            TestArePropertyValuesEqual(x, y);
+            TestArePropertyValuesNotEqual(x, y);
             Copy.Members(x, y);
             TestArePropertyValuesEqual(x, y);
         }
