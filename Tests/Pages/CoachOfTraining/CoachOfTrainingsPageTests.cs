@@ -52,8 +52,8 @@ namespace SportClub.Tests.Pages.CoachOfTraining
         {
             var item = GetRandom.Object<CoachOfTrainingView>();
             obj.Item = item;
-            var a = Id(item.CoachId, item.TrainingId);
-            Assert.AreEqual(item.Id, obj.ItemId);
+            string a = Id(item.CoachId, item.TrainingId);
+            Assert.AreEqual(a, obj.ItemId);
             obj.Item = null;
             Assert.AreEqual(string.Empty, obj.ItemId);
         }

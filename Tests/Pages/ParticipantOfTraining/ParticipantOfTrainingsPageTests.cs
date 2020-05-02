@@ -43,13 +43,18 @@ namespace SportClub.Tests.Pages.ParticipantOfTraining
             var t = new TermRepository();
             obj = new TestClass(r); //annan repository katte
         }
+        public static string Id(string head, string tail)
+        {
+            return $"{head}.{tail}";
+        }
 
         [TestMethod]
         public void ItemIdTest()
         {
             var item = GetRandom.Object<ParticipantOfTrainingView>();
             obj.Item = item;
-            Assert.AreEqual(item.Id, obj.ItemId);
+            string a = Id(item.ParticipantId, item.TrainingId);
+            Assert.AreEqual(a, obj.ItemId);
             obj.Item = null;
             Assert.AreEqual(string.Empty, obj.ItemId);
         }
