@@ -10,6 +10,9 @@ namespace SportClub.Facade.Participant
         [DisplayName("Participant")]
 
         public string Age { get; set; }
+
+        [DataType(DataType.EmailAddress)]
+        [EmailAddress]
         public string Address { get; set; }
 
     }
