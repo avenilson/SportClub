@@ -39,7 +39,7 @@ namespace SportClub.Pages.Training
         {
             var items = r.Get().GetAwaiter().GetResult();
 
-            return items.Select(m => new SelectListItem(m.Data.Name, m.Data.Id)).ToList();
+            return items.Select(t => new SelectListItem(t.Data.Name, t.Data.Id)).ToList();
         }
     }
 }
