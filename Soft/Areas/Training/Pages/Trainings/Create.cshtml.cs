@@ -1,13 +1,14 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SportClub.Domain.Training;
+using SportClub.Domain.TrainingType;
 using SportClub.Pages.Training;
 
 namespace SportClub.Soft.Areas.Training.Pages.Trainings
 {
     public class CreateModel : TrainingsPage
     {
-        public CreateModel(ITrainingsRepository r) : base(r) { }
+        public CreateModel(ITrainingsRepository r, ITrainingTypesRepository t) : base(r, t) { }
 
         public IActionResult OnGet(string fixedFilter, string fixedValue)
         {

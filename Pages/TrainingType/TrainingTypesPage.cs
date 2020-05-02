@@ -6,10 +6,9 @@ namespace SportClub.Pages.TrainingType
 {
     public abstract class TrainingTypesPage: CommonPage<ITrainingTypesRepository, Domain.TrainingType.TrainingType, TrainingTypeView, TrainingTypeData>
     {
-        protected internal TrainingTypesPage(ITrainingTypesRepository r): base(r)
+        protected internal TrainingTypesPage(ITrainingTypesRepository r) : base(r)
         {
             PageTitle = "Training Types";
-           
         }
         public override string ItemId => Item?.Id ?? string.Empty;
 
@@ -24,5 +23,6 @@ namespace SportClub.Pages.TrainingType
         {
             return TrainingTypeViewFactory.Create(obj);
         }
+        
     }
 }

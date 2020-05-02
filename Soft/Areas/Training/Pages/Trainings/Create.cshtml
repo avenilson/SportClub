@@ -9,7 +9,16 @@
 <body>
     @Html.EditControlsFor(model => model.Item.Id)
     @Html.EditControlsFor(model => model.Item.Name)
-    @Html.EditControlsFor(model => model.Item.Definition)
+    @Html.EditControlsForDropDown(model => model.Item.Definition, new List<SelectListItem>
+    {
+        new SelectListItem() {Text = "Light", Value="Light"},
+        new SelectListItem() {Text = "Moderate", Value="Moderate"},
+        new SelectListItem() {Text = "Hard", Value="Hard"},
+        new SelectListItem() {Text = "Extreme", Value="Extreme"},
+        new SelectListItem() {Text = "Maximal Effort", Value="Maximal Effort"}
+    })
     @Html.EditControlsFor(model => model.Item.Duration)
     @Html.EditControlsFor(model => model.Item.ParticipantsCount)
 </body>
+
+
