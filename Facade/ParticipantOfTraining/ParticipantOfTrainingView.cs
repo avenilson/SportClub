@@ -7,12 +7,12 @@ namespace SportClub.Facade.ParticipantOfTraining
     public sealed class ParticipantOfTrainingView:NamedView
     {
         [Required]
-        [DisplayName("Training")]
+        [DisplayName("TrainingId")]
 
         public string TrainingId { get; set; }
 
         [Required]
-        [DisplayName("Participant")]
+        [DisplayName("ParticipantId")]
 
         public string ParticipantId { get; set; }
 
