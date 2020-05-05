@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SportClub.Soft.Migrations
 {
-    public partial class initial : Migration
+    public partial class first : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -62,8 +62,8 @@ namespace SportClub.Soft.Migrations
                 name: "CoachesOfTrainings",
                 columns: table => new
                 {
-                    TrainingId = table.Column<string>(nullable: false),
                     CoachId = table.Column<string>(nullable: false),
+                    TrainingId = table.Column<string>(nullable: false),
                     Id = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true)
                 },
