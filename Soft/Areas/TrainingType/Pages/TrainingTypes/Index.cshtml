@@ -28,12 +28,9 @@
     {
 
         <tr>
-            @Html.TableRowWithSelectFor(
+            @Html.TableRowFor(
                 page,
                 item.Id,
-                Model.SortOrder,
-                Model.SearchString,
-                Model.PageIndex,
                 Model.FixedFilter,
                 Model.FixedValue,
                 Html.DisplayFor(modelItem => item.Id),
