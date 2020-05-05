@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using SportClub.Data.CoachOfTraining;
+using SportClub.Domain.Coach;
 using SportClub.Domain.CoachOfTraining;
 using SportClub.Pages.CoachOfTraining;
 
@@ -11,7 +12,7 @@ namespace SportClub.Soft.Areas.CoachOfTraining.Pages.CoachOfTrainings
 {
     public class EditModel : CoachOfTrainingsPage
     {
-        public EditModel(ICoachOfTrainingsRepository r) : base(r) { }
+        public EditModel(ICoachOfTrainingsRepository r, ICoachesRepository c) : base(r,c) { }
 
 
         public async Task<IActionResult> OnGetAsync(string id, string fixedFilter, string fixedValue)

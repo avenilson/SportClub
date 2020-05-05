@@ -13,7 +13,7 @@ namespace SportClub.Soft.Areas.ParticipantOfTraining.Pages.ParticipantOfTraining
 {
     public class CreateModel : ParticipantOfTrainingsPage
     {
-        public CreateModel(IParticipantOfTrainingsRepository r, IParticipantsRepository u,ITrainingsRepository s) : base(r)
+        public CreateModel(IParticipantOfTrainingsRepository r, IParticipantsRepository u,ITrainingsRepository s, IParticipantsRepository p) : base(r,p)
         {
             Participants = CreateSelectList<Domain.Participant.Participant, ParticipantData>(u);
             Trainings = CreateSelectList<Domain.Training.Training, TrainingData>(s);

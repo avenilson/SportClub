@@ -8,6 +8,6 @@
 <body>
 @Html.EditControlsFor(m => m.Item.TrainingId)
 @Html.EditControlsFor(m => m.Item.CoachId)
-@Html.EditControlsFor(x => x.Item.Id)
+@Html.EditControlsForDropDown(x => x.Item.Id, Model.Ids)
 @Html.EditControlsFor(x => x.Item.Name)
 </body>

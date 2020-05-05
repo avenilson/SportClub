@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using SportClub.Domain.Participant;
 using SportClub.Domain.ParticipantOfTraining;
 using SportClub.Pages.ParticipantOfTraining;
 
@@ -8,7 +9,7 @@ namespace SportClub.Soft.Areas.ParticipantOfTraining.Pages.ParticipantOfTraining
 {
     public class EditModel : ParticipantOfTrainingsPage
     {
-        public EditModel(IParticipantOfTrainingsRepository r) : base(r) { }
+        public EditModel(IParticipantOfTrainingsRepository r, IParticipantsRepository p) : base(r, p) { }
 
         public async Task<IActionResult> OnGetAsync(string id, string fixedFilter, string fixedValue)
         {

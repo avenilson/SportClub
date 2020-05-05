@@ -1,4 +1,10 @@
-﻿using SportClub.Data.CoachOfTraining;
+﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using SportClub.Data.Coach;
+using SportClub.Data.CoachOfTraining;
+using SportClub.Data.Common;
+using SportClub.Data.Training;
+using SportClub.Domain.Coach;
 using SportClub.Domain.CoachOfTraining;
 using SportClub.Facade.CoachOfTraining;
 
@@ -6,10 +12,13 @@ namespace SportClub.Pages.CoachOfTraining
 {
     public abstract class CoachOfTrainingsPage : CommonPage<ICoachOfTrainingsRepository, Domain.CoachOfTraining.CoachOfTraining, CoachOfTrainingView, CoachOfTrainingData>
     {
-        protected internal CoachOfTrainingsPage(ICoachOfTrainingsRepository r) : base(r)
+        protected internal CoachOfTrainingsPage(ICoachOfTrainingsRepository r, ICoachesRepository c) : base(r)
         {
             PageTitle = "Coach Of Trainings";
+            Ids = CreateSelectList2<Domain.Coach.Coach, CoachData>(c);
         }
+        public IEnumerable<SelectListItem> Ids { get; }
+
         public override string ItemId 
         {
             get
@@ -30,7 +39,21 @@ namespace SportClub.Pages.CoachOfTraining
         {
             return CoachOfTrainingViewFactory.Create(obj);
         }
+        public string GetCoachesName(string measureId)
+        {
+            foreach (var m in Ids)
+                if (m.Value == measureId)
+                    return m.Text;
 
+            return "Unspecified";
+        }
+
+        public override string GetPageSubTitle()
+        {
+            return FixedValue is null
+                ? base.GetPageSubTitle()
+                : $"For {GetCoachesName(FixedValue)}";
+        }
     }
 
 }
