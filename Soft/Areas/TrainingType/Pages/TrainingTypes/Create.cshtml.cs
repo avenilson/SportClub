@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using SportClub.Domain.Training;
 using SportClub.Domain.TrainingType;
 using SportClub.Pages.TrainingType;
 
@@ -7,7 +8,7 @@ namespace SportClub.Soft.Areas.TrainingType.Pages.TrainingTypes
 {
     public class CreateModel : TrainingTypesPage
     {
-        public CreateModel(ITrainingTypesRepository r) : base(r) { }
+        public CreateModel(ITrainingTypesRepository r, ITrainingsRepository n) : base(r,n) { }
 
         public IActionResult OnGet(string fixedFilter, string fixedValue)
         {
