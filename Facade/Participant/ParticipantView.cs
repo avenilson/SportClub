@@ -7,7 +7,7 @@ namespace SportClub.Facade.Participant
     public sealed class ParticipantView: NamedView
     {
         [Required]
-        [DisplayName("Participant")]
+        [DisplayName("Age")]
 
         public string Age { get; set; }
 

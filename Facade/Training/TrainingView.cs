@@ -7,7 +7,7 @@ namespace SportClub.Facade.Training
     public sealed class TrainingView:NamedView
     {
         [Required]
-        [DisplayName("Training")]
+        [DisplayName("Duration")]
 
         public string Duration { get; set; }
         public string Definition { get; set; }
