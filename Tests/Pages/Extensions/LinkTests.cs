@@ -15,19 +15,31 @@ namespace SportClub.Tests.Pages.Extensions
         [TestMethod]
         public void DisplayNameTest()
         {
-            Assert.Inconclusive();
+            var n = GetRandom.String();
+            var o = new Link(n, (Uri)null);
+            Assert.AreEqual(n, o.DisplayName);
+            Assert.IsNull(o.Url);
+            Assert.AreEqual(n, o.PropertyName);
         }
 
         [TestMethod]
         public void UrlTest()
         {
-            Assert.Inconclusive();
+            var n = GetRandom.String();
+            var o = new Link(null, new Uri(n, UriKind.Relative));
+            Assert.AreEqual(n, o.Url.ToString());
+            Assert.IsNull(o.DisplayName);
+            Assert.IsNull(o.PropertyName);
         }
 
         [TestMethod]
         public void PropertyNameTest()
         {
-            Assert.Inconclusive();
+            var n = GetRandom.String();
+            var o = new Link(null, null, n);
+            Assert.AreEqual(n, o.PropertyName);
+            Assert.IsNull(o.Url);
+            Assert.IsNull(o.DisplayName);
         }       
     }
 }

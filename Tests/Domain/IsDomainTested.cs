@@ -5,7 +5,7 @@ namespace SportClub.Tests.Domain
     [TestClass]
     public class IsDomainTested : AssemblyTests
     {
-        private const string assembly = "SportClub.Domain";
+        private new const string assembly = "SportClub.Domain";
 
         protected override string Namespace(string name)
         {

@@ -5,7 +5,7 @@ namespace SportClub.Tests.Infra
     [TestClass]
     public class IsInfraTested: AssemblyTests
     {
-        private const string assembly = "SportClub.Infra";
+        private new const string assembly = "SportClub.Infra";
         protected override string Namespace(string name)
         {
             return $"{assembly}.{name}";

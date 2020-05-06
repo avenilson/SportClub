@@ -1,16 +1,19 @@
-﻿namespace SportClub.Pages.Extensions
+﻿using System;
+
+namespace SportClub.Pages.Extensions
 {
     public class Link
     {
-        public Link(string displayName, string url, string propertyName=null)
-        {
+        public Link(string displayName, string relativeLink) : this(displayName, new Uri(relativeLink+"?handler=index", UriKind.Relative)) { }
+
+        public Link(string displayName, Uri url, string propertyName = null) {
             DisplayName = displayName;
             Url = url;
             PropertyName = propertyName ?? displayName;
         }
 
         public string DisplayName { get; }
-        public string Url { get; }
+        public Uri Url { get; }
         public string PropertyName { get; }
     }
 }

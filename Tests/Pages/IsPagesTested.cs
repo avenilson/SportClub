@@ -5,7 +5,7 @@ namespace SportClub.Tests.Pages
     [TestClass]
     public class IsPagesTested : AssemblyTests
     {
-        private const string assembly = "SportClub.Pages";
+        private new const string assembly = "SportClub.Pages";
 
         protected override string Namespace(string name)
         {

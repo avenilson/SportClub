@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.AspNetCore.Html;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SportClub.Aids;
 using SportClub.Facade.Coach;
@@ -10,12 +11,25 @@ namespace SportClub.Tests.Pages.Extensions
     [TestClass]
     public class TableRowForHtmlExtensionTests: BaseTests
     {
-      [TestInitialize] public virtual void TestInitialize() => type = typeof(TableRowForHtmlExtension);
+        private string s;
+
+      [TestInitialize] public virtual void TestInitialize() {
+          type = typeof(TableRowForHtmlExtension);
+          s = GetRandom.String();
+      }
 
         [TestMethod]
         public void TableRowForTest()
         {
-            Assert.Inconclusive();
+            //var obj = new HtmlHelperMock<CoachView>().TableRowFor(
+            //    GetRandom.Bool(),
+            //    new Uri(GetRandom.String(), UriKind.Relative),
+
+            //    GetRandom.String(),
+            //    new HtmlContentMock(GetRandom.String()),
+            //    new HtmlContentMock(GetRandom.String()));
+
+            //Assert.IsInstanceOfType(obj, typeof(HtmlContentBuilder));
         }
         [TestMethod]
         public void TableRowWithSelectForTest()
