@@ -16,7 +16,7 @@ namespace SportClub.Tests.Pages.ParticipantOfTraining
     {
         private class TestClass : ParticipantOfTrainingsPage
         {
-            internal TestClass(IParticipantOfTrainingsRepository r) : base(r) { }
+            internal TestClass(IParticipantOfTrainingsRepository r, IParticipantsRepository p) : base(r, p) { }
         }
 
         private class TestRepository : BaseTestRepositoryForUniqueEntity<SportClub.Domain.ParticipantOfTraining.ParticipantOfTraining, ParticipantOfTrainingData>,
@@ -40,8 +40,8 @@ namespace SportClub.Tests.Pages.ParticipantOfTraining
         {
             base.TestInitialize(); //kasutab inmemorydb extensionit, mis on malus!
             var r = new TestRepository();
-            var t = new TermRepository();
-            obj = new TestClass(r); //annan repository katte
+            var p = new TermRepository();
+            obj = new TestClass(r, p); //annan repository katte
         }
         public static string Id(string head, string tail)
         {

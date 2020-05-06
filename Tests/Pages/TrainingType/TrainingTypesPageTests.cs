@@ -16,7 +16,7 @@ namespace SportClub.Tests.Pages.TrainingType
     {
         public class TestClass : TrainingTypesPage
         {
-            internal TestClass(ITrainingTypesRepository r) : base(r) { }
+            internal TestClass(ITrainingTypesRepository r, ITrainingsRepository n) : base(r, n) { }
         }
         private class TestRepository : BaseTestRepositoryForUniqueEntity<SportClub.Domain.TrainingType.TrainingType, TrainingTypeData>,
             ITrainingTypesRepository { } 
@@ -39,8 +39,8 @@ namespace SportClub.Tests.Pages.TrainingType
         {
             base.TestInitialize();
             var r = new TestRepository();
-            var t = new TermRepository();
-            obj = new TestClass(r);
+            var n = new TermRepository();
+            obj = new TestClass(r, n);
         }
 
         [TestMethod]
