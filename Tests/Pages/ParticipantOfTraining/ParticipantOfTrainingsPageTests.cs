@@ -4,7 +4,9 @@ using SportClub.Data.Participant;
 using SportClub.Data.ParticipantOfTraining;
 using SportClub.Domain.Participant;
 using SportClub.Domain.ParticipantOfTraining;
+using SportClub.Facade.Participant;
 using SportClub.Facade.ParticipantOfTraining;
+using SportClub.Facade.Training;
 using SportClub.Pages;
 using SportClub.Pages.ParticipantOfTraining;
 
@@ -76,6 +78,16 @@ namespace SportClub.Tests.Pages.ParticipantOfTraining
             var view = obj.ToView(new SportClub.Domain.ParticipantOfTraining.ParticipantOfTraining(data));
             TestArePropertyValuesEqual(view, data);
         }
-
+        [TestMethod] public void ParticipantIdTest()
+        {
+            //
+        }
+        [TestMethod] public void GetParticipantIdTest()
+        {
+           //
+        }
+        [TestMethod] public void GetPageSubTitleTest() {
+            //Assert.AreEqual(obj.PageSubTitle, obj.pageSubtitle());
+        }
     }
 }

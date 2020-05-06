@@ -76,5 +76,20 @@ namespace SportClub.Tests.Pages.CoachOfTraining
             var view = obj.ToView(new SportClub.Domain.CoachOfTraining.CoachOfTraining(data));
             TestArePropertyValuesEqual(view, data);
         }
+        [TestMethod] public void GetCoachesNameTest()
+        {
+            //
+        }
+
+        [TestMethod]
+        public void GetPageSubTitleTest()
+        {
+            //
+        }
+        [TestMethod]
+        public void IdsTest()
+        {
+            //
+        }
     }
 }

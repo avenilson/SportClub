@@ -60,7 +60,10 @@ namespace SportClub.Tests.Pages.Training
             var view = obj.ToView(new SportClub.Domain.Training.Training(data));
             TestArePropertyValuesEqual(view, data);
         }
-
+        [TestMethod] public void TypesTest()
+        {
+            //
+        }
     }
 
 
