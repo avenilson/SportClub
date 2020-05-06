@@ -72,5 +72,20 @@ namespace SportClub.Tests.Pages.TrainingType
             var view = obj.ToView(new SportClub.Domain.TrainingType.TrainingType(data));
             TestArePropertyValuesEqual(view, data);
         }
+        [TestMethod]
+        public void GetNamesNameTest()
+        {
+            //
+        }
+        [TestMethod]
+        public void GetPageSubTitleTest()
+        {
+            //
+        }
+        [TestMethod]
+        public void NamesTest()
+        {
+            //
+        }
     }
 }
