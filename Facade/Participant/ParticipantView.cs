@@ -8,7 +8,7 @@ namespace SportClub.Facade.Participant
     {
         [Required]
         [DisplayName("Age")]
-
+        [Range(18, 90, ErrorMessage = "Customer age should be in 18 to 90 range.")] 
         public string Age { get; set; }
 
         [DataType(DataType.EmailAddress)]

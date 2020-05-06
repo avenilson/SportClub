@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SportClub.Data.Participant;
 using SportClub.Data.ParticipantOfTraining;
-using SportClub.Data.Training;
 using SportClub.Domain.Participant;
 using SportClub.Domain.ParticipantOfTraining;
 using SportClub.Facade.ParticipantOfTraining;

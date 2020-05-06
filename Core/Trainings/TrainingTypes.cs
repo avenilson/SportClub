@@ -19,6 +19,5 @@ namespace SportClub.Core.Trainings
                 new Data(Extreme, "Extreme", "", ""),
                 new Data(MaximalEffort, "Maximal Effort", "", "")
             };
-
     }
 }
