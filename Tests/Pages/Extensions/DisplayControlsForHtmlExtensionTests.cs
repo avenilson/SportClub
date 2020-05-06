@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.AspNetCore.Html;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SportClub.Facade.Coach;
 using SportClub.Pages.Extensions;
 
 namespace SportClub.Tests.Pages.Extensions
@@ -9,7 +11,8 @@ namespace SportClub.Tests.Pages.Extensions
         [TestInitialize] public virtual void TestInitialize() => type = typeof(DisplayControlsForHtmlExtension);
         [TestMethod] public void DisplayControlsForTest()
         {
-            Assert.Inconclusive();
+            var obj = new HtmlHelperMock<CoachView>().DisplayControlsFor(x => x.Id); 
+            Assert.IsInstanceOfType(obj, typeof(HtmlContentBuilder));
         }
     }
 }

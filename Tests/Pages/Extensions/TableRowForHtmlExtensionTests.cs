@@ -10,12 +10,7 @@ namespace SportClub.Tests.Pages.Extensions
     [TestClass]
     public class TableRowForHtmlExtensionTests: BaseTests
     {
-        private string s;
-        [TestInitialize] public virtual void TestInitialize() {
-            type = typeof(TableRowForHtmlExtension);
-            s = GetRandom.String();
-        }
-        //[TestInitialize] public virtual void TestInitialize() => type = typeof(TableRowForHtmlExtension);
+      [TestInitialize] public virtual void TestInitialize() => type = typeof(TableRowForHtmlExtension);
 
         [TestMethod]
         public void TableRowForTest()
