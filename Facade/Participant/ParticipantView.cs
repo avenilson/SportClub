@@ -8,12 +8,11 @@ namespace SportClub.Facade.Participant
     {
         [Required]
         [DisplayName("Age")]
-        [Range(18, 90, ErrorMessage = "Customer age should be in 18 to 90 range.")] 
+        [Range(18, 90, ErrorMessage = "Customer {0} should be in {1} to {2} range.")] 
         public string Age { get; set; }
 
         [DataType(DataType.EmailAddress)]
         [EmailAddress]
         public string Address { get; set; }
-
     }
 }
