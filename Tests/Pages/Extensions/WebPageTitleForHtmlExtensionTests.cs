@@ -1,4 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.AspNetCore.Html;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SportClub.Aids;
+using SportClub.Facade.Coach;
 using SportClub.Pages.Extensions;
 
 namespace SportClub.Tests.Pages.Extensions
@@ -11,7 +14,8 @@ namespace SportClub.Tests.Pages.Extensions
         [TestMethod]
         public void WebPageTitleForTest()
         {
-            Assert.Inconclusive();
+            var obj = new HtmlHelperMock<CoachView>().WebPageTitleFor(GetRandom.String());
+            Assert.IsInstanceOfType(obj, typeof(HtmlContentBuilder));
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using System.Linq;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SportClub.Aids;
 using SportClub.Data.Training;
 using SportClub.Data.TrainingType;
@@ -62,8 +64,9 @@ namespace SportClub.Tests.Pages.Training
         }
         [TestMethod] public void TypesTest()
         {
-            //
+            Assert.Inconclusive();
         }
+        
     }
 
 

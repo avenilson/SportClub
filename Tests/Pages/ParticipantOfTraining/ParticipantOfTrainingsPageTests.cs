@@ -80,13 +80,14 @@ namespace SportClub.Tests.Pages.ParticipantOfTraining
         }
         [TestMethod] public void ParticipantIdTest()
         {
-            //
+            Assert.Inconclusive();
         }
         [TestMethod] public void GetParticipantIdTest()
         {
-           //
+            Assert.Inconclusive();
         }
-        [TestMethod] public void GetPageSubTitleTest() {
+        [TestMethod] public void GetPageSubTitleTest() 
+        {
             //Assert.AreEqual(obj.PageSubTitle, obj.pageSubtitle());
         }
     }

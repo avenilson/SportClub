@@ -21,7 +21,9 @@ namespace SportClub.Tests.Pages.Extensions
         [TestMethod]
         public void HtmlStringTest()
         {
-            Assert.Inconclusive();
+            var expected = new List<string> { "<div", "LabelFor", "EditorFor", "ValidationMessageFor", "</div>"};
+            var actual = EditControlsForHtmlExtension.htmlString(new HtmlHelperMock<TrainingView>(), x=>x.Definition);
+            TestHtml.Strings(actual, expected);
         }
     }
 }

@@ -75,17 +75,17 @@ namespace SportClub.Tests.Pages.TrainingType
         [TestMethod]
         public void GetNamesNameTest()
         {
-            //
+            Assert.Inconclusive();
         }
         [TestMethod]
         public void GetPageSubTitleTest()
         {
-            //
+            Assert.Inconclusive();
         }
         [TestMethod]
         public void NamesTest()
         {
-            //
+            Assert.Inconclusive();
         }
     }
 }

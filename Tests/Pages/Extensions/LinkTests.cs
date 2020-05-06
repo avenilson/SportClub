@@ -28,7 +28,6 @@ namespace SportClub.Tests.Pages.Extensions
         public void PropertyNameTest()
         {
             Assert.Inconclusive();
-        }
-      
+        }       
     }
 }

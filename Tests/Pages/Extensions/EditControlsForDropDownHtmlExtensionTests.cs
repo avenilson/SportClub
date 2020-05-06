@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.AspNetCore.Html;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SportClub.Facade.Coach;
 using SportClub.Pages.Extensions;
 
 namespace SportClub.Tests.Pages.Extensions
@@ -11,7 +13,8 @@ namespace SportClub.Tests.Pages.Extensions
         [TestMethod]
         public void EditControlsForDropDownTest()
         {
-            Assert.Inconclusive();
+            var obj = new HtmlHelperMock<CoachView>().EditControlsFor(x => x.Id);
+            Assert.IsInstanceOfType(obj, typeof(HtmlContentBuilder));
         }
     }
 }

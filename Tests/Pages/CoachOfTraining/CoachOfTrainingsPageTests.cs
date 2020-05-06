@@ -78,18 +78,18 @@ namespace SportClub.Tests.Pages.CoachOfTraining
         }
         [TestMethod] public void GetCoachesNameTest()
         {
-            //
+            Assert.Inconclusive();
         }
 
         [TestMethod]
         public void GetPageSubTitleTest()
         {
-            //
+            Assert.Inconclusive();
         }
         [TestMethod]
         public void IdsTest()
         {
-            //
+            Assert.Inconclusive();
         }
     }
 }
