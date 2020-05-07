@@ -16,8 +16,10 @@ namespace SportClub.Pages.CoachOfTraining
         {
             PageTitle = "Coach Of Trainings";
             Ids = CreateSelectList2<Domain.Coach.Coach, CoachData>(c);
+            CoachName = CreateSelectList<Domain.Coach.Coach, CoachData>(c);
         }
         public IEnumerable<SelectListItem> Ids { get; }
+        public IEnumerable<SelectListItem> CoachName { get; }
 
         public override string ItemId 
         {
@@ -39,10 +41,10 @@ namespace SportClub.Pages.CoachOfTraining
         {
             return CoachOfTrainingViewFactory.Create(obj);
         }
-        public string GetCoachesName(string measureId)
+        public string GetCoachesId(string coachId)
         {
             foreach (var m in Ids)
-                if (m.Value == measureId)
+                if (m.Value == coachId)
                     return m.Text;
 
             return "Unspecified";
@@ -52,8 +54,15 @@ namespace SportClub.Pages.CoachOfTraining
         {
             return FixedValue is null
                 ? base.GetPageSubTitle()
-                : $"For {GetCoachesName(FixedValue)}";
+                : $"For {GetCoachesId(FixedValue)}";
         }
-    }
+        //public string GetCoachName(string coachName)
+        //{
+        //    foreach (var m in Ids)
+        //        if (m.Value == coachName)
+        //            return m.Text;
 
+        //    return "Unspecified";
+        //}
+    }
 }

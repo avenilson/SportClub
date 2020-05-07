@@ -15,13 +15,13 @@ namespace SportClub.Soft.Areas.CoachOfTraining.Pages.CoachOfTrainings
     {
         public CreateModel(ICoachOfTrainingsRepository r,
             ICoachesRepository u, ITrainingsRepository s, ICoachesRepository c) : base(r,c) { 
-            Coaches = CreateSelectList<Domain.Coach.Coach, CoachData>(u);
-            Trainings = CreateSelectList<Domain.Training.Training, TrainingData>(s);
+           // Coaches = CreateSelectList<Domain.Coach.Coach, CoachData>(u);
+           // Trainings = CreateSelectList<Domain.Training.Training, TrainingData>(s);
         }
 
-        public IEnumerable<SelectListItem> Coaches { get; }
+        //public IEnumerable<SelectListItem> Coaches { get; }
 
-        public IEnumerable<SelectListItem> Trainings { get; }
+        //public IEnumerable<SelectListItem> Trainings { get; }
 
 
         public IActionResult OnGet(string fixedFilter, string fixedValue)
