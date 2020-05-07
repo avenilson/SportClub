@@ -16,9 +16,7 @@ namespace SportClub.Facade.ParticipantOfTraining
 
         public string ParticipantId { get; set; }
 
-        public string GetId()
-        {
-            return $"{ParticipantId}.{TrainingId}";
-        }
+        public string GetId()=> $"{ParticipantId}.{TrainingId}";
+        
     }
 }

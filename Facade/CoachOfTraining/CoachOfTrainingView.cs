@@ -8,16 +8,12 @@ namespace SportClub.Facade.CoachOfTraining
     {
         [Required]
         [DisplayName("CoachId")]
-
         public string CoachId { get; set; }
+
         [Required]
         [DisplayName("TrainingId")]
-
         public string TrainingId { get; set; }
 
-        public string GetId()
-        {
-            return $"{CoachId}.{TrainingId}";
-        }
+        public string GetId() => $"{CoachId}.{TrainingId}";
     }
 }
