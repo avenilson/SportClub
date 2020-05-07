@@ -15,8 +15,8 @@ namespace SportClub.Pages.CoachOfTraining
         protected internal CoachOfTrainingsPage(ICoachOfTrainingsRepository r, ICoachesRepository c) : base(r)
         {
             PageTitle = "Coach Of Trainings";
-            Ids = CreateSelectList2<Domain.Coach.Coach, CoachData>(c);
-            CoachName = CreateSelectList<Domain.Coach.Coach, CoachData>(c);
+            Ids = CreateSelectList<Domain.Coach.Coach, CoachData>(c);
+            CoachName = CreateSelectList2<Domain.Coach.Coach, CoachData>(c);
         }
         public IEnumerable<SelectListItem> Ids { get; }
         public IEnumerable<SelectListItem> CoachName { get; }
@@ -41,21 +41,21 @@ namespace SportClub.Pages.CoachOfTraining
         {
             return CoachOfTrainingViewFactory.Create(obj);
         }
-        public string GetCoachesId(string coachId)
-        {
-            foreach (var m in Ids)
-                if (m.Value == coachId)
-                    return m.Text;
+        //public string GetCoachesId(string coachId)
+        //{
+        //    foreach (var m in Ids)
+        //        if (m.Value == coachId)
+        //            return m.Text;
 
-            return "Unspecified";
-        }
+        //    return "Unspecified";
+        //}
 
-        public override string GetPageSubTitle()
-        {
-            return FixedValue is null
-                ? base.GetPageSubTitle()
-                : $"For {GetCoachesId(FixedValue)}";
-        }
+        //public override string GetPageSubTitle()
+        //{
+        //    return FixedValue is null
+        //        ? base.GetPageSubTitle()
+        //        : $"For {GetCoachesId(FixedValue)}";
+        //}
         //public string GetCoachName(string coachName)
         //{
         //    foreach (var m in Ids)
@@ -63,6 +63,12 @@ namespace SportClub.Pages.CoachOfTraining
         //            return m.Text;
 
         //    return "Unspecified";
+        //}
+        //public override string GetPageSubTitle()
+        //{
+        //    return FixedValue is null
+        //        ? base.GetPageSubTitle()
+        //        : $"For {GetCoachName(FixedValue)}";
         //}
     }
 }
