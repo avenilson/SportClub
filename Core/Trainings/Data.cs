@@ -16,7 +16,4 @@
     //    public string Name;
     //    public string Definition;
     //    public string Type;
-
-
-    //}
 }
