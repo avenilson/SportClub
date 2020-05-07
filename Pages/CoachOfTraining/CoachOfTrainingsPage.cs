@@ -62,6 +62,7 @@ namespace SportClub.Pages.CoachOfTraining
         //        if (m.Value == coachName)
         //            return m.Text;
 
+
         //    return "Unspecified";
         //}
         //public override string GetPageSubTitle()
