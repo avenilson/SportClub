@@ -24,7 +24,5 @@ namespace SportClub.Pages.Coach
         {
             return CoachViewFactory.Create(obj);
         }
-
-
     }
 }
