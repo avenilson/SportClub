@@ -10,7 +10,7 @@ namespace SportClub.Pages.TrainingType
 {
     public abstract class TrainingTypesPage: CommonPage<ITrainingTypesRepository, Domain.TrainingType.TrainingType, TrainingTypeView, TrainingTypeData>
     {
-        protected internal TrainingTypesPage(ITrainingTypesRepository r, ITrainingsRepository n) : base(r)
+        protected internal TrainingTypesPage(ITrainingTypesRepository r) : base(r)
         {
             PageTitle = "Training Types";
             //Names = CreateSelectList<Domain.Training.Training, TrainingData>(n);
