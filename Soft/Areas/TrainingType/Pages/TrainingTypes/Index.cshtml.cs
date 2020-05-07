@@ -9,7 +9,7 @@ namespace SportClub.Soft.Areas.TrainingType.Pages.TrainingTypes
 {
     public class IndexModel : TrainingTypesPage
     {
-        public IndexModel(ITrainingTypesRepository r, ITrainingsRepository n) : base(r,n)
+        public IndexModel(ITrainingTypesRepository r) : base(r)
         {
         }
 

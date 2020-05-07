@@ -33,13 +33,13 @@ namespace SportClub.Pages.Training
         }
         public IEnumerable<SelectListItem> Types { get; }
 
-        protected static IEnumerable<SelectListItem> CreateSelectList<TTDomain, TTData>(IRepository<TTDomain> r)
-            where TTDomain : Entity<TTData>
-            where TTData : NamedEntityData, new()
-        {
-            var items = r.Get().GetAwaiter().GetResult();
+        //protected static IEnumerable<SelectListItem> CreateSelectList<TTDomain, TTData>(IRepository<TTDomain> r)
+        //    where TTDomain : Entity<TTData>
+        //    where TTData : NamedEntityData, new()
+        //{
+        //    var items = r.Get().GetAwaiter().GetResult();
 
-            return items.Select(t => new SelectListItem(t.Data.Name, t.Data.Id)).ToList();
-        }
+        //    return items.Select(t => new SelectListItem(t.Data.Name, t.Data.Id)).ToList();
+        //}
     }
 }

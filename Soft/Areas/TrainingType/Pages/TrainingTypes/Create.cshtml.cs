@@ -8,7 +8,7 @@ namespace SportClub.Soft.Areas.TrainingType.Pages.TrainingTypes
 {
     public class CreateModel : TrainingTypesPage
     {
-        public CreateModel(ITrainingTypesRepository r, ITrainingsRepository n) : base(r,n) { }
+        public CreateModel(ITrainingTypesRepository r) : base(r) { }
 
         public IActionResult OnGet(string fixedFilter, string fixedValue)
         {

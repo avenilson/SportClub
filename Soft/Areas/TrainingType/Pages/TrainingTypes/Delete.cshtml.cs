@@ -8,7 +8,7 @@ namespace SportClub.Soft.Areas.TrainingType.Pages.TrainingTypes
 {
     public class DeleteModel : TrainingTypesPage
     {
-        public DeleteModel(ITrainingTypesRepository r, ITrainingsRepository n) : base(r,n) { }
+        public DeleteModel(ITrainingTypesRepository r) : base(r) { }
         public async Task<IActionResult> OnGetAsync(string id, string fixedFilter, string fixedValue)
         {
             await GetObject(id, fixedFilter, fixedValue);

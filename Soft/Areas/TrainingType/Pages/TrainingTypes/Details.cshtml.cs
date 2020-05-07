@@ -8,7 +8,7 @@ namespace SportClub.Soft.Areas.TrainingType.Pages.TrainingTypes
 {
     public class DetailsModel : TrainingTypesPage
     {
-        public DetailsModel(ITrainingTypesRepository r, ITrainingsRepository n) : base(r,n) { }
+        public DetailsModel(ITrainingTypesRepository r) : base(r) { }
         public async Task<IActionResult> OnGetAsync(string id, string fixedFilter, string fixedValue)
         {
             await GetObject(id, fixedFilter, fixedValue);
