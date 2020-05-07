@@ -14,7 +14,7 @@ namespace SportClub.Soft.Areas.CoachOfTraining.Pages.CoachOfTrainings
     public class CreateModel : CoachOfTrainingsPage
     {
         public CreateModel(ICoachOfTrainingsRepository r,
-            ICoachesRepository u, ITrainingsRepository s, ICoachesRepository c) : base(r,c) { 
+            ICoachesRepository u, ITrainingsRepository s, ICoachesRepository c, ITrainingsRepository t) : base(r,c,t) { 
            // Coaches = CreateSelectList<Domain.Coach.Coach, CoachData>(u);
            // Trainings = CreateSelectList<Domain.Training.Training, TrainingData>(s);
         }

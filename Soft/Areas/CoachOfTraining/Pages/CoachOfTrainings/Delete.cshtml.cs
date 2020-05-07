@@ -2,13 +2,14 @@
 using Microsoft.AspNetCore.Mvc;
 using SportClub.Domain.Coach;
 using SportClub.Domain.CoachOfTraining;
+using SportClub.Domain.Training;
 using SportClub.Pages.CoachOfTraining;
 
 namespace SportClub.Soft.Areas.CoachOfTraining.Pages.CoachOfTrainings
 {
     public class DeleteModel : CoachOfTrainingsPage
     {
-        public DeleteModel(ICoachOfTrainingsRepository r, ICoachesRepository c) : base(r,c) { }
+        public DeleteModel(ICoachOfTrainingsRepository r, ICoachesRepository c, ITrainingsRepository t) : base(r,c, t) { }
 
         public async Task<IActionResult> OnGetAsync(string id, string fixedFilter, string fixedValue)
         {

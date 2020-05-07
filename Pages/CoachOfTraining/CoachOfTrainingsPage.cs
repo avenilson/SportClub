@@ -6,20 +6,23 @@ using SportClub.Data.Common;
 using SportClub.Data.Training;
 using SportClub.Domain.Coach;
 using SportClub.Domain.CoachOfTraining;
+using SportClub.Domain.Training;
 using SportClub.Facade.CoachOfTraining;
 
 namespace SportClub.Pages.CoachOfTraining
 {
     public abstract class CoachOfTrainingsPage : CommonPage<ICoachOfTrainingsRepository, Domain.CoachOfTraining.CoachOfTraining, CoachOfTrainingView, CoachOfTrainingData>
     {
-        protected internal CoachOfTrainingsPage(ICoachOfTrainingsRepository r, ICoachesRepository c) : base(r)
+        protected internal CoachOfTrainingsPage(ICoachOfTrainingsRepository r, ICoachesRepository c, ITrainingsRepository t) : base(r)
         {
             PageTitle = "Coach Of Trainings";
             Ids = CreateSelectList<Domain.Coach.Coach, CoachData>(c);
             CoachName = CreateSelectList2<Domain.Coach.Coach, CoachData>(c);
+            TrainingId = CreateSelectList<Domain.Training.Training, TrainingData>(t);
         }
         public IEnumerable<SelectListItem> Ids { get; }
         public IEnumerable<SelectListItem> CoachName { get; }
+        public IEnumerable<SelectListItem> TrainingId { get; }
 
         public override string ItemId 
         {

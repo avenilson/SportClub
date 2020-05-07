@@ -7,11 +7,11 @@ namespace SportClub.Facade.CoachOfTraining
     public sealed class CoachOfTrainingView: NamedView
     {
         [Required]
-        [DisplayName("CoachId")]
+        [DisplayName("Coach")]
         public string CoachId { get; set; }
 
         [Required]
-        [DisplayName("TrainingId")]
+        [DisplayName("Training")]
         public string TrainingId { get; set; }
 
         public string GetId() => $"{CoachId}.{TrainingId}";

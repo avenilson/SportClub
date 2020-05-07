@@ -3,13 +3,14 @@ using System.Threading.Tasks;
 using SportClub.Data.CoachOfTraining;
 using SportClub.Domain.Coach;
 using SportClub.Domain.CoachOfTraining;
+using SportClub.Domain.Training;
 using SportClub.Pages.CoachOfTraining;
 
 namespace SportClub.Soft.Areas.CoachOfTraining.Pages.CoachOfTrainings
 {
     public class IndexModel : CoachOfTrainingsPage
     {
-        public IndexModel(ICoachOfTrainingsRepository r, ICoachesRepository c) : base(r,c)
+        public IndexModel(ICoachOfTrainingsRepository r, ICoachesRepository c, ITrainingsRepository t) : base(r,c,t)
         {
         }
 
