@@ -9,7 +9,7 @@ using SportClub.Domain.Common;
 namespace SportClub.Infra
 {
     public abstract class SortedRepository<TDomain, TData> : BaseRepository<TDomain, TData>, ISorting
-      where TData : NamedEntityData, new()
+      where TData : UniqueEntityData, new()
       where TDomain : Entity<TData>, new()
     {
         public string SortOrder { get; set; }

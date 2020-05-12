@@ -54,8 +54,7 @@ namespace SportClub.Pages
             return name + "_desc";
         }
 
-        public static string
-            GetSearchString(string currentFilter, string searchString, ref int? pageIndex) {
+        public static string GetSearchString(string currentFilter, string searchString, ref int? pageIndex) {
             if (searchString != null) { pageIndex = 1; }
             else { searchString = currentFilter; }
 

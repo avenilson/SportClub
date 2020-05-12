@@ -7,7 +7,7 @@ using SportClub.Domain.Common;
 namespace SportClub.Infra
 {
     public abstract class PaginatedRepository<TDomain, TData>: FilteredRepository<TDomain, TData>, IPaging
-        where TData: NamedEntityData, new()
+        where TData: UniqueEntityData, new()
         where TDomain: Entity<TData>, new()
     {
         public int PageIndex { get; set; }

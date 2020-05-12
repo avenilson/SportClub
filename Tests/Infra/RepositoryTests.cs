@@ -11,7 +11,7 @@ namespace SportClub.Tests.Infra
     public abstract class RepositoryTests<TRepository, TObject, TData> : BaseTests
     where TRepository: IRepository<TObject>
     where TObject: Entity<TData>
-    where TData: NamedEntityData, new()
+    where TData: UniqueEntityData, new()
     {
         protected TData data;
         protected TRepository obj;

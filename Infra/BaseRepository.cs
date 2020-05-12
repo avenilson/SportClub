@@ -8,7 +8,7 @@ using SportClub.Domain.Common;
 namespace SportClub.Infra
 {
     public abstract class BaseRepository<TDomain, TData> : ICrudMethods<TDomain>
-        where TData : NamedEntityData, new()
+        where TData : UniqueEntityData, new()
         where TDomain : Entity<TData>, new()
     {
         protected internal DbContext db;

@@ -8,7 +8,7 @@ using SportClub.Domain.Common;
 namespace SportClub.Infra
 {
     public abstract class FilteredRepository<TDomain, TData> : SortedRepository<TDomain, TData>, IFiltering
-       where TData : NamedEntityData, new()
+       where TData : UniqueEntityData, new()
        where TDomain : Entity<TData>, new()
     {
         public string SearchString { get; set; }

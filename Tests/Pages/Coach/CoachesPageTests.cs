@@ -21,26 +21,26 @@ namespace SportClub.Tests.Pages.Coach
 
         private class TestRepository : BaseTestRepositoryForUniqueEntity<SportClub.Domain.Coach.Coach, CoachData>,
             ICoachesRepository { } 
-        private class TermRepository :  BaseTestRepositoryForNamedEntity<SportClub.Domain.CoachOfTraining.CoachOfTraining, CoachOfTrainingData>,
-            ICoachOfTrainingsRepository {
-            protected override bool IsThis(SportClub.Domain.CoachOfTraining.CoachOfTraining entity, string id)
-            {
-                return true;
-            }
+        ////private class TermRepository :  BaseTestRepositoryForNamedEntity<SportClub.Domain.CoachOfTraining.CoachOfTraining, CoachOfTrainingData>,
+        ////    ICoachOfTrainingsRepository {
+        //    protected override bool IsThis(SportClub.Domain.CoachOfTraining.CoachOfTraining entity, string id)
+        //    {
+        //        return true;
+        //    }
 
-            protected override string GetId(SportClub.Domain.CoachOfTraining.CoachOfTraining entity)
-            {
-                return string.Empty;
-            }
-        }
-        [TestInitialize]
-        public override void TestInitialize()
-        {
-            base.TestInitialize(); //kasutab inmemorydb extensionit, mis on malus!
-            var r = new TestRepository();
-            var t = new TermRepository();
-            obj = new TestClass(r); //annan repository katte
-        }
+        //    protected override string GetId(SportClub.Domain.CoachOfTraining.CoachOfTraining entity)
+        //    {
+        //        return string.Empty;
+        //    }
+        //}
+        //[TestInitialize]
+        //public override void TestInitialize()
+        //{
+        //    base.TestInitialize(); //kasutab inmemorydb extensionit, mis on malus!
+        //    var r = new TestRepository();
+        //    var t = new TermRepository();
+        //    obj = new TestClass(r); //annan repository katte
+        //}
 
         [TestMethod]
         public void ItemIdTest()

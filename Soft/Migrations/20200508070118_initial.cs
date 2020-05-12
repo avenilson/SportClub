@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SportClub.Soft.Migrations
 {
-    public partial class first : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -64,12 +64,12 @@ namespace SportClub.Soft.Migrations
                 {
                     CoachId = table.Column<string>(nullable: false),
                     TrainingId = table.Column<string>(nullable: false),
-                    Id = table.Column<string>(nullable: true),
-                    Name = table.Column<string>(nullable: true)
+                    Id = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CoachesOfTrainings", x => new { x.TrainingId, x.CoachId });
+                    table.UniqueConstraint("AK_CoachesOfTrainings_Id", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
