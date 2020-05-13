@@ -17,11 +17,11 @@ namespace SportClub.Pages.CoachOfTraining
             PageTitle = "Coach Of Trainings";
             CoachId= CreateSelectList<Domain.Coach.Coach, CoachData>(c);
             TrainingId = CreateSelectList<Domain.Training.Training, TrainingData>(t);
-            id = CreateSelectList3<Domain.Coach.Coach, CoachData>(c);
+            Id = CreateSelectList3<Domain.Coach.Coach, CoachData>(c);
         }
         public IEnumerable<SelectListItem> CoachId { get; }
         public IEnumerable<SelectListItem> TrainingId { get; }
-        public IEnumerable<SelectListItem> id { get; }
+        public IEnumerable<SelectListItem> Id { get; }
 
         public override string ItemId 
         {
