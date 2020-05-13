@@ -278,9 +278,6 @@ namespace SportClub.Soft.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("TrainingId", "ParticipantId");
 
                     b.ToTable("ParticipantsOfTrainings");

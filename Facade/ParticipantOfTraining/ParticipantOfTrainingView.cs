@@ -4,7 +4,7 @@ using SportClub.Facade.Common;
 
 namespace SportClub.Facade.ParticipantOfTraining
 {
-    public sealed class ParticipantOfTrainingView:NamedView
+    public sealed class ParticipantOfTrainingView:UniqueEntityView
     {
         [Required]
         [DisplayName("TrainingId")]

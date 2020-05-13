@@ -9,14 +9,9 @@ namespace SportClub.Soft.Areas.ParticipantOfTraining.Pages.ParticipantOfTraining
 {
     public class CreateModel : ParticipantOfTrainingsPage
     {
-        public CreateModel(IParticipantOfTrainingsRepository r, IParticipantsRepository u,ITrainingsRepository s, IParticipantsRepository p) : base(r,p)
+        public CreateModel(IParticipantOfTrainingsRepository r, IParticipantsRepository p, ITrainingsRepository t) : base(r, p, t)
         {
-            //Participants = CreateSelectList<Domain.Participant.Participant, ParticipantData>(u);
-            //Trainings = CreateSelectList<Domain.Training.Training, TrainingData>(s);
         }
-        //public IEnumerable<SelectListItem> Participants { get; }
-        //public IEnumerable<SelectListItem> Trainings { get; }
-
         public IActionResult OnGet(string fixedFilter, string fixedValue)
         {
             FixedFilter = fixedFilter;

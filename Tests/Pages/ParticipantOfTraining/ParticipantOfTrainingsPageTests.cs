@@ -21,8 +21,8 @@ namespace SportClub.Tests.Pages.ParticipantOfTraining
             internal TestClass(IParticipantOfTrainingsRepository r, IParticipantsRepository p) : base(r, p) { }
         }
 
-        private class TestRepository : BaseTestRepositoryForUniqueEntity<SportClub.Domain.ParticipantOfTraining.ParticipantOfTraining, ParticipantOfTrainingData>,
-            IParticipantOfTrainingsRepository { } 
+        //private class TestRepository : BaseTestRepositoryForUniqueEntity<SportClub.Domain.ParticipantOfTraining.ParticipantOfTraining, ParticipantOfTrainingData>,
+        //    IParticipantOfTrainingsRepository { } 
         private class TermRepository : BaseTestRepositoryForNamedEntity<SportClub.Domain.Participant.Participant, ParticipantData>,
             IParticipantsRepository
         {
@@ -37,14 +37,14 @@ namespace SportClub.Tests.Pages.ParticipantOfTraining
             }
         }
 
-        [TestInitialize]
-        public override void TestInitialize()
-        {
-            base.TestInitialize(); //kasutab inmemorydb extensionit, mis on malus!
-            var r = new TestRepository();
-            var p = new TermRepository();
-            obj = new TestClass(r, p); //annan repository katte
-        }
+        //[TestInitialize]
+        //public override void TestInitialize()
+        //{
+        //    base.TestInitialize(); //kasutab inmemorydb extensionit, mis on malus!
+        //    var r = new TestRepository();
+        //    var p = new TermRepository();
+        //    obj = new TestClass(r, p); //annan repository katte
+        //}
         public static string Id(string head, string tail)
         {
             return $"{head}.{tail}";

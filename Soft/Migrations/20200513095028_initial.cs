@@ -91,8 +91,7 @@ namespace SportClub.Soft.Migrations
                 {
                     TrainingId = table.Column<string>(nullable: false),
                     ParticipantId = table.Column<string>(nullable: false),
-                    Id = table.Column<string>(nullable: true),
-                    Name = table.Column<string>(nullable: true)
+                    Id = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

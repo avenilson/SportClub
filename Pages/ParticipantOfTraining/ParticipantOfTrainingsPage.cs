@@ -2,20 +2,26 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SportClub.Data.Participant;
 using SportClub.Data.ParticipantOfTraining;
+using SportClub.Data.Training;
 using SportClub.Domain.Participant;
 using SportClub.Domain.ParticipantOfTraining;
+using SportClub.Domain.Training;
 using SportClub.Facade.ParticipantOfTraining;
 
 namespace SportClub.Pages.ParticipantOfTraining
 {
     public abstract class ParticipantOfTrainingsPage : CommonPage<IParticipantOfTrainingsRepository, Domain.ParticipantOfTraining.ParticipantOfTraining, ParticipantOfTrainingView, ParticipantOfTrainingData>
     {
-        protected internal ParticipantOfTrainingsPage(IParticipantOfTrainingsRepository r, IParticipantsRepository p) : base(r)
+        protected internal ParticipantOfTrainingsPage(IParticipantOfTrainingsRepository r, IParticipantsRepository p, ITrainingsRepository t) : base(r)
         {
             PageTitle = "Participant Of Trainings";
             ParticipantId = CreateSelectList2<Domain.Participant.Participant, ParticipantData>(p);
+            TrainingId = CreateSelectList<Domain.Training.Training, TrainingData>(t);
+
         }
         public IEnumerable<SelectListItem> ParticipantId { get; }
+        public IEnumerable<SelectListItem> TrainingId { get; }
+
 
         public override string ItemId 
         {
