@@ -4,6 +4,7 @@ using SportClub.Data.Participant;
 using SportClub.Data.ParticipantOfTraining;
 using SportClub.Domain.Participant;
 using SportClub.Domain.ParticipantOfTraining;
+using SportClub.Domain.Training;
 using SportClub.Facade.Participant;
 using SportClub.Facade.ParticipantOfTraining;
 using SportClub.Facade.Training;
@@ -18,7 +19,7 @@ namespace SportClub.Tests.Pages.ParticipantOfTraining
     {
         private class TestClass : ParticipantOfTrainingsPage
         {
-            internal TestClass(IParticipantOfTrainingsRepository r, IParticipantsRepository p) : base(r, p) { }
+            internal TestClass(IParticipantOfTrainingsRepository r, IParticipantsRepository p, ITrainingsRepository t) : base(r, p, t) { }
         }
 
         //private class TestRepository : BaseTestRepositoryForUniqueEntity<SportClub.Domain.ParticipantOfTraining.ParticipantOfTraining, ParticipantOfTrainingData>,

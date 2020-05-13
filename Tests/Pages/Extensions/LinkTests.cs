@@ -16,7 +16,7 @@ namespace SportClub.Tests.Pages.Extensions
         public void DisplayNameTest()
         {
             var n = GetRandom.String();
-            var o = new Link(n, (Uri)null);
+            var o = new Link(n, null);
             Assert.AreEqual(n, o.DisplayName);
             Assert.IsNull(o.Url);
             Assert.AreEqual(n, o.PropertyName);
@@ -26,7 +26,7 @@ namespace SportClub.Tests.Pages.Extensions
         public void UrlTest()
         {
             var n = GetRandom.String();
-            var o = new Link(null, new Uri(n, UriKind.Relative));
+            var o = new Link(null, null);
             Assert.AreEqual(n, o.Url.ToString());
             Assert.IsNull(o.DisplayName);
             Assert.IsNull(o.PropertyName);

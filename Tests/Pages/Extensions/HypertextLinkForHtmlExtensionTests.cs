@@ -16,7 +16,7 @@ namespace SportClub.Tests.Pages.Extensions
         public void HypertextLinkForTest()
         {
             var s = GetRandom.String();
-            var items = new[] { new SportClub.Pages.Extensions.Link("AA", new Uri("AAA", UriKind.Relative)), new SportClub.Pages.Extensions.Link("BB", new Uri("BBB", UriKind.Relative)) };
+            var items = new[] { new SportClub.Pages.Extensions.Link(null,null ), new SportClub.Pages.Extensions.Link(null,null ) };
             var obj = new HtmlHelperMock<CoachView>().HypertextLinkFor(s, items);
             Assert.IsInstanceOfType(obj, typeof(HtmlContentBuilder));
         }
