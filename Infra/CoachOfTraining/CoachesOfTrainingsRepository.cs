@@ -16,10 +16,11 @@ namespace SportClub.Infra.CoachOfTraining
 
         protected override async Task<CoachOfTrainingData> GetData(string id)
         {
-            var coachId = GetString.Head(id);
-            var trainingId = GetString.Tail(id);
+            //var coachId = GetString.Head(id);
+            //var trainingId = GetString.Tail(id);
 
-            return await dbSet.SingleOrDefaultAsync(x => x.CoachId == coachId && x.TrainingId == trainingId);
+            //return await dbSet.SingleOrDefaultAsync(x => x.CoachId == coachId && x.TrainingId == trainingId);
+            return await dbSet.SingleOrDefaultAsync(x => x.Id == id);
         }
 
         protected override string GetId(Domain.CoachOfTraining.CoachOfTraining obj)
