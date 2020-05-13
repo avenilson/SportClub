@@ -7,10 +7,6 @@
 
 @{
     Layout = "_Details";
-    //const string participantsOfTraining = "/ParticipantOfTraining/ParticipantOfTrainings";
-    //var trainingIdForParticipants = GetMember.Name<ParticipantOfTrainingData>(x => x.ParticipantId);
-    const string coachesOfTraining = "/CoachOfTraining/CoachOfTrainings";
-    var trainingIdForCoaches = GetMember.Name<CoachOfTrainingData>(x => x.Id);
 }
 
 <body>
@@ -23,9 +19,6 @@
 
 @section Details
 {
-    @*@Html.HypertextLinkFor(string.Empty, new Link("Show participants of training",
-        $"{participantsOfTraining}/Index?fixedFilter={trainingIdForParticipants}&fixedValue={Model.Item.Id}"))*@
-    @Html.HypertextLinkFor(string.Empty, new Link("Show coaches of training",
-        $"{coachesOfTraining}/Index?fixedFilter={trainingIdForCoaches}&fixedValue={Model.Item.Id}"))
+    
 }
 
