@@ -42,21 +42,21 @@ namespace SportClub.Pages.CoachOfTraining
         {
             return CoachOfTrainingViewFactory.Create(obj);
         }
-        //public string GetCoachesId(string coachId)
-        //{
-        //    foreach (var m in Ids)
-        //        if (m.Value == coachId)
-        //            return m.Text;
+        public string GetCoachesId(string coachId)
+        {
+            foreach (var m in CoachId)
+                if (m.Value == coachId)
+                    return m.Text;
 
-        //    return "Unspecified";
-        //}
+            return "Unspecified";
+        }
 
-        //public override string GetPageSubTitle()
-        //{
-        //    return FixedValue is null
-        //        ? base.GetPageSubTitle()
-        //        : $"For {GetCoachesId(FixedValue)}";
-        //}
+        public override string GetPageSubTitle()
+        {
+            return FixedValue is null
+                ? base.GetPageSubTitle()
+                : $"For {GetCoachesId(FixedValue)}";
+        }
         //public string GetCoachName(string coachName)
         //{
         //    foreach (var m in Ids)
