@@ -1,9 +1,5 @@
-﻿using System;
-using Microsoft.AspNetCore.Html;
-using Microsoft.AspNetCore.Mvc.Razor;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SportClub.Aids;
-using SportClub.Facade.Coach;
 using SportClub.Pages.Extensions;
 
 namespace SportClub.Tests.Pages.Extensions

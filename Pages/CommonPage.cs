@@ -43,5 +43,13 @@ namespace SportClub.Pages
 
             return items.Select(m => new SelectListItem(m.Data.Name, m.Data.Name)).ToList();
         }
+        protected static IEnumerable<SelectListItem> CreateSelectList3<TTDomain, TTData>(IRepository<TTDomain> r)
+            where TTDomain : Entity<TTData>
+            where TTData : NamedEntityData, new()
+        {
+            var items = r.Get().GetAwaiter().GetResult();
+
+            return items.Select(m => new SelectListItem(m.Data.Id, m.Data.Id)).ToList();
+        }
     }
 }

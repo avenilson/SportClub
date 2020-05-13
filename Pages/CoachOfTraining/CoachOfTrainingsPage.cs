@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SportClub.Data.Coach;
 using SportClub.Data.CoachOfTraining;
-using SportClub.Data.Common;
 using SportClub.Data.Training;
 using SportClub.Domain.Coach;
 using SportClub.Domain.CoachOfTraining;
@@ -18,10 +17,11 @@ namespace SportClub.Pages.CoachOfTraining
             PageTitle = "Coach Of Trainings";
             CoachId= CreateSelectList<Domain.Coach.Coach, CoachData>(c);
             TrainingId = CreateSelectList<Domain.Training.Training, TrainingData>(t);
-
+            Id = CreateSelectList3<Domain.Coach.Coach, CoachData>(c);
         }
         public IEnumerable<SelectListItem> CoachId { get; }
         public IEnumerable<SelectListItem> TrainingId { get; }
+        public IEnumerable<SelectListItem> Id { get; }
 
         public override string ItemId 
         {
@@ -49,14 +49,14 @@ namespace SportClub.Pages.CoachOfTraining
                 if (m.Value == coachId)
                     return m.Text;
 
-            return "Unspecified";
+            return "";
         }
 
         public override string GetPageSubTitle()
         {
             return FixedValue is null
                 ? base.GetPageSubTitle()
-                : $"For {GetCoachesId(FixedValue)}";
+                : $" {GetCoachesId(FixedValue)}";
         }
         //public string GetCoachName(string coachName)
         //{

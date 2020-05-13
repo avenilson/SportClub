@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SportClub.Pages.Extensions
+﻿namespace SportClub.Pages.Extensions
 {
     public class Link
     {

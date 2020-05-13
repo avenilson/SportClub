@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using SportClub.Data.TrainingType;
-using SportClub.Domain.Training;
 using SportClub.Domain.TrainingType;
 using SportClub.Pages.TrainingType;
 
