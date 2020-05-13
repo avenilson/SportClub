@@ -1,9 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using SportClub.Data.Coach;
-using SportClub.Data.Training;
 using SportClub.Domain.Coach;
 using SportClub.Domain.CoachOfTraining;
 using SportClub.Domain.Training;

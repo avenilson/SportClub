@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.AspNetCore.Html;
+﻿using Microsoft.AspNetCore.Html;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SportClub.Aids;
 using SportClub.Facade.Coach;

@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using SportClub.Domain.Training;
 using SportClub.Domain.TrainingType;
 using SportClub.Pages.TrainingType;
 

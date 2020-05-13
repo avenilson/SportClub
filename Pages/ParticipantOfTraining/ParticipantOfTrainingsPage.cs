@@ -49,14 +49,14 @@ namespace SportClub.Pages.ParticipantOfTraining
                 if (m.Value == participantId)
                     return m.Text;
 
-            return "Unspecified";
+            return "";
         }
 
         public override string GetPageSubTitle()
         {
             return FixedValue is null
                 ? base.GetPageSubTitle()
-                : $"For {GetParticipantId(FixedValue)}";
+                : $"{GetParticipantId(FixedValue)}";
         }
 
     }

@@ -1,10 +1,8 @@
 ﻿using Microsoft.AspNetCore.Html;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SportClub.Aids;
-using SportClub.Facade.Coach;
 using SportClub.Facade.Common;
 using SportClub.Pages.Extensions;
-using SportClub.Tests.Aids;
 
 namespace SportClub.Tests.Pages.Extensions
 {

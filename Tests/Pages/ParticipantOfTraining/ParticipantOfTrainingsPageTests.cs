@@ -6,10 +6,7 @@ using SportClub.Data.Training;
 using SportClub.Domain.Participant;
 using SportClub.Domain.ParticipantOfTraining;
 using SportClub.Domain.Training;
-using SportClub.Facade.Participant;
 using SportClub.Facade.ParticipantOfTraining;
-using SportClub.Facade.Training;
-using SportClub.Infra.Training;
 using SportClub.Pages;
 using SportClub.Pages.ParticipantOfTraining;
 

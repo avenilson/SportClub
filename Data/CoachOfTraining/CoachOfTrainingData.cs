@@ -1,6 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using SportClub.Data.Common;
+﻿using SportClub.Data.Common;
 
 namespace SportClub.Data.CoachOfTraining
 {

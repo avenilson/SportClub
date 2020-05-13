@@ -1,8 +1,5 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using SportClub.Data.ParticipantOfTraining;
 using SportClub.Domain.Participant;
 using SportClub.Domain.ParticipantOfTraining;
 using SportClub.Domain.Training;
