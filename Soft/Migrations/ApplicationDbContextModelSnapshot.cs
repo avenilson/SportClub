@@ -240,12 +240,10 @@ namespace SportClub.Soft.Migrations
                     b.Property<string>("CoachId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<Guid>("Id")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("TrainingId", "CoachId");
-
-                    b.HasAlternateKey("Id");
 
                     b.ToTable("CoachesOfTrainings");
                 });

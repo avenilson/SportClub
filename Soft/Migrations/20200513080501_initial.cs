@@ -64,12 +64,11 @@ namespace SportClub.Soft.Migrations
                 {
                     CoachId = table.Column<string>(nullable: false),
                     TrainingId = table.Column<string>(nullable: false),
-                    Id = table.Column<Guid>(nullable: false)
+                    Id = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CoachesOfTrainings", x => new { x.TrainingId, x.CoachId });
-                    table.UniqueConstraint("AK_CoachesOfTrainings_Id", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(

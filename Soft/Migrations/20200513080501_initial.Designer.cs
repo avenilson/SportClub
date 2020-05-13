@@ -10,7 +10,7 @@ using SportClub.Soft.Data;
 namespace SportClub.Soft.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200508070118_initial")]
+    [Migration("20200513080501_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -242,12 +242,10 @@ namespace SportClub.Soft.Migrations
                     b.Property<string>("CoachId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<Guid>("Id")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("TrainingId", "CoachId");
-
-                    b.HasAlternateKey("Id");
 
                     b.ToTable("CoachesOfTrainings");
                 });
