@@ -2,12 +2,14 @@
 using SportClub.Aids;
 using SportClub.Data.Participant;
 using SportClub.Data.ParticipantOfTraining;
+using SportClub.Data.Training;
 using SportClub.Domain.Participant;
 using SportClub.Domain.ParticipantOfTraining;
 using SportClub.Domain.Training;
 using SportClub.Facade.Participant;
 using SportClub.Facade.ParticipantOfTraining;
 using SportClub.Facade.Training;
+using SportClub.Infra.Training;
 using SportClub.Pages;
 using SportClub.Pages.ParticipantOfTraining;
 
@@ -21,12 +23,16 @@ namespace SportClub.Tests.Pages.ParticipantOfTraining
         {
             internal TestClass(IParticipantOfTrainingsRepository r, IParticipantsRepository p, ITrainingsRepository t) : base(r, p, t) { }
         }
+        private class TrainRepository : BaseTestRepositoryForUniqueEntity<SportClub.Domain.Training.Training, TrainingData>,
+            ITrainingsRepository
+        { }
 
-        //private class TestRepository : BaseTestRepositoryForUniqueEntity<SportClub.Domain.ParticipantOfTraining.ParticipantOfTraining, ParticipantOfTrainingData>,
-        //    IParticipantOfTrainingsRepository { } 
+        private class TestRepository : BaseTestRepositoryForUniqueEntity<SportClub.Domain.ParticipantOfTraining.ParticipantOfTraining, ParticipantOfTrainingData>,
+            IParticipantOfTrainingsRepository { }
         private class TermRepository : BaseTestRepositoryForNamedEntity<SportClub.Domain.Participant.Participant, ParticipantData>,
             IParticipantsRepository
         {
+
             protected override bool IsThis(SportClub.Domain.Participant.Participant entity, string id)
             {
                 return true;
@@ -38,14 +44,15 @@ namespace SportClub.Tests.Pages.ParticipantOfTraining
             }
         }
 
-        //[TestInitialize]
-        //public override void TestInitialize()
-        //{
-        //    base.TestInitialize(); //kasutab inmemorydb extensionit, mis on malus!
-        //    var r = new TestRepository();
-        //    var p = new TermRepository();
-        //    obj = new TestClass(r, p); //annan repository katte
-        //}
+        [TestInitialize]
+        public override void TestInitialize()
+        {
+            base.TestInitialize(); //kasutab inmemorydb extensionit, mis on malus!
+            var r = new TestRepository();
+            var p = new TermRepository();
+            var t = new TrainRepository();
+            obj = new TestClass(r, p, t); //annan repository katte
+        }
         public static string Id(string head, string tail)
         {
             return $"{head}.{tail}";
