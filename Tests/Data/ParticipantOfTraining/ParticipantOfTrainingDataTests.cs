@@ -5,7 +5,7 @@ using SportClub.Data.ParticipantOfTraining;
 namespace SportClub.Tests.Data.ParticipantOfTraining
 {
     [TestClass]
-    public class ParticipantOfTrainingDataTests : SealedClassTests<ParticipantOfTrainingData, NamedEntityData>
+    public class ParticipantOfTrainingDataTests : SealedClassTests<ParticipantOfTrainingData, UniqueEntityData>
     {
         [TestMethod]
         public void TrainingIdTest() => IsNullableProperty(() => obj.TrainingId, x => obj.TrainingId = x);

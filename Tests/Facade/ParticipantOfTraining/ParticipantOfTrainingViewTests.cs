@@ -5,7 +5,7 @@ using SportClub.Facade.ParticipantOfTraining;
 namespace SportClub.Tests.Facade.ParticipantOfTraining
 {
     [TestClass]
-    public class ParticipantOfTrainingViewTests : SealedClassTests<ParticipantOfTrainingView, NamedView>
+    public class ParticipantOfTrainingViewTests : SealedClassTests<ParticipantOfTrainingView, UniqueEntityView>
     {
         [TestMethod]
         public void TrainingIdTest() => IsNullableProperty(() => obj.TrainingId, x => obj.TrainingId = x);
