@@ -85,15 +85,46 @@ namespace SportClub.Tests.Pages.ParticipantOfTraining
         }
         [TestMethod] public void ParticipantIdTest()
         {
-            Assert.Inconclusive();
+            var item = GetRandom.Object<ParticipantOfTrainingView>();
+            obj.Item = item;
+            string a = Id(item.ParticipantId, item.TrainingId);
+            Assert.AreEqual(a, obj.ItemId);
+            obj.Item = null;
+            Assert.AreEqual(string.Empty, obj.ItemId);
+        }
+        [TestMethod]
+        public void TrainingIdTest()
+        {
+            var item = GetRandom.Object<ParticipantOfTrainingView>();
+            obj.Item = item;
+            string a = Id(item.ParticipantId, item.TrainingId);
+            Assert.AreEqual(a, obj.ItemId);
+            obj.Item = null;
+            Assert.AreEqual(string.Empty, obj.ItemId);
+        }
+        [TestMethod]
+        public void IdTest()
+        {
+            var item = GetRandom.Object<ParticipantOfTrainingView>();
+            obj.Item = item;
+            string a = Id(item.ParticipantId, item.TrainingId);
+            Assert.AreEqual(a, obj.ItemId);
+            obj.Item = null;
+            Assert.AreEqual(string.Empty, obj.ItemId);
         }
         [TestMethod] public void GetParticipantIdTest()
         {
-            Assert.Inconclusive();
+            var item = GetRandom.Object<ParticipantOfTrainingView>();
+            obj.Item = item;
+            string a = Id(item.ParticipantId, item.TrainingId);
+            Assert.AreEqual(a, obj.ItemId);
+            obj.Item = null;
+            Assert.AreEqual(string.Empty, obj.ItemId);
         }
-        [TestMethod] public void GetPageSubTitleTest() 
+        [TestMethod]
+        public void GetPageSubTitleTest()
         {
-            //Assert.AreEqual(obj.PageSubTitle, obj.pageSubtitle());
+            Assert.AreEqual(obj.PageSubTitle, obj.GetPageSubTitle());
         }
     }
 }
