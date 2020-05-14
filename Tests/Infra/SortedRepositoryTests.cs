@@ -204,10 +204,10 @@ namespace SportClub.Tests.Infra
             var sqlNew = obj.AddSorting(sql);
             Assert.IsNotNull(sqlNew);
         }
-        [TestMethod] public void AddOrderByTest()
-        {
-           Assert.Inconclusive();
-        }
+        //[TestMethod] public void AddOrderByTest()
+        //{
+        //   Assert.Inconclusive();
+        //}
 
     }
 }

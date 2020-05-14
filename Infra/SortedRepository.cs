@@ -63,7 +63,7 @@ namespace SportClub.Infra
             return SortOrder;
         }
 
-        public IQueryable<TData> AddOrderBy(IQueryable<TData> query, Expression<Func<TData, object>> e)
+        internal IQueryable<TData> AddOrderBy(IQueryable<TData> query, Expression<Func<TData, object>> e)
         {
             if (query is null) return null;
             if (e is null) return query;
