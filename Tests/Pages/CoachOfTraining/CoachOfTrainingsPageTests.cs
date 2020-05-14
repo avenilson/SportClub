@@ -88,6 +88,39 @@ namespace SportClub.Tests.Pages.CoachOfTraining
         {
             Assert.Inconclusive();
         }
+        [TestMethod] public void GetCoachesIdTest()
+        {
+            Assert.Inconclusive();
+        }
+        [TestMethod] public void CoachIdTest()
+        {
+            var item = GetRandom.Object<CoachOfTrainingView>();
+            obj.Item = item;
+            string a = Id(item.CoachId, item.TrainingId);
+            Assert.AreEqual(a, obj.ItemId);
+            obj.Item = null;
+            Assert.AreEqual(string.Empty, obj.ItemId);
+        }
+        [TestMethod]
+        public void TrainingIdTest()
+        {
+            var item = GetRandom.Object<CoachOfTrainingView>();
+            obj.Item = item;
+            string a = Id(item.CoachId, item.TrainingId);
+            Assert.AreEqual(a, obj.ItemId);
+            obj.Item = null;
+            Assert.AreEqual(string.Empty, obj.ItemId);
+        }
+        [TestMethod]
+        public void IdTest()
+        {
+            var item = GetRandom.Object<CoachOfTrainingView>();
+            obj.Item = item;
+            string a = Id(item.CoachId, item.TrainingId);
+            Assert.AreEqual(a, obj.ItemId);
+            obj.Item = null;
+            Assert.AreEqual(string.Empty, obj.ItemId);
+        }
 
         [TestMethod]
         public void GetPageSubTitleTest()
