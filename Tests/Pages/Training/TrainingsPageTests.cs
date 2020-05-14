@@ -69,6 +69,5 @@ namespace SportClub.Tests.Pages.Training
             Copy.Members(x, y);
             TestArePropertyValuesEqual(x, y);
         }
-
     }
 }
