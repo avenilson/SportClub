@@ -8,10 +8,5 @@ namespace SportClub.Tests.Pages.Extensions
     {
         [TestInitialize] public virtual void TestInitialize() => type = typeof(DetailsTableForHtmlExtension);
 
-        [TestMethod]
-        public void DetailsTableForTest()
-        {
-            Assert.Inconclusive();
-        }
     }
 }
