@@ -84,15 +84,19 @@ namespace SportClub.Tests.Pages.CoachOfTraining
             var view = obj.ToView(new SportClub.Domain.CoachOfTraining.CoachOfTraining(data));
             TestArePropertyValuesEqual(view, data);
         }
-        [TestMethod] public void GetCoachesNameTest()
+
+        [TestMethod]
+        public void GetCoachesIdTest()
         {
-            Assert.Inconclusive();
+            var item = GetRandom.Object<CoachOfTrainingView>();
+            obj.Item = item;
+            string a = Id(item.CoachId, item.TrainingId);
+            Assert.AreEqual(a, obj.ItemId);
+            obj.Item = null;
+            Assert.AreEqual(string.Empty, obj.ItemId);
         }
-        [TestMethod] public void GetCoachesIdTest()
-        {
-            Assert.Inconclusive();
-        }
-        [TestMethod] public void CoachIdTest()
+        [TestMethod]
+        public void CoachIdTest()
         {
             var item = GetRandom.Object<CoachOfTrainingView>();
             obj.Item = item;
@@ -125,12 +129,17 @@ namespace SportClub.Tests.Pages.CoachOfTraining
         [TestMethod]
         public void GetPageSubTitleTest()
         {
-            Assert.Inconclusive();
+            Assert.AreEqual(obj.PageSubTitle, obj.GetPageSubTitle());
         }
         [TestMethod]
         public void IdsTest()
         {
-            Assert.Inconclusive();
+            var item = GetRandom.Object<CoachOfTrainingView>();
+            obj.Item = item;
+            string a = Id(item.CoachId, item.TrainingId);
+            Assert.AreEqual(a, obj.ItemId);
+            obj.Item = null;
+            Assert.AreEqual(string.Empty, obj.ItemId);
         }
     }
 }
