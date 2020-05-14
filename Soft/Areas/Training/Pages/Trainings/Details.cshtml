@@ -1,16 +1,9 @@
 ﻿@page
-@using SportClub.Aids
-@using SportClub.Data.CoachOfTraining
-@using SportClub.Data.ParticipantOfTraining
 @using SportClub.Pages.Extensions
 @model SportClub.Soft.Areas.Training.Pages.Trainings.DetailsModel
 
 @{
     Layout = "_Details";
-    const string participantsOfTraining = "/ParticipantOfTraining/ParticipantOfTrainings";
-    var trainingIdForParticipants = GetMember.Name<ParticipantOfTrainingData>(x => x.TrainingId);
-    const string coachesOfTraining = "/CoachOfTraining/CoachOfTrainings";
-    var trainingIdForCoaches = GetMember.Name<CoachOfTrainingData>(x => x.TrainingId);
 }
 
 <body>
@@ -23,9 +16,6 @@
 
 @section Details
 {
-    @Html.HypertextLinkFor(string.Empty, new Link("Show participants of training",
-        $"{participantsOfTraining}/Index?fixedFilter={trainingIdForParticipants}&fixedValue={Model.Item.Id}"))
-    @Html.HypertextLinkFor(string.Empty, new Link("Show coaches of training",
-        $"{coachesOfTraining}/Index?fixedFilter={trainingIdForCoaches}&fixedValue={Model.Item.Id}"))
+    
 }
 

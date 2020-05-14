@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using SportClub.Aids;
 using SportClub.Data.ParticipantOfTraining;
 using SportClub.Domain.ParticipantOfTraining;
 
@@ -16,10 +15,11 @@ namespace SportClub.Infra.ParticipantOfTraining
 
         protected override async Task<ParticipantOfTrainingData> GetData(string id)
         {
-            var participantId = GetString.Head(id);
-            var trainingId = GetString.Tail(id);
+            //var participantId = GetString.Head(id);
+            //var trainingId = GetString.Tail(id);
 
-            return await dbSet.SingleOrDefaultAsync(x => x.ParticipantId == participantId && x.TrainingId == trainingId);
+            //return await dbSet.SingleOrDefaultAsync(x => x.ParticipantId == participantId && x.TrainingId == trainingId);
+            return await dbSet.SingleOrDefaultAsync(x => x.Id == id);
         }
 
         protected override string GetId(Domain.ParticipantOfTraining.ParticipantOfTraining obj)

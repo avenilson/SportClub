@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SportClub.Aids;
 using SportClub.Data.Training;
 using SportClub.Data.TrainingType;
@@ -9,7 +7,6 @@ using SportClub.Domain.TrainingType;
 using SportClub.Facade.Training;
 using SportClub.Pages;
 using SportClub.Pages.Training;
-using SportClub.Tests.Aids;
 
 namespace SportClub.Tests.Pages.Training
 {

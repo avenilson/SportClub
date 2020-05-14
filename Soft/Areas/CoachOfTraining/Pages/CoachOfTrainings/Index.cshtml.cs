@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using SportClub.Data.CoachOfTraining;
+﻿using System.Threading.Tasks;
 using SportClub.Domain.Coach;
 using SportClub.Domain.CoachOfTraining;
 using SportClub.Domain.Training;

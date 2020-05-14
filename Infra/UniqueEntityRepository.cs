@@ -6,7 +6,7 @@ using SportClub.Domain.Common;
 namespace SportClub.Infra
 {
     public abstract class UniqueEntityRepository<TDomain, TData>: PaginatedRepository<TDomain, TData>
-        where TData: NamedEntityData, new()
+        where TData: UniqueEntityData, new()
         where TDomain: Entity<TData>, new()
     {
         protected UniqueEntityRepository(DbContext c, DbSet<TData> s) : base(c, s) { }

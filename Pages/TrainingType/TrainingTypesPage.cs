@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using SportClub.Data.Training;
 using SportClub.Data.TrainingType;
-using SportClub.Domain.Training;
 using SportClub.Domain.TrainingType;
 using SportClub.Facade.TrainingType;
 

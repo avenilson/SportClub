@@ -2,7 +2,7 @@
 
 namespace SportClub.Data.ParticipantOfTraining
 {
-    public sealed class ParticipantOfTrainingData:NamedEntityData
+    public sealed class ParticipantOfTrainingData:UniqueEntityData
     {
         public string TrainingId { get; set; }
         public string ParticipantId { get; set; }

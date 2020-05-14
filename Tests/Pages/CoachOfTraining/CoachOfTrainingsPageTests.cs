@@ -2,8 +2,10 @@
 using SportClub.Aids;
 using SportClub.Data.Coach;
 using SportClub.Data.CoachOfTraining;
+using SportClub.Data.Training;
 using SportClub.Domain.Coach;
 using SportClub.Domain.CoachOfTraining;
+using SportClub.Domain.Training;
 using SportClub.Facade.CoachOfTraining;
 using SportClub.Pages;
 using SportClub.Pages.CoachOfTraining;
@@ -14,12 +16,17 @@ namespace SportClub.Tests.Pages.CoachOfTraining
     public class CoachOfTrainingsPageTests : AbstractClassTests
         <CoachOfTrainingsPage, CommonPage<ICoachOfTrainingsRepository, SportClub.Domain.CoachOfTraining.CoachOfTraining, CoachOfTrainingView, CoachOfTrainingData>>
     {
+        private class TrainRepository : BaseTestRepositoryForUniqueEntity<SportClub.Domain.Training.Training, TrainingData>,
+            ITrainingsRepository
+        { }
+
         private class TestClass : CoachOfTrainingsPage
         {
-            internal TestClass(ICoachOfTrainingsRepository r, ICoachesRepository c) : base(r, c) { }
+            internal TestClass(ICoachOfTrainingsRepository r, ICoachesRepository c, ITrainingsRepository t) : base(r, c, t) { }
         }
         private class TestRepository : BaseTestRepositoryForUniqueEntity<SportClub.Domain.CoachOfTraining.CoachOfTraining, CoachOfTrainingData>,
-            ICoachOfTrainingsRepository { }
+            ICoachOfTrainingsRepository
+        { }
 
         private class TermRepository : BaseTestRepositoryForNamedEntity<SportClub.Domain.Coach.Coach, CoachData>,
             ICoachesRepository
@@ -41,7 +48,8 @@ namespace SportClub.Tests.Pages.CoachOfTraining
             base.TestInitialize(); //kasutab inmemorydb extensionit, mis on malus!
             var r = new TestRepository();
             var c = new TermRepository();
-            obj = new TestClass(r, c); //annan repository katte
+            var t = new TrainRepository();
+            obj = new TestClass(r, c, t); //annan repository katte
         }
         public static string Id(string head, string tail)
         {

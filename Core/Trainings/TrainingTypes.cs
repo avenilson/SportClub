@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace SportClub.Core.Trainings
+﻿namespace SportClub.Core.Trainings
 {
     //public static class TrainingTypes
     //{

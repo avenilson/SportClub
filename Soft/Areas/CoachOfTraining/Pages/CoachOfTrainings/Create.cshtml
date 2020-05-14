@@ -5,9 +5,8 @@
 @{
     Layout ="_Create";
 }
-<body>
-@Html.EditControlsForDropDown(m => m.Item.TrainingId, Model.TrainingId)
-@Html.EditControlsForDropDown(m => m.Item.CoachId, Model.Ids)
-@Html.EditControlsFor(x => x.Item.Id)
-@Html.EditControlsFor(x => x.Item.Name)
-</body>
+    <body>
+        @Html.EditControlsForDropDown(m => m.Item.CoachId, Model.CoachId)
+        @Html.EditControlsForDropDown(m => m.Item.TrainingId, Model.TrainingId)
+        @Html.EditControlsForDropDown(x => x.Item.Id, Model.Id)
+    </body>

@@ -3,7 +3,6 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SportClub.Soft.Data;
 
 namespace SportClub.Soft.Migrations
@@ -243,9 +242,6 @@ namespace SportClub.Soft.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("TrainingId", "CoachId");
 
                     b.ToTable("CoachesOfTrainings");
@@ -279,9 +275,6 @@ namespace SportClub.Soft.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("TrainingId", "ParticipantId");

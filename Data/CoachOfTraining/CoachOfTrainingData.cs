@@ -2,10 +2,16 @@
 
 namespace SportClub.Data.CoachOfTraining
 {
-    public sealed class CoachOfTrainingData:NamedEntityData
+    public sealed class CoachOfTrainingData:UniqueEntityData
     {
-        public string CoachId { get; set; }
+        //public CoachOfTrainingData()
+        //{
+        //    Id = Guid.NewGuid();
+        //}
 
+        //[Key]
+        //public new Guid Id { get; set; }
+        public string CoachId { get; set; }
         public string TrainingId { get; set; }
     }
 }

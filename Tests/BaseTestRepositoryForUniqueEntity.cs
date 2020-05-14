@@ -7,7 +7,7 @@ namespace SportClub.Tests
 {
     internal class BaseTestRepositoryForUniqueEntity<TObj, TData> 
         where TObj: Entity<TData>
-        where TData: NamedEntityData, new()
+        where TData: UniqueEntityData, new()
     {
         public int PageIndex { get; set; }
         public int PageSize { get; set; }

@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SportClub.Data.Coach;
 using SportClub.Data.CoachOfTraining;
-using SportClub.Data.Common;
 using SportClub.Data.Training;
 using SportClub.Domain.Coach;
 using SportClub.Domain.CoachOfTraining;
@@ -16,13 +15,13 @@ namespace SportClub.Pages.CoachOfTraining
         protected internal CoachOfTrainingsPage(ICoachOfTrainingsRepository r, ICoachesRepository c, ITrainingsRepository t) : base(r)
         {
             PageTitle = "Coach Of Trainings";
-            Ids = CreateSelectList<Domain.Coach.Coach, CoachData>(c);
-            CoachName = CreateSelectList2<Domain.Coach.Coach, CoachData>(c);
+            CoachId= CreateSelectList<Domain.Coach.Coach, CoachData>(c);
             TrainingId = CreateSelectList<Domain.Training.Training, TrainingData>(t);
+            Id = CreateSelectList3<Domain.Coach.Coach, CoachData>(c);
         }
-        public IEnumerable<SelectListItem> Ids { get; }
-        public IEnumerable<SelectListItem> CoachName { get; }
+        public IEnumerable<SelectListItem> CoachId { get; }
         public IEnumerable<SelectListItem> TrainingId { get; }
+        public IEnumerable<SelectListItem> Id { get; }
 
         public override string ItemId 
         {
@@ -44,21 +43,21 @@ namespace SportClub.Pages.CoachOfTraining
         {
             return CoachOfTrainingViewFactory.Create(obj);
         }
-        //public string GetCoachesId(string coachId)
-        //{
-        //    foreach (var m in Ids)
-        //        if (m.Value == coachId)
-        //            return m.Text;
+        public string GetCoachesId(string coachId)
+        {
+            foreach (var m in CoachId)
+                if (m.Value == coachId)
+                    return m.Text;
 
-        //    return "Unspecified";
-        //}
+            return "";
+        }
 
-        //public override string GetPageSubTitle()
-        //{
-        //    return FixedValue is null
-        //        ? base.GetPageSubTitle()
-        //        : $"For {GetCoachesId(FixedValue)}";
-        //}
+        public override string GetPageSubTitle()
+        {
+            return FixedValue is null
+                ? base.GetPageSubTitle()
+                : $" {GetCoachesId(FixedValue)}";
+        }
         //public string GetCoachName(string coachName)
         //{
         //    foreach (var m in Ids)

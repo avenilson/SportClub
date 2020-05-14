@@ -1,9 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using SportClub.Data.Coach;
-using SportClub.Data.Training;
 using SportClub.Domain.Coach;
 using SportClub.Domain.CoachOfTraining;
 using SportClub.Domain.Training;
@@ -14,14 +10,8 @@ namespace SportClub.Soft.Areas.CoachOfTraining.Pages.CoachOfTrainings
     public class CreateModel : CoachOfTrainingsPage
     {
         public CreateModel(ICoachOfTrainingsRepository r,
-            ICoachesRepository u, ITrainingsRepository s, ICoachesRepository c, ITrainingsRepository t) : base(r,c,t) { 
-           // Coaches = CreateSelectList<Domain.Coach.Coach, CoachData>(u);
-           // Trainings = CreateSelectList<Domain.Training.Training, TrainingData>(s);
+             ICoachesRepository c, ITrainingsRepository t) : base(r,c,t) { 
         }
-
-        //public IEnumerable<SelectListItem> Coaches { get; }
-
-        //public IEnumerable<SelectListItem> Trainings { get; }
 
 
         public IActionResult OnGet(string fixedFilter, string fixedValue)
