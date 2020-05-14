@@ -33,7 +33,7 @@ namespace SportClub.Pages.Training
         }
         public IEnumerable<SelectListItem> Types { get; }
 
-        protected static IEnumerable<SelectListItem> CreateSelectList<TTDomain, TTData>(IRepository<TTDomain> r)
+        protected new static IEnumerable<SelectListItem> CreateSelectList<TTDomain, TTData>(IRepository<TTDomain> r)
             where TTDomain : Entity<TTData>
             where TTData : NamedEntityData, new()
         {
