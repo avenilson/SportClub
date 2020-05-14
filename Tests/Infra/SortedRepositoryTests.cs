@@ -115,17 +115,6 @@ namespace SportClub.Tests.Infra
             Assert.IsTrue(lambda.ToString().Contains(expected));
         }
 
-        //[TestMethod]
-        //public void LambdaExpressionTest()
-        //{
-        //    var name = GetMember.Name<TrainingData>(x => x.ValidFrom);
-        //    var property = typeof(TrainingData).GetProperty(name);
-        //    var lambda = obj.LambdaExpression(property);
-        //    Assert.IsNotNull(lambda);
-        //    Assert.IsInstanceOfType(lambda, typeof(Expression<Func<TrainingData, object>>));
-        //    Assert.IsTrue(lambda.ToString().Contains(name));
-        //}
-
         [TestMethod]
         public void FindPropertyTest()
         {
@@ -215,5 +204,10 @@ namespace SportClub.Tests.Infra
             var sqlNew = obj.AddSorting(sql);
             Assert.IsNotNull(sqlNew);
         }
+        [TestMethod] public void AddOrderByTest()
+        {
+           Assert.Inconclusive();
+        }
+
     }
 }

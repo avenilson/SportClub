@@ -91,5 +91,9 @@ namespace SportClub.Tests.Infra
             var sql = obj.CreateSqlQuery();
             Assert.IsNotNull(sql);
         }
+        [TestMethod] public void dbSetTest()
+        {
+           Assert.Inconclusive();
+        }
     }
 }
