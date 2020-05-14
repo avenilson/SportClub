@@ -23,8 +23,8 @@ namespace SportClub.Tests.Pages.Extensions
         public void UrlTest()
         {
             var n = GetRandom.String();
-            var o = new Link(null, null);
-            Assert.AreEqual(n, o.Url.ToString());
+            var o = new Link(null, n);
+            Assert.AreEqual(n, o.Url);
             Assert.IsNull(o.DisplayName);
             Assert.IsNull(o.PropertyName);
         }
