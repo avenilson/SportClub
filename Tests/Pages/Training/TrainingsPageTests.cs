@@ -63,8 +63,8 @@ namespace SportClub.Tests.Pages.Training
         [TestMethod]
         public void TypesTest()
         {
-            var x = GetRandom.Object<TrainingTypeData>();
-            var y = GetRandom.Object<TrainingTypeView>();
+            var x = GetRandom.Object<TrainingData>();
+            var y = GetRandom.Object<TrainingView>();
             TestArePropertyValuesNotEqual(x, y);
             Copy.Members(x, y);
             TestArePropertyValuesEqual(x, y);

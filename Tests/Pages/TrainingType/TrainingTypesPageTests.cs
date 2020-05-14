@@ -72,19 +72,18 @@ namespace SportClub.Tests.Pages.TrainingType
             TestArePropertyValuesEqual(view, data);
         }
         [TestMethod]
-        public void GetNamesNameTest()
-        {
-            Assert.Inconclusive();
-        }
-        [TestMethod]
         public void GetPageSubTitleTest()
         {
-            Assert.Inconclusive();
+            Assert.AreEqual(obj.PageSubTitle, obj.GetPageSubTitle());
         }
         [TestMethod]
         public void NamesTest()
         {
-            Assert.Inconclusive();
+            var x = GetRandom.Object<TrainingTypeData>();
+            var y = GetRandom.Object<TrainingTypeView>();
+            TestArePropertyValuesNotEqual(x, y);
+            Copy.Members(x, y);
+            TestArePropertyValuesEqual(x, y);
         }
     }
 }

@@ -1,8 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SportClub.Aids;
-using SportClub.Data.CoachOfTraining;
 using SportClub.Data.ParticipantOfTraining;
 using SportClub.Infra;
 using SportClub.Infra.ParticipantOfTraining;
