@@ -5,6 +5,7 @@ using SportClub.Data.TrainingType;
 using SportClub.Domain.Training;
 using SportClub.Domain.TrainingType;
 using SportClub.Facade.Training;
+using SportClub.Facade.TrainingType;
 using SportClub.Pages;
 using SportClub.Pages.Training;
 
@@ -59,12 +60,15 @@ namespace SportClub.Tests.Pages.Training
             var view = obj.ToView(new SportClub.Domain.Training.Training(data));
             TestArePropertyValuesEqual(view, data);
         }
-        [TestMethod] public void TypesTest()
+        [TestMethod]
+        public void TypesTest()
         {
-            Assert.Inconclusive();
+            var x = GetRandom.Object<TrainingTypeData>();
+            var y = GetRandom.Object<TrainingTypeView>();
+            TestArePropertyValuesNotEqual(x, y);
+            Copy.Members(x, y);
+            TestArePropertyValuesEqual(x, y);
         }
-        
+
     }
-
-
 }
