@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SportClub.Aids;
+using SportClub.Data.CoachOfTraining;
 using SportClub.Data.ParticipantOfTraining;
 using SportClub.Infra;
 using SportClub.Infra.ParticipantOfTraining;
@@ -26,21 +27,13 @@ namespace SportClub.Tests.Infra.ParticipantOfTraining
         }
 
         protected override Type GetBaseType() =>
-            typeof(PaginatedRepository<SportClub.Domain.ParticipantOfTraining.ParticipantOfTraining,
-                ParticipantOfTrainingData>);
+            typeof(PaginatedRepository<SportClub.Domain.ParticipantOfTraining.ParticipantOfTraining, ParticipantOfTrainingData>);
 
-        protected override string GetId(ParticipantOfTrainingData d) => $"{d.ParticipantId}.{d.TrainingId}";
+        protected override string GetId(ParticipantOfTrainingData d) => d.Id;
 
-        protected override SportClub.Domain.ParticipantOfTraining.ParticipantOfTraining
-            GetObject(ParticipantOfTrainingData d) =>
+        protected override SportClub.Domain.ParticipantOfTraining.ParticipantOfTraining GetObject(ParticipantOfTrainingData d) =>
             new SportClub.Domain.ParticipantOfTraining.ParticipantOfTraining(d);
 
-        protected override void SetId(ParticipantOfTrainingData d, string id)
-        {
-            var participantId = GetString.Head(id);
-            var trainingId = GetString.Tail(id);
-            d.ParticipantId = participantId;
-            d.TrainingId = trainingId;
-        }
+        protected override void SetId(ParticipantOfTrainingData d, string id) => d.Id = id;
     }
 }
