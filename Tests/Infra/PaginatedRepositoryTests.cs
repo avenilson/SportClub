@@ -16,12 +16,13 @@ namespace SportClub.Tests.Infra
         {
             public TestClass(DbContext c, DbSet<TrainingData> s) : base(c, s) { }
 
-            protected override SportClub.Domain.Training.Training ToDomainObject(TrainingData d) => new SportClub.Domain.Training.Training(d);
+            protected override SportClub.Domain.Training.Training ToDomainObject(TrainingData d) 
+                => new SportClub.Domain.Training.Training(d);
 
-            protected override async Task<TrainingData> GetData(string id) => await dbSet.FirstOrDefaultAsync(m => m.Id == id);
+            protected override async Task<TrainingData> GetData(string id) 
+                => await dbSet.FirstOrDefaultAsync(m => m.Id == id);
 
             protected override string GetId(SportClub.Domain.Training.Training entity) => entity?.Data?.Id;
-
         }
 
         private byte count;
@@ -41,11 +42,9 @@ namespace SportClub.Tests.Infra
                 c.Entry(p).State = EntityState.Deleted;
             AddItems();
         }
+
         [TestMethod]
-        public void PageIndexTest()
-        {
-            IsProperty(() => obj.PageIndex, x => obj.PageIndex = x);
-        }
+        public void PageIndexTest() => IsProperty(() => obj.PageIndex, x => obj.PageIndex = x);
 
         [TestMethod]
         public void TotalPagesTest()

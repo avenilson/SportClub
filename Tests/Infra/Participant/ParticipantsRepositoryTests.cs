@@ -26,7 +26,8 @@ namespace SportClub.Tests.Infra.Participant
 
         protected override string GetId(ParticipantData d) => d.Id;
 
-        protected override SportClub.Domain.Participant.Participant GetObject(ParticipantData d) => new SportClub.Domain.Participant.Participant(d);
+        protected override SportClub.Domain.Participant.Participant GetObject(ParticipantData d) 
+            => new SportClub.Domain.Participant.Participant(d);
 
         protected override void SetId(ParticipantData d, string id) => d.Id = id;
     }

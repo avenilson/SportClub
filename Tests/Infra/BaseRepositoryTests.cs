@@ -17,14 +17,13 @@ namespace SportClub.Tests.Infra
         {
             public TestClass(DbContext c, DbSet<TrainingData> s) : base(c, s) { }
 
-            protected override SportClub.Domain.Training.Training ToDomainObject(TrainingData d) => new SportClub.Domain.Training.Training(d);
+            protected override SportClub.Domain.Training.Training ToDomainObject(TrainingData d) 
+                => new SportClub.Domain.Training.Training(d);
 
-            protected override async Task<TrainingData> GetData(string id)
-            {
-                return await dbSet.FirstOrDefaultAsync(m => m.Id == id);
-            }
+            protected override async Task<TrainingData> GetData(string id) 
+                => await dbSet.FirstOrDefaultAsync(m => m.Id == id);
+
             protected override string GetId(SportClub.Domain.Training.Training entity) => entity?.Data?.Id;
-
         }
 
         [TestInitialize]

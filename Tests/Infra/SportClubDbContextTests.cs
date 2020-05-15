@@ -75,6 +75,7 @@ namespace SportClub.Tests.Infra
             TestEntity<TrainingData>(builder);
             TestEntity<TrainingTypeData>(builder);
         }
+
         [TestMethod]
         public void CoachesTest() => IsNullableProperty(obj, nameof(obj.Coaches), typeof(DbSet<CoachData>));
 

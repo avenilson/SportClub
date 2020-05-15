@@ -14,15 +14,13 @@ namespace SportClub.Tests.Infra
     {
         private class TestClass : FilteredRepository<SportClub.Domain.Training.Training, TrainingData>
         {
-
             public TestClass(DbContext c, DbSet<TrainingData> s) : base(c, s) { }
 
-            protected override SportClub.Domain.Training.Training ToDomainObject(TrainingData d) => new SportClub.Domain.Training.Training(d);
+            protected override SportClub.Domain.Training.Training ToDomainObject(TrainingData d)
+                => new SportClub.Domain.Training.Training(d);
 
-            protected override async Task<TrainingData> GetData(string id)
-            {
-                return await dbSet.FirstOrDefaultAsync(m => m.Id == id);
-            }
+            protected override async Task<TrainingData> GetData(string id) 
+                => await dbSet.FirstOrDefaultAsync(m => m.Id == id);
 
             protected override string GetId(SportClub.Domain.Training.Training entity) => entity?.Data?.Id;
 
@@ -32,7 +30,6 @@ namespace SportClub.Tests.Infra
         public override void TestInitialize()
         {
             base.TestInitialize();
-
             var options = new DbContextOptionsBuilder<SportClubDbContext>()
                 .UseInMemoryDatabase("TestDb")
                 .Options;
@@ -128,6 +125,7 @@ namespace SportClub.Tests.Infra
                 Assert.IsTrue(s.Contains(expected));
             }
         }
+
         [TestMethod]
         public void CreateWhereExpressionWithNullSearchStringTest()
         {

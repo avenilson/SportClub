@@ -3,8 +3,5 @@
 namespace SportClub.Tests.Infra
 {
     [TestClass]
-    public class UniqueEntityRepositoryTests
-    {
-    }
+    public class UniqueEntityRepositoryTests { }
 }
-

@@ -18,7 +18,8 @@ namespace SportClub.Tests.Infra
         {
             public TestClass(DbContext c, DbSet<TrainingData> s) : base(c, s) { }
 
-            protected override SportClub.Domain.Training.Training ToDomainObject(TrainingData d) => new SportClub.Domain.Training.Training(d);
+            protected override SportClub.Domain.Training.Training ToDomainObject(TrainingData d) 
+                => new SportClub.Domain.Training.Training(d);
 
             protected override async Task<TrainingData> GetData(string id)
             {
@@ -39,10 +40,8 @@ namespace SportClub.Tests.Infra
         }
 
         [TestMethod]
-        public void SortOrderTest()
-        {
-            IsNullableProperty(() => obj.SortOrder, x => obj.SortOrder = x);
-        }
+        public void SortOrderTest() => IsNullableProperty(() => obj.SortOrder, x => obj.SortOrder = x);
+
         [TestMethod]
         public void DescendingStringTest()
         {
@@ -79,6 +78,7 @@ namespace SportClub.Tests.Infra
             Test(data, GetMember.Name<TrainingData>(x => x.Definition));
             Test(data, GetMember.Name<TrainingData>(x => x.ParticipantsCount));
         }
+
         [TestMethod]
         public void CreateExpressionTest()
         {
@@ -138,6 +138,7 @@ namespace SportClub.Tests.Infra
             Test(typeof(TrainingData).GetProperty(s = GetMember.Name<TrainingData>(x => x.Duration)), s + obj.DescendingString);
             Test(typeof(TrainingData).GetProperty(s = GetMember.Name<TrainingData>(x => x.Id)), s + obj.DescendingString);
         }
+
         [TestMethod]
         public void GetNameTest()
         {
@@ -152,6 +153,7 @@ namespace SportClub.Tests.Infra
             Test(string.Empty, string.Empty);
             Test(string.Empty, null);
         }
+
         [TestMethod]
         public void SetOrderByTest()
         {
@@ -178,6 +180,7 @@ namespace SportClub.Tests.Infra
             Test(data, x => x.Definition, "x => x.Definition");
             Test(data, x => x.ParticipantsCount, "x => x.ParticipantsCount");
         }
+
         [TestMethod]
         public void IsDescendingTest()
         {
@@ -191,12 +194,15 @@ namespace SportClub.Tests.Infra
             Test(string.Empty, false);
             Test(null, false);
         }
-        [TestMethod] public void CreateSqlQueryTest()
+        [TestMethod] 
+        public void CreateSqlQueryTest()
         {
             var sql = obj.CreateSqlQuery();
             Assert.IsNotNull(sql);
         }
-        [TestMethod] public void AddSortingTest()
+
+        [TestMethod] 
+        public void AddSortingTest()
         {
             var sql = obj.CreateSqlQuery();
             var searchString = GetRandom.String();
@@ -204,10 +210,5 @@ namespace SportClub.Tests.Infra
             var sqlNew = obj.AddSorting(sql);
             Assert.IsNotNull(sqlNew);
         }
-        //[TestMethod] public void AddOrderByTest()
-        //{
-        //   Assert.Inconclusive();
-        //}
-
     }
 }
