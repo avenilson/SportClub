@@ -19,6 +19,5 @@ namespace SportClub.Pages.Extensions {
                 new HtmlString("</h1>")
             };
         }
-
     }
 }

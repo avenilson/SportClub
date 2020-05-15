@@ -22,15 +22,9 @@ namespace SportClub.Pages.Training
 
         public override string GetPageUrl() => "/Training/Trainings";
 
-        public override Domain.Training.Training ToObject(TrainingView view)
-        {
-            return TrainingViewFactory.Create(view);
-        }
+        public override Domain.Training.Training ToObject(TrainingView view) => TrainingViewFactory.Create(view);
 
-        public override TrainingView ToView(Domain.Training.Training obj)
-        {
-            return TrainingViewFactory.Create(obj);
-        }
+        public override TrainingView ToView(Domain.Training.Training obj) => TrainingViewFactory.Create(obj);
         public IEnumerable<SelectListItem> Types { get; }
 
         protected new static IEnumerable<SelectListItem> CreateSelectList<TTDomain, TTData>(IRepository<TTDomain> r)

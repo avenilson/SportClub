@@ -71,9 +71,6 @@ namespace SportClub.Pages
         }
 
         public abstract TDomain ToObject(TView view);
-
         public abstract TView ToView(TDomain obj);
-
-
-    }
+     }
 }

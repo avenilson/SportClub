@@ -13,7 +13,7 @@ namespace SportClub.Pages.Extensions {
 
         private static List<object> htmlStrings(string page, object index, IHtmlContent[] values) {
             var list = new List<object>();
-            foreach (var value in values) addValue(list, value);
+            foreach (var value in values) AddValue(list, value);
             list.Add(new HtmlString("<td>"));
             list.Add(new HtmlString($"<a href=\"{page}/Edit?id={index}\">{Constants.EditLinkTitle}</a>"));
             list.Add(" | ");
@@ -36,7 +36,7 @@ namespace SportClub.Pages.Extensions {
 
         private static List<object> htmlStrings(string page, object index, string fixedFilter, string fixedValue, IHtmlContent[] values) {
             var list = new List<object>();
-            foreach (var value in values) addValue(list, value);
+            foreach (var value in values) AddValue(list, value);
             list.Add(new HtmlString("<td>"));
             list.Add(new HtmlString($"<a href=\"{page}/Edit?id={index}&fixedFilter={fixedFilter}&fixedValue={fixedValue}\">{Constants.EditLinkTitle}</a>"));
             list.Add(" | ");
@@ -61,7 +61,7 @@ namespace SportClub.Pages.Extensions {
         private static List<object> htmlStringsWithSelect(string page, object id, string sortOrder, string searchString, int pageIndex, string fixedFilter, string fixedValue, IHtmlContent[] values)
         {
             var list = new List<object>();
-            foreach (var value in values) addValue(list, value);
+            foreach (var value in values) AddValue(list, value);
             var s = $"?id={id}";
             s += $"&fixedFilter={fixedFilter}";
             s += $"&fixedValue={fixedValue}";
@@ -95,7 +95,7 @@ namespace SportClub.Pages.Extensions {
         private static List<object> htmlStringsWithSelect(string page, object index, string fixedFilter, string fixedValue, IHtmlContent[] values)
         {
             var list = new List<object>();
-            foreach (var value in values) addValue(list, value);
+            foreach (var value in values) AddValue(list, value);
             list.Add(new HtmlString("<td>"));
             list.Add(new HtmlString($"<a href=\"{page}/Select?id={index}&fixedFilter={fixedFilter}&fixedValue={fixedValue}\">{Constants.SelectLinkTitle}</a>"));
             list.Add(" | ");
@@ -109,7 +109,7 @@ namespace SportClub.Pages.Extensions {
             return list;
         }
 
-        internal static void addValue(List<object> htmlStrings, IHtmlContent value) {
+        internal static void AddValue(List<object> htmlStrings, IHtmlContent value) {
             if (htmlStrings is null) return;
             if (value is null) return;
             htmlStrings.Add(new HtmlString("<td>"));

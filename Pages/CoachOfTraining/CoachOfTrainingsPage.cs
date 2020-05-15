@@ -35,14 +35,11 @@ namespace SportClub.Pages.CoachOfTraining
         public override string GetPageUrl() => "/CoachOfTraining/CoachOfTrainings";
 
         public override Domain.CoachOfTraining.CoachOfTraining ToObject(CoachOfTrainingView view)
-        {
-            return CoachOfTrainingViewFactory.Create(view);
-        }
+            => CoachOfTrainingViewFactory.Create(view);
 
-        public override CoachOfTrainingView ToView(Domain.CoachOfTraining.CoachOfTraining obj)
-        {
-            return CoachOfTrainingViewFactory.Create(obj);
-        }
+        public override CoachOfTrainingView ToView(Domain.CoachOfTraining.CoachOfTraining obj) 
+            => CoachOfTrainingViewFactory.Create(obj);
+
         public string GetCoachesId(string coachId)
         {
             foreach (var m in CoachId)
@@ -52,26 +49,9 @@ namespace SportClub.Pages.CoachOfTraining
             return "";
         }
 
-        public override string GetPageSubTitle()
-        {
-            return FixedValue is null
+        public override string GetPageSubTitle() 
+            => FixedValue is null
                 ? base.GetPageSubTitle()
                 : $" {GetCoachesId(FixedValue)}";
-        }
-        //public string GetCoachName(string coachName)
-        //{
-        //    foreach (var m in Ids)
-        //        if (m.Value == coachName)
-        //            return m.Text;
-
-
-        //    return "Unspecified";
-        //}
-        //public override string GetPageSubTitle()
-        //{
-        //    return FixedValue is null
-        //        ? base.GetPageSubTitle()
-        //        : $"For {GetCoachName(FixedValue)}";
-        //}
     }
 }
