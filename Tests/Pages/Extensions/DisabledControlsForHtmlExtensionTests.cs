@@ -10,7 +10,8 @@ namespace SportClub.Tests.Pages.Extensions
     [TestClass]
     public class DisabledControlsForHtmlExtensionTests : BaseTests
     {
-        [TestInitialize] public virtual void TestInitialize() => type = typeof(DisabledControlsForHtmlExtension);
+        [TestInitialize] 
+        public virtual void TestInitialize() => type = typeof(DisabledControlsForHtmlExtension);
 
         [TestMethod]
         public void DisabledControlsForTest()

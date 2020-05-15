@@ -7,7 +7,8 @@ namespace SportClub.Tests.Pages.Extensions
     [TestClass]
     public class LinkTests: BaseTests
     {
-        [TestInitialize] public virtual void TestInitialize() => type = typeof(Link);
+        [TestInitialize] 
+        public virtual void TestInitialize() => type = typeof(Link);
 
         [TestMethod]
         public void DisplayNameTest()

@@ -11,7 +11,9 @@ namespace SportClub.Tests.Pages.Extensions
         private const string filter = "filter";
         private const string linkToFullList = "url";
         private const string text = "text";
-        [TestInitialize] public virtual void TestInitialize() => type = typeof(SearchControlsForHtmlExtension);
+
+        [TestInitialize] 
+        public virtual void TestInitialize() => type = typeof(SearchControlsForHtmlExtension);
 
         [TestMethod]
         public void SearchControlsForTest()
