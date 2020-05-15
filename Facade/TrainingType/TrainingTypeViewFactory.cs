@@ -12,11 +12,11 @@ namespace SportClub.Facade.TrainingType
 
             return new Domain.TrainingType.TrainingType(d);
         }
-
         public static TrainingTypeView Create(Domain.TrainingType.TrainingType obj)
         {
             var v = new TrainingTypeView();
             Copy.Members(obj.Data, v);
+
             return v;
         }
     }

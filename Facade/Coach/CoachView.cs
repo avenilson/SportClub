@@ -2,8 +2,5 @@
 
 namespace SportClub.Facade.Coach
 {
-    public sealed class CoachView:NamedView
-    {
-
-    }
+    public sealed class CoachView:NamedView { }
 }

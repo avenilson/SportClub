@@ -12,11 +12,11 @@ namespace SportClub.Facade.Participant
 
             return new Domain.Participant.Participant(d);
         }
-
         public static ParticipantView Create(Domain.Participant.Participant obj)
         {
             var v = new ParticipantView();
             Copy.Members(obj.Data, v);
+
             return v;
         }
     }
