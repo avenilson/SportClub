@@ -20,7 +20,9 @@ namespace SportClub.Tests
         public string FixedValue { get; set; }
 
         internal readonly List<TObj> list;
+
         public BaseTestRepositoryForUniqueEntity() => list = new List<TObj>();
+
         public async Task<List<TObj>> Get()
         {
             await Task.CompletedTask;

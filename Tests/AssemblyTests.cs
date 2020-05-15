@@ -39,10 +39,7 @@ namespace SportClub.Tests
             Report(isNotTested, list[0]);
         }
 
-        private static void Report(string message, params object[] parameters)
-        {
-            Assert.Fail(message, parameters);
-        }
+        private static void Report(string message, params object[] parameters) => Assert.Fail(message, parameters);
 
         private static List<Type> GetAssemblyClasses(string assemblyName)
         {
