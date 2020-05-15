@@ -4,5 +4,6 @@ using SportClub.Domain.Common;
 
 namespace SportClub.Tests.Domain.Participant
 {
-    [TestClass] public class ParticipantTests: SealedClassTests<SportClub.Domain.Participant.Participant, Entity<ParticipantData>> { }
+    [TestClass] 
+    public class ParticipantTests: SealedClassTests<SportClub.Domain.Participant.Participant, Entity<ParticipantData>> { }
 }
