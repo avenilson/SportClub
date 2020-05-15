@@ -56,9 +56,5 @@ namespace SportClub.Tests.Aids {
         [TestMethod] public void NameTest() {
             Assert.AreEqual(nameof(SportClub), GetSolution.Name);
         }
-
     }
-
 }
-
-

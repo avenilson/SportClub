@@ -30,10 +30,5 @@ namespace SportClub.Tests.Aids {
             Assert.AreEqual(IsoGender.Female, GetEnum.Value<IsoGender>(2));
             Assert.AreEqual(IsoGender.NotApplicable, GetEnum.Value<IsoGender>(3));
         }
-
     }
-
 }
-
-
-

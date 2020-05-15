@@ -7,26 +7,21 @@ namespace SportClub.Tests.Aids {
 
     [TestClass] public class SetRandomTests : BaseTests {
 
-        internal class testClassA {
-
+        internal class TestClassA {
             public int A { get; set; }
             public string B { get; set; }
-
         }
 
-        internal class testClassB {
-
+        internal class TestClassB {
             public DateTime C { get; set; }
-            public testClassA D { get; set; }
-
+            public TestClassA D { get; set; }
         }
 
-        [TestInitialize] public void TestInitialize() {
-            type = typeof(SetRandom);
-        }
+        [TestInitialize] public void TestInitialize() 
+            => type = typeof(SetRandom);
 
         [TestMethod] public void ValuesTest() {
-            var o = new testClassA();
+            var o = new TestClassA();
             SetRandom.Values(o);
             var x = o.A;
             var y = o.B;
@@ -36,12 +31,12 @@ namespace SportClub.Tests.Aids {
         }
 
         [TestMethod] public void ListValuesTest() {
-            var o = new List<testClassA>();
+            var o = new List<TestClassA>();
             SetRandom.Values(o);
             Assert.AreNotEqual(0, o.Count);
 
             for (var i = 0; i < o.Count; i++) {
-                Assert.IsInstanceOfType(o[i], typeof(testClassA));
+                Assert.IsInstanceOfType(o[i], typeof(TestClassA));
 
                 for (var j = i + 1; j < o.Count; j++) {
                     Assert.AreNotEqual(o[i].A, o[j].A);
@@ -51,7 +46,7 @@ namespace SportClub.Tests.Aids {
         }
 
         [TestMethod] public void ComposedValuesTest() {
-            var o = new testClassB();
+            var o = new TestClassB();
             SetRandom.Values(o);
             var x = o.C;
             var y = o.D.A;
@@ -61,9 +56,5 @@ namespace SportClub.Tests.Aids {
             Assert.AreNotEqual(y, o.D.A);
             Assert.AreNotEqual(z, o.D.B);
         }
-
     }
-
 }
-
-

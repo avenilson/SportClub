@@ -8,11 +8,11 @@ namespace SportClub.Tests.Aids {
 
     [TestClass] public class SafeTests : BaseTests {
 
-        private LogTests.testLogBook logBook;
+        private LogTests.TestLogBook logBook;
 
         [TestInitialize] public void TestInitialize() {
             type = typeof(Safe);
-            logBook = new LogTests.testLogBook();
+            logBook = new LogTests.TestLogBook();
             Log.logBook = logBook;
         }
 
@@ -37,7 +37,7 @@ namespace SportClub.Tests.Aids {
         }
 
         [TestMethod] public void RunMethodTest() {
-            var newLogBook = new LogTests.testLogBook();
+            var newLogBook = new LogTests.TestLogBook();
             Safe.Run(() => Log.logBook = newLogBook);
             Assert.IsNull(newLogBook.LoggedException);
         }

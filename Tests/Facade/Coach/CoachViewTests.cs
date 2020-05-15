@@ -5,7 +5,5 @@ using SportClub.Facade.Common;
 namespace SportClub.Tests.Facade.Coach
 {
     [TestClass]
-    public class CoachViewTests:SealedClassTests<CoachView,NamedView>
-    {
-    }
+    public class CoachViewTests:SealedClassTests<CoachView,NamedView> { }
 }

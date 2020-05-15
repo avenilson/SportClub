@@ -6,7 +6,7 @@ using SportClub.Domain.Common;
 namespace SportClub.Tests.Domain.Common
 {
     [TestClass]
-    public class EntityTests: AbstractClassTests<Entity<TrainingData>, object> //entity on domainis abstract!
+    public class EntityTests: AbstractClassTests<Entity<TrainingData>, object> 
     {
         private class TestClass : Entity<TrainingData>
         {
@@ -29,7 +29,6 @@ namespace SportClub.Tests.Domain.Common
             Assert.AreSame(d, obj.Data);
         }
 
-        
         [TestMethod]
         public void DataIsNullTest()
         {

@@ -3,19 +3,23 @@ using SportClub.Aids;
 
 namespace SportClub.Tests.Aids {
     [TestClass] public class IsReadOnlyTests : BaseTests {
-        private class testClass {
+        private class TestClass {
             public string A;
             public readonly string B = "";
-            public testClass() { E = ""; }
+            public TestClass() { E = ""; }
             public string C { get; set; }
             public string D { get; } = "";
             public string E { get; private set; }
         }
-        private testClass o;
-        [TestInitialize] public void TestInitialize() {
+
+        private TestClass o;
+
+        [TestInitialize] 
+        public void TestInitialize() {
             type = typeof(IsReadOnly);
-            o = new testClass {A = "", C = ""};
+            o = new TestClass {A = "", C = ""};
         }
+
         [TestCleanup] public void TestCleanup() {
             Assert.IsNotNull(o.A);
             Assert.IsNotNull(o.B);
@@ -23,24 +27,25 @@ namespace SportClub.Tests.Aids {
             Assert.IsNotNull(o.D);
             Assert.IsNotNull(o.E);
         }
+
         [TestMethod]
         public void FieldTest()
         {
-            Assert.IsFalse(IsReadOnly.Field<testClass>("A"));
-            Assert.IsTrue(IsReadOnly.Field<testClass>("B"));
-            Assert.IsFalse(IsReadOnly.Field<testClass>("C"));
-            Assert.IsFalse(IsReadOnly.Field<testClass>("D"));
-            Assert.IsFalse(IsReadOnly.Field<testClass>("E"));
+            Assert.IsFalse(IsReadOnly.Field<TestClass>("A"));
+            Assert.IsTrue(IsReadOnly.Field<TestClass>("B"));
+            Assert.IsFalse(IsReadOnly.Field<TestClass>("C"));
+            Assert.IsFalse(IsReadOnly.Field<TestClass>("D"));
+            Assert.IsFalse(IsReadOnly.Field<TestClass>("E"));
         }
+
         [TestMethod]
         public void PropertyTest()
         {
-            Assert.IsFalse(IsReadOnly.Property<testClass>("A"));
-            Assert.IsFalse(IsReadOnly.Property<testClass>("B"));
-            Assert.IsFalse(IsReadOnly.Property<testClass>("C"));
-            Assert.IsTrue(IsReadOnly.Property<testClass>("D"));
-            Assert.IsFalse(IsReadOnly.Property<testClass>("E"));
+            Assert.IsFalse(IsReadOnly.Property<TestClass>("A"));
+            Assert.IsFalse(IsReadOnly.Property<TestClass>("B"));
+            Assert.IsFalse(IsReadOnly.Property<TestClass>("C"));
+            Assert.IsTrue(IsReadOnly.Property<TestClass>("D"));
+            Assert.IsFalse(IsReadOnly.Property<TestClass>("E"));
         }
     }
 }
-
