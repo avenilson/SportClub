@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using SportClub.Aids;
 using SportClub.Data.CoachOfTraining;
 using SportClub.Domain.CoachOfTraining;
 

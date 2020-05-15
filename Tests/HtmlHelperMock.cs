@@ -138,7 +138,7 @@ namespace SportClub.Tests
         public IHtmlContent Hidden(string expression, object value, object htmlAttributes)
             => new HtmlContentMock("Hidden");
 
-        public string Id(string expression) => "Id";
+        public string Id(string expression) => "Ids";
 
         public IHtmlContent Label(string expression, string labelText, object htmlAttributes)
             => new HtmlContentMock("Label");
