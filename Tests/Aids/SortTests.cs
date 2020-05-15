@@ -6,8 +6,7 @@ namespace SportClub.Tests.Aids {
 
     [TestClass] public class SortTests : BaseTests {
 
-        [TestInitialize] public void TestInitialize() 
-            => type = typeof(Sort);
+        [TestInitialize] public void TestInitialize() => type = typeof(Sort);
 
         [TestMethod]
         public void UpwardsTest()

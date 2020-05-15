@@ -53,8 +53,6 @@ namespace SportClub.Tests.Aids {
                 Assert.IsTrue(actual.Contains(e.FullName));
         }
 
-        [TestMethod] public void NameTest() {
-            Assert.AreEqual(nameof(SportClub), GetSolution.Name);
-        }
+        [TestMethod] public void NameTest() => Assert.AreEqual(nameof(SportClub), GetSolution.Name);
     }
 }
