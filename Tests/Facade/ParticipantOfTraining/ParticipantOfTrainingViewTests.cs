@@ -9,6 +9,7 @@ namespace SportClub.Tests.Facade.ParticipantOfTraining
     {
         [TestMethod]
         public void TrainingIdTest() => IsNullableProperty(() => obj.TrainingId, x => obj.TrainingId = x);
+
         [TestMethod]
         public void ParticipantIdTest() => IsNullableProperty(() => obj.ParticipantId, x => obj.ParticipantId = x);
 
@@ -19,6 +20,5 @@ namespace SportClub.Tests.Facade.ParticipantOfTraining
             var expected = $"{obj.ParticipantId}.{obj.TrainingId}";
             Assert.AreEqual(expected, actual);
         }
-
     }
 }

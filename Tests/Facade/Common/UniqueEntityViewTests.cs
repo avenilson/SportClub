@@ -13,10 +13,9 @@ namespace SportClub.Tests.Facade.Common
             base.TestInitialize();
             obj = new TestClass();
         }
+
         [TestMethod]
-        public void IdTest()
-        {
-            IsNullableProperty(() => obj.Id, x => obj.Id = x);
-        }
+        public void IdTest() 
+            => IsNullableProperty(() => obj.Id, x => obj.Id = x);
     }
 }

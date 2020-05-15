@@ -9,14 +9,10 @@ namespace SportClub.Tests.Facade.Coach
     public class CoachViewFactoryTests : BaseTests
     {
         [TestInitialize]
-        public virtual void TestInitialize()
-        {
-            type = typeof(CoachViewFactory);
-        }
+        public virtual void TestInitialize() => type = typeof(CoachViewFactory);
+
         [TestMethod]
-        public void CreateTest()
-        {
-        }
+        public void CreateTest() { }
 
         [TestMethod]
         public void CreateObjectTest()
@@ -25,6 +21,7 @@ namespace SportClub.Tests.Facade.Coach
             var data = CoachViewFactory.Create(view).Data;
             TestArePropertyValuesEqual(view, data);
         }
+
         [TestMethod]
         public void CreateViewTest()
         {

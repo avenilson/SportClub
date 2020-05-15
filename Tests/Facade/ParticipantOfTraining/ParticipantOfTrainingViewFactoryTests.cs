@@ -9,14 +9,10 @@ namespace SportClub.Tests.Facade.ParticipantOfTraining
     public class ParticipantOfTrainingViewFactoryTests : BaseTests
     {
         [TestInitialize]
-        public virtual void TestInitialize()
-        {
-            type = typeof(ParticipantOfTrainingViewFactory);
-        }
+        public virtual void TestInitialize() => type = typeof(ParticipantOfTrainingViewFactory);
+
         [TestMethod]
-        public void CreateTest()
-        {
-        }
+        public void CreateTest() { }
 
         [TestMethod]
         public void CreateObjectTest()
@@ -26,6 +22,7 @@ namespace SportClub.Tests.Facade.ParticipantOfTraining
 
             TestArePropertyValuesEqual(view, data);
         }
+
         [TestMethod]
         public void CreateViewTest()
         {
@@ -33,6 +30,5 @@ namespace SportClub.Tests.Facade.ParticipantOfTraining
             var view = ParticipantOfTrainingViewFactory.Create(new SportClub.Domain.ParticipantOfTraining.ParticipantOfTraining(data));
             TestArePropertyValuesEqual(view, data);
         }
-
     }
 }

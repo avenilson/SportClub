@@ -14,11 +14,9 @@ namespace SportClub.Tests.Facade.Common
             base.TestInitialize();
             obj = new TestClass();
         }
+
         [TestMethod]
-        public void NameTest()
-        {
-            IsNullableProperty(() => obj.Name, x => obj.Name = x);
-        }
-       
+        public void NameTest() 
+            => IsNullableProperty(() => obj.Name, x => obj.Name = x);
     }
 }

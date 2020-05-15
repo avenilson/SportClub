@@ -12,6 +12,5 @@ namespace SportClub.Tests.Facade.Participant
 
         [TestMethod]
         public void AddressTest() => IsNullableProperty(() => obj.Address, x => obj.Address = x);
-
     }
 }

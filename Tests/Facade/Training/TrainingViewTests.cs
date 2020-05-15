@@ -15,6 +15,5 @@ namespace SportClub.Tests.Facade.Training
         
         [TestMethod]
         public void ParticipantsCountTest() => IsProperty(() => obj.ParticipantsCount, x => obj.ParticipantsCount = x);
-
     }
 }

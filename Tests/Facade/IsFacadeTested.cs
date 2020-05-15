@@ -6,44 +6,37 @@ namespace SportClub.Tests.Facade
     public class IsFacadeTested : AssemblyTests
     {
         private const string Assembly = "SportClub.Facade";
-        protected override string Namespace(string name) { return $"{Assembly}.{name}"; }
+        protected override string Namespace(string name) => $"{Assembly}.{name}";
 
         [TestMethod]
-        public void IsCoachTested()
-        {
-            IsAllTested(Assembly, Namespace("Coach"));
-        }
+        public void IsCoachTested() 
+            => IsAllTested(Assembly, Namespace("Coach"));
+
         [TestMethod]
-        public void IsCoachOfTrainingTested()
-        {
-            IsAllTested(Assembly, Namespace("CoachOfTraining"));
-        }
+        public void IsCoachOfTrainingTested() 
+            => IsAllTested(Assembly, Namespace("CoachOfTraining"));
+
         [TestMethod]
-        public void IsCommonTested()
-        {
-            IsAllTested(Assembly, Namespace("Common"));
-        }
+        public void IsCommonTested() 
+            => IsAllTested(Assembly, Namespace("Common"));
+
         [TestMethod]
-        public void IsParticipantTested()
-        {
-            IsAllTested(Assembly, Namespace("Participant"));
-        }
+        public void IsParticipantTested() 
+            => IsAllTested(Assembly, Namespace("Participant"));
+
         [TestMethod]
-        public void IsParticipantOfTrainingTested()
-        {
-            IsAllTested(Assembly, Namespace("ParticipantOfTraining"));
-        }
+        public void IsParticipantOfTrainingTested() 
+            => IsAllTested(Assembly, Namespace("ParticipantOfTraining"));
+
         [TestMethod]
         public void IsTrainingTested()
-        {
-            IsAllTested(Assembly, Namespace("Training"));
-        }
+            => IsAllTested(Assembly, Namespace("Training"));
+
         [TestMethod]
         public void IsTrainingTypeTested()
-        {
-            IsAllTested(Assembly, Namespace("TrainingType"));
-        }
-        [TestMethod] public void IsTested() { IsAllTested(base.Namespace("Facade")); }
+            => IsAllTested(Assembly, Namespace("TrainingType"));
 
+        [TestMethod] 
+        public void IsTested() => IsAllTested(base.Namespace("Facade"));
     }
 }
