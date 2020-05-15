@@ -2,7 +2,5 @@
 
 namespace SportClub.Data.Coach
 {
-    public sealed class CoachData:NamedEntityData
-    {
-    }
+    public sealed class CoachData:NamedEntityData { }
 }
