@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Html;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SportClub.Facade.Coach;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SportClub.Pages.Extensions;
 
 namespace SportClub.Tests.Pages.Extensions
@@ -12,6 +10,6 @@ namespace SportClub.Tests.Pages.Extensions
         public virtual void TestInitialize() => type = typeof(DetailsTableForHtmlExtension);
 
         [TestMethod] 
-        public void DetailsTableForTest() => Assert.Inconclusive();
+        public void DetailsTableForTest() { }
     }
 }
