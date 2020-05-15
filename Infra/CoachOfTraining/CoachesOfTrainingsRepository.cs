@@ -7,24 +7,16 @@ namespace SportClub.Infra.CoachOfTraining
 {
     public sealed class CoachOfTrainingsRepository : PaginatedRepository<Domain.CoachOfTraining.CoachOfTraining, CoachOfTrainingData>, ICoachOfTrainingsRepository
     {
-
         public CoachOfTrainingsRepository() : this(null) { }
         public CoachOfTrainingsRepository(SportClubDbContext c) : base(c, c?.CoachesOfTrainings) { }
 
-        protected override Domain.CoachOfTraining.CoachOfTraining ToDomainObject(CoachOfTrainingData d) => new Domain.CoachOfTraining.CoachOfTraining(d);
+        protected override Domain.CoachOfTraining.CoachOfTraining ToDomainObject(CoachOfTrainingData d) 
+            => new Domain.CoachOfTraining.CoachOfTraining(d);
 
-        protected override async Task<CoachOfTrainingData> GetData(string id)
-        {
-            //var coachId = GetString.Head(id);
-            //var trainingId = GetString.Tail(id);
+        protected override async Task<CoachOfTrainingData> GetData(string id) 
+            => await dbSet.SingleOrDefaultAsync(x => x.Id == id);
 
-            //return await dbSet.SingleOrDefaultAsync(x => x.CoachId == coachId && x.TrainingId == trainingId);
-            return await dbSet.SingleOrDefaultAsync(x => x.Id == id);
-        }
-
-        protected override string GetId(Domain.CoachOfTraining.CoachOfTraining obj)
-        {
-            return obj?.Data is null ? string.Empty : $"{obj.Data.CoachId}.{obj.Data.TrainingId}";
-        }
+        protected override string GetId(Domain.CoachOfTraining.CoachOfTraining obj) 
+            => obj?.Data is null ? string.Empty : $"{obj.Data.CoachId}.{obj.Data.TrainingId}";
     }
 }
