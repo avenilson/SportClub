@@ -174,7 +174,7 @@ namespace SportClub.Tests.Infra
             Assert.IsNull(obj.AddOrderBy(null, null));
             IQueryable<TrainingData> data = obj.dbSet;
             Assert.AreEqual(data, obj.AddOrderBy(data, null));
-            Test(data, x => x.Id, "x => x.Ids");
+            Test(data, x => x.Id, "x => x.Id");
             Test(data, x => x.Duration, "x => x.Duration");
             Test(data, x => x.Name, "x => x.Name");
             Test(data, x => x.Definition, "x => x.Definition");
