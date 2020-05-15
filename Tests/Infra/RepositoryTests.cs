@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SportClub.Aids;
 using SportClub.Data.Common;
+using SportClub.Data.Training;
 using SportClub.Domain.Common;
 
 namespace SportClub.Tests.Infra
@@ -91,17 +92,6 @@ namespace SportClub.Tests.Infra
 
         protected abstract TObject GetObject(TData d);
 
-        [TestMethod]
-        public void UpdateTest()
-        {
-            AddTest();
-            var id = GetId(data);
-            var newData = GetRandom.Object<TData>();
-            SetId(newData,id);
-            obj.Update(GetObject(newData)).GetAwaiter();
-            var expected = obj.Get(id).GetAwaiter().GetResult();
-            TestArePropertyValuesEqual(newData, expected.Data);
-        }
 
         protected abstract void SetId(TData d, string id);
     }
