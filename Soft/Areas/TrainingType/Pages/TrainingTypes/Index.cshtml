@@ -24,11 +24,11 @@
         )
     </thead>
     <tbody>
-    @foreach (var item in Model.Items)
-    {
+        @foreach (var item in Model.Items)
+        {
 
-        <tr>
-            @Html.TableRowFor(
+             <tr>
+                @Html.TableRowFor(
                 page,
                 item.Id,
                 Model.FixedFilter,
@@ -38,7 +38,7 @@
                 Html.DisplayFor(modelItem => item.Type),
                 Html.DisplayFor(modelItem => item.Definition)
                 )
-        </tr>
+            </tr>
     }
     </tbody>
 </table>

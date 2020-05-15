@@ -15,16 +15,13 @@ namespace SportClub.Infra
         public string FixedFilter { get; set; }
         public string FixedValue { get; set; }
 
-        protected FilteredRepository(DbContext c, DbSet<TData> s) : base(c, s)
-        {
-        }
+        protected FilteredRepository(DbContext c, DbSet<TData> s) : base(c, s) { }
 
         public override IQueryable<TData> CreateSqlQuery()
         {
             var query = base.CreateSqlQuery();
             query = AddFixedFiltering(query);
             query = AddFiltering(query);
-
             return query;
         }
 
@@ -52,13 +49,13 @@ namespace SportClub.Infra
             var predicate = body;
 
             return Expression.Lambda<Func<TData, bool>>(predicate, param);
-
         }
 
         public IQueryable<TData> AddFiltering(IQueryable<TData> query)
         {
             if (String.IsNullOrEmpty(SearchString)) return query;
             var expression = CreateWhereExpression();
+
             return query.Where(expression);
         }
 

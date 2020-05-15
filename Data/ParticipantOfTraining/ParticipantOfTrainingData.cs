@@ -6,6 +6,5 @@ namespace SportClub.Data.ParticipantOfTraining
     {
         public string TrainingId { get; set; }
         public string ParticipantId { get; set; }
-
     }
 }

@@ -14,6 +14,7 @@ namespace SportClub.Infra
         protected override async Task<TData> GetData(string id)
             => await dbSet.FirstOrDefaultAsync(m => m.Id == id);
 
-        protected override string GetId(TDomain entity) => entity?.Data?.Id;
+        protected override string GetId(TDomain entity) 
+            => entity?.Data?.Id;
     }
 }

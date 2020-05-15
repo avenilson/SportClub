@@ -8,10 +8,7 @@ namespace SportClub.Pages
     public abstract class PaginatedPage<TRepository, TDomain, TView, TData> :
         CrudPage<TRepository, TDomain, TView, TData>
         where TRepository : ICrudMethods<TDomain>, ISorting, IFiltering, IPaging {
-
         protected PaginatedPage(TRepository r) : base(r) { }
-
-
         public IList<TView> Items { get; private set; }
         public string SelectedId {
             get;
@@ -23,7 +20,6 @@ namespace SportClub.Pages
         }
         public bool HasPreviousPage => db.HasPreviousPage;
         public bool HasNextPage => db.HasNextPage;
-
         public int TotalPages => db.TotalPages;
 
         protected internal override void SetPageValues(string sortOrder, string searchString, in int pageIndex) {

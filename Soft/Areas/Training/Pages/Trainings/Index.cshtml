@@ -25,23 +25,23 @@
         )
     </thead>
     <tbody>
-    @foreach (var item in Model.Items)
-    {
+         @foreach (var item in Model.Items)
+         {
 
-        <tr>
-            @Html.TableRowFor(
-                page,
-                item.Id,
-                Model.FixedFilter,
-                Model.FixedValue,
-                Html.DisplayFor(modelItem => item.Id),
-                Html.DisplayFor(modelItem => item.Name),
-                Html.DisplayFor(modelItem => item.Definition),
-                Html.DisplayFor(modelItem => item.Duration),
-                Html.DisplayFor(modelItem => item.ParticipantsCount)
-                )
-        </tr>
-    }
+             <tr>
+                 @Html.TableRowFor(
+                     page,
+                     item.Id,
+                     Model.FixedFilter,
+                     Model.FixedValue,
+                     Html.DisplayFor(modelItem => item.Id),
+                     Html.DisplayFor(modelItem => item.Name),
+                     Html.DisplayFor(modelItem => item.Definition),
+                     Html.DisplayFor(modelItem => item.Duration),
+                     Html.DisplayFor(modelItem => item.ParticipantsCount)
+                     )
+             </tr>
+         }
     </tbody>
 </table>
 

@@ -59,8 +59,6 @@ namespace SportClub.Pages
             else { searchString = currentFilter; }
 
             return searchString;
-
         }
-
-    }
+     }
 }

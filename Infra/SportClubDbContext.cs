@@ -10,8 +10,7 @@ namespace SportClub.Infra
 {
     public class SportClubDbContext : DbContext
     {
-        public SportClubDbContext(DbContextOptions<SportClubDbContext> options)
-            : base(options) { }
+        public SportClubDbContext(DbContextOptions<SportClubDbContext> options) : base(options) { }
         
         public DbSet<CoachData> Coaches { get; set; }
         public DbSet<CoachOfTrainingData> CoachesOfTrainings { get; set; }

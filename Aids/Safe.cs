@@ -1,14 +1,13 @@
-﻿
-using System;
+﻿using System;
 
 namespace SportClub.Aids {
     public static class Safe {
         private static readonly object key = new object();
-        public static T Run<T>(Func<T> function, T valueOnExeption,
+        public static T Run<T>(Func<T> function, T valueOnException,
             bool useLock = false) {
             return useLock 
-                ? LockedRun(function, valueOnExeption) 
-                : Run(function, valueOnExeption);
+                ? LockedRun(function, valueOnException) 
+                : Run(function, valueOnException);
         }
         public static void Run(Action action, bool useLock = false) {
             if (useLock) LockedRun(action);
@@ -16,9 +15,12 @@ namespace SportClub.Aids {
         }
 
         private static T Run<T>(Func<T> function, T valueOnExeption) {
-            try {
-                return function(); 
-            } catch (Exception e) {
+            try 
+            {
+               return function(); 
+            } 
+            catch (Exception e) 
+            {
                 Log.Exception(e);
                 return valueOnExeption;
             }
@@ -35,5 +37,3 @@ namespace SportClub.Aids {
         }
     }
 }
-
-

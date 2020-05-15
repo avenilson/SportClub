@@ -42,6 +42,3 @@ namespace SportClub.Aids {
         }
     }
 }
-
-
-

@@ -13,9 +13,7 @@
                     return false;
                 }, false);
         }
-        public static bool Tests(bool ignore = false) {
-            return !ignore && (
-                       Namespace(testFramework) || Namespace(unitTesting));
-        }
+        public static bool Tests(bool ignore = false) =>
+            !ignore && (Namespace(testFramework) || Namespace(unitTesting));
     }
 }

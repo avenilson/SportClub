@@ -6,26 +6,18 @@ using System.Text;
 
 namespace SportClub.Aids
 {
-
     public static class GetRandom
     {
         private static readonly Random r = new Random();
 
+        public static bool Bool() 
+            => Int32() % 2 == 0;
 
-        public static bool Bool()
-        {
-            return Int32() % 2 == 0;
-        }
+        public static char Char(char min = char.MinValue, char max = char.MaxValue) 
+            => (char) UInt16(min, max);
 
-        public static char Char(char min = char.MinValue, char max = char.MaxValue)
-        {
-            return (char) UInt16(min, max);
-        }
-
-        public static Color Color()
-        {
-            return System.Drawing.Color.FromArgb(UInt8(), UInt8(), UInt8());
-        }
+        public static Color Color() 
+            => System.Drawing.Color.FromArgb(UInt8(), UInt8(), UInt8());
 
         public static DateTime DateTime(DateTime? minValue = null, DateTime? maxValue = null)
         {
@@ -41,8 +33,7 @@ namespace SportClub.Aids
         {
             if (min == max) return min;
             return Safe.Run(() =>
-                    Convert.ToDecimal(Double(Convert.ToDouble(min), Convert.ToDouble(max))),
-                min);
+                    Convert.ToDecimal(Double(Convert.ToDouble(min), Convert.ToDouble(max))), min);
         }
 
         public static double Double(double min = double.MinValue, double max = double.MaxValue)
@@ -54,10 +45,7 @@ namespace SportClub.Aids
             return min - d * min + d * max;
         }
 
-        public static T Enum<T>()
-        {
-            return (T) Enum(typeof(T));
-        }
+        public static T Enum<T>() => (T) Enum(typeof(T));
 
         private static object Enum(Type t)
         {
@@ -66,20 +54,14 @@ namespace SportClub.Aids
             return GetEnum.Value(t, index);
         }
 
-        public static float Float(float min = float.MinValue, float max = float.MaxValue)
-        {
-            return Convert.ToSingle(Double(min, max));
-        }
+        public static float Float(float min = float.MinValue, float max = float.MaxValue) 
+            => Convert.ToSingle(Double(min, max));
 
-        public static sbyte Int8(sbyte min = sbyte.MinValue, sbyte max = sbyte.MaxValue)
-        {
-            return (sbyte) Int32(min, max);
-        }
+        public static sbyte Int8(sbyte min = sbyte.MinValue, sbyte max = sbyte.MaxValue) 
+            => (sbyte) Int32(min, max);
 
-        public static short Int16(short min = short.MinValue, short max = short.MaxValue)
-        {
-            return (short) Int32(min, max);
-        }
+        public static short Int16(short min = short.MinValue, short max = short.MaxValue) 
+            => (short) Int32(min, max);
 
         public static int Int32(int min = int.MinValue, int max = int.MaxValue)
         {
@@ -92,44 +74,34 @@ namespace SportClub.Aids
         {
             if (min == max) return min;
             return Safe.Run(() =>
-                    Convert.ToInt64(Double(Convert.ToDouble(min), Convert.ToDouble(max))),
-                min);
+                    Convert.ToInt64(Double(Convert.ToDouble(min), Convert.ToDouble(max))), min);
         }
 
-        public static string String(byte minLenght = 5, byte maxLenght = 10)
+        public static string String(byte minLength = 5, byte maxLength = 10)
         {
             var b = new StringBuilder();
-            var size = UInt8(minLenght, maxLenght);
+            var size = UInt8(minLength, maxLength);
             for (var i = 0; i < size; i++) b.Append(Char('a', 'z'));
             return b.ToString();
         }
 
-        public static TimeSpan TimeSpan()
-        {
-            return new TimeSpan(Int64());
-        }
+        public static TimeSpan TimeSpan() 
+            => new TimeSpan(Int64());
 
-        public static byte UInt8(byte min = byte.MinValue, byte max = byte.MaxValue)
-        {
-            return (byte) Int32(min, max);
-        }
+        public static byte UInt8(byte min = byte.MinValue, byte max = byte.MaxValue) 
+            => (byte) Int32(min, max);
 
-        public static ushort UInt16(ushort min = ushort.MinValue, ushort max = ushort.MaxValue)
-        {
-            return (ushort) Int32(min, max);
-        }
+        public static ushort UInt16(ushort min = ushort.MinValue, ushort max = ushort.MaxValue) 
+            => (ushort) Int32(min, max);
 
-        public static uint UInt32(uint min = uint.MinValue, uint max = uint.MaxValue)
-        {
-            return Convert.ToUInt32(Double(min, max));
-        }
+        public static uint UInt32(uint min = uint.MinValue, uint max = uint.MaxValue) 
+            => Convert.ToUInt32(Double(min, max));
 
         public static ulong UInt64(ulong min = ulong.MinValue, ulong max = ulong.MaxValue)
         {
             if (min == max) return min;
             return Safe.Run(() =>
-                    Convert.ToUInt64(Double(Convert.ToDouble(min), Convert.ToDouble(max))),
-                min);
+                    Convert.ToUInt64(Double(Convert.ToDouble(min), Convert.ToDouble(max))), min);
         }
 
         public static object Value(Type t)
@@ -200,29 +172,22 @@ namespace SportClub.Aids
             return o;
         }
 
-        public static string Email()
-        {
-            return $"{String()}.{String()}@{String()}.{String()}";
-        }
+        public static string Email() 
+            => $"{String()}.{String()}@{String()}.{String()}";
 
-        public static string Password()
-        {
-            return $"{String()}{Char('\x20', '\x2f')}{UInt32().ToString()}.{String().ToUpper()}";
-        }
-
+        public static string 
+            Password() => $"{String()}{Char('\x20', '\x2f')}{UInt32().ToString()}.{String().ToUpper()}";
 
         public static List<T> List<T>(Func<T> func)
         {
             var list = new List<T>();
             for (var i = 0; i < UInt8(2, 10); i++) list.Add(func());
-
             return list;
         }
 
         public static object AnyDouble(byte minValue = 0, byte maxValue = 100)
         {
             var i = UInt8();
-
             switch (i % 10)
             {
                 case 0: return Int32(minValue, maxValue);
@@ -241,7 +206,6 @@ namespace SportClub.Aids
         public static object AnyInt(byte minValue = 0, byte maxValue = 100)
         {
             var i = UInt8();
-
             switch (i % 5)
             {
                 case 0: return Int8(0);
@@ -255,7 +219,6 @@ namespace SportClub.Aids
         public static object AnyValue()
         {
             var i = Int32();
-
             switch (i % 10)
             {
                 case 0: return DateTime();

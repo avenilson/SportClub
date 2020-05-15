@@ -23,7 +23,6 @@ namespace SportClub.Pages.ParticipantOfTraining
         public IEnumerable<SelectListItem> TrainingId { get; }
         public IEnumerable<SelectListItem> Id { get; }
 
-
         public override string ItemId 
         {
             get
@@ -35,15 +34,12 @@ namespace SportClub.Pages.ParticipantOfTraining
 
         public override string GetPageUrl() => "/ParticipantOfTraining/ParticipantOfTrainings";
 
-        public override Domain.ParticipantOfTraining.ParticipantOfTraining ToObject(ParticipantOfTrainingView view)
-        {
-            return ParticipantOfTrainingViewFactory.Create(view);
-        }
+        public override Domain.ParticipantOfTraining.ParticipantOfTraining ToObject(ParticipantOfTrainingView view) 
+            => ParticipantOfTrainingViewFactory.Create(view);
 
-        public override ParticipantOfTrainingView ToView(Domain.ParticipantOfTraining.ParticipantOfTraining obj)
-        {
-            return ParticipantOfTrainingViewFactory.Create(obj);
-        }
+        public override ParticipantOfTrainingView ToView(Domain.ParticipantOfTraining.ParticipantOfTraining obj) 
+            => ParticipantOfTrainingViewFactory.Create(obj);
+
         public string GetParticipantId(string participantId)
         {
             foreach (var m in ParticipantId)
@@ -53,13 +49,9 @@ namespace SportClub.Pages.ParticipantOfTraining
             return "";
         }
 
-        public override string GetPageSubTitle()
-        {
-            return FixedValue is null
+        public override string GetPageSubTitle() 
+            => FixedValue is null
                 ? base.GetPageSubTitle()
                 : $"{GetParticipantId(FixedValue)}";
-        }
-
     }
-
 }

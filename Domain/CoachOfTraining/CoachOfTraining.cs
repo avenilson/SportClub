@@ -7,6 +7,5 @@ namespace SportClub.Domain.CoachOfTraining
     {
         public CoachOfTraining() : this(null) { }
         public CoachOfTraining(CoachOfTrainingData data) : base(data) { }
-
     }
 }

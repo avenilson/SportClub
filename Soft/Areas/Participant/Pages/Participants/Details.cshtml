@@ -4,7 +4,6 @@
 @using SportClub.Pages.Extensions
 @model SportClub.Soft.Areas.Participant.Pages.Participants.DetailsModel
 
-
 @{
     Layout = "_Details";
     const string units = "/ParticipantOfTraining/ParticipantOfTrainings";
@@ -17,6 +16,7 @@
     @Html.DisplayControlsFor(m => m.Item.Age)
     @Html.DisplayControlsFor(m => m.Item.Address)
 </body>
+
 @section Details
 {
     @Html.HypertextLinkFor(string.Empty, new Link("Show participant of trainings",

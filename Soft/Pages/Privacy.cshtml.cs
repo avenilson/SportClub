@@ -12,8 +12,6 @@ namespace SportClub.Soft.Pages
             _logger = logger;
         }
 
-        public void OnGet()
-        {
-        }
+        public void OnGet() { }
     }
 }

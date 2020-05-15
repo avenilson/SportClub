@@ -43,7 +43,5 @@ namespace SportClub.Pages.Extensions {
 
             return l;
         }
-
     }
-
 }

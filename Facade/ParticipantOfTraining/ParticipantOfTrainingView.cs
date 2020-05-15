@@ -8,15 +8,12 @@ namespace SportClub.Facade.ParticipantOfTraining
     {
         [Required]
         [DisplayName("Training")]
-
         public string TrainingId { get; set; }
 
         [Required]
         [DisplayName("Participant")]
-
         public string ParticipantId { get; set; }
 
         public string GetId()=> $"{ParticipantId}.{TrainingId}";
-        
     }
 }

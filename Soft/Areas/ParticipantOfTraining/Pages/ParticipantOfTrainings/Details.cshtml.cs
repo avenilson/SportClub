@@ -12,8 +12,7 @@ namespace SportClub.Soft.Areas.ParticipantOfTraining.Pages.ParticipantOfTraining
         public DetailsModel(IParticipantOfTrainingsRepository r, IParticipantsRepository p, ITrainingsRepository t) : base(r, p, t) { }
         public async Task<IActionResult> OnGetAsync(string id, string fixedFilter, string fixedValue)
         {
-            await GetObject(id, fixedFilter, fixedValue);    
-
+            await GetObject(id, fixedFilter, fixedValue);
             return Page();
         }
     }

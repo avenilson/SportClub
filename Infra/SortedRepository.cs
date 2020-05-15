@@ -15,9 +15,7 @@ namespace SportClub.Infra
         public string SortOrder { get; set; }
         public string DescendingString => "_desc";
 
-        protected SortedRepository(DbContext c, DbSet<TData> s) : base(c, s)
-        {
-        }
+        protected SortedRepository(DbContext c, DbSet<TData> s) : base(c, s) { }
 
         public override IQueryable<TData> CreateSqlQuery()
         {
@@ -25,7 +23,6 @@ namespace SportClub.Infra
             query = AddSorting(query);
 
             return query;
-
         }
 
         public IQueryable<TData> AddSorting(IQueryable<TData> query)
@@ -76,7 +73,7 @@ namespace SportClub.Infra
                 return query;
             }
         }
-        public bool IsDescending() => !string.IsNullOrEmpty(SortOrder) && SortOrder.EndsWith(DescendingString);
 
+        public bool IsDescending() => !string.IsNullOrEmpty(SortOrder) && SortOrder.EndsWith(DescendingString);
     }
 }

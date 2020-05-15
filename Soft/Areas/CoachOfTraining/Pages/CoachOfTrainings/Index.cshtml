@@ -5,7 +5,6 @@
 @{
     Layout = "_Index";
     var page = Model.PageUrl;
-
 }
 
 @section Create {
@@ -23,24 +22,23 @@
         )
     </thead>
     <tbody>
-    @foreach (var item in Model.Items)
-    {
+        @foreach (var item in Model.Items)
+        {
        
-        <tr>
-            @Html.TableRowFor(
-                page,
-                item.Id,
-                Model.FixedFilter,
-                Model.FixedValue,
-                Html.DisplayFor(modelItem => item.Id),
-                Html.DisplayFor(modelItem => item.CoachId),
-                Html.DisplayFor(modelItem => item.TrainingId)
-                )
+            <tr>
+                @Html.TableRowFor(
+                         page,
+                         item.Id,
+                         Model.FixedFilter,
+                         Model.FixedValue,
+                         Html.DisplayFor(modelItem => item.Id),
+                         Html.DisplayFor(modelItem => item.CoachId),
+                         Html.DisplayFor(modelItem => item.TrainingId)
+                         )
 
-        </tr>
+            </tr>
     }
     </tbody>
 </table>
 
-        
 </body>
