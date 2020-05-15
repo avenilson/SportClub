@@ -15,7 +15,7 @@ namespace SportClub.Pages.CoachOfTraining
         protected internal CoachOfTrainingsPage(ICoachOfTrainingsRepository r, ICoachesRepository c, ITrainingsRepository t) : base(r)
         {
             PageTitle = "Coach Of Trainings";
-            CoachId= CreateSelectList<Domain.Coach.Coach, CoachData>(c);
+            CoachId= CreateSelectList2<Domain.Coach.Coach, CoachData>(c);
             TrainingId = CreateSelectList<Domain.Training.Training, TrainingData>(t);
             Ids = CreateSelectList3<Domain.Coach.Coach, CoachData>(c);
         }
