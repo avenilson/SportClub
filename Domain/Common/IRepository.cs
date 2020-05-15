@@ -1,6 +1,4 @@
 ﻿namespace SportClub.Domain.Common
 {
-    public interface IRepository<T> : ICrudMethods<T>, ISorting, IFiltering, IPaging
-    {
-    }
+    public interface IRepository<T> : ICrudMethods<T>, ISorting, IFiltering, IPaging { }
 }
