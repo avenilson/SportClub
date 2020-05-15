@@ -16,10 +16,10 @@ namespace SportClub.Tests.Pages.Extensions
           s = GetRandom.String();
       }
 
-      [TestMethod]
-      public void TableRowForTest() { }
+      [TestMethod] 
+      public void TableRowForTest() => Assert.Inconclusive();
 
-      [TestMethod]
-      public void TableRowWithSelectForTest() { }
+        [TestMethod]
+      public void TableRowWithSelectForTest() => Assert.Inconclusive();
     }
 }
