@@ -1,9 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using SportClub.Data.Participant;
-using SportClub.Data.Training;
 using SportClub.Domain.Participant;
 using SportClub.Domain.ParticipantOfTraining;
 using SportClub.Domain.Training;
@@ -13,9 +9,7 @@ namespace SportClub.Soft.Areas.ParticipantOfTraining.Pages.ParticipantOfTraining
 {
     public class CreateModel : ParticipantOfTrainingsPage
     {
-        public CreateModel(IParticipantOfTrainingsRepository r, IParticipantsRepository p, ITrainingsRepository t) : base(r, p, t)
-        {
-        }
+        public CreateModel(IParticipantOfTrainingsRepository r, IParticipantsRepository p, ITrainingsRepository t) : base(r, p, t) { }
         public IActionResult OnGet(string fixedFilter, string fixedValue)
         {
             FixedFilter = fixedFilter;
@@ -23,7 +17,7 @@ namespace SportClub.Soft.Areas.ParticipantOfTraining.Pages.ParticipantOfTraining
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(string fixedFilter, string fixedValue) //viisin osa koodi measurepagei (parem koht)
+        public async Task<IActionResult> OnPostAsync(string fixedFilter, string fixedValue)
         {
             if (!await AddObject(fixedFilter, fixedValue)) return Page();
             return Redirect(IndexUrl);

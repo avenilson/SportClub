@@ -20,7 +20,6 @@ namespace SportClub.Soft.Areas.ParticipantOfTraining.Pages.ParticipantOfTraining
         public async Task<IActionResult> OnPostAsync(string fixedFilter, string fixedValue)
         {
             await UpdateObject(fixedFilter, fixedValue);
-
             return Redirect(IndexUrl);
         }      
     }

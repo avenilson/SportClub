@@ -20,7 +20,6 @@ namespace SportClub.Soft.Areas.Training.Pages.Trainings
             SelectedId = id;
             await GetList(sortOrder, currentFilter, searchString, pageIndex,
                 fixedFilter, fixedValue);
-
         }
     }
 }

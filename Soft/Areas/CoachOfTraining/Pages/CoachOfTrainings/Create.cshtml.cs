@@ -10,9 +10,7 @@ namespace SportClub.Soft.Areas.CoachOfTraining.Pages.CoachOfTrainings
     public class CreateModel : CoachOfTrainingsPage
     {
         public CreateModel(ICoachOfTrainingsRepository r,
-             ICoachesRepository c, ITrainingsRepository t) : base(r,c,t) { 
-        }
-
+             ICoachesRepository c, ITrainingsRepository t) : base(r,c,t) { }
 
         public IActionResult OnGet(string fixedFilter, string fixedValue)
         {
@@ -26,7 +24,5 @@ namespace SportClub.Soft.Areas.CoachOfTraining.Pages.CoachOfTrainings
             if (!await AddObject(fixedFilter, fixedValue)) return Page();
             return Redirect(IndexUrl);
         }
-
     }
-
 }

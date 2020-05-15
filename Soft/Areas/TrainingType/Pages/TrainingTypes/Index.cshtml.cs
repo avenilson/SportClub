@@ -8,9 +8,7 @@ namespace SportClub.Soft.Areas.TrainingType.Pages.TrainingTypes
 {
     public class IndexModel : TrainingTypesPage
     {
-        public IndexModel(ITrainingTypesRepository r) : base(r)
-        {
-        }
+        public IndexModel(ITrainingTypesRepository r) : base(r) { }
 
         public IList<TrainingTypeData> TrainingTypeData { get; set; }
 
@@ -21,7 +19,6 @@ namespace SportClub.Soft.Areas.TrainingType.Pages.TrainingTypes
             SelectedId = id;
             await GetList(sortOrder, currentFilter, searchString, pageIndex,
                 fixedFilter, fixedValue);
-
         }
     }
 }

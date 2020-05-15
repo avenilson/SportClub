@@ -1,14 +1,15 @@
 ﻿@page
 @using SportClub.Pages.Extensions
 @model SportClub.Soft.Areas.CoachOfTraining.Pages.CoachOfTrainings.DetailsModel
+
 @{
     Layout = "_Details";
 }
+
 <body>
     @Html.DisplayControlsFor(model => model.Item.Id)
     @Html.DisplayControlsFor(model => model.Item.CoachId)
     @Html.DisplayControlsFor(model => model.Item.TrainingId)
 </body>
 
-@section Details {
-}
+@section Details {}

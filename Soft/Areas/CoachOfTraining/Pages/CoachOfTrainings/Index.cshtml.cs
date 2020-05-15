@@ -8,9 +8,7 @@ namespace SportClub.Soft.Areas.CoachOfTraining.Pages.CoachOfTrainings
 {
     public class IndexModel : CoachOfTrainingsPage
     {
-        public IndexModel(ICoachOfTrainingsRepository r, ICoachesRepository c, ITrainingsRepository t) : base(r,c,t)
-        {
-        }
+        public IndexModel(ICoachOfTrainingsRepository r, ICoachesRepository c, ITrainingsRepository t) : base(r,c,t) { }
 
         public async Task OnGetAsync(string sortOrder, string id,
             string currentFilter, string searchString, int? pageIndex,
@@ -19,8 +17,6 @@ namespace SportClub.Soft.Areas.CoachOfTraining.Pages.CoachOfTrainings
             SelectedId = id;
             await GetList(sortOrder, currentFilter, searchString, pageIndex,
                 fixedFilter, fixedValue);
-
-
         }
     }
 }
