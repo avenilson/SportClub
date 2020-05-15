@@ -13,9 +13,8 @@ namespace SportClub.Aids {
         private const string c = ".ctor";
         private const string v = "value__";
         private const string t = "+TestClass";
-        public static string Namespace(Type type) {
-            return type is null ? string.Empty : type.Namespace;
-        }
+        public static string Namespace(Type type) 
+            => type is null ? string.Empty : type.Namespace;
         public static List<MemberInfo> Members(Type type,
             BindingFlags f = PublicBindingFlagsFor.AllMembers,
             bool clean = true) {
@@ -26,12 +25,12 @@ namespace SportClub.Aids {
         }
 
         public static List<PropertyInfo> Properties(Type type,
-            BindingFlags f = PublicBindingFlagsFor.AllMembers) {
-            return type?.GetProperties(f).ToList() ?? new List<PropertyInfo>();
-        }
-        public static PropertyInfo Property<T>(string name) {
-            return Safe.Run(() => typeof(T).GetProperty(name), null);
-        }
+            BindingFlags f = PublicBindingFlagsFor.AllMembers) =>
+            type?.GetProperties(f).ToList() ?? new List<PropertyInfo>();
+
+        public static PropertyInfo Property<T>(string name) 
+            => Safe.Run(() => typeof(T).GetProperty(name), null);
+
         public static PropertyInfo Property<T>(Expression<Func<T, object>> ex) {
             var name = GetMember.Name(ex);
             return Safe.Run(() => typeof(T).GetProperty(name), null);
@@ -56,10 +55,8 @@ namespace SportClub.Aids {
         public static List<object> ReadWritePropertyValues(object obj) {
             var l = new List<object>();
             if (obj is null) return l;
-            foreach (var p in Properties(obj.GetType())) {
-                if (!p.CanWrite) continue;
-                AddValue(p, obj, l);
-            }
+            foreach (var p in Properties(obj.GetType())
+                .Where(p => p.CanWrite)) AddValue(p, obj, l);
             return l;
         }
         private static void AddValue(PropertyInfo p, object o, List<object> l) {
@@ -78,11 +75,5 @@ namespace SportClub.Aids {
                 }
             }
         }
-
     }
 }
-
-
-
-
-

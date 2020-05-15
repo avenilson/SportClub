@@ -13,16 +13,14 @@ namespace SportClub.Aids {
             Safe.Run(() => Domain.GetAssemblies().ToList(),
                 new List<Assembly>());
 
-        public static Assembly AssemblyByName(string name) {
-            return Safe.Run(() => Assembly.Load(name), null);
-        }
+        public static Assembly AssemblyByName(string name)
+            => Safe.Run(() => Assembly.Load(name), null);
 
-        public static List<Type> TypesForAssembly(string assemblyName) {
-            return Safe.Run(() => {
+        public static List<Type> TypesForAssembly(string assemblyName) =>
+            Safe.Run(() => {
                 var a = AssemblyByName(assemblyName);
                 return a.GetTypes().ToList();
             }, new List<Type>());
-        }
 
         public static List<string> TypeNamesForAssembly(string assemblyName) {
             return Safe.Run(() => {
@@ -34,8 +32,4 @@ namespace SportClub.Aids {
         public static string Name =>
             GetString.Head(GetClass.Namespace(typeof(GetSolution)));
     }
-
 }
-
-
-

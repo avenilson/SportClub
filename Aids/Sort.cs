@@ -11,6 +11,5 @@ namespace SportClub.Aids
             min = max;
             max = d;
         }
-
     }
 }
