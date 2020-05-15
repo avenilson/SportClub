@@ -7,14 +7,11 @@ namespace SportClub.Soft.Data
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
-        protected override void OnModelCreating(ModelBuilder builder) //loob tabelid
+        protected override void OnModelCreating(ModelBuilder builder) 
         {
             base.OnModelCreating(builder);
-            initializeTables(builder);
+            InitializeTables(builder);
         }
-        internal void initializeTables(ModelBuilder builder)
-        {
-            SportClubDbContext.InitializeTables(builder);
-        }
+        internal void InitializeTables(ModelBuilder builder) => SportClubDbContext.InitializeTables(builder);
     }
 }
