@@ -7,7 +7,7 @@ namespace SportClub.Tests.Aids {
 
     [TestClass] public class LogTests : BaseTests {
 
-        internal class testLogBook : ILogBook {
+        internal class TestLogBook : ILogBook {
 
             public string LoggedMessage { get; private set; }
             public Exception LoggedException { get; private set; }
@@ -16,19 +16,17 @@ namespace SportClub.Tests.Aids {
             public void WriteEntry(string message) {
                 LoggedMessage = message;
             }
-
             public void WriteEntry(Exception e) {
                 LoggedException = e;
                 LoggedExceptions.Add(e);
             }
-
         }
 
-        private testLogBook logBook;
+        private TestLogBook logBook;
 
         [TestInitialize] public virtual void TestInitialize() {
             type = typeof(Log);
-            logBook = new testLogBook();
+            logBook = new TestLogBook();
         }
 
         [TestCleanup] public void TestCleanup() => Log.logBook = null;
@@ -50,9 +48,5 @@ namespace SportClub.Tests.Aids {
             Log.Exception(exception);
             Assert.AreEqual(exception, logBook.LoggedException);
         }
-
     }
-
 }
-
-

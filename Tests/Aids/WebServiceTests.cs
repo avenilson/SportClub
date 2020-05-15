@@ -19,7 +19,5 @@ namespace SportClub.Tests.Aids {
             Assert.AreEqual(webpage.DownloadString(source2), WebService.Load(source2));
             Assert.AreEqual(webpage.DownloadString(source3), WebService.Load(source3));
         }
-
     }
-
 }
