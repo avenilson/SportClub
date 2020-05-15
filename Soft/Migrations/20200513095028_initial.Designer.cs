@@ -23,7 +23,7 @@ namespace SportClub.Soft.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<string>("Ids")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -38,7 +38,7 @@ namespace SportClub.Soft.Migrations
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
 
-                    b.HasKey("Id");
+                    b.HasKey("Ids");
 
                     b.HasIndex("NormalizedName")
                         .IsUnique()
@@ -50,7 +50,7 @@ namespace SportClub.Soft.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("Ids")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -65,7 +65,7 @@ namespace SportClub.Soft.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("Id");
+                    b.HasKey("Ids");
 
                     b.HasIndex("RoleId");
 
@@ -74,7 +74,7 @@ namespace SportClub.Soft.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<string>("Ids")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AccessFailedCount")
@@ -124,7 +124,7 @@ namespace SportClub.Soft.Migrations
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
 
-                    b.HasKey("Id");
+                    b.HasKey("Ids");
 
                     b.HasIndex("NormalizedEmail")
                         .HasName("EmailIndex");
@@ -139,7 +139,7 @@ namespace SportClub.Soft.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("Ids")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -154,7 +154,7 @@ namespace SportClub.Soft.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("Id");
+                    b.HasKey("Ids");
 
                     b.HasIndex("UserId");
 
@@ -223,13 +223,13 @@ namespace SportClub.Soft.Migrations
 
             modelBuilder.Entity("SportClub.Data.Coach.CoachData", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<string>("Ids")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("Ids");
 
                     b.ToTable("Coaches");
                 });
@@ -242,7 +242,7 @@ namespace SportClub.Soft.Migrations
                     b.Property<string>("CoachId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Id")
+                    b.Property<string>("Ids")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("TrainingId", "CoachId");
@@ -252,7 +252,7 @@ namespace SportClub.Soft.Migrations
 
             modelBuilder.Entity("SportClub.Data.Participant.ParticipantData", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<string>("Ids")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Address")
@@ -264,7 +264,7 @@ namespace SportClub.Soft.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("Ids");
 
                     b.ToTable("Participants");
                 });
@@ -277,7 +277,7 @@ namespace SportClub.Soft.Migrations
                     b.Property<string>("ParticipantId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Id")
+                    b.Property<string>("Ids")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("TrainingId", "ParticipantId");
@@ -287,7 +287,7 @@ namespace SportClub.Soft.Migrations
 
             modelBuilder.Entity("SportClub.Data.Training.TrainingData", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<string>("Ids")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Definition")
@@ -302,14 +302,14 @@ namespace SportClub.Soft.Migrations
                     b.Property<string>("ParticipantsCount")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("Ids");
 
                     b.ToTable("Trainings");
                 });
 
             modelBuilder.Entity("SportClub.Data.TrainingType.TrainingTypeData", b =>
                 {
-                    b.Property<string>("Id")
+                    b.Property<string>("Ids")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Definition")
@@ -321,7 +321,7 @@ namespace SportClub.Soft.Migrations
                     b.Property<string>("Type")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("Ids");
 
                     b.ToTable("TrainingTypes");
                 });
