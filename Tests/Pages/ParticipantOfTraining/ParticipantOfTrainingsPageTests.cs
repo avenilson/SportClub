@@ -21,39 +21,30 @@ namespace SportClub.Tests.Pages.ParticipantOfTraining
             internal TestClass(IParticipantOfTrainingsRepository r, IParticipantsRepository p, ITrainingsRepository t) : base(r, p, t) { }
         }
         private class TrainRepository : BaseTestRepositoryForUniqueEntity<SportClub.Domain.Training.Training, TrainingData>,
-            ITrainingsRepository
-        { }
+            ITrainingsRepository { }
 
         private class TestRepository : BaseTestRepositoryForUniqueEntity<SportClub.Domain.ParticipantOfTraining.ParticipantOfTraining, ParticipantOfTrainingData>,
             IParticipantOfTrainingsRepository { }
+
         private class TermRepository : BaseTestRepositoryForNamedEntity<SportClub.Domain.Participant.Participant, ParticipantData>,
             IParticipantsRepository
         {
+            protected override bool IsThis(SportClub.Domain.Participant.Participant entity, string id) => true;
 
-            protected override bool IsThis(SportClub.Domain.Participant.Participant entity, string id)
-            {
-                return true;
-            }
-
-            protected override string GetId(SportClub.Domain.Participant.Participant entity)
-            {
-                return string.Empty;
-            }
+            protected override string GetId(SportClub.Domain.Participant.Participant entity) => string.Empty;
         }
 
         [TestInitialize]
         public override void TestInitialize()
         {
-            base.TestInitialize(); //kasutab inmemorydb extensionit, mis on malus!
+            base.TestInitialize();
             var r = new TestRepository();
             var p = new TermRepository();
             var t = new TrainRepository();
-            obj = new TestClass(r, p, t); //annan repository katte
+            obj = new TestClass(r, p, t);
         }
-        public static string Id(string head, string tail)
-        {
-            return $"{head}.{tail}";
-        }
+
+        public static string Id(string head, string tail) => $"{head}.{tail}";
 
         [TestMethod]
         public void ItemIdTest()
@@ -71,18 +62,21 @@ namespace SportClub.Tests.Pages.ParticipantOfTraining
 
         [TestMethod]
         public void GetPageUrlTest() => Assert.AreEqual("/ParticipantOfTraining/ParticipantOfTrainings", obj.PageUrl);
+
         [TestMethod] public void ToObjectTest()
         {
             var view = GetRandom.Object<ParticipantOfTrainingView>();
             var o = obj.ToObject(view);
             TestArePropertyValuesEqual(view, o.Data);
         }
+
         [TestMethod] public void ToViewTest()
         {
             var data = GetRandom.Object<ParticipantOfTrainingData>();
             var view = obj.ToView(new SportClub.Domain.ParticipantOfTraining.ParticipantOfTraining(data));
             TestArePropertyValuesEqual(view, data);
         }
+
         [TestMethod] public void ParticipantIdTest()
         {
             var item = GetRandom.Object<ParticipantOfTrainingView>();
@@ -92,6 +86,7 @@ namespace SportClub.Tests.Pages.ParticipantOfTraining
             obj.Item = null;
             Assert.AreEqual(string.Empty, obj.ItemId);
         }
+
         [TestMethod]
         public void TrainingIdTest()
         {
@@ -102,6 +97,7 @@ namespace SportClub.Tests.Pages.ParticipantOfTraining
             obj.Item = null;
             Assert.AreEqual(string.Empty, obj.ItemId);
         }
+
         [TestMethod]
         public void IdTest()
         {
@@ -112,6 +108,7 @@ namespace SportClub.Tests.Pages.ParticipantOfTraining
             obj.Item = null;
             Assert.AreEqual(string.Empty, obj.ItemId);
         }
+
         [TestMethod] public void GetParticipantIdTest()
         {
             var item = GetRandom.Object<ParticipantOfTrainingView>();
@@ -121,10 +118,8 @@ namespace SportClub.Tests.Pages.ParticipantOfTraining
             obj.Item = null;
             Assert.AreEqual(string.Empty, obj.ItemId);
         }
+
         [TestMethod]
-        public void GetPageSubTitleTest()
-        {
-            Assert.AreEqual(obj.PageSubTitle, obj.GetPageSubTitle());
-        }
+        public void GetPageSubTitleTest() => Assert.AreEqual(obj.PageSubTitle, obj.GetPageSubTitle());
     }
 }

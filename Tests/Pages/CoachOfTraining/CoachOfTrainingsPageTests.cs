@@ -17,44 +17,35 @@ namespace SportClub.Tests.Pages.CoachOfTraining
         <CoachOfTrainingsPage, CommonPage<ICoachOfTrainingsRepository, SportClub.Domain.CoachOfTraining.CoachOfTraining, CoachOfTrainingView, CoachOfTrainingData>>
     {
         private class TrainRepository : BaseTestRepositoryForUniqueEntity<SportClub.Domain.Training.Training, TrainingData>,
-            ITrainingsRepository
-        { }
+            ITrainingsRepository { }
 
         private class TestClass : CoachOfTrainingsPage
         {
             internal TestClass(ICoachOfTrainingsRepository r, ICoachesRepository c, ITrainingsRepository t) : base(r, c, t) { }
         }
         private class TestRepository : BaseTestRepositoryForUniqueEntity<SportClub.Domain.CoachOfTraining.CoachOfTraining, CoachOfTrainingData>,
-            ICoachOfTrainingsRepository
-        { }
+            ICoachOfTrainingsRepository { }
 
         private class TermRepository : BaseTestRepositoryForNamedEntity<SportClub.Domain.Coach.Coach, CoachData>,
             ICoachesRepository
         {
-            protected override bool IsThis(SportClub.Domain.Coach.Coach entity, string id)
-            {
-                return true;
-            }
+            protected override bool IsThis(SportClub.Domain.Coach.Coach entity, string id) => true;
 
-            protected override string GetId(SportClub.Domain.Coach.Coach entity)
-            {
-                return string.Empty;
-            }
+            protected override string GetId(SportClub.Domain.Coach.Coach entity) => string.Empty;
         }
 
         [TestInitialize]
         public override void TestInitialize()
         {
-            base.TestInitialize(); //kasutab inmemorydb extensionit, mis on malus!
+            base.TestInitialize(); 
             var r = new TestRepository();
             var c = new TermRepository();
             var t = new TrainRepository();
-            obj = new TestClass(r, c, t); //annan repository katte
+            obj = new TestClass(r, c, t); 
         }
-        public static string Id(string head, string tail)
-        {
-            return $"{head}.{tail}";
-        }
+
+        public static string Id(string head, string tail) => $"{head}.{tail}";
+
         [TestMethod]
         public void ItemIdTest()
         {
@@ -72,13 +63,16 @@ namespace SportClub.Tests.Pages.CoachOfTraining
         [TestMethod]
         public void GetPageUrlTest() => Assert.AreEqual("/CoachOfTraining/CoachOfTrainings", obj.PageUrl);
 
-        [TestMethod] public void ToObjectTest()
+        [TestMethod] 
+        public void ToObjectTest()
         {
             var view = GetRandom.Object<CoachOfTrainingView>();
             var o = obj.ToObject(view);
             TestArePropertyValuesEqual(view, o.Data);
         }
-        [TestMethod] public void ToViewTest()
+
+        [TestMethod] 
+        public void ToViewTest()
         {
             var data = GetRandom.Object<CoachOfTrainingData>();
             var view = obj.ToView(new SportClub.Domain.CoachOfTraining.CoachOfTraining(data));
@@ -95,6 +89,7 @@ namespace SportClub.Tests.Pages.CoachOfTraining
             obj.Item = null;
             Assert.AreEqual(string.Empty, obj.ItemId);
         }
+
         [TestMethod]
         public void CoachIdTest()
         {
@@ -105,6 +100,7 @@ namespace SportClub.Tests.Pages.CoachOfTraining
             obj.Item = null;
             Assert.AreEqual(string.Empty, obj.ItemId);
         }
+
         [TestMethod]
         public void TrainingIdTest()
         {
@@ -115,6 +111,7 @@ namespace SportClub.Tests.Pages.CoachOfTraining
             obj.Item = null;
             Assert.AreEqual(string.Empty, obj.ItemId);
         }
+
         [TestMethod]
         public void IdTest()
         {
@@ -127,10 +124,8 @@ namespace SportClub.Tests.Pages.CoachOfTraining
         }
 
         [TestMethod]
-        public void GetPageSubTitleTest()
-        {
-            Assert.AreEqual(obj.PageSubTitle, obj.GetPageSubTitle());
-        }
+        public void GetPageSubTitleTest() => Assert.AreEqual(obj.PageSubTitle, obj.GetPageSubTitle());
+
         [TestMethod]
         public void IdsTest()
         {

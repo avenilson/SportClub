@@ -13,7 +13,9 @@ namespace SportClub.Tests.Pages.Extensions
         {
             public IsoGender Gender { get; set; }
         }
-        [TestInitialize] public virtual void TestInitialize() => type = typeof(EditControlsForEnumHtmlExtension);
+
+        [TestInitialize] 
+        public virtual void TestInitialize() => type = typeof(EditControlsForEnumHtmlExtension);
 
         [TestMethod]
         public void EditControlsForEnumTest()

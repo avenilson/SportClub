@@ -5,7 +5,6 @@ using SportClub.Data.TrainingType;
 using SportClub.Domain.Training;
 using SportClub.Domain.TrainingType;
 using SportClub.Facade.Training;
-using SportClub.Facade.TrainingType;
 using SportClub.Pages;
 using SportClub.Pages.Training;
 
@@ -27,10 +26,10 @@ namespace SportClub.Tests.Pages.Training
         [TestInitialize]
         public override void TestInitialize()
         {
-            base.TestInitialize(); //kasutab inmemorydb extensionit, mis on malus!
+            base.TestInitialize(); 
             var r = new TestRepository();
             var t = new TermRepository();
-            obj = new TestClass(r, t); //annan repository katte
+            obj = new TestClass(r, t); 
         }
 
         [TestMethod]
@@ -48,18 +47,23 @@ namespace SportClub.Tests.Pages.Training
 
         [TestMethod]
         public void GetPageUrlTest() => Assert.AreEqual("/Training/Trainings", obj.PageUrl);
-        [TestMethod] public void ToObjectTest()
+
+        [TestMethod] 
+        public void ToObjectTest()
         {
             var view = GetRandom.Object<TrainingView>();
             var o = obj.ToObject(view);
             TestArePropertyValuesEqual(view, o.Data);
         }
-        [TestMethod] public void ToViewTest()
+
+        [TestMethod] 
+        public void ToViewTest()
         {
             var data = GetRandom.Object<TrainingData>();
             var view = obj.ToView(new SportClub.Domain.Training.Training(data));
             TestArePropertyValuesEqual(view, data);
         }
+
         [TestMethod]
         public void TypesTest()
         {

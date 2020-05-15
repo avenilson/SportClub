@@ -10,7 +10,9 @@ namespace SportClub.Tests.Pages.Extensions
     public class DropDownNavigationMenuForHtmlExtensionTests: BaseTests
     {
         private readonly List<SelectListItem> items = new List<SelectListItem> {new SelectListItem("text", "value")};
-        [TestInitialize] public virtual void TestInitialize() => type = typeof(DropDownNavigationMenuForHtmlExtension);
+        [TestInitialize] 
+
+        public virtual void TestInitialize() => type = typeof(DropDownNavigationMenuForHtmlExtension);
 
         [TestMethod]
         public void DropDownNavigationMenuForTest()

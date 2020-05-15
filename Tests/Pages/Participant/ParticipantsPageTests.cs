@@ -22,9 +22,9 @@ namespace SportClub.Tests.Pages.Participant
         [TestInitialize]
         public override void TestInitialize()
         {
-            base.TestInitialize(); //kasutab inmemorydb extensionit, mis on malus!
+            base.TestInitialize(); 
             var r = new ParticipantsPageTests.TestRepository();
-            obj = new ParticipantsPageTests.TestClass(r); //annan repository katte
+            obj = new ParticipantsPageTests.TestClass(r);
         }
         
         [TestMethod]
@@ -42,18 +42,19 @@ namespace SportClub.Tests.Pages.Participant
 
         [TestMethod]
         public void GetPageUrlTest() => Assert.AreEqual("/Participant/Participants", obj.PageUrl);
+
         [TestMethod] public void ToObjectTest()
         {
             var view = GetRandom.Object<ParticipantView>();
             var o = obj.ToObject(view);
             TestArePropertyValuesEqual(view, o.Data);
         }
+
         [TestMethod] public void ToViewTest()
         {
             var data = GetRandom.Object<ParticipantData>();
             var view = obj.ToView(new SportClub.Domain.Participant.Participant(data));
             TestArePropertyValuesEqual(view, data);
         }
-
     }
 }

@@ -9,7 +9,8 @@ namespace SportClub.Tests.Pages.Extensions
     [TestClass]
     public class TableHeaderForHtmlExtensionTests: BaseTests
     {
-        [TestInitialize] public virtual void TestInitialize() => type = typeof(TableHeaderForHtmlExtension);
+        [TestInitialize] 
+        public virtual void TestInitialize() => type = typeof(TableHeaderForHtmlExtension);
 
         [TestMethod]
         public void TableHeaderForTest()

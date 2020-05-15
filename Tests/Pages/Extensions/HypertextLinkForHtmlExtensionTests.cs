@@ -9,7 +9,8 @@ namespace SportClub.Tests.Pages.Extensions
     [TestClass]
     public class HypertextLinkForHtmlExtensionTests: BaseTests
     {
-        [TestInitialize] public virtual void TestInitialize() => type = typeof(HypertextLinkForHtmlExtension);
+        [TestInitialize] 
+        public virtual void TestInitialize() => type = typeof(HypertextLinkForHtmlExtension);
 
         [TestMethod]
         public void HypertextLinkForTest()

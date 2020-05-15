@@ -10,7 +10,8 @@ namespace SportClub.Tests.Pages.Extensions
     [TestClass]
     public class EditControlsForHtmlExtensionTests : BaseTests
     {
-        [TestInitialize] public virtual void TestInitialize() => type = typeof(EditControlsForHtmlExtension);
+        [TestInitialize] 
+        public virtual void TestInitialize() => type = typeof(EditControlsForHtmlExtension);
 
         [TestMethod]
         public void EditControlsForTest()
@@ -18,6 +19,7 @@ namespace SportClub.Tests.Pages.Extensions
             var obj = new HtmlHelperMock<CoachView>().EditControlsFor(x => x.Id);
             Assert.IsInstanceOfType(obj, typeof(HtmlContentBuilder));
         }
+
         [TestMethod]
         public void HtmlStringTest()
         {

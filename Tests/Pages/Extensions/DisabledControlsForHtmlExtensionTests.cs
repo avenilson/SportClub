@@ -18,6 +18,7 @@ namespace SportClub.Tests.Pages.Extensions
             var obj = new HtmlHelperMock<CoachView>().DisabledControlsFor(x => x.Id); 
             Assert.IsInstanceOfType(obj, typeof(HtmlContentBuilder));
         }
+
         [TestMethod]
         public void HtmlStringsTest()
         {

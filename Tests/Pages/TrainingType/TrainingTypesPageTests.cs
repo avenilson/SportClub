@@ -23,15 +23,9 @@ namespace SportClub.Tests.Pages.TrainingType
         private class TermRepository : BaseTestRepositoryForNamedEntity<SportClub.Domain.Training.Training, TrainingData>,
             ITrainingsRepository
         {
-            protected override bool IsThis(SportClub.Domain.Training.Training entity, string id)
-            {
-                return true;
-            }
+            protected override bool IsThis(SportClub.Domain.Training.Training entity, string id) => true;
 
-            protected override string GetId(SportClub.Domain.Training.Training entity)
-            {
-                return string.Empty;
-            }
+            protected override string GetId(SportClub.Domain.Training.Training entity) => string.Empty;
         }
 
         [TestInitialize]
@@ -57,6 +51,7 @@ namespace SportClub.Tests.Pages.TrainingType
 
         [TestMethod]
         public void GetPageUrlTest() => Assert.AreEqual("/TrainingType/TrainingTypes", obj.PageUrl);
+
         [TestMethod]
         public void ToObjectTest()
         {
@@ -64,6 +59,7 @@ namespace SportClub.Tests.Pages.TrainingType
             var o = obj.ToObject(view);
             TestArePropertyValuesEqual(view, o.Data);
         }
+
         [TestMethod]
         public void ToViewTest()
         {
@@ -71,11 +67,11 @@ namespace SportClub.Tests.Pages.TrainingType
             var view = obj.ToView(new SportClub.Domain.TrainingType.TrainingType(data));
             TestArePropertyValuesEqual(view, data);
         }
+
         [TestMethod]
-        public void GetPageSubTitleTest()
-        {
-            Assert.AreEqual(obj.PageSubTitle, obj.GetPageSubTitle());
-        }
+        public void GetPageSubTitleTest() => Assert.AreEqual(obj.PageSubTitle, obj.GetPageSubTitle());
+
+
         [TestMethod]
         public void NamesTest()
         {

@@ -27,23 +27,15 @@ namespace SportClub.Tests.Pages.Coach
             ICoachOfTrainingsRepository
         
         {
-        //    protected override bool IsThis(SportClub.Domain.CoachOfTraining.CoachOfTraining entity, string id)
-        //{
-        //    return true;
-        //}
-
-        //protected override string GetId(SportClub.Domain.CoachOfTraining.CoachOfTraining entity)
-        //{
-        //    return string.Empty;
-        //}
     }
+
     [TestInitialize]
     public override void TestInitialize()
     {
-        base.TestInitialize(); //kasutab inmemorydb extensionit, mis on malus!
+        base.TestInitialize(); 
         var r = new TestRepository();
         var t = new TermRepository();
-        obj = new TestClass(r); //annan repository katte
+        obj = new TestClass(r); 
     }
 
     [TestMethod]
@@ -61,13 +53,17 @@ namespace SportClub.Tests.Pages.Coach
 
         [TestMethod]
         public void GetPageUrlTest() => Assert.AreEqual("/Coach/Coaches", obj.PageUrl);
-        [TestMethod] public void ToObjectTest()
+
+        [TestMethod] 
+        public void ToObjectTest()
         {
             var view = GetRandom.Object<CoachView>();
             var o = obj.ToObject(view);
             TestArePropertyValuesEqual(view, o.Data);
         }
-        [TestMethod] public void ToViewTest()
+
+        [TestMethod] 
+        public void ToViewTest()
         {
             var data = GetRandom.Object<CoachData>();
             var view = obj.ToView(new SportClub.Domain.Coach.Coach(data));
