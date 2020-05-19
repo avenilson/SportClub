@@ -11,6 +11,8 @@ namespace SportClub.Facade.Training
         [Range(30, 90, ErrorMessage = "Training {0} should be in {1} to {2} range.")]
         public string Duration { get; set; }
 
+        [Required]
+        [DisplayName("Definition")]
         public string Definition { get; set; }
 
         [DisplayName("Participants Count")]
