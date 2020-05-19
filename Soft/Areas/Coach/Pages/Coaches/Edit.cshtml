@@ -8,6 +8,6 @@
 
 <body>
     <input type="hidden" asp-for="Item.Id" />
-    @Html.DisabledControlsFor(model => model.Item.Id)
-    @Html.EditControlsFor(model => model.Item.Name)
+    @Html.DisabledControlsFor(m => m.Item.Id)
+    @Html.EditControlsFor(m => m.Item.Name)
 </body>

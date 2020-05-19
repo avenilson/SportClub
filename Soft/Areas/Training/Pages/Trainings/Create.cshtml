@@ -7,11 +7,11 @@
 }
 
 <body>
-    @Html.EditControlsFor(model => model.Item.Id)
-    @Html.EditControlsFor(model => model.Item.Name)
-    @Html.EditControlsForDropDown(model => model.Item.Definition, Model.Types)
-    @Html.EditControlsFor(model => model.Item.Duration)
-    @Html.EditControlsFor(model => model.Item.ParticipantsCount)
+    @Html.EditControlsFor(m => m.Item.Id)
+    @Html.EditControlsFor(m => m.Item.Name)
+    @Html.EditControlsForDropDown(m => m.Item.Definition, Model.Types)
+    @Html.EditControlsFor(m => m.Item.Duration)
+    @Html.EditControlsFor(m => m.Item.ParticipantsCount)
 </body>
 
 

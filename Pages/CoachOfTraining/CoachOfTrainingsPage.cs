@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SportClub.Data.Coach;
 using SportClub.Data.CoachOfTraining;
@@ -18,6 +19,7 @@ namespace SportClub.Pages.CoachOfTraining
             CoachId= CreateSelectList2<Domain.Coach.Coach, CoachData>(c);
             TrainingId = CreateSelectList<Domain.Training.Training, TrainingData>(t);
             Ids = CreateSelectList3<Domain.Coach.Coach, CoachData>(c);
+            ViewData["sample"] = Items.Select(x => new SelectListItem { Text = Item.CoachId, Value = Item.Id });
         }
         public IEnumerable<SelectListItem> CoachId { get; }
         public IEnumerable<SelectListItem> TrainingId { get; }
