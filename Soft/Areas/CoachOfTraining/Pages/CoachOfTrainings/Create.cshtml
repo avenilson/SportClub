@@ -5,12 +5,10 @@
 
 @{
     Layout ="_Create";
-    var collections = ViewData["sample"] as SelectList;
 }
 
     <body>
         @Html.EditControlsForDropDown(m => m.Item.CoachId, Model.CoachId)
         @Html.EditControlsForDropDown(m => m.Item.TrainingId, Model.TrainingId)
-        @Html.DropDownList("name", new SelectList(collections, "Value", "Text"));
-        @* @Html.EditControlsForDropDown(m => m.Item.Id, Model.Ids)*@
+        @Html.EditControlsForDropDown(m => m.Item.Id, Model.Ids)
     </body>
