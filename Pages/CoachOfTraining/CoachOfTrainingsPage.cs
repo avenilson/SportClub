@@ -18,21 +18,10 @@ namespace SportClub.Pages.CoachOfTraining
             PageTitle = "Coach Of Trainings";
             CoachId= CreateSelectList2<Domain.Coach.Coach, CoachData>(c);
             TrainingId = CreateSelectList<Domain.Training.Training, TrainingData>(t);
-            Ids = CreateSelectList3<Domain.Coach.Coach, CoachData>(c);
         }
         public IEnumerable<SelectListItem> CoachId { get; }
         public IEnumerable<SelectListItem> TrainingId { get; }
-        public IEnumerable<SelectListItem> Ids { get; }
-
-        public override string ItemId 
-        {
-            get
-            {
-                if (Item is null) return string.Empty;
-                return $"{Item.CoachId}.{Item.TrainingId}";
-            }
-        }
-
+        public override string ItemId => Item is null ? string.Empty : Item.GetId();
         public override string GetPageUrl() => "/CoachOfTraining/CoachOfTrainings";
 
         public override Domain.CoachOfTraining.CoachOfTraining ToObject(CoachOfTrainingView view)

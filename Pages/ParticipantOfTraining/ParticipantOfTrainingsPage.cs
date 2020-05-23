@@ -17,21 +17,10 @@ namespace SportClub.Pages.ParticipantOfTraining
             PageTitle = "Participant Of Trainings";
             ParticipantId = CreateSelectList2<Domain.Participant.Participant, ParticipantData>(p);
             TrainingId = CreateSelectList<Domain.Training.Training, TrainingData>(t);
-            Id = CreateSelectList3<Domain.Participant.Participant, ParticipantData>(p);
         }
         public IEnumerable<SelectListItem> ParticipantId { get; }
         public IEnumerable<SelectListItem> TrainingId { get; }
-        public IEnumerable<SelectListItem> Id { get; }
-
-        public override string ItemId 
-        {
-            get
-            {
-                if (Item is null) return string.Empty;
-                return $"{Item.ParticipantId}.{Item.TrainingId}";
-            }
-        }
-
+        public override string ItemId => Item is null ? string.Empty : Item.GetId();
         public override string GetPageUrl() => "/ParticipantOfTraining/ParticipantOfTrainings";
 
         public override Domain.ParticipantOfTraining.ParticipantOfTraining ToObject(ParticipantOfTrainingView view) 

@@ -7,9 +7,7 @@
 }
 
 <body>
-    <input type="hidden" asp-for="Item.CoachId" />
-    <input type="hidden" asp-for="Item.TrainingId" />
-    @Html.DisabledControlsFor(m => m.Item.CoachId)
+<input type="hidden" asp-for="Item.Id" />
+    @Html.DisabledControlsFor( m => m.Item.CoachId)
     @Html.DisabledControlsFor(m => m.Item.TrainingId)
-    @Html.DisabledControlsFor(m => m.Item.Id)
 </body>
