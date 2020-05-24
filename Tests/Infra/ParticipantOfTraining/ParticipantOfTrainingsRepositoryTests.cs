@@ -25,7 +25,7 @@ namespace SportClub.Tests.Infra.ParticipantOfTraining
         }
 
         protected override Type GetBaseType() =>
-            typeof(PaginatedRepository<SportClub.Domain.ParticipantOfTraining.ParticipantOfTraining, ParticipantOfTrainingData>);
+            typeof(UniqueEntityRepository<SportClub.Domain.ParticipantOfTraining.ParticipantOfTraining, ParticipantOfTrainingData>);
 
         protected override string GetId(ParticipantOfTrainingData d) => d.Id;
 

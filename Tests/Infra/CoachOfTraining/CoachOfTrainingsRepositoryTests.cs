@@ -24,7 +24,7 @@ namespace SportClub.Tests.Infra.CoachOfTraining
             base.TestInitialize();
         }
         protected override Type GetBaseType() =>
-            typeof(PaginatedRepository<SportClub.Domain.CoachOfTraining.CoachOfTraining, CoachOfTrainingData>);
+            typeof(UniqueEntityRepository<SportClub.Domain.CoachOfTraining.CoachOfTraining, CoachOfTrainingData>);
 
         protected override string GetId(CoachOfTrainingData d) => d.Id;
 
