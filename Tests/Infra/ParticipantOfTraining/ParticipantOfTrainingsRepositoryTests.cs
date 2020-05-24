@@ -23,7 +23,7 @@ namespace SportClub.Tests.Infra.ParticipantOfTraining
             obj = new ParticipantOfTrainingsRepository((SportClubDbContext) db);
             base.TestInitialize();
         }
-
+        
         protected override Type GetBaseType() =>
             typeof(UniqueEntityRepository<SportClub.Domain.ParticipantOfTraining.ParticipantOfTraining, ParticipantOfTrainingData>);
 
