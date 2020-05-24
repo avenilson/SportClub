@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SportClub.Aids;
 using SportClub.Data.Common;
-using SportClub.Data.Training;
 using SportClub.Domain.Common;
 
 namespace SportClub.Tests.Infra
