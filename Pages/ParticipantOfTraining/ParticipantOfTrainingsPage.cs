@@ -29,10 +29,18 @@ namespace SportClub.Pages.ParticipantOfTraining
         public override ParticipantOfTrainingView ToView(Domain.ParticipantOfTraining.ParticipantOfTraining obj) 
             => ParticipantOfTrainingViewFactory.Create(obj);
 
-        public string GetParticipantId(string participantId)
+        public string GetParticipantName(string participantId)
         {
             foreach (var m in ParticipantId)
                 if (m.Value == participantId)
+                    return m.Text;
+
+            return "";
+        }
+        public string GetTrainingName(string trainingId)
+        {
+            foreach (var m in TrainingId)
+                if (m.Value == trainingId)
                     return m.Text;
 
             return "";
@@ -41,6 +49,6 @@ namespace SportClub.Pages.ParticipantOfTraining
         public override string GetPageSubTitle() 
             => FixedValue is null
                 ? base.GetPageSubTitle()
-                : $"{GetParticipantId(FixedValue)}";
+                : $"{GetParticipantName(FixedValue)}";
     }
 }

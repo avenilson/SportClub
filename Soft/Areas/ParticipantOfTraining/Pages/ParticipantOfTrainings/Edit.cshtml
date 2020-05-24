@@ -8,7 +8,7 @@
 
 <body>
 <input type="hidden" asp-for="Item.Id" />
-    @Html.DisabledControlsFor( m => m.Item.ParticipantId)
-    @Html.DisabledControlsFor(m => m.Item.TrainingId)
+    @Html.DisabledControlsFor(m => m.Item.ParticipantId)
+    @Html.EditControlsForDropDown(m => m.Item.TrainingId, Model.TrainingId)
 </body>
 

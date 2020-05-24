@@ -80,7 +80,17 @@ namespace SportClub.Tests.Pages.CoachOfTraining
         }
 
         [TestMethod]
-        public void GetCoachesIdTest()
+        public void GetCoachNameTest()
+        {
+            var item = GetRandom.Object<CoachOfTrainingView>();
+            obj.Item = item;
+            string a = Id(item.CoachId, item.TrainingId);
+            Assert.AreEqual(a, obj.ItemId);
+            obj.Item = null;
+            Assert.AreEqual(string.Empty, obj.ItemId);
+        }
+        [TestMethod]
+        public void GetTrainingNameTest()
         {
             var item = GetRandom.Object<CoachOfTrainingView>();
             obj.Item = item;
@@ -91,7 +101,7 @@ namespace SportClub.Tests.Pages.CoachOfTraining
         }
 
         [TestMethod]
-        public void CoachIdTest()
+        public void CoachesTest()
         {
             var item = GetRandom.Object<CoachOfTrainingView>();
             obj.Item = item;

@@ -109,7 +109,17 @@ namespace SportClub.Tests.Pages.ParticipantOfTraining
             Assert.AreEqual(string.Empty, obj.ItemId);
         }
 
-        [TestMethod] public void GetParticipantIdTest()
+        [TestMethod] public void GetParticipantNameTest()
+        {
+            var item = GetRandom.Object<ParticipantOfTrainingView>();
+            obj.Item = item;
+            string a = Id(item.ParticipantId, item.TrainingId);
+            Assert.AreEqual(a, obj.ItemId);
+            obj.Item = null;
+            Assert.AreEqual(string.Empty, obj.ItemId);
+        }
+        [TestMethod]
+        public void GetTrainingNameTest()
         {
             var item = GetRandom.Object<ParticipantOfTrainingView>();
             obj.Item = item;

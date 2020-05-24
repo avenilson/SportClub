@@ -33,7 +33,7 @@
                         Model.FixedFilter,
                         Model.FixedValue,
                         Html.DisplayFor(modelItem => item.Id),
-                        Html.DisplayFor(modelItem => item.ParticipantId),
+                        Html.Raw(Model.GetParticipantName(item.ParticipantId)),
                         Html.DisplayFor(modelItem => item.TrainingId)
                         )
                 </tr>

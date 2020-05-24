@@ -9,7 +9,6 @@ namespace SportClub.Infra.CoachOfTraining
     public sealed class CoachOfTrainingsRepository : UniqueEntityRepository<Domain.CoachOfTraining.CoachOfTraining, CoachOfTrainingData>, ICoachOfTrainingsRepository
     {
         public CoachOfTrainingsRepository(SportClubDbContext c) : base(c, c?.CoachesOfTrainings) { }
-
         protected override Domain.CoachOfTraining.CoachOfTraining ToDomainObject(CoachOfTrainingData d) 
             => new Domain.CoachOfTraining.CoachOfTraining(d);
     }

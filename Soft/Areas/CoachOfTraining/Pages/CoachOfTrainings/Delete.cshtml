@@ -8,6 +8,6 @@
 
 <body>
     @Html.DisplayControlsFor(m => m.Item.Id)
-    @Html.DisplayControlsFor(m => m.Item.CoachId)
+    @Html.DisplayControlsFor(m => m.Item.CoachId, Model.GetCoachName(Model.Item.CoachId))
     @Html.DisplayControlsFor(m => m.Item.TrainingId)
 </body>
